@@ -1,0 +1,94 @@
+{
+    "TensorFlow": {
+        "description": "Open source platform for machine learning and deep learning",
+        "core_concepts": {
+            "description": "Fundamental TensorFlow concepts",
+            "basics": [
+                {"name": "tf.Tensor", "description": "Multi-dimensional array fundamental to TensorFlow"},
+                {"name": "tf.Variable", "description": "Mutable tensor that maintains state in graphs"},
+                {"name": "tf.constant", "description": "Create constant tensor"},
+                {"name": "tf.placeholder", "description": "Placeholder for data to be fed into graph"}
+            ]
+        },
+        "neural_networks": {
+            "description": "Components for building neural networks",
+            "layers": [
+                {"name": "tf.keras.layers.Dense", "description": "Regular densely-connected neural network layer"},
+                {"name": "tf.keras.layers.Conv2D", "description": "2D convolution layer"},
+                {"name": "tf.keras.layers.LSTM", "description": "Long Short-Term Memory layer"},
+                {"name": "tf.keras.layers.Dropout", "description": "Applies dropout to prevent overfitting"},
+                {"name": "tf.keras.layers.BatchNormalization", "description": "Batch normalization layer"},
+                {"name": "tf.keras.layers.MaxPooling2D", "description": "Max pooling operation for 2D data"}
+            ],
+            "activations": [
+                {"name": "tf.keras.activations.relu", "description": "Rectified Linear Unit activation"},
+                {"name": "tf.keras.activations.sigmoid", "description": "Sigmoid activation function"},
+                {"name": "tf.keras.activations.tanh", "description": "Hyperbolic tangent activation"},
+                {"name": "tf.keras.activations.softmax", "description": "Softmax activation function"}
+            ]
+        },
+        "model_building": {
+            "description": "Tools for creating and training models",
+            "models": [
+                {"name": "tf.keras.Sequential", "description": "Linear stack of layers"},
+                {"name": "tf.keras.Model", "description": "Base class for all models"},
+                {"name": "model.compile()", "description": "Configure model for training"},
+                {"name": "model.fit()", "description": "Train model for a fixed number of epochs"},
+                {"name": "model.evaluate()", "description": "Evaluate model performance"},
+                {"name": "model.predict()", "description": "Generate predictions"}
+            ]
+        },
+        "optimization": {
+            "description": "Optimizers for training neural networks",
+            "optimizers": [
+                {"name": "tf.keras.optimizers.Adam", "description": "Adam optimization algorithm"},
+                {"name": "tf.keras.optimizers.SGD", "description": "Stochastic gradient descent optimizer"},
+                {"name": "tf.keras.optimizers.RMSprop", "description": "RMSprop optimizer"},
+                {"name": "tf.keras.optimizers.Adagrad", "description": "Adagrad optimizer"}
+            ]
+        },
+        "loss_functions": {
+            "description": "Loss functions for model training",
+            "functions": [
+                {"name": "tf.keras.losses.BinaryCrossentropy", "description": "Binary crossentropy loss"},
+                {"name": "tf.keras.losses.CategoricalCrossentropy", "description": "Categorical crossentropy loss"},
+                {"name": "tf.keras.losses.MeanSquaredError", "description": "Mean squared error loss"},
+                {"name": "tf.keras.losses.SparseCategoricalCrossentropy", "description": "Sparse categorical crossentropy"}
+            ]
+        },
+        "data_processing": {
+            "description": "Tools for data preprocessing and augmentation",
+            "functions": [
+                {"name": "tf.data.Dataset", "description": "Create input pipeline from tensors"},
+                {"name": "tf.image", "description": "Image processing operations"},
+                {"name": "tf.keras.preprocessing.sequence", "description": "Sequence preprocessing utilities"},
+                {"name": "tf.keras.preprocessing.text", "description": "Text preprocessing utilities"}
+            ]
+        },
+        "model_saving": {
+            "description": "Methods for saving and loading models",
+            "functions": [
+                {"name": "model.save()", "description": "Save model to disk"},
+                {"name": "tf.keras.models.load_model()", "description": "Load saved model"},
+                {"name": "model.save_weights()", "description": "Save model weights"},
+                {"name": "model.load_weights()", "description": "Load model weights"}
+            ]
+        },
+        "visualization": {
+            "description": "Tools for model visualization and monitoring",
+            "tools": [
+                {"name": "tf.keras.callbacks.TensorBoard", "description": "TensorBoard visualization callback"},
+                {"name": "tf.summary", "description": "Operations for writing summary data"},
+                {"name": "model.summary()", "description": "Print model structure summary"}
+            ]
+        },
+        "distributed_training": {
+            "description": "Tools for distributed model training",
+            "components": [
+                {"name": "tf.distribute.Strategy", "description": "Base class for distribution strategies"},
+                {"name": "tf.distribute.MirroredStrategy", "description": "Synchronous training on multiple GPUs"},
+                {"name": "tf.distribute.TPUStrategy", "description": "Distribution strategy for TPUs"}
+            ]
+        }
+    }
+} 

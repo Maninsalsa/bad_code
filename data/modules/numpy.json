@@ -1,0 +1,119 @@
+{
+    "NumPy": {
+        "description": "Fundamental package for scientific computing with Python",
+        "array_creation": {
+            "description": "Functions to create arrays",
+            "functions": [
+                {"name": "np.array(object)", "description": "Create an array from a Python sequence"},
+                {"name": "np.zeros(shape)", "description": "Create array filled with zeros"},
+                {"name": "np.ones(shape)", "description": "Create array filled with ones"},
+                {"name": "np.empty(shape)", "description": "Create uninitialized array"},
+                {"name": "np.arange(start, stop, step)", "description": "Create array with evenly spaced values"},
+                {"name": "np.linspace(start, stop, num)", "description": "Create array with evenly spaced values over interval"},
+                {"name": "np.random.rand(d0, d1, ..., dn)", "description": "Create array with random values"},
+                {"name": "np.eye(N, M=None, k=0)", "description": "Create identity matrix"},
+                {"name": "np.diag(v, k=0)", "description": "Create diagonal array"}
+            ]
+        },
+        "array_operations": {
+            "description": "Operations on arrays",
+            "basic_operations": [
+                {"name": "array.reshape(shape)", "description": "Change array shape"},
+                {"name": "array.resize(new_shape)", "description": "Change array size"},
+                {"name": "array.flatten()", "description": "Collapse array to 1D"},
+                {"name": "array.transpose()", "description": "Permute array dimensions"},
+                {"name": "np.concatenate((a1, a2, ...), axis=0)", "description": "Join arrays"},
+                {"name": "np.split(array, indices_or_sections)", "description": "Split array into sub-arrays"},
+                {"name": "np.stack(arrays, axis=0)", "description": "Stack arrays along new axis"}
+            ],
+            "mathematical_operations": [
+                {"name": "np.add(x1, x2)", "description": "Add arrays element-wise"},
+                {"name": "np.subtract(x1, x2)", "description": "Subtract arrays element-wise"},
+                {"name": "np.multiply(x1, x2)", "description": "Multiply arrays element-wise"},
+                {"name": "np.divide(x1, x2)", "description": "Divide arrays element-wise"},
+                {"name": "np.power(x1, x2)", "description": "Raise elements to powers"},
+                {"name": "np.mod(x1, x2)", "description": "Remainder of division"},
+                {"name": "np.dot(a, b)", "description": "Matrix multiplication"}
+            ]
+        },
+        "statistics": {
+            "description": "Statistical operations",
+            "functions": [
+                {"name": "np.mean(array, axis=None)", "description": "Compute arithmetic mean"},
+                {"name": "np.median(array, axis=None)", "description": "Compute median value"},
+                {"name": "np.std(array, axis=None)", "description": "Compute standard deviation"},
+                {"name": "np.var(array, axis=None)", "description": "Compute variance"},
+                {"name": "np.min(array, axis=None)", "description": "Find minimum value"},
+                {"name": "np.max(array, axis=None)", "description": "Find maximum value"},
+                {"name": "np.sum(array, axis=None)", "description": "Compute sum of elements"},
+                {"name": "np.percentile(array, q)", "description": "Compute percentile"},
+                {"name": "np.histogram(array, bins=10)", "description": "Compute histogram"}
+            ]
+        },
+        "linear_algebra": {
+            "description": "Linear algebra operations",
+            "functions": [
+                {"name": "np.linalg.inv(array)", "description": "Compute matrix inverse"},
+                {"name": "np.linalg.det(array)", "description": "Compute matrix determinant"},
+                {"name": "np.linalg.eig(array)", "description": "Compute eigenvalues and eigenvectors"},
+                {"name": "np.linalg.solve(a, b)", "description": "Solve linear system"},
+                {"name": "np.linalg.svd(array)", "description": "Singular value decomposition"}
+            ]
+        },
+        "array_manipulation": {
+            "description": "Functions for manipulating array elements",
+            "functions": [
+                {"name": "np.sort(array, axis=-1)", "description": "Sort array"},
+                {"name": "np.argsort(array, axis=-1)", "description": "Return indices that would sort array"},
+                {"name": "np.where(condition[, x, y])", "description": "Return elements chosen from x or y depending on condition"},
+                {"name": "np.unique(array)", "description": "Find unique elements"},
+                {"name": "np.append(arr, values, axis=None)", "description": "Append values to array"},
+                {"name": "np.insert(arr, obj, values, axis=None)", "description": "Insert values into array"},
+                {"name": "np.delete(arr, obj, axis=None)", "description": "Delete array elements"}
+            ]
+        },
+        "trigonometric": {
+            "description": "Trigonometric functions",
+            "functions": [
+                {"name": "np.sin(array)", "description": "Sine function"},
+                {"name": "np.cos(array)", "description": "Cosine function"},
+                {"name": "np.tan(array)", "description": "Tangent function"},
+                {"name": "np.arcsin(array)", "description": "Inverse sine"},
+                {"name": "np.arccos(array)", "description": "Inverse cosine"},
+                {"name": "np.arctan(array)", "description": "Inverse tangent"},
+                {"name": "np.deg2rad(array)", "description": "Convert degrees to radians"},
+                {"name": "np.rad2deg(array)", "description": "Convert radians to degrees"}
+            ]
+        },
+        "exponential_logarithmic": {
+            "description": "Exponential and logarithmic functions",
+            "functions": [
+                {"name": "np.exp(array)", "description": "Calculate exponential"},
+                {"name": "np.log(array)", "description": "Natural logarithm"},
+                {"name": "np.log10(array)", "description": "Base-10 logarithm"},
+                {"name": "np.log2(array)", "description": "Base-2 logarithm"},
+                {"name": "np.power(array1, array2)", "description": "First array elements raised to powers from second array"}
+            ]
+        },
+        "input_output": {
+            "description": "Functions for reading and writing arrays",
+            "functions": [
+                {"name": "np.save(file, arr)", "description": "Save array to .npy file"},
+                {"name": "np.savez(file, *args, **kwds)", "description": "Save several arrays to .npz file"},
+                {"name": "np.load(file)", "description": "Load array from .npy or .npz file"},
+                {"name": "np.loadtxt(fname)", "description": "Load data from text file"},
+                {"name": "np.savetxt(fname, X)", "description": "Save array to text file"}
+            ]
+        },
+        "set_operations": {
+            "description": "Set operations for arrays",
+            "functions": [
+                {"name": "np.intersect1d(ar1, ar2)", "description": "Find common elements"},
+                {"name": "np.union1d(ar1, ar2)", "description": "Find union of elements"},
+                {"name": "np.setdiff1d(ar1, ar2)", "description": "Find set difference"},
+                {"name": "np.setxor1d(ar1, ar2)", "description": "Find set symmetric difference"}
+            ]
+        }
+    }
+}
+

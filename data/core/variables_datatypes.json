@@ -1,0 +1,354 @@
+{
+    "1. Variables": {
+        "description": "Containers for storing data values",
+        "valid_examples": {
+            "basic_assignments": [
+                "x = 5",
+                "name = 'John'", 
+                "price = 19.99",
+                "is_active = True",
+                "coordinates = (34.0522, -118.2437)"
+            ],
+            "complex_assignments": [
+                "user_data = {'name': 'Alice', 'age': 25}",
+                "numbers = [1, 2, 3, 4, 5]",
+                "matrix = [[1, 2], [3, 4]]",
+                "result = calculate_total(items)"
+            ],
+            "multiple_assignments": [
+                "x, y = 10, 20",
+                "first, *rest = [1, 2, 3, 4, 5]"
+            ]
+        },
+        "invalid_examples": {
+            "syntax_errors": [
+                "2x = 10  # Cannot start with number",
+                "my-var = 5  # Cannot use hyphen",
+                "class = 'Python'  # Cannot use reserved keywords",
+                "for = 10  # Cannot use reserved keywords"
+            ],
+            "naming_conventions": [
+                "MyVariable  # Not recommended for variables (use snake_case)",
+                "@variable  # Cannot use special characters",
+                "variable!  # Cannot use special characters"
+            ]
+        },
+        "when_to_use": [
+            "Storing calculation results that will be reused",
+            "Keeping track of state in a program",
+            "Storing user input",
+            "Managing configuration settings",
+            "Creating counters and accumulators"
+        ],
+        "when_not_to_use": [
+            "One-time calculations that won't be reused",
+            "Immediate print statements (print('Hello') vs name = 'Hello'; print(name))",
+            "Simple literals in format strings (f'{5}' vs x = 5; f'{x}')",
+            "Temporary values in list comprehensions",
+            "Constants that never change (use uppercase names)"
+        ],
+        "best_practices": [
+            "Use descriptive names that indicate purpose",
+            "Follow snake_case naming convention", 
+            "Avoid single-letter names except for counters",
+            "Use verb-noun pairs for function results",
+            "Prefix boolean variables with is_, has_, can_"
+        ]
+    },
+    "2. Data Types": {
+        "Basic Types": {
+            "Numeric": {
+                "int": {
+                    "description": "Integer numbers with no decimal point",
+                    "examples": ["0", "-5", "1000", "sys.maxsize"],
+                    "operations": [
+                        {"name": "Addition", "symbol": "+"},
+                        {"name": "Subtraction", "symbol": "-"},
+                        {"name": "Multiplication", "symbol": "*"},
+                        {"name": "Division", "symbol": "/"},
+                        {"name": "Floor Division", "symbol": "//"},
+                        {"name": "Modulus", "symbol": "%"},
+                        {"name": "Exponentiation", "symbol": "**"}
+                    ],
+                    "methods": [
+                        {"name": "bit_length()", "description": "Number of bits needed to represent the integer"},
+                        {"name": "to_bytes()", "description": "Convert integer to bytes"},
+                        {"name": "from_bytes()", "description": "Create integer from bytes"}
+                    ],
+                    "special_values": ["sys.maxsize", "sys.minsize"]
+                },
+                "float": {
+                    "description": "Real numbers with decimal points",
+                    "examples": ["3.14", "-0.001", "2.0", "1e-10"],
+                    "methods": [
+                        {"name": "as_integer_ratio()", "description": "Return integer ratio"},
+                        {"name": "is_integer()", "description": "Check if float is integer"},
+                        {"name": "hex()", "description": "Hexadecimal representation"}
+                    ],
+                    "special_values": ["float('inf')", "float('-inf')", "float('nan')"]
+                },
+                "complex": {
+                    "description": "Numbers with real and imaginary parts",
+                    "examples": ["3+4j", "2-1j", "1j"],
+                    "attributes": ["real", "imag"],
+                    "methods": [{"name": "conjugate()", "description": "Return complex conjugate"}]
+                }
+            },
+            "Boolean": {
+                "description": "Logical binary value",
+                "values": ["True", "False"],
+                "operations": ["and", "or", "not"],
+                "type_conversion": "Any object can be converted to bool using bool()",
+                "falsy_values": ["False", "None", "0", "''", "[]", "()", "{}", "set()"]
+            },
+            "None": {
+                "description": "Represents absence of value",
+                "usage": ["Default return value for functions", "Initialize variables", "Represent null values"],
+                "comparison": "Use 'is None' or 'is not None' for comparison"
+            }
+        },
+        "Sequence Types": {
+            "str": {
+                "description": "Immutable sequence of Unicode characters",
+                "examples": ["'Hello'", "\"World\"", "'''Multi-line'''"],
+                "methods": [
+                    {"name": "upper()", "description": "Convert to uppercase"},
+                    {"name": "lower()", "description": "Convert to lowercase"},
+                    {"name": "strip()", "description": "Remove whitespace"},
+                    {"name": "split()", "description": "Split into list"},
+                    {"name": "join()", "description": "Join sequence with string"},
+                    {"name": "replace()", "description": "Replace substring"}
+                ],
+                "operations": [
+                    {"name": "Concatenation", "symbol": "+"},
+                    {"name": "Repetition", "symbol": "*"},
+                    {"name": "Indexing", "syntax": "str[i]"},
+                    {"name": "Slicing", "syntax": "str[i:j:k]"}
+                ],
+                "special_features": ["Escape sequences", "Format strings (f-strings)", "Raw strings"]
+            },
+            "bytes": {
+                "description": "Immutable sequence of bytes",
+                "examples": ["b'hello'", "bytes([65, 66, 67])"],
+                "methods": [
+                    {"name": "decode()", "description": "Convert to string"},
+                    {"name": "hex()", "description": "Get hex representation"},
+                    {"name": "fromhex()", "description": "Create from hex string"}
+                ]
+            },
+            "bytearray": {
+                "description": "Mutable sequence of bytes",
+                "examples": ["bytearray(b'hello')", "bytearray([65, 66, 67])"],
+                "methods": [
+                    {"name": "append()", "description": "Add single byte"},
+                    {"name": "extend()", "description": "Add multiple bytes"},
+                    {"name": "pop()", "description": "Remove and return byte"},
+                    {"name": "clear()", "description": "Remove all bytes"}
+                ]
+            }
+        },
+        "Collection Types": {
+            "list": {
+                "description": "Ordered, mutable sequence of elements",
+                "syntax": {
+                    "creation": [
+                        "empty_list = []",
+                        "numbers = [1, 2, 3]",
+                        "mixed = [1, 'hello', 3.14, True]",
+                        "from_iterable = list('hello')"
+                    ]
+                },
+                "methods": {
+                    "adding_elements": [
+                        {"name": "append(x)", "description": "Add item to end"},
+                        {"name": "insert(i, x)", "description": "Insert item at position"},
+                        {"name": "extend(iterable)", "description": "Add items from iterable"}
+                    ],
+                    "removing_elements": [
+                        {"name": "remove(x)", "description": "Remove first occurrence of value"},
+                        {"name": "pop([i])", "description": "Remove & return item at position"},
+                        {"name": "clear()", "description": "Remove all items"}
+                    ],
+                    "ordering": [
+                        {"name": "sort()", "description": "Sort in place"},
+                        {"name": "reverse()", "description": "Reverse in place"}
+                    ],
+                    "information": [
+                        {"name": "index(x)", "description": "Find first occurrence of value"},
+                        {"name": "count(x)", "description": "Count occurrences of value"}
+                    ]
+                },
+                "operations": [
+                    {"name": "Concatenation", "symbol": "+"},
+                    {"name": "Repetition", "symbol": "*"},
+                    {"name": "Membership", "syntax": "in"},
+                    {"name": "Indexing", "syntax": "list[i]"},
+                    {"name": "Slicing", "syntax": "list[i:j:k]"}
+                ]
+            },
+            "tuple": {
+                "description": "Ordered, immutable sequence of elements",
+                "syntax": {
+                    "creation": [
+                        "empty_tuple = ()",
+                        "single_item = (1,)",
+                        "numbers = (1, 2, 3)",
+                        "mixed = (1, 'hello', 3.14)",
+                        "from_iterable = tuple([1, 2, 3])"
+                    ]
+                },
+                "methods": [
+                    {"name": "count(x)", "description": "Count occurrences of value"},
+                    {"name": "index(x)", "description": "Find first occurrence of value"}
+                ],
+                "operations": [
+                    {"name": "Concatenation", "symbol": "+"},
+                    {"name": "Repetition", "symbol": "*"},
+                    {"name": "Membership", "syntax": "in"},
+                    {"name": "Indexing", "syntax": "tuple[i]"},
+                    {"name": "Slicing", "syntax": "tuple[i:j:k]"}
+                ],
+                "advantages": [
+                    "Immutable - cannot be modified after creation",
+                    "More memory efficient than lists",
+                    "Can be used as dictionary keys",
+                    "Safe for multiple threads"
+                ]
+            },
+            "dict": {
+                "description": "Mutable mapping of unique keys to values",
+                "syntax": {
+                    "creation": [
+                        "empty_dict = {}",
+                        "person = {'name': 'John', 'age': 30}",
+                        "from_items = dict([(key1, val1), (key2, val2)])",
+                        "using_dict = dict(name='John', age=30)"
+                    ]
+                },
+                "methods": {
+                    "access": [
+                        {"name": "get(key[, default])", "description": "Safe key access"},
+                        {"name": "keys()", "description": "View of dictionary keys"},
+                        {"name": "values()", "description": "View of dictionary values"},
+                        {"name": "items()", "description": "View of (key, value) pairs"}
+                    ],
+                    "modification": [
+                        {"name": "update([other])", "description": "Update with elements from another dict"},
+                        {"name": "setdefault(key[, default])", "description": "Insert key with default if missing"},
+                        {"name": "pop(key[, default])", "description": "Remove specified key and return value"},
+                        {"name": "popitem()", "description": "Remove and return (key, value) pair"},
+                        {"name": "clear()", "description": "Remove all items"}
+                    ]
+                },
+                "operations": [
+                    {"name": "Access", "syntax": "d[key]"},
+                    {"name": "Assignment", "syntax": "d[key] = value"},
+                    {"name": "Deletion", "syntax": "del d[key]"},
+                    {"name": "Membership", "syntax": "in"}
+                ]
+            },
+            "set": {
+                "description": "Unordered collection of unique, immutable elements",
+                "syntax": {
+                    "creation": [
+                        "empty_set = set()",
+                        "numbers = {1, 2, 3}",
+                        "from_iterable = set([1, 2, 2, 3])"
+                    ]
+                },
+                "methods": {
+                    "modification": [
+                        {"name": "add(elem)", "description": "Add element to set"},
+                        {"name": "remove(elem)", "description": "Remove element, KeyError if missing"},
+                        {"name": "discard(elem)", "description": "Remove element if present"},
+                        {"name": "pop()", "description": "Remove and return arbitrary element"},
+                        {"name": "clear()", "description": "Remove all elements"}
+                    ],
+                    "set_operations": [
+                        {"name": "union(*others)", "description": "Return union of sets"},
+                        {"name": "intersection(*others)", "description": "Return intersection"},
+                        {"name": "difference(*others)", "description": "Return difference"},
+                        {"name": "symmetric_difference(other)", "description": "Return symmetric difference"},
+                        {"name": "update(*others)", "description": "Update set with union"},
+                        {"name": "intersection_update(*others)", "description": "Update set with intersection"},
+                        {"name": "difference_update(*others)", "description": "Update set with difference"},
+                        {"name": "symmetric_difference_update(other)", "description": "Update set with symmetric difference"}
+                    ]
+                },
+                "operations": [
+                    {"name": "Membership", "syntax": "in"},
+                    {"name": "Union", "symbol": "|"},
+                    {"name": "Intersection", "symbol": "&"},
+                    {"name": "Difference", "symbol": "-"},
+                    {"name": "Symmetric difference", "symbol": "^"},
+                    {"name": "Subset", "symbol": "<="},
+                    {"name": "Proper subset", "symbol": "<"},
+                    {"name": "Superset", "symbol": ">="},
+                    {"name": "Proper superset", "symbol": ">"}
+                ]
+            }
+        }
+    },
+    "3. Data Structures": {
+        "class": {
+            "description": "User-defined data structure that contains data and code",
+            "syntax": {
+                "creation": [
+                    "class ClassName:",
+                    "class ClassName(ParentClass):",
+                    "class ClassName(ParentClass1, ParentClass2):"
+                ]
+            },
+            "components": {
+                "attributes": [
+                    "Instance variables (self.attribute)",
+                    "Class variables (shared among all instances)",
+                    "Properties (@property)"
+                ],
+                "methods": [
+                    "__init__(self) - Constructor method",
+                    "Instance methods - Regular methods that operate on instance data",
+                    "Class methods (@classmethod) - Methods that operate on class data",
+                    "Static methods (@staticmethod) - Utility methods that don't need instance/class data"
+                ]
+            },
+            "special_methods": [
+                "__str__(self) - String representation",
+                "__repr__(self) - Detailed string representation",
+                "__len__(self) - Length of object",
+                "__eq__(self, other) - Equality comparison",
+                "__lt__(self, other) - Less than comparison"
+            ],
+            "features": [
+                "Encapsulation - Bundling of data and methods",
+                "Inheritance - Creating new classes from existing ones",
+                "Polymorphism - Same interface for different underlying forms",
+                "Data abstraction - Hiding implementation details"
+            ]
+        },
+        "comprehensions": {
+            "list_comprehension": {
+                "description": "Create lists using compact for loop syntax",
+                "examples": [
+                    "squares = [x**2 for x in range(10)]",
+                    "evens = [x for x in range(10) if x % 2 == 0]",
+                    "matrix = [[i+j for j in range(3)] for i in range(3)]"
+                ]
+            },
+            "dict_comprehension": {
+                "description": "Create dictionaries using comprehension syntax",
+                "examples": [
+                    "squares = {x: x**2 for x in range(5)}",
+                    "filtered = {k: v for k, v in dict.items() if v > 0}"
+                ]
+            },
+            "set_comprehension": {
+                "description": "Create sets using comprehension syntax",
+                "examples": [
+                    "squares = {x**2 for x in range(10)}",
+                    "unique_chars = {char for char in 'hello world'}"
+                ]
+            }
+        }
+    }
+}

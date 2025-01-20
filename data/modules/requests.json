@@ -1,0 +1,91 @@
+{
+    "Requests": {
+        "description": "Simple and elegant HTTP library for Python",
+        "http_methods": {
+            "description": "Basic HTTP request methods",
+            "functions": [
+                {"name": "requests.get(url)", "description": "Send HTTP GET request"},
+                {"name": "requests.post(url)", "description": "Send HTTP POST request"},
+                {"name": "requests.put(url)", "description": "Send HTTP PUT request"},
+                {"name": "requests.delete(url)", "description": "Send HTTP DELETE request"},
+                {"name": "requests.head(url)", "description": "Send HTTP HEAD request"},
+                {"name": "requests.patch(url)", "description": "Send HTTP PATCH request"},
+                {"name": "requests.options(url)", "description": "Send HTTP OPTIONS request"}
+            ]
+        },
+        "request_parameters": {
+            "description": "Parameters for customizing requests",
+            "parameters": [
+                {"name": "params", "description": "Dictionary of URL parameters"},
+                {"name": "headers", "description": "Dictionary of HTTP headers"},
+                {"name": "cookies", "description": "Dictionary of cookies"},
+                {"name": "auth", "description": "Authentication tuple or object"},
+                {"name": "timeout", "description": "How long to wait for server response"},
+                {"name": "allow_redirects", "description": "Enable/disable redirects"},
+                {"name": "proxies", "description": "Dictionary of proxy servers"},
+                {"name": "verify", "description": "SSL certificates verification"},
+                {"name": "cert", "description": "SSL client certificate"},
+                {"name": "json", "description": "JSON data to send in body"},
+                {"name": "data", "description": "Dictionary or bytes to send in body"},
+                {"name": "files", "description": "Dictionary of files to send"}
+            ]
+        },
+        "response_attributes": {
+            "description": "Response object attributes and methods",
+            "attributes": [
+                {"name": "response.text", "description": "Response content as string"},
+                {"name": "response.content", "description": "Response content as bytes"},
+                {"name": "response.json()", "description": "Response content as JSON"},
+                {"name": "response.status_code", "description": "HTTP status code"},
+                {"name": "response.headers", "description": "Response headers"},
+                {"name": "response.cookies", "description": "Response cookies"},
+                {"name": "response.url", "description": "Final URL location"},
+                {"name": "response.history", "description": "Previous responses"},
+                {"name": "response.encoding", "description": "Response encoding"},
+                {"name": "response.elapsed", "description": "Time elapsed"}
+            ]
+        },
+        "session_management": {
+            "description": "Session handling for persistent parameters",
+            "functions": [
+                {"name": "requests.Session()", "description": "Create session object"},
+                {"name": "session.get()", "description": "Send GET request using session"},
+                {"name": "session.post()", "description": "Send POST request using session"},
+                {"name": "session.put()", "description": "Send PUT request using session"},
+                {"name": "session.delete()", "description": "Send DELETE request using session"}
+            ]
+        },
+        "authentication": {
+            "description": "Authentication methods",
+            "types": [
+                {"name": "HTTPBasicAuth()", "description": "Basic HTTP authentication"},
+                {"name": "HTTPDigestAuth()", "description": "Digest HTTP authentication"},
+                {"name": "HTTPProxyAuth()", "description": "Proxy authentication"},
+                {"name": "OAuth1()", "description": "OAuth 1 authentication"},
+                {"name": "OAuth2()", "description": "OAuth 2 authentication"}
+            ]
+        },
+        "exceptions": {
+            "description": "Exception handling",
+            "exceptions": [
+                {"name": "requests.RequestException", "description": "Base exception class"},
+                {"name": "requests.ConnectionError", "description": "Connection failed"},
+                {"name": "requests.HTTPError", "description": "Invalid HTTP response"},
+                {"name": "requests.URLRequired", "description": "Valid URL required"},
+                {"name": "requests.TooManyRedirects", "description": "Too many redirects"},
+                {"name": "requests.ConnectTimeout", "description": "Connection timeout"},
+                {"name": "requests.ReadTimeout", "description": "Read timeout"}
+            ]
+        },
+        "utilities": {
+            "description": "Utility functions",
+            "functions": [
+                {"name": "requests.codes", "description": "HTTP status code registry"},
+                {"name": "requests.utils.get_encodings_from_content()", "description": "Get encodings from content"},
+                {"name": "requests.utils.get_unicode_from_response()", "description": "Get unicode from response"},
+                {"name": "requests.utils.quote()", "description": "URL encode string"},
+                {"name": "requests.utils.unquote()", "description": "URL decode string"}
+            ]
+        }
+    }
+} 

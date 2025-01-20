@@ -1,0 +1,116 @@
+{
+    "SQLAlchemy": {
+        "description": "SQL toolkit and Object Relational Mapper for Python",
+        "engine_setup": {
+            "description": "Database engine configuration",
+            "creation": [
+                {"name": "create_engine(url)", "description": "Create database engine"},
+                {"name": "engine.connect()", "description": "Create database connection"},
+                {"name": "engine.execute(sql)", "description": "Execute SQL statement"},
+                {"name": "engine.dispose()", "description": "Close all connections"}
+            ],
+            "url_formats": [
+                {"name": "postgresql://user:pass@host/db", "description": "PostgreSQL connection string"},
+                {"name": "mysql://user:pass@host/db", "description": "MySQL connection string"},
+                {"name": "sqlite:///path/to/db.sqlite", "description": "SQLite connection string"},
+                {"name": "oracle://user:pass@host/db", "description": "Oracle connection string"}
+            ]
+        },
+        "models": {
+            "description": "ORM model definitions",
+            "base_classes": [
+                {"name": "declarative_base()", "description": "Create base class for models"},
+                {"name": "class Model(Base)", "description": "Define model class"},
+                {"name": "__tablename__", "description": "Specify database table name"},
+                {"name": "__table_args__", "description": "Define table arguments"}
+            ],
+            "column_types": [
+                {"name": "Column(Integer)", "description": "Integer column type"},
+                {"name": "Column(String)", "description": "String column type"},
+                {"name": "Column(DateTime)", "description": "DateTime column type"},
+                {"name": "Column(Boolean)", "description": "Boolean column type"},
+                {"name": "Column(Float)", "description": "Float column type"},
+                {"name": "Column(JSON)", "description": "JSON column type"}
+            ]
+        },
+        "relationships": {
+            "description": "Model relationships",
+            "types": [
+                {"name": "relationship('Model')", "description": "Define model relationship"},
+                {"name": "ForeignKey('table.id')", "description": "Define foreign key"},
+                {"name": "backref('name')", "description": "Create bidirectional relationship"},
+                {"name": "lazy='dynamic'", "description": "Define lazy loading strategy"}
+            ],
+            "configurations": [
+                {"name": "uselist=False", "description": "One-to-one relationship"},
+                {"name": "secondary=association_table", "description": "Many-to-many relationship"},
+                {"name": "cascade='all, delete'", "description": "Cascade operations"},
+                {"name": "order_by='column'", "description": "Order relationship results"}
+            ]
+        },
+        "session": {
+            "description": "Database session management",
+            "operations": [
+                {"name": "Session()", "description": "Create new session"},
+                {"name": "session.add(object)", "description": "Add object to session"},
+                {"name": "session.commit()", "description": "Commit changes"},
+                {"name": "session.rollback()", "description": "Rollback changes"},
+                {"name": "session.close()", "description": "Close session"}
+            ]
+        },
+        "querying": {
+            "description": "Database querying operations",
+            "basic_queries": [
+                {"name": "session.query(Model)", "description": "Create basic query"},
+                {"name": "query.filter()", "description": "Filter query results"},
+                {"name": "query.filter_by()", "description": "Filter by keyword arguments"},
+                {"name": "query.all()", "description": "Get all results"},
+                {"name": "query.first()", "description": "Get first result"},
+                {"name": "query.one()", "description": "Get one result or raise error"}
+            ],
+            "advanced_queries": [
+                {"name": "query.join()", "description": "Join with another table"},
+                {"name": "query.outerjoin()", "description": "Outer join with table"},
+                {"name": "query.group_by()", "description": "Group results"},
+                {"name": "query.having()", "description": "Filter groups"},
+                {"name": "query.order_by()", "description": "Order results"}
+            ]
+        },
+        "expressions": {
+            "description": "SQL expression language",
+            "operators": [
+                {"name": "and_()", "description": "SQL AND operator"},
+                {"name": "or_()", "description": "SQL OR operator"},
+                {"name": "not_()", "description": "SQL NOT operator"},
+                {"name": "in_()", "description": "SQL IN operator"},
+                {"name": "between()", "description": "SQL BETWEEN operator"}
+            ],
+            "functions": [
+                {"name": "func.count()", "description": "COUNT function"},
+                {"name": "func.sum()", "description": "SUM function"},
+                {"name": "func.avg()", "description": "AVG function"},
+                {"name": "func.max()", "description": "MAX function"},
+                {"name": "func.min()", "description": "MIN function"}
+            ]
+        },
+        "migrations": {
+            "description": "Database migration tools (Alembic)",
+            "commands": [
+                {"name": "alembic init", "description": "Initialize migrations"},
+                {"name": "alembic revision", "description": "Create new revision"},
+                {"name": "alembic upgrade", "description": "Upgrade database"},
+                {"name": "alembic downgrade", "description": "Downgrade database"}
+            ]
+        },
+        "events": {
+            "description": "SQLAlchemy event system",
+            "model_events": [
+                {"name": "__init__", "description": "Instance initialization"},
+                {"name": "before_insert", "description": "Before record insertion"},
+                {"name": "after_insert", "description": "After record insertion"},
+                {"name": "before_update", "description": "Before record update"},
+                {"name": "after_update", "description": "After record update"}
+            ]
+        }
+    }
+} 

@@ -1,0 +1,109 @@
+{
+    "Scrapy": {
+        "description": "Framework for extracting data from websites",
+        "project_setup": {
+            "description": "Project initialization and structure",
+            "commands": [
+                {"name": "scrapy startproject name", "description": "Create new Scrapy project"},
+                {"name": "scrapy genspider name domain", "description": "Generate new spider"},
+                {"name": "scrapy crawl spidername", "description": "Run spider"},
+                {"name": "scrapy shell url", "description": "Interactive scraping console"}
+            ]
+        },
+        "spiders": {
+            "description": "Spider classes for crawling",
+            "base_classes": [
+                {"name": "scrapy.Spider", "description": "Basic spider class"},
+                {"name": "CrawlSpider", "description": "Spider with crawling rules"},
+                {"name": "XMLFeedSpider", "description": "Spider for parsing XML feeds"},
+                {"name": "CSVFeedSpider", "description": "Spider for parsing CSV feeds"},
+                {"name": "SitemapSpider", "description": "Spider for crawling sitemaps"}
+            ],
+            "attributes": [
+                {"name": "name", "description": "Unique identifier for spider"},
+                {"name": "allowed_domains", "description": "List of allowed domains"},
+                {"name": "start_urls", "description": "List of URLs to start crawling"},
+                {"name": "custom_settings", "description": "Spider-specific settings"}
+            ]
+        },
+        "selectors": {
+            "description": "Methods for selecting data",
+            "xpath": [
+                {"name": "response.xpath()", "description": "Select using XPath"},
+                {"name": "xpath('//div')", "description": "Select all div elements"},
+                {"name": "xpath('@attr')", "description": "Select attribute"},
+                {"name": "xpath('text()')", "description": "Select text content"}
+            ],
+            "css": [
+                {"name": "response.css()", "description": "Select using CSS"},
+                {"name": "css('.classname')", "description": "Select by class"},
+                {"name": "css('#id')", "description": "Select by ID"},
+                {"name": "css('::text')", "description": "Select text content"}
+            ]
+        },
+        "items": {
+            "description": "Data containers",
+            "definition": [
+                {"name": "scrapy.Item", "description": "Base class for items"},
+                {"name": "Field()", "description": "Define item field"},
+                {"name": "ItemLoader", "description": "Load items with data"},
+                {"name": "Item Pipeline", "description": "Process items after extraction"}
+            ],
+            "processors": [
+                {"name": "TakeFirst", "description": "Take first value"},
+                {"name": "Join", "description": "Join values"},
+                {"name": "MapCompose", "description": "Apply functions sequentially"},
+                {"name": "Identity", "description": "Return original values"}
+            ]
+        },
+        "middleware": {
+            "description": "Request/Response processing",
+            "types": [
+                {"name": "DownloaderMiddleware", "description": "Process request/response"},
+                {"name": "SpiderMiddleware", "description": "Process spider input/output"},
+                {"name": "Extension", "description": "Add custom functionality"}
+            ]
+        },
+        "settings": {
+            "description": "Project configuration",
+            "common_settings": [
+                {"name": "ROBOTSTXT_OBEY", "description": "Follow robots.txt rules"},
+                {"name": "CONCURRENT_REQUESTS", "description": "Number of concurrent requests"},
+                {"name": "DOWNLOAD_DELAY", "description": "Delay between requests"},
+                {"name": "USER_AGENT", "description": "Custom user agent"}
+            ],
+            "pipelines": [
+                {"name": "ITEM_PIPELINES", "description": "Enable item pipelines"},
+                {"name": "IMAGES_PIPELINE", "description": "Image downloading pipeline"},
+                {"name": "FILES_PIPELINE", "description": "File downloading pipeline"}
+            ]
+        },
+        "requests": {
+            "description": "HTTP request handling",
+            "methods": [
+                {"name": "scrapy.Request(url)", "description": "Create new request"},
+                {"name": "FormRequest", "description": "Create form submission request"},
+                {"name": "Request(callback=func)", "description": "Set response callback"},
+                {"name": "Request(meta=dict)", "description": "Add metadata to request"}
+            ]
+        },
+        "responses": {
+            "description": "HTTP response handling",
+            "attributes": [
+                {"name": "response.url", "description": "URL of response"},
+                {"name": "response.status", "description": "HTTP status code"},
+                {"name": "response.headers", "description": "Response headers"},
+                {"name": "response.body", "description": "Response content"}
+            ]
+        },
+        "output": {
+            "description": "Data export options",
+            "formats": [
+                {"name": "scrapy crawl -o file.json", "description": "Export as JSON"},
+                {"name": "scrapy crawl -o file.csv", "description": "Export as CSV"},
+                {"name": "scrapy crawl -o file.xml", "description": "Export as XML"},
+                {"name": "Feed exports", "description": "Custom export formats"}
+            ]
+        }
+    }
+} 

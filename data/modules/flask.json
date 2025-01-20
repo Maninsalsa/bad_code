@@ -1,0 +1,116 @@
+{
+    "Flask": {
+        "description": "Lightweight web application framework for Python",
+        "application": {
+            "description": "Core application setup and configuration",
+            "basics": [
+                {"name": "Flask(__name__)", "description": "Create Flask application instance"},
+                {"name": "app.run()", "description": "Run development server"},
+                {"name": "app.config", "description": "Application configuration dictionary"},
+                {"name": "app.debug", "description": "Enable/disable debug mode"}
+            ],
+            "configuration": [
+                {"name": "app.config.from_object()", "description": "Configure from object"},
+                {"name": "app.config.from_pyfile()", "description": "Configure from Python file"},
+                {"name": "app.config.from_envvar()", "description": "Configure from environment variable"},
+                {"name": "app.config.from_json()", "description": "Configure from JSON file"}
+            ]
+        },
+        "routing": {
+            "description": "URL routing and request handling",
+            "decorators": [
+                {"name": "@app.route(rule)", "description": "Register route decorator"},
+                {"name": "@app.before_request", "description": "Register function to run before request"},
+                {"name": "@app.after_request", "description": "Register function to run after request"},
+                {"name": "@app.errorhandler(code)", "description": "Register error handler"}
+            ],
+            "url_building": [
+                {"name": "url_for(endpoint)", "description": "Generate URL for endpoint"},
+                {"name": "redirect(location)", "description": "Redirect to different location"},
+                {"name": "send_file(path)", "description": "Send file to client"},
+                {"name": "send_from_directory(directory)", "description": "Send file from directory"}
+            ]
+        },
+        "request_handling": {
+            "description": "Request object and data handling",
+            "request_data": [
+                {"name": "request.args", "description": "Get parameters in URL"},
+                {"name": "request.form", "description": "Form data in POST/PUT"},
+                {"name": "request.files", "description": "Uploaded files"},
+                {"name": "request.headers", "description": "Request headers"},
+                {"name": "request.cookies", "description": "Request cookies"},
+                {"name": "request.method", "description": "HTTP method used"}
+            ],
+            "responses": [
+                {"name": "make_response()", "description": "Create response object"},
+                {"name": "jsonify()", "description": "Create JSON response"},
+                {"name": "abort(code)", "description": "Abort request with error"},
+                {"name": "render_template()", "description": "Render template response"}
+            ]
+        },
+        "templates": {
+            "description": "Jinja2 templating system",
+            "basics": [
+                {"name": "{{ variable }}", "description": "Print variable value"},
+                {"name": "{% if condition %}", "description": "Conditional statement"},
+                {"name": "{% for item in items %}", "description": "Loop through items"},
+                {"name": "{% extends 'base.html' %}", "description": "Template inheritance"},
+                {"name": "{% block name %}", "description": "Define template block"}
+            ],
+            "filters": [
+                {"name": "{{ value|safe }}", "description": "Mark value as safe HTML"},
+                {"name": "{{ value|default() }}", "description": "Default value if None"},
+                {"name": "{{ value|length }}", "description": "Get length of value"},
+                {"name": "{{ value|tojson }}", "description": "Convert to JSON"}
+            ]
+        },
+        "sessions": {
+            "description": "Session handling",
+            "operations": [
+                {"name": "session", "description": "Session dictionary"},
+                {"name": "session.permanent", "description": "Make session permanent"},
+                {"name": "session.modified", "description": "Mark session as modified"},
+                {"name": "session.clear()", "description": "Clear session data"}
+            ]
+        },
+        "blueprints": {
+            "description": "Modular applications",
+            "components": [
+                {"name": "Blueprint(name)", "description": "Create blueprint"},
+                {"name": "app.register_blueprint()", "description": "Register blueprint with app"},
+                {"name": "blueprint.route()", "description": "Register route with blueprint"},
+                {"name": "blueprint.before_request", "description": "Blueprint request hook"}
+            ]
+        },
+        "extensions": {
+            "description": "Common Flask extensions",
+            "popular_extensions": [
+                {"name": "Flask-SQLAlchemy", "description": "SQL database integration"},
+                {"name": "Flask-Login", "description": "User session management"},
+                {"name": "Flask-WTF", "description": "Form handling and validation"},
+                {"name": "Flask-RESTful", "description": "REST API building"},
+                {"name": "Flask-Mail", "description": "Email sending support"},
+                {"name": "Flask-Migrate", "description": "Database migrations"}
+            ]
+        },
+        "testing": {
+            "description": "Testing Flask applications",
+            "components": [
+                {"name": "test_client()", "description": "Create test client"},
+                {"name": "client.get()", "description": "Send GET request"},
+                {"name": "client.post()", "description": "Send POST request"},
+                {"name": "client.put()", "description": "Send PUT request"},
+                {"name": "client.delete()", "description": "Send DELETE request"}
+            ]
+        },
+        "deployment": {
+            "description": "Deployment options",
+            "servers": [
+                {"name": "Gunicorn", "description": "WSGI HTTP server"},
+                {"name": "uWSGI", "description": "Fast application container"},
+                {"name": "mod_wsgi", "description": "Apache module"},
+                {"name": "Waitress", "description": "Pure-Python WSGI server"}
+            ]
+        }
+    }
+} 

@@ -1,0 +1,242 @@
+{
+    "Object-Oriented Programming": {
+        "description": "Core concepts and implementation of object-oriented programming in Python",
+        "fundamentals": {
+            "class": {
+                "description": "Blueprint for creating objects with shared attributes and methods. Classes define the structure and behavior that all instances will share. They encapsulate data and functionality into reusable components.",
+                "syntax": {
+                    "basic": [
+                        {"code": "class ClassName:", "description": "Basic class definition"},
+                        {"code": "    # class body", "description": "Class implementation"}
+                    ]
+                },
+                "attributes": {
+                    "instance_attributes": {
+                        "description": "Unique data for each instance, defined in __init__. These attributes maintain the state specific to each object instance.",
+                        "examples": [
+                            {"name": "self.name", "description": "Instance name, unique identifier for each object"},
+                            {"name": "self.value", "description": "Store instance-specific values that can change over time"},
+                            {"name": "self._private", "description": "Convention for internal use, indicates attribute shouldn't be accessed directly"},
+                            {"name": "self.__mangled", "description": "Name mangling for privacy, Python renames to _ClassName__mangled"}
+                        ]
+                    },
+                    "class_attributes": {
+                        "description": "Shared data across all instances. These attributes are shared by all objects of the class and are useful for maintaining class-wide state.",
+                        "examples": [
+                            {"name": "CLASS_CONSTANT", "description": "Immutable shared values that shouldn't change"},
+                            {"name": "count = 0", "description": "Track number of instances, incremented in __init__"},
+                            {"name": "default_value", "description": "Shared default settings used by all instances"}
+                        ]
+                    }
+                },
+                "methods": {
+                    "instance_methods": {
+                        "description": "Methods that operate on instance data. These methods have access to instance state via self parameter and can modify instance attributes.",
+                        "examples": [
+                            {"name": "get_balance(self)", "description": "Access instance attributes, returns current state"},
+                            {"name": "set_name(self, name)", "description": "Modify instance state, updates attributes"},
+                            {"name": "calculate_total(self)", "description": "Instance-specific operations using instance data"}
+                        ]
+                    },
+                    "class_methods": {
+                        "description": "Methods that operate on class data, decorated with @classmethod. These methods receive the class as first argument (cls) instead of instance (self).",
+                        "examples": [
+                            {"name": "from_string(cls, str_data)", "description": "Alternative constructor, creates instance from string"},
+                            {"name": "get_total_instances(cls)", "description": "Track class-wide state, returns shared data"},
+                            {"name": "update_interest_rate(cls, rate)", "description": "Modify class attributes affecting all instances"}
+                        ]
+                    },
+                    "static_methods": {
+                        "description": "Utility methods that don't need instance/class data, decorated with @staticmethod. These are independent functions grouped in the class namespace.",
+                        "examples": [
+                            {"name": "validate_amount(amount)", "description": "Input validation without instance context"},
+                            {"name": "format_currency(value)", "description": "Helper functions for data formatting"},
+                            {"name": "compute_hash(data)", "description": "Independent operations not needing class/instance data"}
+                        ]
+                    },
+                    "magic_methods": {
+                        "description": "Special methods with double underscores that customize object behavior. These methods are called automatically by Python in specific situations.",
+                        "examples": [
+                            {"name": "__init__(self, *args)", "description": "Constructor, automatically called when creating new instance"},
+                            {"name": "__str__(self)", "description": "String representation for end users, called by str()"},
+                            {"name": "__repr__(self)", "description": "Debug representation for developers, called by repr()"},
+                            {"name": "__len__(self)", "description": "Length behavior, called by len()"},
+                            {"name": "__eq__(self, other)", "description": "Equality comparison, called by == operator"},
+                            {"name": "__lt__(self, other)", "description": "Less than comparison, called by < operator"},
+                            {"name": "__gt__(self, other)", "description": "Greater than comparison, called by > operator"},
+                            {"name": "__le__(self, other)", "description": "Less than or equal comparison, called by <= operator"},
+                            {"name": "__ge__(self, other)", "description": "Greater than or equal comparison, called by >= operator"},
+                            {"name": "__ne__(self, other)", "description": "Not equal comparison, called by != operator"},
+                            {"name": "__getitem__(self, key)", "description": "Index/key access, called by [] operator"},
+                            {"name": "__setitem__(self, key, value)", "description": "Set value by index/key, called by obj[key] = value"},
+                            {"name": "__delitem__(self, key)", "description": "Delete item by index/key, called by del obj[key]"},
+                            {"name": "__iter__(self)", "description": "Make object iterable, called by iter()"},
+                            {"name": "__next__(self)", "description": "Get next item in iteration, called by next()"},
+                            {"name": "__contains__(self, item)", "description": "Membership test, called by in operator"},
+                            {"name": "__call__(self, *args)", "description": "Makes instance callable like a function"},
+                            {"name": "__add__(self, other)", "description": "Addition, called by + operator"},
+                            {"name": "__sub__(self, other)", "description": "Subtraction, called by - operator"},
+                            {"name": "__mul__(self, other)", "description": "Multiplication, called by * operator"},
+                            {"name": "__truediv__(self, other)", "description": "Division, called by / operator"},
+                            {"name": "__floordiv__(self, other)", "description": "Floor division, called by // operator"},
+                            {"name": "__mod__(self, other)", "description": "Modulo, called by % operator"},
+                            {"name": "__pow__(self, other)", "description": "Power, called by ** operator"},
+                            {"name": "__enter__(self)", "description": "Context manager entry, called by with statement"},
+                            {"name": "__exit__(self, exc_type, exc_value, traceback)", "description": "Context manager exit"},
+                            {"name": "__del__(self)", "description": "Destructor, called when object is garbage collected"}
+                        ]
+                    }
+                },
+                "use_cases": [
+                    {"description": "Creating multiple similar objects with shared behavior and consistent interface"},
+                    {"description": "Encapsulating related data and methods to prevent unwanted access"},
+                    {"description": "Implementing inheritance hierarchies for code reuse and polymorphism"},
+                    {"description": "Organizing code into logical units for better maintainability"},
+                    {"description": "Modeling real-world entities and their relationships"},
+                    {"description": "Creating reusable components and frameworks"}
+                ],
+                "example": {
+                    "code": "class BankAccount:\n    interest_rate = 0.02  # class attribute shared by all accounts\n    \n    def __init__(self, owner, balance=0):  # Constructor initializes new account\n        self.owner = owner      # instance attribute unique to this account\n        self.balance = balance  # instance attribute tracks money\n        self._id = None         # protected attribute suggests internal use\n        self.__pin = None       # private attribute cannot be accessed directly\n        \n    def deposit(self, amount):  # instance method operates on account balance\n        self.balance += amount\n        \n    @classmethod\n    def from_dict(cls, data):   # class method provides alternative constructor\n        return cls(data['owner'], data['balance'])\n        \n    @staticmethod\n    def validate_amount(amount): # static method validates without needing instance\n        return amount > 0",
+                    "description": "Complete example showing class implementation with various features"
+                }
+            },
+            "object": {
+                "description": "Instance of a class - concrete implementation of the class blueprint",
+                "example": {
+                    "code": "my_car = Car('Toyota', 'Camry')",
+                    "description": "Creating an instance of Car class"
+                }
+            },
+            "self": {
+                "description": "Reference to current instance, automatically passed to instance methods",
+                "example": {
+                    "code": "def accelerate(self, speed):\n    self.current_speed += speed",
+                    "description": "Using self to access instance attributes"
+                }
+            }
+        },
+        "classComponents": {
+            "attributes": {
+                "description": "Data stored inside class/object",
+                "types": [
+                    {"name": "instance", "description": "Unique to each instance (self.attribute)"},
+                    {"name": "class", "description": "Shared by all instances (ClassName.attribute)"}
+                ]
+            },
+            "methods": {
+                "description": "Functions defined within a class that operate on class data",
+                "types": [
+                    {"name": "instance", "description": "Regular methods that access instance data"},
+                    {"name": "class", "description": "Methods that work with class itself"},
+                    {"name": "static", "description": "Utility functions that don't need instance/class data"}
+                ]
+            },
+            "constructor": {
+                "description": "Special __init__ method called when creating new instance, initializes object state",
+                "syntax": {
+                    "code": "def __init__(self, param1, param2):",
+                    "example": {
+                        "code": "def __init__(self, name, age):\n    self.name = name\n    self.age = age",
+                        "description": "Constructor initializing name and age attributes"
+                    }
+                }
+            }
+        },
+        "oopPrinciples": [
+            {
+                "name": "inheritance",
+                "description": "Mechanism for creating a class based on another class, inheriting its attributes and methods",
+                "syntax": {
+                    "code": "class ChildClass(ParentClass):",
+                    "example": {
+                        "code": "class ElectricCar(Car):\n    def charge(self):\n        print('Charging...')",
+                        "description": "ElectricCar inheriting from Car class"
+                    }
+                }
+            },
+            {
+                "name": "encapsulation",
+                "description": "Bundling of data and methods that operate on that data within a class",
+                "conventions": [
+                    {"name": "_single_underscore", "description": "Protected attribute/method (convention)"},
+                    {"name": "__double_underscore", "description": "Name mangling for private attributes"}
+                ]
+            },
+            {
+                "name": "polymorphism",
+                "description": "Ability to use objects of different types through the same interface",
+                "types": [
+                    {"name": "inheritance", "description": "Override methods from parent class"},
+                    {"name": "duck typing", "description": "Objects of different classes supporting same operations"}
+                ]
+            }
+        ],
+        "advancedFeatures": {
+            "decorators": {
+                "types": [
+                    {
+                        "name": "classMethod",
+                        "description": "Methods that operate on class rather than instances",
+                        "decorator": "@classmethod",
+                        "example": {
+                            "code": "@classmethod\ndef from_string(cls, string):\n    param1, param2 = string.split(',')\n    return cls(param1, param2)",
+                            "description": "Class method example"
+                        }
+                    },
+                    {
+                        "name": "staticMethod",
+                        "description": "Utility methods that don't need access to class or instance data",
+                        "decorator": "@staticmethod",
+                        "example": {
+                            "code": "@staticmethod\ndef validate_age(age):\n    return 0 < age < 150",
+                            "description": "Static method example"
+                        }
+                    },
+                    {
+                        "name": "property",
+                        "description": "Control access to attributes with getter/setter methods",
+                        "types": [
+                            {"name": "@property", "description": "Getter method"},
+                            {"name": "@x.setter", "description": "Setter method"},
+                            {"name": "@x.deleter", "description": "Deleter method"}
+                        ]
+                    }
+                ]
+            },
+            "specialFeatures": [
+                {
+                    "name": "super()",
+                    "description": "Access parent class methods and attributes",
+                    "example": {
+                        "code": "def __init__(self, make, model, battery_size):\n    super().__init__(make, model)",
+                        "description": "Using super() to call parent class constructor"
+                    }
+                },
+                {
+                    "name": "abstract classes",
+                    "description": "Classes that declare abstract methods which must be implemented by subclasses",
+                    "module": "from abc import ABC, abstractmethod",
+                    "example": {
+                        "code": "class Shape(ABC):\n    @abstractmethod\n    def area(self):",
+                        "description": "Abstract class definition"
+                    }
+                },
+                {
+                    "name": "multiple inheritance",
+                    "description": "Class inheriting from multiple parent classes",
+                    "syntax": {
+                        "code": "class Child(Parent1, Parent2):",
+                        "description": "Multiple inheritance syntax"
+                    },
+                    "considerations": "Be careful of diamond problem and method resolution order"
+                },
+                {
+                    "name": "method resolution order",
+                    "description": "Algorithm determining method lookup order in inheritance hierarchy",
+                    "access": "ClassName.__mro__",
+                    "rule": "Depth-first, left-to-right search through inheritance tree"
+                }
+            ]
+        }
+    }
+}

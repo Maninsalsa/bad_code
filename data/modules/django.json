@@ -1,0 +1,112 @@
+{
+    "Django": {
+        "description": "High-level web framework for rapid development in Python",
+        "project_setup": {
+            "description": "Commands for project initialization and management",
+            "commands": [
+                {"name": "django-admin startproject name", "description": "Create new Django project"},
+                {"name": "python manage.py startapp name", "description": "Create new Django app"},
+                {"name": "python manage.py runserver", "description": "Start development server"},
+                {"name": "python manage.py migrate", "description": "Apply database migrations"},
+                {"name": "python manage.py makemigrations", "description": "Create database migrations"},
+                {"name": "python manage.py createsuperuser", "description": "Create admin user"}
+            ]
+        },
+        "urls": {
+            "description": "URL configuration and routing",
+            "components": [
+                {"name": "path(route, view)", "description": "Define URL pattern"},
+                {"name": "include(module)", "description": "Include other URLconf modules"},
+                {"name": "re_path(pattern, view)", "description": "URL pattern with regex"},
+                {"name": "reverse(viewname)", "description": "Return URL from view name"}
+            ]
+        },
+        "views": {
+            "description": "View functions and classes",
+            "function_views": [
+                {"name": "HttpResponse(content)", "description": "Basic HTTP response"},
+                {"name": "render(request, template, context)", "description": "Render template response"},
+                {"name": "redirect(to)", "description": "Redirect to another page"}
+            ],
+            "class_views": [
+                {"name": "ListView", "description": "Display list of objects"},
+                {"name": "DetailView", "description": "Display single object"},
+                {"name": "CreateView", "description": "Create new object"},
+                {"name": "UpdateView", "description": "Update existing object"},
+                {"name": "DeleteView", "description": "Delete object"}
+            ]
+        },
+        "models": {
+            "description": "Database models and fields",
+            "fields": [
+                {"name": "CharField(max_length)", "description": "String field"},
+                {"name": "TextField()", "description": "Large text field"},
+                {"name": "IntegerField()", "description": "Integer field"},
+                {"name": "DateTimeField()", "description": "Date and time field"},
+                {"name": "ForeignKey(model)", "description": "One-to-many relationship"},
+                {"name": "ManyToManyField(model)", "description": "Many-to-many relationship"},
+                {"name": "OneToOneField(model)", "description": "One-to-one relationship"}
+            ],
+            "querysets": [
+                {"name": "Model.objects.all()", "description": "Get all objects"},
+                {"name": "Model.objects.filter()", "description": "Filter objects"},
+                {"name": "Model.objects.get()", "description": "Get single object"},
+                {"name": "Model.objects.create()", "description": "Create new object"}
+            ]
+        },
+        "forms": {
+            "description": "Form handling and validation",
+            "components": [
+                {"name": "Form", "description": "Base form class"},
+                {"name": "ModelForm", "description": "Form from model"},
+                {"name": "FormView", "description": "View for form handling"},
+                {"name": "form.is_valid()", "description": "Validate form data"},
+                {"name": "form.cleaned_data", "description": "Access cleaned form data"}
+            ]
+        },
+        "templates": {
+            "description": "Template language and tags",
+            "tags": [
+                {"name": "{% extends %}", "description": "Inherit from template"},
+                {"name": "{% include %}", "description": "Include template"},
+                {"name": "{% block %}", "description": "Define block content"},
+                {"name": "{% if %}", "description": "Conditional statement"},
+                {"name": "{% for %}", "description": "Loop through items"}
+            ],
+            "filters": [
+                {"name": "{{ value|default }}", "description": "Default if value is None"},
+                {"name": "{{ value|length }}", "description": "Length of value"},
+                {"name": "{{ value|date }}", "description": "Format date"},
+                {"name": "{{ value|safe }}", "description": "Mark as safe HTML"}
+            ]
+        },
+        "authentication": {
+            "description": "User authentication and authorization",
+            "components": [
+                {"name": "auth.authenticate()", "description": "Authenticate user"},
+                {"name": "auth.login()", "description": "Log in user"},
+                {"name": "auth.logout()", "description": "Log out user"},
+                {"name": "@login_required", "description": "Require login decorator"},
+                {"name": "permission_required", "description": "Check permissions"}
+            ]
+        },
+        "middleware": {
+            "description": "Request/response processing hooks",
+            "built_in": [
+                {"name": "SecurityMiddleware", "description": "Security features"},
+                {"name": "SessionMiddleware", "description": "Session handling"},
+                {"name": "AuthenticationMiddleware", "description": "User authentication"},
+                {"name": "MessageMiddleware", "description": "Message framework"}
+            ]
+        },
+        "admin": {
+            "description": "Django admin interface",
+            "components": [
+                {"name": "admin.site.register(Model)", "description": "Register model with admin"},
+                {"name": "ModelAdmin", "description": "Customize model admin"},
+                {"name": "list_display", "description": "Fields to display in list"},
+                {"name": "search_fields", "description": "Fields to search"}
+            ]
+        }
+    }
+} 

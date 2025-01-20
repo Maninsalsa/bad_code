@@ -1,0 +1,107 @@
+{
+    "Psycopg2": {
+        "description": "PostgreSQL adapter for Python",
+        "connection": {
+            "description": "Database connection management",
+            "basic_operations": [
+                {"name": "connect(dsn)", "description": "Create database connection"},
+                {"name": "connection.close()", "description": "Close database connection"},
+                {"name": "connection.commit()", "description": "Commit current transaction"},
+                {"name": "connection.rollback()", "description": "Rollback current transaction"}
+            ],
+            "connection_params": [
+                {"name": "dbname", "description": "Database name"},
+                {"name": "user", "description": "Username for authentication"},
+                {"name": "password", "description": "Password for authentication"},
+                {"name": "host", "description": "Database host address"},
+                {"name": "port", "description": "Connection port number"}
+            ]
+        },
+        "cursor": {
+            "description": "Database cursor operations",
+            "creation": [
+                {"name": "connection.cursor()", "description": "Create new cursor"},
+                {"name": "cursor.close()", "description": "Close cursor"},
+                {"name": "cursor.name", "description": "Get/set cursor name"},
+                {"name": "cursor.scrollable", "description": "Set cursor scrollability"}
+            ],
+            "execution": [
+                {"name": "cursor.execute(query)", "description": "Execute SQL query"},
+                {"name": "cursor.executemany(query, params)", "description": "Execute multiple SQL commands"},
+                {"name": "cursor.callproc(procname)", "description": "Call stored procedure"},
+                {"name": "cursor.mogrify(query)", "description": "Return query string with parameters"}
+            ]
+        },
+        "results": {
+            "description": "Query result handling",
+            "fetching": [
+                {"name": "cursor.fetchone()", "description": "Fetch next row"},
+                {"name": "cursor.fetchall()", "description": "Fetch all remaining rows"},
+                {"name": "cursor.fetchmany(size)", "description": "Fetch specified number of rows"},
+                {"name": "cursor.arraysize", "description": "Number of rows to fetch at once"}
+            ],
+            "properties": [
+                {"name": "cursor.rowcount", "description": "Number of rows processed"},
+                {"name": "cursor.rownumber", "description": "Current row number"},
+                {"name": "cursor.description", "description": "Column descriptions"},
+                {"name": "cursor.statusmessage", "description": "Status message from server"}
+            ]
+        },
+        "transactions": {
+            "description": "Transaction management",
+            "isolation_levels": [
+                {"name": "ISOLATION_LEVEL_DEFAULT", "description": "Default isolation level"},
+                {"name": "ISOLATION_LEVEL_SERIALIZABLE", "description": "Serializable isolation"},
+                {"name": "ISOLATION_LEVEL_REPEATABLE_READ", "description": "Repeatable read isolation"},
+                {"name": "ISOLATION_LEVEL_READ_COMMITTED", "description": "Read committed isolation"}
+            ],
+            "control": [
+                {"name": "connection.autocommit", "description": "Set autocommit mode"},
+                {"name": "connection.set_session()", "description": "Set session characteristics"},
+                {"name": "connection.set_isolation_level()", "description": "Set isolation level"}
+            ]
+        },
+        "data_types": {
+            "description": "PostgreSQL data type handling",
+            "adapters": [
+                {"name": "register_adapter()", "description": "Register Python to PostgreSQL adapter"},
+                {"name": "register_type()", "description": "Register PostgreSQL to Python converter"},
+                {"name": "new_type()", "description": "Create new type caster"},
+                {"name": "new_array_type()", "description": "Create new array type caster"}
+            ],
+            "special_types": [
+                {"name": "Json()", "description": "JSON data type"},
+                {"name": "Range()", "description": "Range data type"},
+                {"name": "Decimal()", "description": "Decimal number type"},
+                {"name": "UUID()", "description": "UUID data type"}
+            ]
+        },
+        "error_handling": {
+            "description": "Exception handling",
+            "exceptions": [
+                {"name": "Error", "description": "Base exception class"},
+                {"name": "DatabaseError", "description": "Database error"},
+                {"name": "IntegrityError", "description": "Integrity constraint violation"},
+                {"name": "OperationalError", "description": "Database operation error"}
+            ]
+        },
+        "large_objects": {
+            "description": "Large object handling",
+            "operations": [
+                {"name": "lobject()", "description": "Create large object"},
+                {"name": "large_object.read()", "description": "Read from large object"},
+                {"name": "large_object.write()", "description": "Write to large object"},
+                {"name": "large_object.seek()", "description": "Seek within large object"}
+            ]
+        },
+        "async_support": {
+            "description": "Asynchronous operations",
+            "functions": [
+                {"name": "async_", "description": "Enable async mode"},
+                {"name": "poll()", "description": "Poll connection status"},
+                {"name": "fileno()", "description": "Get connection file descriptor"},
+                {"name": "isready()", "description": "Check if operation complete"}
+            ]
+        }
+    }
+} 

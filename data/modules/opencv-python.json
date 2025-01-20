@@ -1,0 +1,111 @@
+{
+    "OpenCV": {
+        "description": "Computer vision and image processing library",
+        "image_basics": {
+            "description": "Basic image operations",
+            "io_operations": [
+                {"name": "cv2.imread(path)", "description": "Read image from file"},
+                {"name": "cv2.imwrite(path, img)", "description": "Save image to file"},
+                {"name": "cv2.imshow(name, img)", "description": "Display image in window"},
+                {"name": "cv2.waitKey(delay)", "description": "Wait for keyboard input"}
+            ],
+            "conversions": [
+                {"name": "cv2.cvtColor(img, code)", "description": "Convert color space"},
+                {"name": "cv2.COLOR_BGR2GRAY", "description": "Convert to grayscale"},
+                {"name": "cv2.COLOR_BGR2HSV", "description": "Convert to HSV"},
+                {"name": "cv2.COLOR_BGR2RGB", "description": "Convert BGR to RGB"}
+            ]
+        },
+        "image_processing": {
+            "description": "Image processing operations",
+            "transformations": [
+                {"name": "cv2.resize(img, size)", "description": "Resize image"},
+                {"name": "cv2.rotate(img, code)", "description": "Rotate image"},
+                {"name": "cv2.flip(img, code)", "description": "Flip image"},
+                {"name": "cv2.warpAffine(img, matrix)", "description": "Apply affine transformation"}
+            ],
+            "filters": [
+                {"name": "cv2.GaussianBlur()", "description": "Apply Gaussian blur"},
+                {"name": "cv2.medianBlur()", "description": "Apply median blur"},
+                {"name": "cv2.bilateralFilter()", "description": "Apply bilateral filter"},
+                {"name": "cv2.filter2D()", "description": "Apply custom kernel"}
+            ]
+        },
+        "drawing": {
+            "description": "Drawing functions",
+            "shapes": [
+                {"name": "cv2.line()", "description": "Draw line"},
+                {"name": "cv2.rectangle()", "description": "Draw rectangle"},
+                {"name": "cv2.circle()", "description": "Draw circle"},
+                {"name": "cv2.ellipse()", "description": "Draw ellipse"},
+                {"name": "cv2.polylines()", "description": "Draw polygonal curves"}
+            ],
+            "text": [
+                {"name": "cv2.putText()", "description": "Draw text on image"},
+                {"name": "cv2.getTextSize()", "description": "Get text size"}
+            ]
+        },
+        "feature_detection": {
+            "description": "Feature detection algorithms",
+            "detectors": [
+                {"name": "cv2.Canny()", "description": "Canny edge detection"},
+                {"name": "cv2.cornerHarris()", "description": "Harris corner detection"},
+                {"name": "cv2.goodFeaturesToTrack()", "description": "Shi-Tomasi corner detection"},
+                {"name": "cv2.SIFT_create()", "description": "SIFT feature detector"}
+            ],
+            "matchers": [
+                {"name": "cv2.BFMatcher()", "description": "Brute-force feature matcher"},
+                {"name": "cv2.FlannBasedMatcher()", "description": "FLANN-based feature matcher"}
+            ]
+        },
+        "video": {
+            "description": "Video handling operations",
+            "capture": [
+                {"name": "cv2.VideoCapture()", "description": "Create video capture object"},
+                {"name": "capture.read()", "description": "Read frame from video"},
+                {"name": "capture.release()", "description": "Release video capture"}
+            ],
+            "writing": [
+                {"name": "cv2.VideoWriter()", "description": "Create video writer object"},
+                {"name": "writer.write(frame)", "description": "Write frame to video"},
+                {"name": "writer.release()", "description": "Release video writer"}
+            ]
+        },
+        "contours": {
+            "description": "Contour operations",
+            "functions": [
+                {"name": "cv2.findContours()", "description": "Find contours in image"},
+                {"name": "cv2.drawContours()", "description": "Draw contours"},
+                {"name": "cv2.contourArea()", "description": "Calculate contour area"},
+                {"name": "cv2.arcLength()", "description": "Calculate contour perimeter"}
+            ]
+        },
+        "thresholding": {
+            "description": "Image thresholding methods",
+            "methods": [
+                {"name": "cv2.threshold()", "description": "Basic thresholding"},
+                {"name": "cv2.adaptiveThreshold()", "description": "Adaptive thresholding"},
+                {"name": "cv2.THRESH_BINARY", "description": "Binary threshold"},
+                {"name": "cv2.THRESH_OTSU", "description": "Otsu's thresholding"}
+            ]
+        },
+        "morphological": {
+            "description": "Morphological operations",
+            "operations": [
+                {"name": "cv2.erode()", "description": "Erosion operation"},
+                {"name": "cv2.dilate()", "description": "Dilation operation"},
+                {"name": "cv2.morphologyEx()", "description": "Advanced morphological operations"},
+                {"name": "cv2.getStructuringElement()", "description": "Create structuring element"}
+            ]
+        },
+        "machine_learning": {
+            "description": "Machine learning functionality",
+            "components": [
+                {"name": "cv2.CascadeClassifier()", "description": "Cascade classifier for object detection"},
+                {"name": "cv2.BackgroundSubtractor()", "description": "Background subtraction"},
+                {"name": "cv2.HOGDescriptor()", "description": "HOG feature descriptor"},
+                {"name": "cv2.dnn.readNet()", "description": "Load deep learning model"}
+            ]
+        }
+    }
+} 

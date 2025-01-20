@@ -1,0 +1,107 @@
+{
+    "Pytest": {
+        "description": "Testing framework making it easy to write simple and scalable tests",
+        "test_creation": {
+            "description": "Basic test writing and organization",
+            "basics": [
+                {"name": "def test_function():", "description": "Create test function"},
+                {"name": "class TestClass:", "description": "Create test class"},
+                {"name": "assert expression", "description": "Basic test assertion"},
+                {"name": "pytest.raises(Exception)", "description": "Test exception raising"}
+            ],
+            "fixtures": [
+                {"name": "@pytest.fixture", "description": "Define test fixture"},
+                {"name": "@pytest.fixture(scope='function')", "description": "Function-scoped fixture"},
+                {"name": "@pytest.fixture(scope='class')", "description": "Class-scoped fixture"},
+                {"name": "@pytest.fixture(scope='module')", "description": "Module-scoped fixture"},
+                {"name": "@pytest.fixture(scope='session')", "description": "Session-scoped fixture"}
+            ]
+        },
+        "assertions": {
+            "description": "Built-in assertion methods",
+            "comparisons": [
+                {"name": "assert value == expected", "description": "Assert equality"},
+                {"name": "assert value != expected", "description": "Assert inequality"},
+                {"name": "assert value in collection", "description": "Assert membership"},
+                {"name": "assert value is None", "description": "Assert None"},
+                {"name": "assert isinstance(value, type)", "description": "Assert type"}
+            ],
+            "exceptions": [
+                {"name": "with pytest.raises(Exception):", "description": "Assert exception raised"},
+                {"name": "with pytest.warns(Warning):", "description": "Assert warning raised"},
+                {"name": "pytest.fail(msg)", "description": "Fail test with message"}
+            ]
+        },
+        "markers": {
+            "description": "Test markers for categorization",
+            "built_in": [
+                {"name": "@pytest.mark.skip", "description": "Skip test"},
+                {"name": "@pytest.mark.skipif", "description": "Skip test conditionally"},
+                {"name": "@pytest.mark.xfail", "description": "Mark test as expected to fail"},
+                {"name": "@pytest.mark.parametrize", "description": "Parametrize test function"}
+            ],
+            "custom": [
+                {"name": "@pytest.mark.custom_name", "description": "Custom marker"},
+                {"name": "pytest.mark.custom_name.with_args", "description": "Marker with arguments"}
+            ]
+        },
+        "fixtures_advanced": {
+            "description": "Advanced fixture features",
+            "features": [
+                {"name": "fixture.param", "description": "Parametrize fixtures"},
+                {"name": "fixture.autouse", "description": "Automatically use fixture"},
+                {"name": "fixture.yield_fixture", "description": "Fixture with cleanup"},
+                {"name": "request.addfinalizer", "description": "Add cleanup function"}
+            ]
+        },
+        "parametrization": {
+            "description": "Test parametrization methods",
+            "methods": [
+                {"name": "@pytest.mark.parametrize('arg, expected')", "description": "Parametrize test function"},
+                {"name": "indirect=True", "description": "Parametrize fixtures"},
+                {"name": "ids=['case1', 'case2']", "description": "Custom parameter IDs"},
+                {"name": "@pytest.mark.parametrize('arg', pytest.param())", "description": "Complex parameters"}
+            ]
+        },
+        "hooks": {
+            "description": "Pytest hooks for customization",
+            "session_hooks": [
+                {"name": "pytest_configure(config)", "description": "Configure pytest"},
+                {"name": "pytest_sessionstart(session)", "description": "Session start hook"},
+                {"name": "pytest_sessionfinish(session)", "description": "Session finish hook"},
+                {"name": "pytest_addoption(parser)", "description": "Add command line options"}
+            ],
+            "collection_hooks": [
+                {"name": "pytest_collection_modifyitems(items)", "description": "Modify collected tests"},
+                {"name": "pytest_generate_tests(metafunc)", "description": "Generate tests dynamically"}
+            ]
+        },
+        "configuration": {
+            "description": "Test configuration options",
+            "files": [
+                {"name": "pytest.ini", "description": "Primary configuration file"},
+                {"name": "conftest.py", "description": "Shared fixture file"},
+                {"name": "tox.ini", "description": "Tox configuration file"},
+                {"name": "setup.cfg", "description": "Setup configuration file"}
+            ]
+        },
+        "reporting": {
+            "description": "Test result reporting",
+            "commands": [
+                {"name": "pytest -v", "description": "Verbose output"},
+                {"name": "pytest -q", "description": "Quiet output"},
+                {"name": "pytest --junit-xml", "description": "Generate XML report"},
+                {"name": "pytest --html", "description": "Generate HTML report"}
+            ]
+        },
+        "plugins": {
+            "description": "Common pytest plugins",
+            "popular": [
+                {"name": "pytest-cov", "description": "Coverage reporting"},
+                {"name": "pytest-mock", "description": "Mocking support"},
+                {"name": "pytest-asyncio", "description": "Async testing"},
+                {"name": "pytest-xdist", "description": "Distributed testing"}
+            ]
+        }
+    }
+} 

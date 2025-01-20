@@ -1,0 +1,113 @@
+{
+    "OpenPyXL": {
+        "description": "Library for reading and writing Excel files",
+        "workbook": {
+            "description": "Workbook operations",
+            "basic_operations": [
+                {"name": "load_workbook(filename)", "description": "Open existing Excel file"},
+                {"name": "Workbook()", "description": "Create new workbook"},
+                {"name": "save(filename)", "description": "Save workbook to file"},
+                {"name": "close()", "description": "Close workbook"}
+            ],
+            "properties": [
+                {"name": "workbook.sheetnames", "description": "List of worksheet names"},
+                {"name": "workbook.active", "description": "Get active worksheet"},
+                {"name": "workbook.properties", "description": "Workbook properties"},
+                {"name": "workbook.encoding", "description": "File encoding"}
+            ]
+        },
+        "worksheet": {
+            "description": "Worksheet operations",
+            "access": [
+                {"name": "workbook.create_sheet(title)", "description": "Create new worksheet"},
+                {"name": "workbook[sheet_name]", "description": "Get worksheet by name"},
+                {"name": "del workbook[sheet_name]", "description": "Delete worksheet"},
+                {"name": "worksheet.title", "description": "Get/set worksheet name"}
+            ],
+            "cell_access": [
+                {"name": "worksheet['A1']", "description": "Access cell by coordinate"},
+                {"name": "worksheet.cell(row, column)", "description": "Access cell by row/column"},
+                {"name": "worksheet.iter_rows()", "description": "Iterate through rows"},
+                {"name": "worksheet.iter_cols()", "description": "Iterate through columns"}
+            ]
+        },
+        "cell": {
+            "description": "Cell operations and properties",
+            "properties": [
+                {"name": "cell.value", "description": "Get/set cell value"},
+                {"name": "cell.row", "description": "Get cell row"},
+                {"name": "cell.column", "description": "Get cell column"},
+                {"name": "cell.coordinate", "description": "Get cell coordinate"}
+            ],
+            "formatting": [
+                {"name": "cell.font", "description": "Cell font properties"},
+                {"name": "cell.fill", "description": "Cell fill properties"},
+                {"name": "cell.border", "description": "Cell border properties"},
+                {"name": "cell.alignment", "description": "Cell alignment properties"}
+            ]
+        },
+        "styles": {
+            "description": "Cell styling and formatting",
+            "font": [
+                {"name": "Font(name, size, bold, italic)", "description": "Set font properties"},
+                {"name": "font.color", "description": "Font color"},
+                {"name": "font.underline", "description": "Font underline"},
+                {"name": "font.strike", "description": "Font strikethrough"}
+            ],
+            "fill": [
+                {"name": "PatternFill(pattern_type, fgColor)", "description": "Cell background pattern"},
+                {"name": "GradientFill(stop)", "description": "Cell gradient fill"},
+                {"name": "fill.start_color", "description": "Fill start color"},
+                {"name": "fill.end_color", "description": "Fill end color"}
+            ]
+        },
+        "ranges": {
+            "description": "Range operations",
+            "access": [
+                {"name": "worksheet['A1:B5']", "description": "Access cell range"},
+                {"name": "worksheet.merge_cells()", "description": "Merge cell range"},
+                {"name": "worksheet.unmerge_cells()", "description": "Unmerge cell range"},
+                {"name": "worksheet.move_range()", "description": "Move cell range"}
+            ]
+        },
+        "formatting": {
+            "description": "Worksheet formatting",
+            "dimensions": [
+                {"name": "worksheet.row_dimensions[1]", "description": "Row properties"},
+                {"name": "worksheet.column_dimensions['A']", "description": "Column properties"},
+                {"name": "dimension.height", "description": "Set row height"},
+                {"name": "dimension.width", "description": "Set column width"}
+            ],
+            "views": [
+                {"name": "worksheet.sheet_view", "description": "Sheet view properties"},
+                {"name": "worksheet.freeze_panes", "description": "Freeze panes"},
+                {"name": "worksheet.print_area", "description": "Set print area"},
+                {"name": "worksheet.page_setup", "description": "Page setup properties"}
+            ]
+        },
+        "data_validation": {
+            "description": "Data validation rules",
+            "rules": [
+                {"name": "DataValidation(type)", "description": "Create validation rule"},
+                {"name": "validation.add()", "description": "Add validation to cells"},
+                {"name": "validation.error", "description": "Set error message"},
+                {"name": "validation.prompt", "description": "Set input prompt"}
+            ]
+        },
+        "charts": {
+            "description": "Chart creation and manipulation",
+            "types": [
+                {"name": "BarChart()", "description": "Create bar chart"},
+                {"name": "LineChart()", "description": "Create line chart"},
+                {"name": "PieChart()", "description": "Create pie chart"},
+                {"name": "ScatterChart()", "description": "Create scatter chart"}
+            ],
+            "properties": [
+                {"name": "chart.title", "description": "Chart title"},
+                {"name": "chart.x_axis", "description": "X axis properties"},
+                {"name": "chart.y_axis", "description": "Y axis properties"},
+                {"name": "chart.legend", "description": "Chart legend"}
+            ]
+        }
+    }
+} 

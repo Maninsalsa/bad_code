@@ -1,0 +1,112 @@
+{
+    "Selenium": {
+        "description": "Tool for web browser automation and testing",
+        "webdriver": {
+            "description": "Browser drivers and initialization",
+            "browsers": [
+                {"name": "webdriver.Chrome()", "description": "Initialize Chrome browser"},
+                {"name": "webdriver.Firefox()", "description": "Initialize Firefox browser"},
+                {"name": "webdriver.Safari()", "description": "Initialize Safari browser"},
+                {"name": "webdriver.Edge()", "description": "Initialize Edge browser"}
+            ],
+            "options": [
+                {"name": "Options().add_argument()", "description": "Add browser startup argument"},
+                {"name": "Options().headless", "description": "Run browser in headless mode"},
+                {"name": "Options().add_extension()", "description": "Add browser extension"},
+                {"name": "Options().set_preference()", "description": "Set browser preference"}
+            ]
+        },
+        "navigation": {
+            "description": "Browser navigation commands",
+            "commands": [
+                {"name": "driver.get(url)", "description": "Navigate to URL"},
+                {"name": "driver.back()", "description": "Go back one page"},
+                {"name": "driver.forward()", "description": "Go forward one page"},
+                {"name": "driver.refresh()", "description": "Refresh current page"},
+                {"name": "driver.current_url", "description": "Get current page URL"},
+                {"name": "driver.title", "description": "Get page title"}
+            ]
+        },
+        "element_location": {
+            "description": "Methods for finding elements",
+            "locators": [
+                {"name": "find_element(By.ID)", "description": "Find element by ID"},
+                {"name": "find_element(By.NAME)", "description": "Find element by name"},
+                {"name": "find_element(By.CLASS_NAME)", "description": "Find element by class"},
+                {"name": "find_element(By.TAG_NAME)", "description": "Find element by tag"},
+                {"name": "find_element(By.XPATH)", "description": "Find element by XPath"},
+                {"name": "find_element(By.CSS_SELECTOR)", "description": "Find element by CSS selector"},
+                {"name": "find_element(By.LINK_TEXT)", "description": "Find element by link text"},
+                {"name": "find_element(By.PARTIAL_LINK_TEXT)", "description": "Find element by partial link text"}
+            ],
+            "multiple_elements": [
+                {"name": "find_elements(By.ID)", "description": "Find all elements by ID"},
+                {"name": "find_elements(By.CLASS_NAME)", "description": "Find all elements by class"},
+                {"name": "find_elements(By.TAG_NAME)", "description": "Find all elements by tag"}
+            ]
+        },
+        "element_interaction": {
+            "description": "Methods for interacting with elements",
+            "actions": [
+                {"name": "element.click()", "description": "Click element"},
+                {"name": "element.send_keys()", "description": "Type into element"},
+                {"name": "element.clear()", "description": "Clear element content"},
+                {"name": "element.submit()", "description": "Submit form"},
+                {"name": "element.get_attribute()", "description": "Get element attribute"}
+            ],
+            "properties": [
+                {"name": "element.text", "description": "Get element text content"},
+                {"name": "element.is_displayed()", "description": "Check if element is visible"},
+                {"name": "element.is_enabled()", "description": "Check if element is enabled"},
+                {"name": "element.is_selected()", "description": "Check if element is selected"}
+            ]
+        },
+        "waits": {
+            "description": "Methods for waiting for elements",
+            "explicit_waits": [
+                {"name": "WebDriverWait(driver, timeout)", "description": "Create wait object"},
+                {"name": "wait.until(EC.presence_of_element_located)", "description": "Wait for element presence"},
+                {"name": "wait.until(EC.visibility_of_element_located)", "description": "Wait for element visibility"},
+                {"name": "wait.until(EC.element_to_be_clickable)", "description": "Wait for element to be clickable"}
+            ],
+            "implicit_waits": [
+                {"name": "driver.implicitly_wait()", "description": "Set implicit wait timeout"}
+            ]
+        },
+        "advanced_interactions": {
+            "description": "Advanced browser interactions",
+            "actions": [
+                {"name": "ActionChains(driver)", "description": "Create action chain"},
+                {"name": "actions.move_to_element()", "description": "Move mouse to element"},
+                {"name": "actions.drag_and_drop()", "description": "Drag and drop elements"},
+                {"name": "actions.double_click()", "description": "Double click element"},
+                {"name": "actions.context_click()", "description": "Right click element"},
+                {"name": "actions.key_down()", "description": "Press key down"},
+                {"name": "actions.key_up()", "description": "Release key"}
+            ]
+        },
+        "javascript": {
+            "description": "JavaScript execution",
+            "methods": [
+                {"name": "driver.execute_script()", "description": "Execute JavaScript"},
+                {"name": "driver.execute_async_script()", "description": "Execute async JavaScript"}
+            ]
+        },
+        "window_handling": {
+            "description": "Window and frame management",
+            "methods": [
+                {"name": "driver.switch_to.window()", "description": "Switch to window"},
+                {"name": "driver.switch_to.frame()", "description": "Switch to frame"},
+                {"name": "driver.switch_to.default_content()", "description": "Switch to main frame"},
+                {"name": "driver.window_handles", "description": "Get all window handles"}
+            ]
+        },
+        "screenshots": {
+            "description": "Screenshot capabilities",
+            "methods": [
+                {"name": "driver.save_screenshot()", "description": "Save screenshot of page"},
+                {"name": "element.screenshot()", "description": "Save screenshot of element"}
+            ]
+        }
+    }
+} 

@@ -1,0 +1,96 @@
+{
+    "BeautifulSoup": {
+        "description": "Library for pulling data out of HTML and XML files",
+        "initialization": {
+            "description": "Creating BeautifulSoup objects",
+            "constructors": [
+                {"name": "BeautifulSoup(markup, 'html.parser')", "description": "Create parser with built-in HTML parser"},
+                {"name": "BeautifulSoup(markup, 'lxml')", "description": "Create parser with lxml HTML parser"},
+                {"name": "BeautifulSoup(markup, 'lxml-xml')", "description": "Create parser for XML"},
+                {"name": "BeautifulSoup(markup, 'html5lib')", "description": "Create parser with html5lib"}
+            ]
+        },
+        "finding_elements": {
+            "description": "Methods for finding elements in the document",
+            "basic_methods": [
+                {"name": "find(name, attrs, recursive, string, **kwargs)", "description": "Find first matching element"},
+                {"name": "find_all(name, attrs, recursive, string, limit, **kwargs)", "description": "Find all matching elements"},
+                {"name": "select(selector)", "description": "Find elements using CSS selectors"},
+                {"name": "select_one(selector)", "description": "Find first element using CSS selector"}
+            ],
+            "specialized_finds": [
+                {"name": "find_parent(name, attrs, **kwargs)", "description": "Find parent element"},
+                {"name": "find_parents(name, attrs, limit, **kwargs)", "description": "Find all matching parents"},
+                {"name": "find_next_sibling(name, attrs, **kwargs)", "description": "Find next sibling element"},
+                {"name": "find_next_siblings(name, attrs, limit, **kwargs)", "description": "Find all matching next siblings"},
+                {"name": "find_previous_sibling(name, attrs, **kwargs)", "description": "Find previous sibling element"},
+                {"name": "find_previous_siblings(name, attrs, limit, **kwargs)", "description": "Find all matching previous siblings"},
+                {"name": "find_next(name, attrs, **kwargs)", "description": "Find next element"},
+                {"name": "find_all_next(name, attrs, limit, **kwargs)", "description": "Find all matching next elements"},
+                {"name": "find_previous(name, attrs, **kwargs)", "description": "Find previous element"},
+                {"name": "find_all_previous(name, attrs, limit, **kwargs)", "description": "Find all matching previous elements"}
+            ]
+        },
+        "element_attributes": {
+            "description": "Accessing element attributes and properties",
+            "attributes": [
+                {"name": "tag.name", "description": "Get or set tag name"},
+                {"name": "tag.attrs", "description": "Dictionary of tag attributes"},
+                {"name": "tag.string", "description": "Access tag's string content"},
+                {"name": "tag.strings", "description": "Iterator for all strings"},
+                {"name": "tag.stripped_strings", "description": "Iterator for non-empty strings"},
+                {"name": "tag.text", "description": "All text content concatenated"},
+                {"name": "tag.contents", "description": "List of direct children"},
+                {"name": "tag.descendants", "description": "Iterator for all descendants"},
+                {"name": "tag.parent", "description": "Access parent element"},
+                {"name": "tag.parents", "description": "Iterator for all parents"}
+            ]
+        },
+        "modifying_tree": {
+            "description": "Methods for modifying the parse tree",
+            "functions": [
+                {"name": "tag.append(content)", "description": "Add content at end of tag"},
+                {"name": "tag.extend(content_list)", "description": "Add multiple items at end"},
+                {"name": "tag.insert(position, content)", "description": "Insert content at position"},
+                {"name": "tag.insert_before(content)", "description": "Insert before this tag"},
+                {"name": "tag.insert_after(content)", "description": "Insert after this tag"},
+                {"name": "tag.clear()", "description": "Remove all contents"},
+                {"name": "tag.decompose()", "description": "Remove tag and contents"},
+                {"name": "tag.replace_with(content)", "description": "Replace tag with content"},
+                {"name": "tag.wrap(wrapper)", "description": "Wrap tag in wrapper"},
+                {"name": "tag.unwrap()", "description": "Replace tag with its contents"}
+            ]
+        },
+        "output": {
+            "description": "Methods for outputting parsed data",
+            "functions": [
+                {"name": "soup.prettify()", "description": "Pretty-printed HTML/XML string"},
+                {"name": "str(soup)", "description": "Compact HTML/XML string"},
+                {"name": "soup.get_text()", "description": "Get all text without markup"},
+                {"name": "soup.encode(encoding)", "description": "Encode document to bytes"}
+            ]
+        },
+        "filters": {
+            "description": "Special filters for finding elements",
+            "types": [
+                {"name": "string", "description": "Match exact string content"},
+                {"name": "re.compile()", "description": "Match using regular expression"},
+                {"name": "list", "description": "Match any item in list"},
+                {"name": "True", "description": "Match any value"},
+                {"name": "function", "description": "Custom matching function"}
+            ]
+        },
+        "css_selectors": {
+            "description": "Supported CSS selector syntax",
+            "selectors": [
+                {"name": "#id", "description": "Elements with given id"},
+                {"name": ".class", "description": "Elements with given class"},
+                {"name": "tag", "description": "Elements with given tag name"},
+                {"name": "[attr]", "description": "Elements with attribute"},
+                {"name": "[attr=value]", "description": "Elements where attr equals value"},
+                {"name": "parent > child", "description": "Direct children"},
+                {"name": "ancestor descendant", "description": "All descendants"}
+            ]
+        }
+    }
+} 

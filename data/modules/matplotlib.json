@@ -1,0 +1,105 @@
+{
+    "Matplotlib": {
+        "description": "Comprehensive library for creating static, animated, and interactive visualizations in Python",
+        "basic_plotting": {
+            "description": "Basic plotting functions",
+            "functions": [
+                {"name": "plt.plot(x, y)", "description": "Create line plot"},
+                {"name": "plt.scatter(x, y)", "description": "Create scatter plot"},
+                {"name": "plt.bar(x, height)", "description": "Create bar plot"},
+                {"name": "plt.hist(x)", "description": "Create histogram"},
+                {"name": "plt.boxplot(x)", "description": "Create box plot"},
+                {"name": "plt.pie(x)", "description": "Create pie chart"},
+                {"name": "plt.imshow(X)", "description": "Display image or matrix"}
+            ]
+        },
+        "figure_management": {
+            "description": "Functions for managing figures and subplots",
+            "functions": [
+                {"name": "plt.figure()", "description": "Create new figure"},
+                {"name": "plt.subplot()", "description": "Create subplot"},
+                {"name": "plt.subplots()", "description": "Create figure and subplots"},
+                {"name": "plt.close()", "description": "Close figure window"},
+                {"name": "plt.clf()", "description": "Clear current figure"},
+                {"name": "plt.cla()", "description": "Clear current axes"}
+            ]
+        },
+        "customization": {
+            "description": "Functions for customizing plots",
+            "labels_titles": [
+                {"name": "plt.xlabel()", "description": "Set x-axis label"},
+                {"name": "plt.ylabel()", "description": "Set y-axis label"},
+                {"name": "plt.title()", "description": "Set plot title"},
+                {"name": "plt.legend()", "description": "Add legend to plot"},
+                {"name": "plt.text()", "description": "Add text to plot"}
+            ],
+            "axes_properties": [
+                {"name": "plt.xlim()", "description": "Set x-axis limits"},
+                {"name": "plt.ylim()", "description": "Set y-axis limits"},
+                {"name": "plt.grid()", "description": "Add grid to plot"},
+                {"name": "plt.axis()", "description": "Set axis properties"},
+                {"name": "plt.xticks()", "description": "Set x-axis tick locations and labels"},
+                {"name": "plt.yticks()", "description": "Set y-axis tick locations and labels"}
+            ]
+        },
+        "styling": {
+            "description": "Functions for plot styling",
+            "functions": [
+                {"name": "plt.style.use()", "description": "Set plot style"},
+                {"name": "plt.rcParams", "description": "Configure default parameters"},
+                {"name": "plt.setp()", "description": "Set property on artist object"},
+                {"name": "plt.colormap()", "description": "Set colormap"},
+                {"name": "plt.colors", "description": "Color handling"}
+            ]
+        },
+        "advanced_plots": {
+            "description": "Advanced plotting functions",
+            "functions": [
+                {"name": "plt.contour()", "description": "Create contour plot"},
+                {"name": "plt.pcolor()", "description": "Create pseudocolor plot"},
+                {"name": "plt.streamplot()", "description": "Create streamline plot"},
+                {"name": "plt.quiver()", "description": "Create quiver plot"},
+                {"name": "plt.polar()", "description": "Create polar plot"},
+                {"name": "plt.errorbar()", "description": "Create error bar plot"}
+            ]
+        },
+        "3d_plotting": {
+            "description": "3D plotting capabilities",
+            "functions": [
+                {"name": "plt.axes(projection='3d')", "description": "Create 3D axes"},
+                {"name": "ax.plot3D()", "description": "Create 3D line plot"},
+                {"name": "ax.scatter3D()", "description": "Create 3D scatter plot"},
+                {"name": "ax.surface()", "description": "Create surface plot"},
+                {"name": "ax.wireframe()", "description": "Create wireframe plot"}
+            ]
+        },
+        "animation": {
+            "description": "Functions for creating animations",
+            "functions": [
+                {"name": "animation.FuncAnimation()", "description": "Create animation from function"},
+                {"name": "animation.ArtistAnimation()", "description": "Create animation from artists"},
+                {"name": "anim.save()", "description": "Save animation to file"},
+                {"name": "plt.pause()", "description": "Add pause between plots"}
+            ]
+        },
+        "output": {
+            "description": "Functions for saving and displaying plots",
+            "functions": [
+                {"name": "plt.show()", "description": "Display all figures"},
+                {"name": "plt.savefig()", "description": "Save figure to file"},
+                {"name": "plt.ioff()", "description": "Turn interactive mode off"},
+                {"name": "plt.ion()", "description": "Turn interactive mode on"},
+                {"name": "plt.draw()", "description": "Redraw current figure"}
+            ]
+        },
+        "events": {
+            "description": "Event handling functions",
+            "functions": [
+                {"name": "plt.connect()", "description": "Connect to event"},
+                {"name": "plt.disconnect()", "description": "Disconnect from event"},
+                {"name": "plt.ginput()", "description": "Get mouse clicks"},
+                {"name": "plt.waitforbuttonpress()", "description": "Wait for button press"}
+            ]
+        }
+    }
+} 

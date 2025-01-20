@@ -1,0 +1,121 @@
+{    
+    "Exception Handling": {
+        "description": "Mechanism for handling runtime errors and exceptional conditions in Python",
+        "keywords": [
+            {
+                "name": "try",
+                "description": "Defines a block of code where exceptions may occur. Code within this block is monitored for exceptions.",
+                "example": "try:\n    result = x / y",
+                "notes": "Always pair with at least one except or finally clause"
+            },
+            {
+                "name": "except", 
+                "description": "Handles specific exceptions that occur in the try block. Can catch multiple exception types and provide custom error handling.",
+                "example": "except ZeroDivisionError as e:\n    print(f'Error: {e}')",
+                "notes": "Can catch multiple exceptions using tuple syntax: except (TypeError, ValueError):"
+            },
+            {
+                "name": "else",
+                "description": "Optional clause that executes if no exceptions occur in the try block. Useful for code that should only run if try block succeeds.",
+                "example": "else:\n    print('Division successful')",
+                "notes": "Must follow all except clauses"
+            },
+            {
+                "name": "finally",
+                "description": "Optional clause that always executes after try/except blocks, regardless of whether an exception occurred. Used for cleanup operations.",
+                "example": "finally:\n    print('Cleanup code')",
+                "notes": "Commonly used to close files or release resources"
+            },
+            {
+                "name": "raise",
+                "description": "Explicitly raises an exception. Can raise built-in or custom exceptions with optional error messages.",
+                "example": "raise ValueError('Invalid input')",
+                "notes": "Can be used to re-raise caught exceptions"
+            },
+            {
+                "name": "assert",
+                "description": "Debugging aid that tests a condition and raises AssertionError if False. Used for validating assumptions in code.",
+                "example": "assert x > 0, 'x must be positive'",
+                "notes": "Can be disabled with -O flag in Python interpreter"
+            }
+        ],
+        "built_in_exceptions": [
+            {
+                "name": "SyntaxError",
+                "description": "Invalid Python syntax (e.g., missing parenthesis, invalid indentation)",
+                "example": "for i in range(5)\n    print(i)  # Missing colon"
+            },
+            {
+                "name": "NameError",
+                "description": "Using a variable or function that is not defined",
+                "example": "print(undefined_variable)"
+            },
+            {
+                "name": "TypeError",
+                "description": "Operation/function applied to inappropriate type (e.g., adding string to integer)",
+                "example": "'2' + 2"
+            },
+            {
+                "name": "ValueError",
+                "description": "Operation/function receives argument with right type but inappropriate value",
+                "example": "int('not a number')"
+            },
+            {
+                "name": "IndexError",
+                "description": "Sequence subscript out of range",
+                "example": "list = [1, 2]; list[5]"
+            },
+            {
+                "name": "KeyError",
+                "description": "Dictionary key not found",
+                "example": "dict = {}; dict['missing_key']"
+            },
+            {
+                "name": "AttributeError",
+                "description": "Attribute reference or assignment fails",
+                "example": "'string'.undefined_method()"
+            },
+            {
+                "name": "ZeroDivisionError",
+                "description": "Division or modulo by zero",
+                "example": "10 / 0"
+            },
+            {
+                "name": "ImportError",
+                "description": "Import statement fails to find/load module",
+                "example": "import non_existent_module"
+            },
+            {
+                "name": "FileNotFoundError",
+                "description": "Attempting to access a file that doesn't exist",
+                "example": "open('missing_file.txt')"
+            },
+            {
+                "name": "PermissionError",
+                "description": "Insufficient permissions for file/system operations",
+                "example": "open('/root/protected_file.txt', 'w')"
+            },
+            {
+                "name": "MemoryError",
+                "description": "Operation runs out of memory",
+                "notes": "Typically occurs with very large data structures"
+            },
+            {
+                "name": "RecursionError",
+                "description": "Maximum recursion depth exceeded",
+                "example": "def infinite(): infinite()"
+            },
+            {
+                "name": "RuntimeError",
+                "description": "Generic error that doesn't fall into other categories",
+                "notes": "Base class for many other runtime errors"
+            }
+        ],
+        "best_practices": [
+            "Always catch specific exceptions rather than using bare except",
+            "Use finally for cleanup code that must always run",
+            "Include meaningful error messages in raised exceptions",
+            "Consider creating custom exception classes for application-specific errors"
+        ]
+    }
+}

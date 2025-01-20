@@ -1,0 +1,103 @@
+{
+    "Pillow": {
+        "description": "Python Imaging Library for opening, manipulating, and saving image files",
+        "image_basics": {
+            "description": "Basic image operations",
+            "opening": [
+                {"name": "Image.open(path)", "description": "Open image from file"},
+                {"name": "Image.new(mode, size)", "description": "Create new blank image"},
+                {"name": "Image.fromarray(array)", "description": "Create image from numpy array"},
+                {"name": "Image.frombytes(mode, size, data)", "description": "Create image from byte data"}
+            ],
+            "saving": [
+                {"name": "image.save(path)", "description": "Save image to file"},
+                {"name": "image.save(path, format)", "description": "Save with specific format"},
+                {"name": "image.save(path, quality)", "description": "Save with compression quality"},
+                {"name": "image.tobytes()", "description": "Convert image to bytes"}
+            ]
+        },
+        "image_properties": {
+            "description": "Image attributes and information",
+            "attributes": [
+                {"name": "image.size", "description": "Get image dimensions"},
+                {"name": "image.mode", "description": "Get color mode (RGB, RGBA, etc)"},
+                {"name": "image.format", "description": "Get image format (JPEG, PNG, etc)"},
+                {"name": "image.info", "description": "Get image metadata"}
+            ]
+        },
+        "transformations": {
+            "description": "Image transformation operations",
+            "resize": [
+                {"name": "image.resize(size)", "description": "Resize image"},
+                {"name": "image.thumbnail(size)", "description": "Create thumbnail"},
+                {"name": "image.crop(box)", "description": "Crop image to region"},
+                {"name": "image.rotate(angle)", "description": "Rotate image"}
+            ],
+            "flip": [
+                {"name": "image.transpose(Image.FLIP_LEFT_RIGHT)", "description": "Flip horizontally"},
+                {"name": "image.transpose(Image.FLIP_TOP_BOTTOM)", "description": "Flip vertically"},
+                {"name": "image.transpose(Image.ROTATE_90)", "description": "Rotate 90 degrees"},
+                {"name": "image.transpose(Image.ROTATE_180)", "description": "Rotate 180 degrees"}
+            ]
+        },
+        "enhancement": {
+            "description": "Image enhancement operations",
+            "filters": [
+                {"name": "ImageEnhance.Color(image)", "description": "Adjust color balance"},
+                {"name": "ImageEnhance.Contrast(image)", "description": "Adjust contrast"},
+                {"name": "ImageEnhance.Brightness(image)", "description": "Adjust brightness"},
+                {"name": "ImageEnhance.Sharpness(image)", "description": "Adjust sharpness"}
+            ],
+            "operations": [
+                {"name": "image.filter(ImageFilter.BLUR)", "description": "Apply blur filter"},
+                {"name": "image.filter(ImageFilter.SHARPEN)", "description": "Apply sharpen filter"},
+                {"name": "image.filter(ImageFilter.EDGE_ENHANCE)", "description": "Enhance edges"},
+                {"name": "image.filter(ImageFilter.FIND_EDGES)", "description": "Find edges"}
+            ]
+        },
+        "drawing": {
+            "description": "Drawing operations on images",
+            "tools": [
+                {"name": "ImageDraw.Draw(image)", "description": "Create drawing object"},
+                {"name": "draw.line(xy)", "description": "Draw line"},
+                {"name": "draw.rectangle(xy)", "description": "Draw rectangle"},
+                {"name": "draw.ellipse(xy)", "description": "Draw ellipse"},
+                {"name": "draw.polygon(xy)", "description": "Draw polygon"},
+                {"name": "draw.text(xy, text)", "description": "Draw text"}
+            ]
+        },
+        "color_operations": {
+            "description": "Color manipulation operations",
+            "conversions": [
+                {"name": "image.convert('RGB')", "description": "Convert to RGB mode"},
+                {"name": "image.convert('L')", "description": "Convert to grayscale"},
+                {"name": "image.convert('RGBA')", "description": "Convert to RGBA mode"},
+                {"name": "image.convert('1')", "description": "Convert to binary"}
+            ],
+            "manipulation": [
+                {"name": "image.split()", "description": "Split image into bands"},
+                {"name": "Image.merge(mode, bands)", "description": "Merge bands into image"},
+                {"name": "image.getchannel(channel)", "description": "Get single color channel"},
+                {"name": "image.putpalette(data)", "description": "Put palette data"}
+            ]
+        },
+        "image_sequences": {
+            "description": "Operations for multi-frame images",
+            "methods": [
+                {"name": "image.seek(frame)", "description": "Seek to frame"},
+                {"name": "image.tell()", "description": "Get current frame"},
+                {"name": "image.n_frames", "description": "Get number of frames"},
+                {"name": "image.is_animated", "description": "Check if image is animated"}
+            ]
+        },
+        "image_math": {
+            "description": "Mathematical operations on images",
+            "operations": [
+                {"name": "ImageChops.add(image1, image2)", "description": "Add images"},
+                {"name": "ImageChops.subtract(image1, image2)", "description": "Subtract images"},
+                {"name": "ImageChops.multiply(image1, image2)", "description": "Multiply images"},
+                {"name": "ImageChops.blend(image1, image2, alpha)", "description": "Blend images"}
+            ]
+        }
+    }
+} 

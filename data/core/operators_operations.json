@@ -1,0 +1,235 @@
+{
+    "Operators": {
+        "description": "Symbols and keywords that perform operations on values and variables",
+        "types": {
+            "Arithmetic": {
+                "description": "Basic mathematical operations",
+                "operators": [
+                    {"name": "+", "description": "Addition"},
+                    {"name": "-", "description": "Subtraction"}, 
+                    {"name": "*", "description": "Multiplication"},
+                    {"name": "/", "description": "Division"},
+                    {"name": "//", "description": "Floor division"},
+                    {"name": "%", "description": "Modulo"},
+                    {"name": "**", "description": "Exponentiation"}
+                ]
+            },
+            "Comparison": {
+                "description": "Compare values and return boolean result",
+                "operators": [
+                    {"name": "==", "description": "Equal to"},
+                    {"name": "!=", "description": "Not equal to"},
+                    {"name": ">", "description": "Greater than"},
+                    {"name": "<", "description": "Less than"}, 
+                    {"name": ">=", "description": "Greater than or equal to"},
+                    {"name": "<=", "description": "Less than or equal to"}
+                ]
+            },
+            "Logical": {
+                "description": "Combine boolean expressions",
+                "operators": [
+                    {"name": "and", "description": "True if both operands are true"},
+                    {"name": "or", "description": "True if at least one operand is true"},
+                    {"name": "not", "description": "Inverts boolean value"}
+                ]
+            },
+            "Assignment": {
+                "description": "Assign and modify values",
+                "operators": [
+                    {"name": "=", "description": "Basic assignment"},
+                    {"name": "+=", "description": "Add and assign"},
+                    {"name": "-=", "description": "Subtract and assign"},
+                    {"name": "*=", "description": "Multiply and assign"},
+                    {"name": "/=", "description": "Divide and assign"},
+                    {"name": "//=", "description": "Floor divide and assign"},
+                    {"name": "%=", "description": "Modulo and assign"},
+                    {"name": "**=", "description": "Exponentiate and assign"},
+                    {"name": "&=", "description": "Bitwise AND and assign"},
+                    {"name": "|=", "description": "Bitwise OR and assign"},
+                    {"name": "^=", "description": "Bitwise XOR and assign"},
+                    {"name": ">>=", "description": "Right shift and assign"},
+                    {"name": "<<=", "description": "Left shift and assign"}
+                ]
+            },
+            "Bitwise": {
+                "description": "Operations on individual bits",
+                "operators": [
+                    {"name": "&", "description": "Bitwise AND"},
+                    {"name": "|", "description": "Bitwise OR"},
+                    {"name": "^", "description": "Bitwise XOR"},
+                    {"name": "~", "description": "Bitwise NOT"},
+                    {"name": "<<", "description": "Left shift"},
+                    {"name": ">>", "description": "Right shift"}
+                ]
+            },
+            "Identity": {
+                "description": "Check if objects are the same",
+                "operators": [
+                    {"name": "is", "description": "True if operands are identical"},
+                    {"name": "is not", "description": "True if operands are not identical"}
+                ]
+            },
+            "Membership": {
+                "description": "Test presence in sequence",
+                "operators": [
+                    {"name": "in", "description": "True if value found in sequence"},
+                    {"name": "not in", "description": "True if value not found in sequence"}
+                ]
+            },
+            "Unpacking": {
+                "description": "Expand sequences into arguments",
+                "operators": [
+                    {"name": "* operator", "description": "Used to unpack iterables (lists, tuples) into positional arguments", 
+                     "example": "function(*[1,2,3]) equivalent to function(1,2,3)"},
+                    {"name": "** operator", "description": "Used to unpack dictionaries into keyword arguments",
+                     "example": "function(**{'x':1, 'y':2}) equivalent to function(x=1, y=2)"},
+                    {"name": "combined unpacking", "description": "Can use both * and ** to unpack different argument types simultaneously",
+                     "example": "function(*args, **dict_args)"}
+                ]
+            }
+        }
+    },
+    "Collection Operations": {
+        "description": "Operations for working with sequences and collections",
+        "types": {
+            "Slicing": {
+                "description": "Extract subsequences using index ranges",
+                "syntax": {
+                    "basic": {
+                        "description": "sequence[start:stop:step]",
+                        "components": [
+                            {"name": "start", "description": "First index to include (default: 0)"},
+                            {"name": "stop", "description": "First index to exclude (default: length)"},
+                            {"name": "step", "description": "Number of items to skip (default: 1)"}
+                        ],
+                        "examples": [
+                            {"name": "Basic slice", "syntax": "sequence[2:5]", "description": "Elements from index 2 to 4"},
+                            {"name": "Start omitted", "syntax": "sequence[:3]", "description": "First three elements"},
+                            {"name": "End omitted", "syntax": "sequence[2:]", "description": "Elements from index 2 to end"},
+                            {"name": "Full slice", "syntax": "sequence[:]", "description": "Full copy of sequence"}
+                        ]
+                    },
+                    "advanced": {
+                        "negative_indices": {
+                            "description": "Count from end of sequence",
+                            "examples": [
+                                {"syntax": "sequence[-3:]", "description": "Last three elements"},
+                                {"syntax": "sequence[:-2]", "description": "All but last two elements"},
+                                {"syntax": "sequence[-5:-2]", "description": "From fifth-last to third-last"}
+                            ]
+                        },
+                        "step_values": {
+                            "description": "Control iteration through sequence",
+                            "examples": [
+                                {"syntax": "sequence[::2]", "description": "Every second element"},
+                                {"syntax": "sequence[1::2]", "description": "Every second element starting from index 1"},
+                                {"syntax": "sequence[::-1]", "description": "Reverse sequence"},
+                                {"syntax": "sequence[4:1:-1]", "description": "Reverse slice from index 4 to 2"}
+                            ]
+                        }
+                    }
+                },
+                "supported_types": [
+                    {"name": "Lists", "example": "my_list[1:4]"},
+                    {"name": "Strings", "example": "text[2:5]"},
+                    {"name": "Tuples", "example": "my_tuple[1:4]"},
+                    {"name": "Range", "example": "range_obj[1:4]"},
+                    {"name": "Bytes", "example": "bytes_obj[1:4]"},
+                    {"name": "Bytearray", "example": "bytearray_obj[1:4]"}
+                ],
+                "assignment": {
+                    "description": "Replace slice with new values",
+                    "examples": [
+                        {"syntax": "list[2:5] = [6, 7, 8]", "description": "Replace elements 2-4"},
+                        {"syntax": "list[1:1] = [2, 3]", "description": "Insert at position 1"},
+                        {"syntax": "list[2:5] = []", "description": "Delete elements 2-4"}
+                    ]
+                }
+            },
+            "Concatenation": {
+                "description": "Combine sequences using + operator",
+                "examples": [
+                    {"type": "Lists", "example": "[1, 2] + [3, 4]"},
+                    {"type": "Strings", "example": "'Hello' + 'World'"},
+                    {"type": "Tuples", "example": "(1, 2) + (3, 4)"}
+                ]
+            },
+            "Repetition": {
+                "description": "Repeat sequences using * operator",
+                "examples": [
+                    {"type": "Lists", "example": "[1, 2] * 3"},
+                    {"type": "Strings", "example": "'Ha' * 3"},
+                    {"type": "Tuples", "example": "(1, 2) * 2"}
+                ]
+            }
+        }
+    },
+    "Control Flow": {
+        "description": "Structures that control program execution",
+        "types": {
+            "Conditionals": {
+                "description": "Control execution based on conditions",
+                "structures": {
+                    "if": {
+                        "syntax": "if condition:",
+                        "description": "Executes code block if condition evaluates to True",
+                        "example": "if x > 0:\n    print('Positive')"
+                    },
+                    "if_else": {
+                        "syntax": "if condition:\n    # code\nelse:",
+                        "description": "Executes first block if True, else block if False",
+                        "example": "if age >= 18:\n    print('Adult')\nelse:\n    print('Minor')"
+                    },
+                    "if_elif_else": {
+                        "syntax": "if condition1:\n    # code\nelif condition2:\n    # code\nelse:",
+                        "description": "Chains multiple conditions, executes first True condition",
+                        "example": "if score >= 90:\n    grade = 'A'\nelif score >= 80:\n    grade = 'B'\nelse:\n    grade = 'C'"
+                    },
+                    "nested_if": {
+                        "syntax": "if outer_condition:\n    if inner_condition:",
+                        "description": "Conditional statements inside other conditionals",
+                        "example": "if is_valid:\n    if has_permission:\n        perform_action()"
+                    },
+                    "ternary": {
+                        "syntax": "value_if_true if condition else value_if_false",
+                        "description": "Single-line conditional expression",
+                        "example": "status = 'pass' if score >= 60 else 'fail'"
+                    }
+                }
+            },
+            "Loops": {
+                "description": "Structures for repeated execution",
+                "types": {
+                    "for_loops": {
+                        "basic": {"syntax": "for item in iterable:", "description": "Process each item in sequence"},
+                        "range_based": {"syntax": "for i in range(start, stop, step):", "description": "Iterate using index"},
+                        "enumerate": {"syntax": "for index, value in enumerate(iterable):", "description": "Get both index and value"},
+                        "dictionary": {
+                            "keys": {"syntax": "for key in dict.keys():", "description": "Iterate keys"},
+                            "values": {"syntax": "for value in dict.values():", "description": "Iterate values"},
+                            "items": {"syntax": "for key, value in dict.items():", "description": "Iterate both"}
+                        }
+                    },
+                    "while_loops": {
+                        "basic": {"syntax": "while condition:", "description": "Execute while condition is True"},
+                        "counter": {"syntax": "while counter < limit:", "description": "Count-controlled loop"},
+                        "infinite": {"syntax": "while True:", "description": "Run until break"},
+                        "with_else": {"syntax": "while condition:\n    # do something\nelse:", "description": "Execute else if loop completes normally"}
+                    },
+                    "nested_loops": {
+                        "nested_for": {"syntax": "for i in range(n):\n    for j in range(m):", "description": "Loop within loop"},
+                        "for_in_while": {"syntax": "while condition:\n    for item in iterable:", "description": "For loop inside while"},
+                        "while_in_for": {"syntax": "for item in iterable:\n    while condition:", "description": "While loop inside for"},
+                        "multiple_nested": {"syntax": "for i in range(n):\n    for j in range(m):\n        for k in range(p):", "description": "Triple nested loops"}
+                    }
+                },
+                "control": {
+                    "break": {"description": "Exit a loop immediately"},
+                    "continue": {"description": "Skip to next iteration"},
+                    "else": {"description": "Execute when loop completes normally (no break)"},
+                    "pass": {"description": "Null operation - do nothing"}
+                }
+            }
+        }
+    }
+}

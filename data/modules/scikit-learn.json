@@ -1,0 +1,101 @@
+{
+    "Scikit-learn": {
+        "description": "Machine learning library for data mining and data analysis",
+        "preprocessing": {
+            "description": "Data preprocessing tools",
+            "scalers": [
+                {"name": "StandardScaler()", "description": "Standardize features by removing mean and scaling to unit variance"},
+                {"name": "MinMaxScaler()", "description": "Scale features to a given range"},
+                {"name": "RobustScaler()", "description": "Scale features using statistics that are robust to outliers"},
+                {"name": "Normalizer()", "description": "Scale input vectors individually to unit norm"}
+            ],
+            "encoders": [
+                {"name": "LabelEncoder()", "description": "Encode target labels with value between 0 and n_classes-1"},
+                {"name": "OneHotEncoder()", "description": "Encode categorical features as one-hot numeric array"},
+                {"name": "OrdinalEncoder()", "description": "Encode categorical features as ordinal numbers"}
+            ],
+            "feature_selection": [
+                {"name": "SelectKBest()", "description": "Select features according to k highest scores"},
+                {"name": "RFE()", "description": "Feature ranking with recursive feature elimination"},
+                {"name": "SelectFromModel()", "description": "Meta-transformer for selecting features based on importance weights"}
+            ]
+        },
+        "supervised_learning": {
+            "description": "Algorithms for supervised learning",
+            "classification": [
+                {"name": "LogisticRegression()", "description": "Logistic Regression classifier"},
+                {"name": "SVC()", "description": "Support Vector Classification"},
+                {"name": "RandomForestClassifier()", "description": "Random Forest classifier"},
+                {"name": "DecisionTreeClassifier()", "description": "Decision Tree classifier"},
+                {"name": "KNeighborsClassifier()", "description": "K-nearest neighbors classifier"},
+                {"name": "GradientBoostingClassifier()", "description": "Gradient Boosting classifier"}
+            ],
+            "regression": [
+                {"name": "LinearRegression()", "description": "Ordinary least squares Linear Regression"},
+                {"name": "Ridge()", "description": "Linear regression with L2 regularization"},
+                {"name": "Lasso()", "description": "Linear regression with L1 regularization"},
+                {"name": "SVR()", "description": "Support Vector Regression"},
+                {"name": "RandomForestRegressor()", "description": "Random Forest regressor"},
+                {"name": "GradientBoostingRegressor()", "description": "Gradient Boosting regressor"}
+            ]
+        },
+        "unsupervised_learning": {
+            "description": "Algorithms for unsupervised learning",
+            "clustering": [
+                {"name": "KMeans()", "description": "K-Means clustering"},
+                {"name": "DBSCAN()", "description": "Density-Based Spatial Clustering"},
+                {"name": "AgglomerativeClustering()", "description": "Hierarchical clustering"},
+                {"name": "SpectralClustering()", "description": "Spectral clustering"}
+            ],
+            "dimensionality_reduction": [
+                {"name": "PCA()", "description": "Principal Component Analysis"},
+                {"name": "TruncatedSVD()", "description": "Dimensionality reduction using truncated SVD"},
+                {"name": "TSNE()", "description": "t-distributed Stochastic Neighbor Embedding"}
+            ]
+        },
+        "model_selection": {
+            "description": "Tools for model selection and evaluation",
+            "functions": [
+                {"name": "train_test_split()", "description": "Split arrays into random train and test subsets"},
+                {"name": "cross_val_score()", "description": "Evaluate score by cross-validation"},
+                {"name": "GridSearchCV()", "description": "Exhaustive search over specified parameter values"},
+                {"name": "RandomizedSearchCV()", "description": "Randomized search over parameters"},
+                {"name": "learning_curve()", "description": "Learning curve visualization"}
+            ]
+        },
+        "metrics": {
+            "description": "Metrics for model evaluation",
+            "classification_metrics": [
+                {"name": "accuracy_score()", "description": "Calculate accuracy classification score"},
+                {"name": "precision_score()", "description": "Calculate precision score"},
+                {"name": "recall_score()", "description": "Calculate recall score"},
+                {"name": "f1_score()", "description": "Calculate F1 score"},
+                {"name": "confusion_matrix()", "description": "Compute confusion matrix"},
+                {"name": "roc_curve()", "description": "Compute ROC curve"},
+                {"name": "auc()", "description": "Compute Area Under the Curve"}
+            ],
+            "regression_metrics": [
+                {"name": "mean_squared_error()", "description": "Mean squared error regression loss"},
+                {"name": "mean_absolute_error()", "description": "Mean absolute error regression loss"},
+                {"name": "r2_score()", "description": "R² (coefficient of determination) regression score"}
+            ]
+        },
+        "pipeline": {
+            "description": "Tools for combining transformers and estimators",
+            "classes": [
+                {"name": "Pipeline()", "description": "Chain multiple estimators into one"},
+                {"name": "FeatureUnion()", "description": "Concatenate results of multiple transformer objects"},
+                {"name": "make_pipeline()", "description": "Construct a Pipeline from given estimators"}
+            ]
+        },
+        "ensemble_methods": {
+            "description": "Ensemble learning methods",
+            "methods": [
+                {"name": "VotingClassifier()", "description": "Soft/hard voting of multiple classifiers"},
+                {"name": "BaggingClassifier()", "description": "Bagging ensemble classifier"},
+                {"name": "AdaBoostClassifier()", "description": "AdaBoost classifier"},
+                {"name": "StackingClassifier()", "description": "Stacking ensemble classifier"}
+            ]
+        }
+    }
+} 

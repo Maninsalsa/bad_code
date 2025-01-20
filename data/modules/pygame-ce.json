@@ -1,0 +1,121 @@
+{
+    "Pygame CE": {
+        "description": "Set of Python modules designed for writing video games - Community Edition",
+        "display": {
+            "description": "Display and window management",
+            "setup": [
+                {"name": "pygame.init()", "description": "Initialize all pygame modules"},
+                {"name": "pygame.display.set_mode((width, height))", "description": "Create game window"},
+                {"name": "pygame.display.set_caption()", "description": "Set window title"},
+                {"name": "pygame.display.flip()", "description": "Update entire display"},
+                {"name": "pygame.display.update()", "description": "Update portions of display"}
+            ],
+            "surface": [
+                {"name": "Surface((width, height))", "description": "Create new surface"},
+                {"name": "surface.fill(color)", "description": "Fill surface with color"},
+                {"name": "surface.blit(source, dest)", "description": "Draw one surface onto another"},
+                {"name": "surface.convert()", "description": "Change pixel format"},
+                {"name": "surface.convert_alpha()", "description": "Change pixel format including alpha"}
+            ]
+        },
+        "events": {
+            "description": "Event handling system",
+            "basics": [
+                {"name": "pygame.event.get()", "description": "Get events from queue"},
+                {"name": "pygame.event.poll()", "description": "Get single event from queue"},
+                {"name": "pygame.event.wait()", "description": "Wait for event"},
+                {"name": "pygame.event.clear()", "description": "Clear event queue"}
+            ],
+            "types": [
+                {"name": "QUIT", "description": "Window close button clicked"},
+                {"name": "KEYDOWN", "description": "Key pressed"},
+                {"name": "KEYUP", "description": "Key released"},
+                {"name": "MOUSEBUTTONDOWN", "description": "Mouse button pressed"},
+                {"name": "MOUSEBUTTONUP", "description": "Mouse button released"},
+                {"name": "MOUSEMOTION", "description": "Mouse moved"}
+            ]
+        },
+        "drawing": {
+            "description": "Drawing functions",
+            "shapes": [
+                {"name": "pygame.draw.rect()", "description": "Draw rectangle"},
+                {"name": "pygame.draw.circle()", "description": "Draw circle"},
+                {"name": "pygame.draw.polygon()", "description": "Draw polygon"},
+                {"name": "pygame.draw.line()", "description": "Draw line"},
+                {"name": "pygame.draw.lines()", "description": "Draw multiple lines"}
+            ],
+            "colors": [
+                {"name": "pygame.Color(r, g, b)", "description": "Create RGB color"},
+                {"name": "pygame.Color(r, g, b, a)", "description": "Create RGBA color"}
+            ]
+        },
+        "sprites": {
+            "description": "Sprite and sprite group handling",
+            "classes": [
+                {"name": "pygame.sprite.Sprite", "description": "Base class for game objects"},
+                {"name": "pygame.sprite.Group", "description": "Container class for sprites"},
+                {"name": "pygame.sprite.RenderPlain", "description": "Group class that can draw sprites"},
+                {"name": "pygame.sprite.RenderUpdates", "description": "Group class that tracks changes"}
+            ],
+            "collision": [
+                {"name": "sprite.collide_rect()", "description": "Rectangle collision detection"},
+                {"name": "sprite.collide_circle()", "description": "Circle collision detection"},
+                {"name": "sprite.collide_mask()", "description": "Pixel-perfect collision detection"}
+            ]
+        },
+        "input": {
+            "description": "Input handling",
+            "keyboard": [
+                {"name": "pygame.key.get_pressed()", "description": "Get state of all keyboard buttons"},
+                {"name": "pygame.key.name()", "description": "Get name of key"},
+                {"name": "pygame.key.get_mods()", "description": "Get state of modifier keys"}
+            ],
+            "mouse": [
+                {"name": "pygame.mouse.get_pos()", "description": "Get mouse position"},
+                {"name": "pygame.mouse.get_pressed()", "description": "Get state of mouse buttons"},
+                {"name": "pygame.mouse.set_visible()", "description": "Show/hide mouse cursor"}
+            ]
+        },
+        "sound": {
+            "description": "Audio playback",
+            "basics": [
+                {"name": "pygame.mixer.init()", "description": "Initialize sound system"},
+                {"name": "pygame.mixer.Sound()", "description": "Load sound file"},
+                {"name": "sound.play()", "description": "Play sound"},
+                {"name": "sound.stop()", "description": "Stop sound playback"}
+            ],
+            "music": [
+                {"name": "pygame.mixer.music.load()", "description": "Load music file"},
+                {"name": "pygame.mixer.music.play()", "description": "Play music"},
+                {"name": "pygame.mixer.music.stop()", "description": "Stop music playback"}
+            ]
+        },
+        "time": {
+            "description": "Time management",
+            "functions": [
+                {"name": "pygame.time.Clock()", "description": "Create game clock"},
+                {"name": "clock.tick(fps)", "description": "Control game framerate"},
+                {"name": "pygame.time.get_ticks()", "description": "Get milliseconds since init"},
+                {"name": "pygame.time.wait()", "description": "Pause game execution"}
+            ]
+        },
+        "image": {
+            "description": "Image handling",
+            "functions": [
+                {"name": "pygame.image.load()", "description": "Load image from file"},
+                {"name": "pygame.image.save()", "description": "Save surface to file"},
+                {"name": "pygame.transform.scale()", "description": "Resize image"},
+                {"name": "pygame.transform.rotate()", "description": "Rotate image"}
+            ]
+        },
+        "font": {
+            "description": "Text rendering",
+            "functions": [
+                {"name": "pygame.font.Font()", "description": "Create font object"},
+                {"name": "font.render()", "description": "Render text to surface"},
+                {"name": "font.size()", "description": "Get size of rendered text"},
+                {"name": "pygame.font.get_fonts()", "description": "Get available font names"}
+            ]
+        }
+    }
+} 

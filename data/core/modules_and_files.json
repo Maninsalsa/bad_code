@@ -1,0 +1,118 @@
+{
+    "Modules and Files": {
+        "description": "Tools and operations for working with external files and modules",
+        "moduleOperations": {
+            "description": "Commands for importing and managing Python modules",
+            "operations": [
+                {"name": "import", "description": "Import a module to use its contents"},
+                {"name": "from...import", "description": "Import specific items from a module"},
+                {"name": "as", "description": "Create an alias for imported module/item"},
+                {"name": "if __name__ == '__main__'", "description": "Execute code only if file run directly"}
+            ]
+        },
+        "packageManagement": {
+            "description": "Tools for managing Python packages and dependencies",
+            "tools": [
+                {"name": "pip", "description": "Package installer for Python"},
+                {"name": "requirements.txt", "description": "File listing project dependencies"}
+            ]
+        },
+        "fileOperations": {
+            "description": "Methods for reading and writing files",
+            "basicOperations": [
+                {"name": "open()", "description": "Open a file and return file object"},
+                {"name": "close()", "description": "Close file and free up resources"},
+                {"name": "with", "description": "Context manager for automatic file closing"}
+            ],
+            "readOperations": [
+                {"name": "read()", "description": "Read entire file content"},
+                {"name": "readline()", "description": "Read one line from file"},
+                {"name": "readlines()", "description": "Read all lines into a list"}
+            ],
+            "writeOperations": [
+                {"name": "write()", "description": "Write string to file"},
+                {"name": "writelines()", "description": "Write list of strings to file"}
+            ]
+        },
+        "fileModes": {
+            "description": "Access modes for file operations",
+            "modes": [
+                {"name": "r", "description": "Read mode (default)"},
+                {"name": "w", "description": "Write mode (overwrites)"},
+                {"name": "a", "description": "Append mode"},
+                {"name": "x", "description": "Exclusive creation"},
+                {"name": "b", "description": "Binary mode"},
+                {"name": "t", "description": "Text mode (default)"}
+            ]
+        },
+        "osOperations": {
+            "description": "System-level file and directory operations",
+            "operations": [
+                {"name": "os.path", "description": "File path operations"},
+                {"name": "os.makedirs", "description": "Create directories"},
+                {"name": "os.remove", "description": "Delete files"},
+                {"name": "os.listdir", "description": "List directory contents"}
+            ]
+        },
+        "builtInModules": {
+            "description": "Standard library modules that come with Python installation",
+            "modules": [
+                {"name": "os", "description": "Operating system interface"},
+                {"name": "sys", "description": "System-specific parameters and functions"},
+                {"name": "math", "description": "Mathematical functions"},
+                {"name": "random", "description": "Generate random numbers"},
+                {"name": "datetime", "description": "Date and time handling"},
+                {"name": "json", "description": "JSON encoder and decoder"},
+                {"name": "csv", "description": "CSV file reading and writing"},
+                {"name": "re", "description": "Regular expressions"},
+                {"name": "collections", "description": "Specialized container datatypes"},
+                {"name": "itertools", "description": "Functions for working with iterators"},
+                {"name": "functools", "description": "Higher-order functions and operations"},
+                {"name": "time", "description": "Time access and conversions"},
+                {"name": "string", "description": "Common string operations"},
+                {"name": "pathlib", "description": "Object-oriented filesystem paths"},
+                {"name": "pickle", "description": "Python object serialization"},
+                {"name": "sqlite3", "description": "SQLite database interface"},
+                {"name": "argparse", "description": "Command-line argument parsing"},
+                {"name": "logging", "description": "Logging facility"},
+                {"name": "threading", "description": "Thread-based parallelism"},
+                {"name": "multiprocessing", "description": "Process-based parallelism"},
+                {"name": "urllib", "description": "URL handling modules"},
+                {"name": "socket", "description": "Low-level networking interface"},
+                {"name": "email", "description": "Email handling package"},
+                {"name": "hashlib", "description": "Secure hash and message digest algorithms"},
+                {"name": "copy", "description": "Shallow and deep copy operations"},
+                {"name": "statistics", "description": "Mathematical statistics functions"},
+                {"name": "unittest", "description": "Unit testing framework"},
+                {"name": "xml", "description": "XML processing modules"},
+                {"name": "zipfile", "description": "Work with ZIP archives"},
+                {"name": "configparser", "description": "Configuration file parser"}
+            ]
+        },
+        "popularExternalModules": {
+            "description": "Commonly used third-party modules from PyPI",
+            "modules": [
+                {"name": "numpy", "description": "Numerical computing with powerful array operations"},
+                {"name": "pandas", "description": "Data manipulation and analysis library"},
+                {"name": "matplotlib", "description": "Comprehensive library for creating static, animated, and interactive visualizations"},
+                {"name": "requests", "description": "HTTP library for making web requests"},
+                {"name": "beautifulsoup4", "description": "Library for pulling data out of HTML and XML files"},
+                {"name": "scikit-learn", "description": "Machine learning library for data mining and data analysis"},
+                {"name": "tensorflow", "description": "Open source platform for machine learning"},
+                {"name": "pytorch", "description": "Machine learning library for applications like computer vision and NLP"},
+                {"name": "django", "description": "High-level web framework for rapid development"},
+                {"name": "flask", "description": "Lightweight web application framework"},
+                {"name": "selenium", "description": "Tool for web browser automation"},
+                {"name": "pillow", "description": "Python Imaging Library for image processing"},
+                {"name": "pytest", "description": "Testing framework making it easy to write simple and scalable tests"},
+                {"name": "sqlalchemy", "description": "SQL toolkit and Object Relational Mapper"},
+                {"name": "opencv-python", "description": "Computer vision and image processing library"},
+                {"name": "pygame-ce", "description": "Set of Python modules designed for writing video games"},
+                {"name": "scrapy", "description": "Framework for extracting data from websites"},
+                {"name": "pyyaml", "description": "YAML parser and emitter for Python"},
+                {"name": "openpyxl", "description": "Library for reading and writing Excel files"},
+                {"name": "psycopg2", "description": "PostgreSQL adapter for Python"}
+            ]
+        }
+    }
+}

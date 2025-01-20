@@ -1,0 +1,107 @@
+{
+    "PyTorch": {
+        "description": "Machine learning library for applications like computer vision and NLP",
+        "tensors": {
+            "description": "Multi-dimensional arrays fundamental to PyTorch",
+            "creation": [
+                {"name": "torch.tensor(data)", "description": "Create tensor from data"},
+                {"name": "torch.zeros(size)", "description": "Create tensor filled with zeros"},
+                {"name": "torch.ones(size)", "description": "Create tensor filled with ones"},
+                {"name": "torch.randn(size)", "description": "Create tensor with random normal distribution"},
+                {"name": "torch.arange(start, end, step)", "description": "Create 1-D tensor with sequence"}
+            ],
+            "operations": [
+                {"name": "tensor.to(device)", "description": "Move tensor to CPU/GPU"},
+                {"name": "tensor.reshape(shape)", "description": "Change tensor shape"},
+                {"name": "tensor.view(shape)", "description": "Return new view of tensor"},
+                {"name": "tensor.squeeze()", "description": "Remove single-dimensional entries"},
+                {"name": "tensor.unsqueeze(dim)", "description": "Add single-dimensional entry"}
+            ]
+        },
+        "neural_network": {
+            "description": "Components for building neural networks",
+            "layers": [
+                {"name": "nn.Linear(in_features, out_features)", "description": "Fully connected layer"},
+                {"name": "nn.Conv2d(in_channels, out_channels, kernel_size)", "description": "2D convolution layer"},
+                {"name": "nn.LSTM(input_size, hidden_size)", "description": "Long Short-Term Memory layer"},
+                {"name": "nn.Dropout(p)", "description": "Dropout layer for regularization"},
+                {"name": "nn.BatchNorm2d(num_features)", "description": "Batch normalization layer"},
+                {"name": "nn.MaxPool2d(kernel_size)", "description": "Max pooling layer"}
+            ],
+            "activations": [
+                {"name": "nn.ReLU()", "description": "Rectified Linear Unit activation"},
+                {"name": "nn.Sigmoid()", "description": "Sigmoid activation function"},
+                {"name": "nn.Tanh()", "description": "Hyperbolic tangent activation"},
+                {"name": "nn.Softmax(dim)", "description": "Softmax activation function"}
+            ]
+        },
+        "model_building": {
+            "description": "Tools for creating and training models",
+            "components": [
+                {"name": "nn.Module", "description": "Base class for all neural network modules"},
+                {"name": "nn.Sequential", "description": "Sequential container of modules"},
+                {"name": "model.train()", "description": "Set model to training mode"},
+                {"name": "model.eval()", "description": "Set model to evaluation mode"},
+                {"name": "model.parameters()", "description": "Iterator over model parameters"},
+                {"name": "model.to(device)", "description": "Move model to CPU/GPU"}
+            ]
+        },
+        "optimization": {
+            "description": "Tools for model optimization",
+            "optimizers": [
+                {"name": "optim.Adam(params)", "description": "Adam optimization algorithm"},
+                {"name": "optim.SGD(params)", "description": "Stochastic gradient descent"},
+                {"name": "optim.RMSprop(params)", "description": "RMSprop optimizer"},
+                {"name": "optim.Adagrad(params)", "description": "Adagrad optimizer"}
+            ],
+            "learning_rate": [
+                {"name": "lr_scheduler.StepLR(optimizer)", "description": "Step learning rate scheduler"},
+                {"name": "lr_scheduler.ReduceLROnPlateau(optimizer)", "description": "Reduce learning rate when metric plateaus"}
+            ]
+        },
+        "loss_functions": {
+            "description": "Loss functions for training",
+            "functions": [
+                {"name": "nn.CrossEntropyLoss()", "description": "Cross entropy loss"},
+                {"name": "nn.BCELoss()", "description": "Binary cross entropy loss"},
+                {"name": "nn.MSELoss()", "description": "Mean squared error loss"},
+                {"name": "nn.L1Loss()", "description": "Mean absolute error loss"}
+            ]
+        },
+        "data_handling": {
+            "description": "Tools for data loading and preprocessing",
+            "components": [
+                {"name": "torch.utils.data.Dataset", "description": "Abstract class for datasets"},
+                {"name": "torch.utils.data.DataLoader", "description": "Data loading utility"},
+                {"name": "torchvision.transforms", "description": "Common image transformations"},
+                {"name": "torch.utils.data.random_split", "description": "Randomly split dataset"}
+            ]
+        },
+        "model_saving": {
+            "description": "Methods for saving and loading models",
+            "functions": [
+                {"name": "torch.save(model.state_dict(), path)", "description": "Save model state"},
+                {"name": "model.load_state_dict(torch.load(path))", "description": "Load model state"},
+                {"name": "torch.save(checkpoint, path)", "description": "Save checkpoint"},
+                {"name": "torch.load(path)", "description": "Load saved object"}
+            ]
+        },
+        "gpu_acceleration": {
+            "description": "GPU acceleration utilities",
+            "functions": [
+                {"name": "torch.cuda.is_available()", "description": "Check if CUDA is available"},
+                {"name": "torch.device()", "description": "Specify device (CPU/GPU)"},
+                {"name": "torch.cuda.device_count()", "description": "Get number of GPUs"},
+                {"name": "torch.cuda.current_device()", "description": "Get current GPU device"}
+            ]
+        },
+        "distributed": {
+            "description": "Distributed training utilities",
+            "components": [
+                {"name": "nn.DataParallel", "description": "Wrapper for parallel GPU usage"},
+                {"name": "nn.DistributedDataParallel", "description": "Distributed data parallel training"},
+                {"name": "torch.distributed", "description": "Distributed communication package"}
+            ]
+        }
+    }
+} 

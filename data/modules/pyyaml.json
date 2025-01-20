@@ -1,0 +1,99 @@
+{
+    "PyYAML": {
+        "description": "YAML parser and emitter for Python",
+        "loading": {
+            "description": "Functions for loading YAML content",
+            "basic_loading": [
+                {"name": "yaml.load(stream, Loader=SafeLoader)", "description": "Load YAML document safely"},
+                {"name": "yaml.safe_load(stream)", "description": "Load YAML document with safe loader"},
+                {"name": "yaml.load_all(stream)", "description": "Load all YAML documents from stream"},
+                {"name": "yaml.safe_load_all(stream)", "description": "Load all YAML documents safely"}
+            ],
+            "loader_types": [
+                {"name": "SafeLoader", "description": "Safe YAML loader (recommended)"},
+                {"name": "BaseLoader", "description": "Basic YAML loader"},
+                {"name": "FullLoader", "description": "Full YAML loader with some restrictions"},
+                {"name": "UnsafeLoader", "description": "Unsafe loader (not recommended)"}
+            ]
+        },
+        "dumping": {
+            "description": "Functions for dumping Python objects to YAML",
+            "basic_dumping": [
+                {"name": "yaml.dump(data)", "description": "Convert Python object to YAML"},
+                {"name": "yaml.safe_dump(data)", "description": "Safely convert Python object to YAML"},
+                {"name": "yaml.dump_all(documents)", "description": "Dump multiple YAML documents"},
+                {"name": "yaml.safe_dump_all(documents)", "description": "Safely dump multiple documents"}
+            ],
+            "dumper_types": [
+                {"name": "SafeDumper", "description": "Safe YAML dumper (recommended)"},
+                {"name": "Dumper", "description": "Basic YAML dumper"},
+                {"name": "BaseDumper", "description": "Base YAML dumper"}
+            ]
+        },
+        "configuration": {
+            "description": "Configuration options for YAML operations",
+            "dump_options": [
+                {"name": "default_flow_style", "description": "Control collection formatting"},
+                {"name": "default_style", "description": "Control scalar formatting"},
+                {"name": "encoding", "description": "Specify output encoding"},
+                {"name": "explicit_start", "description": "Include document start marker"},
+                {"name": "explicit_end", "description": "Include document end marker"},
+                {"name": "width", "description": "Set line width for wrapping"},
+                {"name": "indent", "description": "Set indentation level"}
+            ],
+            "load_options": [
+                {"name": "encoding", "description": "Specify input encoding"},
+                {"name": "version", "description": "Specify YAML version"},
+                {"name": "allow_unicode", "description": "Allow Unicode characters"}
+            ]
+        },
+        "tags": {
+            "description": "YAML tag handling",
+            "built_in_tags": [
+                {"name": "!!str", "description": "String type"},
+                {"name": "!!int", "description": "Integer type"},
+                {"name": "!!float", "description": "Float type"},
+                {"name": "!!bool", "description": "Boolean type"},
+                {"name": "!!null", "description": "Null type"},
+                {"name": "!!seq", "description": "Sequence type"},
+                {"name": "!!map", "description": "Mapping type"}
+            ],
+            "custom_tags": [
+                {"name": "add_constructor()", "description": "Add custom tag constructor"},
+                {"name": "add_representer()", "description": "Add custom tag representer"},
+                {"name": "add_implicit_resolver()", "description": "Add implicit tag resolver"}
+            ]
+        },
+        "error_handling": {
+            "description": "Exception handling for YAML operations",
+            "exceptions": [
+                {"name": "YAMLError", "description": "Base class for YAML exceptions"},
+                {"name": "MarkedYAMLError", "description": "Exception with position information"},
+                {"name": "YAMLLoadError", "description": "Error during YAML loading"},
+                {"name": "YAMLDumpError", "description": "Error during YAML dumping"}
+            ]
+        },
+        "advanced_features": {
+            "description": "Advanced YAML functionality",
+            "features": [
+                {"name": "yaml.add_path_resolver()", "description": "Add path-based resolver"},
+                {"name": "yaml.compose()", "description": "Compose single document"},
+                {"name": "yaml.compose_all()", "description": "Compose multiple documents"},
+                {"name": "yaml.emit()", "description": "Emit YAML events"}
+            ]
+        },
+        "events": {
+            "description": "YAML event handling",
+            "event_types": [
+                {"name": "StreamStartEvent", "description": "Start of YAML stream"},
+                {"name": "StreamEndEvent", "description": "End of YAML stream"},
+                {"name": "DocumentStartEvent", "description": "Start of document"},
+                {"name": "DocumentEndEvent", "description": "End of document"},
+                {"name": "SequenceStartEvent", "description": "Start of sequence"},
+                {"name": "SequenceEndEvent", "description": "End of sequence"},
+                {"name": "MappingStartEvent", "description": "Start of mapping"},
+                {"name": "MappingEndEvent", "description": "End of mapping"}
+            ]
+        }
+    }
+} 

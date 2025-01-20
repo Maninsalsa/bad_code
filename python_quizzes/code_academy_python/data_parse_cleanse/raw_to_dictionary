@@ -1,0 +1,218 @@
+import json
+import re
+
+
+
+raw_data = """
+Card Name              | Image URL                      | Rarity       | Card Number | Flavor Text                                 | Year Printed | Competitive Price
+-----------------------|--------------------------------|--------------|-------------|---------------------------------------------|--------------|-------------------
+Black Lotus            | https://example.com/image_1.jpg | Mythic Rare  | 1           | A moment in eternity, a blink in an eye.   | 1993         | 5.00
+Ancestral Recall       | https://example.com/image_2.jpg | Mythic Rare  | 2           | Memories preserved beyond the ages.        | 1994         | 5.75
+Mox Sapphire           | https://example.com/image_3.jpg | Mythic Rare  | 3           | Ancient power to be unleashed.             | 1995         | 6.50
+Timetwister            | https://example.com/image_4.jpg | Mythic Rare  | 4           | For every action, there is an equal reaction. | 1996     | 7.25
+Mox Jet                | https://example.com/image_5.jpg | Mythic Rare  | 5           | Darkness lurks within.                     | 1997         | 8.00
+Mox Pearl              | https://example.com/image_6.jpg | Mythic Rare  | 6           | A moment in eternity, a blink in an eye.   | 1998         | 8.75
+Mox Ruby               | https://example.com/image_7.jpg | Mythic Rare  | 7           | Memories preserved beyond the ages.        | 1999         | 9.50
+Mox Emerald            | https://example.com/image_8.jpg | Mythic Rare  | 8           | Ancient power to be unleashed.             | 2000         | 10.25
+Time Walk              | https://example.com/image_9.jpg | Mythic Rare  | 9           | For every action, there is an equal reaction. | 2001     | 11.00
+Library of Alexandria  | https://example.com/image_10.jpg| Mythic Rare  | 10          | Darkness lurks within.                     | 2002         | 11.75
+Chaos Orb              | https://example.com/image_11.jpg| Mythic Rare  | 11          | A moment in eternity, a blink in an eye.   | 2003         | 12.50
+Forcefield             | https://example.com/image_12.jpg| Mythic Rare  | 12          | Memories preserved beyond the ages.        | 2004         | 13.25
+Gauntlet of Might      | https://example.com/image_13.jpg| Mythic Rare  | 13          | Ancient power to be unleashed.             | 2005         | 14.00
+Mana Vault             | https://example.com/image_14.jpg| Mythic Rare  | 14          | For every action, there is an equal reaction. | 2006     | 14.75
+Sol Ring               | https://example.com/image_15.jpg| Mythic Rare  | 15          | Darkness lurks within.                     | 2007         | 15.50
+Mind Twist             | https://example.com/image_16.jpg| Mythic Rare  | 16          | A moment in eternity, a blink in an eye.   | 2008         | 16.25
+Demonic Tutor          | https://example.com/image_17.jpg| Mythic Rare  | 17          | Memories preserved beyond the ages.        | 2009         | 17.00
+Wheel of Fortune       | https://example.com/image_18.jpg| Mythic Rare  | 18          | Ancient power to be unleashed.             | 2010         | 17.75
+Sword of Fire and Ice  | https://example.com/image_19.jpg| Mythic Rare  | 19          | For every action, there is an equal reaction. | 2011     | 18.50
+Tarmogoyf              | https://example.com/image_20.jpg| Mythic Rare  | 20          | Darkness lurks within.                     | 2012         | 19.25
+Snapcaster Mage        | https://example.com/image_21.jpg| Mythic Rare  | 21          | A moment in eternity, a blink in an eye.   | 2013         | 20.00
+Liliana of the Veil    | https://example.com/image_22.jpg| Mythic Rare  | 22          | Memories preserved beyond the ages.        | 2014         | 20.75
+Dark Confidant         | https://example.com/image_23.jpg| Mythic Rare  | 23          | Ancient power to be unleashed.             | 2015         | 21.50
+Aether Vial            | https://example.com/image_24.jpg| Mythic Rare  | 24          | For every action, there is an equal reaction. | 2016     | 22.25
+Arcbound Ravager       | https://example.com/image_25.jpg| Mythic Rare  | 25          | Darkness lurks within.                     | 2017         | 23.00
+Vendilion Clique       | https://example.com/image_26.jpg| Mythic Rare  | 26          | A moment in eternity, a blink in an eye.   | 2018         | 23.75
+Jace, the Mind Sculptor| https://example.com/image_27.jpg| Mythic Rare  | 27          | Memories preserved beyond the ages.        | 2019         | 24.50
+Primeval Titan         | https://example.com/image_28.jpg| Mythic Rare  | 28          | Ancient power to be unleashed.             | 2020         | 25.25
+Karn Liberated         | https://example.com/image_29.jpg| Mythic Rare  | 29          | For every action, there is an equal reaction. | 2021     | 26.00
+Griselbrand            | https://example.com/image_30.jpg| Mythic Rare  | 30          | Darkness lurks within.                     | 2022         | 26.75
+Emrakul, the Aeons Torn| https://example.com/image_31.jpg| Mythic Rare  | 31          | A moment in eternity, a blink in an eye.    | 1993         | 27.50
+Force of Will          | https://example.com/image_32.jpg| Mythic Rare  | 32          | Memories preserved beyond the ages.         | 1994         | 28.25
+Show and Tell          | https://example.com/image_33.jpg| Mythic Rare  | 33          | Ancient power to be unleashed.              | 1995         | 29.00
+Wasteland              | https://example.com/image_34.jpg| Mythic Rare  | 34          | For every action, there is an equal reaction.| 1996        | 29.75
+Maze of Ith            | https://example.com/image_35.jpg| Mythic Rare  | 35          | Darkness lurks within.                      | 1997         | 30.50
+Blood Moon             | https://example.com/image_36.jpg| Mythic Rare  | 36          | A moment in eternity, a blink in an eye.    | 1998         | 31.25
+Umezawa's Jitte        | https://example.com/image_37.jpg| Mythic Rare  | 37          | Memories preserved beyond the ages.         | 1999         | 32.00
+Thoughtseize           | https://example.com/image_38.jpg| Mythic Rare  | 38          | Ancient power to be unleashed.              | 2000         | 32.75
+Ensnaring Bridge       | https://example.com/image_39.jpg| Mythic Rare  | 39          | For every action, there is an equal reaction.| 2001        | 33.50
+Gaea's Cradle          | https://example.com/image_40.jpg| Mythic Rare  | 40          | Darkness lurks within.                      | 2002         | 34.25
+Rishadan Port          | https://example.com/image_41.jpg| Mythic Rare  | 41          | A moment in eternity, a blink in an eye.    | 2003         | 35.00
+Aether Gust            | https://example.com/image_42.jpg| Mythic Rare  | 42          | Memories preserved beyond the ages.         | 2004         | 35.75
+Spell Pierce           | https://example.com/image_43.jpg| Mythic Rare  | 43          | Ancient power to be unleashed.              | 2005         | 36.50
+Lightning Bolt         | https://example.com/image_44.jpg| Mythic Rare  | 44          | For every action, there is an equal reaction.| 2006        | 37.25
+Birds of Paradise      | https://example.com/image_45.jpg| Mythic Rare  | 45          | Darkness lurks within.                      | 2007         | 38.00
+Serra Angel            | https://example.com/image_46.jpg| Mythic Rare  | 46          | A moment in eternity, a blink in an eye.    | 2008         | 38.75
+Shivan Dragon          | https://example.com/image_47.jpg| Mythic Rare  | 47          | Memories preserved beyond the ages.         | 2009         | 39.50
+Ball Lightning         | https://example.com/image_48.jpg| Mythic Rare  | 48          | Ancient power to be unleashed.              | 2010         | 40.25
+Swords to Plowshares   | https://example.com/image_49.jpg| Mythic Rare  | 49          | For every action, there is an equal reaction.| 2011        | 41.00
+Counterspell           | https://example.com/image_50.jpg| Mythic Rare  | 50          | Darkness lurks within.                      | 2012         | 41.75
+Noble Hierarch         | https://example.com/image_51.jpg| Mythic Rare  | 51          | A moment in eternity, a blink in an eye.    | 2013         | 42.50
+Lotus Petal            | https://example.com/image_52.jpg| Mythic Rare  | 52          | Memories preserved beyond the ages.         | 2014         | 43.25
+Brainstorm             | https://example.com/image_53.jpg| Mythic Rare  | 53          | Ancient power to be unleashed.              | 2015         | 44.00
+Sensei's Divining Top  | https://example.com/image_54.jpg| Mythic Rare  | 54          | For every action, there is an equal reaction.| 2016        | 44.75
+Mana Crypt             | https://example.com/image_55.jpg| Mythic Rare  | 55          | Darkness lurks within.                      | 2017         | 45.50
+City of Traitors       | https://example.com/image_56.jpg| Mythic Rare  | 56          | A moment in eternity, a blink in an eye.    | 2018         | 46.25
+Trinisphere            | https://example.com/image_57.jpg| Mythic Rare  | 57          | Memories preserved beyond the ages.         | 2019         | 47.00
+Smokestack             | https://example.com/image_58.jpg| Mythic Rare  | 58          | Ancient power to be unleashed.              | 2020         | 47.75
+Thalia, Guardian of Thraben| https://example.com/image_59.jpg| Mythic Rare | 59    | For every action, there is an equal reaction.| 2021     | 48.50
+Phyrexian Metamorph    | https://example.com/image_60.jpg| Mythic Rare  | 60          | Darkness lurks within.                      | 2022         | 49.25
+Goblin Lackey          | https://example.com/image_61.jpg| Mythic Rare  | 61          | A moment in eternity, a blink in an eye.    | 1993         | 50.00
+Lion's Eye Diamond     | https://example.com/image_62.jpg| Mythic Rare  | 62          | Memories preserved beyond the ages.         | 1994         | 50.75
+Mishra's Workshop      | https://example.com/image_63.jpg| Mythic Rare  | 63          | Ancient power to be unleashed.              | 1995         | 51.50
+Null Rod               | https://example.com/image_64.jpg| Mythic Rare  | 64          | For every action, there is an equal reaction.| 1996        | 52.25
+Containment Priest     | https://example.com/image_65.jpg| Mythic Rare  | 65          | Darkness lurks within.                      | 1997         | 53.00
+Torpor Orb             | https://example.com/image_66.jpg| Mythic Rare  | 66          | A moment in eternity, a blink in an eye.    | 1998         | 53.75
+Bloodghast             | https://example.com/image_67.jpg| Mythic Rare  | 67          | Memories preserved beyond the ages.         | 1999         | 54.50
+Phyrexian Obliterator  | https://example.com/image_68.jpg| Mythic Rare  | 68          | Ancient power to be unleashed.              | 2000         | 55.25
+Sword of Feast and Famine| https://example.com/image_69.jpg| Mythic Rare | 69      | For every action, there is an equal reaction.| 2001     | 56.00
+Spellskite             | https://example.com/image_70.jpg| Mythic Rare  | 70          | Darkness lurks within.                      | 2002         | 56.75
+Elvish Spirit Guide    | https://example.com/image_71.jpg| Mythic Rare  | 71          | A moment in eternity, a blink in an eye.    | 2003         | 57.50
+Cabal Therapy          | https://example.com/image_72.jpg| Mythic Rare  | 72          | Memories preserved beyond the ages.         | 2004         | 58.25
+Rest in Peace          | https://example.com/image_73.jpg| Mythic Rare  | 73          | Ancient power to be unleashed.              | 2005         | 59.00
+Grafdigger's Cage      | https://example.com/image_74.jpg| Mythic Rare  | 74          | For every action, there is an equal reaction.| 2006        | 59.75
+Relic of Progenitus    | https://example.com/image_75.jpg| Mythic Rare  | 75          | Darkness lurks within.                      | 2007         | 60.50
+Abrupt Decay           | https://example.com
+Ancient Tomb           | https://example.com/image_76.jpg| Mythic Rare  | 76          | A moment in eternity, a blink in an eye.    | 2008         | 61.25
+Sphinx of the Steel Wind| https://example.com/image_77.jpg| Mythic Rare | 77          | Memories preserved beyond the ages.         | 2009         | 62.00
+Batterskull            | https://example.com/image_78.jpg| Mythic Rare  | 78          | Ancient power to be unleashed.              | 2010         | 62.75
+Blightsteel Colossus   | https://example.com/image_79.jpg| Mythic Rare  | 79          | For every action, there is an equal reaction.| 2011        | 63.50
+Avenger of Zendikar    | https://example.com/image_80.jpg| Mythic Rare  | 80          | Darkness lurks within.                      | 2012         | 64.25
+Consecrated Sphinx     | https://example.com/image_81.jpg| Mythic Rare  | 81          | A moment in eternity, a blink in an eye.    | 2013         | 65.00
+Thassa, God of the Sea | https://example.com/image_82.jpg| Mythic Rare  | 82          | Memories preserved beyond the ages.         | 2014         | 65.75
+Panharmonicon          | https://example.com/image_83.jpg| Mythic Rare  | 83          | Ancient power to be unleashed.              | 2015         | 66.50
+Walking Ballista       | https://example.com/image_84.jpg| Mythic Rare  | 84          | For every action, there is an equal reaction.| 2016        | 67.25
+Kalitas, Traitor of Ghet| https://example.com/image_85.jpg| Mythic Rare | 85         | Darkness lurks within.                      | 2017         | 68.00
+Iona, Shield of Emeria | https://example.com/image_86.jpg| Mythic Rare  | 86          | A moment in eternity, a blink in an eye.    | 2018         | 68.75
+Omnath, Locus of Creation| https://example.com/image_87.jpg| Mythic Rare| 87         | Memories preserved beyond the ages.         | 2019         | 69.50
+Uro, Titan of Nature's Wrath| https://example.com/image_88.jpg| Mythic Rare| 88 | Ancient power to be unleashed.              | 2020         | 70.25
+Questing Beast         | https://example.com/image_89.jpg| Mythic Rare  | 89          | For every action, there is an equal reaction.| 2021        | 71.00
+Oko, Thief of Crowns   | https://example.com/image_90.jpg| Mythic Rare  | 90          | Darkness lurks within.                      | 2022         | 71.75
+Jace, Vryn's Prodigy   | https://example.com/image_91.jpg| Mythic Rare  | 91          | A moment in eternity, a blink in an eye.    | 1993         | 72.50
+Nicol Bolas, the Ravager| https://example.com/image_92.jpg| Mythic Rare | 92         | Memories preserved beyond the ages.         | 1994         | 73.25
+Hydroid Krasis         | https://example.com/image_93.jpg| Mythic Rare  | 93          | Ancient power to be unleashed.              | 1995         | 74.00
+Karn, the Great Creator| https://example.com/image_94.jpg| Mythic Rare  | 94          | For every action, there is an equal reaction.| 1996        | 74.75
+Teferi, Time Raveler   | https://example.com/image_95.jpg| Mythic Rare  | 95          | Darkness lurks within.                      | 1997         | 75.50
+Narset, Parter of Veils| https://example.com/image_96.jpg| Mythic Rare  | 96          | A moment in eternity, a blink in an eye.    | 1998         | 76.25
+Tamiyo, Collector of Tales| https://example.com/image_97.jpg| Mythic Rare | 97       | Memories preserved beyond the ages.         | 1999         | 77.00
+Gideon Blackblade      | https://example.com/image_98.jpg| Mythic Rare  | 98          | Ancient power to be unleashed.              | 2000         | 77.75
+Dovin, Hand of Control | https://example.com/image_99.jpg| Mythic Rare  | 99          | For every action, there is an equal reaction.| 2001        | 78.50
+The Scarab God         | https://example.com/image_100.jpg| Mythic Rare | 100         | Darkness lurks within.                      | 2002         | 79.25
+Card Name              | Image URL                       | Rarity       | Card Number | Flavor Text                                 | Year Printed | Competitive Price
+-----------------------|---------------------------------|--------------|-------------|---------------------------------------------|--------------|-------------------
+Ancient Tomb           | https://example.com/image_76.jpg| Mythic Rare  | 76          | A moment in eternity, a blink in an eye.    | 2008         | 61.25
+Sphinx of the Steel Wind| https://example.com/image_77.jpg| Mythic Rare | 77          | Memories preserved beyond the ages.         | 2009         | 62.00
+Batterskull            | https://example.com/image_78.jpg| Mythic Rare  | 78          | Ancient power to be unleashed.              | 2010         | 62.75
+Blightsteel Colossus   | https://example.com/image_79.jpg| Mythic Rare  | 79          | For every action, there is an equal reaction.| 2011        | 63.50
+Avenger of Zendikar    | https://example.com/image_80.jpg| Mythic Rare  | 80          | Darkness lurks within.                      | 2012         | 64.25
+Consecrated Sphinx     | https://example.com/image_81.jpg| Mythic Rare  | 81          | A moment in eternity, a blink in an eye.    | 2013         | 65.00
+Thassa, God of the Sea | https://example.com/image_82.jpg| Mythic Rare  | 82          | Memories preserved beyond the ages.         | 2014         | 65.75
+Panharmonicon          | https://example.com/image_83.jpg| Mythic Rare  | 83          | Ancient power to be unleashed.              | 2015         | 66.50
+Walking Ballista       | https://example.com/image_84.jpg| Mythic Rare  | 84          | For every action, there is an equal reaction.| 2016        | 67.25
+Kalitas, Traitor of Ghet| https://example.com/image_85.jpg| Mythic Rare | 85         | Darkness lurks within.                      | 2017         | 68.00
+Iona, Shield of Emeria | https://example.com/image_86.jpg| Mythic Rare  | 86          | A moment in eternity, a blink in an eye.    | 2018         | 68.75
+Omnath, Locus of Creation| https://example.com/image_87.jpg| Mythic Rare| 87         | Memories preserved beyond the ages.         | 2019         | 69.50
+Uro, Titan of Nature's Wrath| https://example.com/image_88.jpg| Mythic Rare| 88 | Ancient power to be unleashed.              | 2020         | 70.25
+Questing Beast         | https://example.com/image_89.jpg| Mythic Rare  | 89          | For every action, there is an equal reaction.| 2021        | 71.00
+Oko, Thief of Crowns   | https://example.com/image_90.jpg| Mythic Rare  | 90          | Darkness lurks within.                      | 2022         | 71.75
+Jace, Vryn's Prodigy   | https://example.com/image_91.jpg| Mythic Rare  | 91          | A moment in eternity, a blink in an eye.    | 1993         | 72.50
+Nicol Bolas, the Ravager| https://example.com/image_92.jpg| Mythic Rare | 92         | Memories preserved beyond the ages.         | 1994         | 73.25
+Hydroid Krasis         | https://example.com/image_93.jpg| Mythic Rare  | 93          | Ancient power to be unleashed.              | 1995         | 74.00
+Karn, the Great Creator| https://example.com/image_94.jpg| Mythic Rare  | 94          | For every action, there is an equal reaction.| 1996        | 74.75
+Teferi, Time Raveler   | https://example.com/image_95.jpg| Mythic Rare  | 95          | Darkness lurks within.                      | 1997         | 75.50
+Narset, Parter of Veils| https://example.com/image_96.jpg| Mythic Rare  | 96          | A moment in eternity, a blink in an eye.    | 1998         | 76.25
+Tamiyo, Collector of Tales| https://example.com/image_97.jpg| Mythic Rare | 97       | Memories preserved beyond the ages.         | 1999         | 77.00
+Gideon Blackblade      | https://example.com/image_98.jpg| Mythic Rare  | 98          | Ancient power to be unleashed.              | 2000         | 77.75
+Dovin, Hand of Control | https://example.com/image_99.jpg| Mythic Rare  | 99          | For every action, there is an equal reaction.| 2001        | 78.50
+The Scarab God         | https://example.com/image_100.jpg| Mythic Rare | 100         | Darkness lurks within.                      | 2002         | 79.25                | 2002         | 79.25
+"""
+
+def clean_for_regex(raw_data_lines):
+    """Clean and prepare raw data for regex processing."""
+    cleaned = []
+    for line in raw_data_lines:
+        # Remove extra whitespace and empty lines
+        line = line.strip()
+        if line:
+            # Remove any duplicate separators
+            line = re.sub(r'\s*\|\s*', '|', line)
+            # Remove any non-essential characters
+            line = re.sub(r'[^\w\s|.,-]', '', line)
+            cleaned.append(line)
+    return cleaned
+
+def generate_regex_pattern(sample_line):
+    """Generate regex pattern based on sample data structure."""
+    # Split sample into fields
+    fields = sample_line.split('|')
+    
+    # Build pattern based on field types
+    patterns = []
+    for field in fields:
+        field = field.strip()
+        if field.replace('.','').isdigit():  # Number/float
+            patterns.append(r'(\d+(?:\.\d+)?)')
+        elif field.isdigit():  # Integer
+            patterns.append(r'(\d+)')
+        else:  # Text
+            patterns.append(r'([^|]+)')
+            
+    # Join patterns with separator
+    full_pattern = r'\s*\|\s*'.join(patterns)
+    return re.compile(f'^{full_pattern}$')
+
+def format_to_json(cleaned_lines):
+    """Convert cleaned data to JSON format using regex."""
+    # Get field names from first line
+    headers = [h.strip() for h in cleaned_lines[0].split('|')]
+    
+    # Generate regex pattern from second line
+    pattern = generate_regex_pattern(cleaned_lines[1])
+    
+    # Process data lines
+    json_data = []
+    for line in cleaned_lines[1:]:  # Skip header
+        match = pattern.match(line)
+        if match:
+            # Create dict from field names and matched values
+            entry = {}
+            for i, value in enumerate(match.groups()):
+                # Convert types appropriately
+                if value.replace('.','').isdigit():
+                    if '.' in value:
+                        entry[headers[i]] = float(value)
+                    else:
+                        entry[headers[i]] = int(value)
+                else:
+                    entry[headers[i]] = value.strip()
+            json_data.append(entry)
+            
+    return json.dumps(json_data, indent=4)
+
+def main(raw_data):
+    """Process raw data into JSON format."""
+    # Split into lines
+    raw_data_lines = raw_data.splitlines()
+    
+    # Clean and prepare data
+    cleaned_lines = clean_for_regex(raw_data_lines)
+    
+    # Convert to JSON format
+    json_output = format_to_json(cleaned_lines)
+    
+    # Print result
+    print("JSON formatted data:")
+    print(json_output)
+
+if __name__ == "__main__":
+    # Test with sample data
+    main(raw_data)

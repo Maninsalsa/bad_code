@@ -1,0 +1,96 @@
+{
+    "Pandas": {
+        "description": "Data manipulation and analysis library for Python",
+        "data_structures": {
+            "description": "Core data structures in pandas",
+            "structures": [
+                {"name": "pd.DataFrame(data)", "description": "2-dimensional labeled data structure"},
+                {"name": "pd.Series(data)", "description": "1-dimensional labeled array"},
+                {"name": "pd.Index(data)", "description": "Immutable array for axis labels"},
+                {"name": "pd.MultiIndex", "description": "Hierarchical indexing object"}
+            ]
+        },
+        "data_creation": {
+            "description": "Functions to create pandas objects",
+            "functions": [
+                {"name": "pd.read_csv(filepath)", "description": "Read CSV file into DataFrame"},
+                {"name": "pd.read_excel(filepath)", "description": "Read Excel file into DataFrame"},
+                {"name": "pd.read_sql(query, connection)", "description": "Read SQL query into DataFrame"},
+                {"name": "pd.read_json(path)", "description": "Read JSON file into DataFrame"},
+                {"name": "pd.DataFrame.from_dict(data)", "description": "Create DataFrame from dict"},
+                {"name": "pd.date_range(start, end)", "description": "Create date range index"}
+            ]
+        },
+        "data_manipulation": {
+            "description": "Methods for manipulating data",
+            "indexing": [
+                {"name": "df.loc[]", "description": "Label-based indexing"},
+                {"name": "df.iloc[]", "description": "Integer-based indexing"},
+                {"name": "df.at[]", "description": "Fast label-based scalar accessor"},
+                {"name": "df.iat[]", "description": "Fast integer-based scalar accessor"}
+            ],
+            "reshaping": [
+                {"name": "df.pivot()", "description": "Reshape data based on column values"},
+                {"name": "df.melt()", "description": "Unpivot DataFrame"},
+                {"name": "df.stack()", "description": "Stack the prescribed level(s)"},
+                {"name": "df.unstack()", "description": "Unstack the prescribed level(s)"}
+            ],
+            "combining": [
+                {"name": "pd.concat([df1, df2])", "description": "Concatenate DataFrames"},
+                {"name": "pd.merge(df1, df2)", "description": "Merge DataFrames"},
+                {"name": "df1.join(df2)", "description": "Join DataFrames"},
+                {"name": "df.append(other)", "description": "Append rows to DataFrame"}
+            ]
+        },
+        "data_analysis": {
+            "description": "Analysis and computation methods",
+            "statistics": [
+                {"name": "df.describe()", "description": "Generate descriptive statistics"},
+                {"name": "df.mean()", "description": "Calculate mean"},
+                {"name": "df.median()", "description": "Calculate median"},
+                {"name": "df.mode()", "description": "Calculate mode"},
+                {"name": "df.std()", "description": "Calculate standard deviation"},
+                {"name": "df.var()", "description": "Calculate variance"},
+                {"name": "df.corr()", "description": "Calculate correlation"},
+                {"name": "df.cov()", "description": "Calculate covariance"}
+            ],
+            "grouping": [
+                {"name": "df.groupby()", "description": "Group DataFrame by values"},
+                {"name": "df.rolling()", "description": "Provide rolling window calculations"},
+                {"name": "df.resample()", "description": "Resample time-series data"}
+            ]
+        },
+        "data_cleaning": {
+            "description": "Methods for cleaning data",
+            "functions": [
+                {"name": "df.dropna()", "description": "Remove missing values"},
+                {"name": "df.fillna()", "description": "Fill missing values"},
+                {"name": "df.replace()", "description": "Replace values"},
+                {"name": "df.drop_duplicates()", "description": "Remove duplicate rows"},
+                {"name": "df.astype()", "description": "Cast to specified dtype"},
+                {"name": "df.rename()", "description": "Rename labels"}
+            ]
+        },
+        "input_output": {
+            "description": "Data input and output operations",
+            "functions": [
+                {"name": "df.to_csv()", "description": "Write DataFrame to CSV"},
+                {"name": "df.to_excel()", "description": "Write DataFrame to Excel"},
+                {"name": "df.to_sql()", "description": "Write DataFrame to SQL database"},
+                {"name": "df.to_json()", "description": "Write DataFrame to JSON"},
+                {"name": "df.to_dict()", "description": "Convert DataFrame to dictionary"},
+                {"name": "df.to_pickle()", "description": "Write DataFrame to pickle file"}
+            ]
+        },
+        "time_series": {
+            "description": "Time series functionality",
+            "functions": [
+                {"name": "pd.to_datetime()", "description": "Convert to datetime"},
+                {"name": "df.shift()", "description": "Shift index by desired number of periods"},
+                {"name": "df.diff()", "description": "Calculate difference of a DataFrame"},
+                {"name": "df.pct_change()", "description": "Calculate percent change"},
+                {"name": "df.truncate()", "description": "Truncate series before and after some index"}
+            ]
+        }
+    }
+} 
