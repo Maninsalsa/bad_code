@@ -1,0 +1,42 @@
+{
+    "Namespace": {
+        "description": "A dictionary that maps names to objects in Python, providing a way to organize and access variables and other objects",
+        "types": [
+            {"name": "built-in", "description": "Contains Python's built-in names like print(), len(), etc."},
+            {"name": "global", "description": "Module-level namespace containing names defined in current module"},
+            {"name": "local", "description": "Function-level namespace containing names defined inside current function"},
+            {"name": "enclosing", "description": "Namespace of outer function when working with nested functions"}
+        ],
+        "scope_rules": {
+            "description": "Rules determining name visibility and lifetime",
+            "rules": [
+                {"name": "LEGB Rule", "description": "Python searches names in Local, Enclosing, Global, Built-in order"},
+                {"name": "name shadowing", "description": "Inner scope can hide names from outer scope by redefining them"},
+                {"name": "name resolution", "description": "Process of mapping a name to an object using namespace hierarchy"}
+            ]
+        },
+        "namespace_modifiers": {
+            "description": "Keywords that affect namespace behavior",
+            "keywords": [
+                {"name": "global", "description": "Declare names that should be bound in global namespace"},
+                {"name": "nonlocal", "description": "Declare names that should be bound in enclosing namespace"},
+                {"name": "import", "description": "Add names from other modules to current namespace"}
+            ]
+        },
+        "namespace_operations": {
+            "description": "Ways to interact with namespaces",
+            "operations": [
+                {"name": "dir()", "description": "List names in current namespace"},
+                {"name": "vars()", "description": "Return dictionary of current namespace"},
+                {"name": "locals()", "description": "Return dictionary of current local namespace"},
+                {"name": "globals()", "description": "Return dictionary of current global namespace"}
+            ]
+        },
+        "best_practices": [
+            {"name": "avoid global", "description": "Minimize use of global variables to prevent naming conflicts"},
+            {"name": "clear naming", "description": "Use descriptive, unique names to avoid namespace pollution"},
+            {"name": "module structure", "description": "Organize code into modules to create separate namespaces"},
+            {"name": "import specificity", "description": "Import only needed names to avoid cluttering namespace"}
+        ]
+    }
+}

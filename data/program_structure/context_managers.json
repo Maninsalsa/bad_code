@@ -1,0 +1,38 @@
+{
+    "Context Managers": {
+        "description": "Objects that manage resource allocation and cleanup through with statements",
+        "components": [
+            {"name": "with statement", "description": "Syntax that ensures proper handling of resources like files, locks, and connections"},
+            {"name": "__enter__", "description": "Method called when entering context, handles resource acquisition"},
+            {"name": "__exit__", "description": "Method called when exiting context, ensures proper cleanup"}
+        ],
+        "common_uses": [
+            {"name": "file handling", "description": "Automatically close files after usage"},
+            {"name": "database connections", "description": "Ensure connections are properly closed"},
+            {"name": "locks", "description": "Release locks in multi-threaded applications"},
+            {"name": "network resources", "description": "Close network connections properly"}
+        ],
+        "implementation_methods": {
+            "description": "Ways to create context managers",
+            "methods": [
+                {"name": "class-based", "description": "Define class with __enter__ and __exit__ methods"},
+                {"name": "contextlib.contextmanager", "description": "Decorator to create context managers from generator functions"},
+                {"name": "contextlib.closing", "description": "Create context manager for objects with close() method"}
+            ]
+        },
+        "error_handling": {
+            "description": "Exception management in context managers",
+            "features": [
+                {"name": "exception suppression", "description": "Can suppress exceptions by returning True in __exit__"},
+                {"name": "exception propagation", "description": "Allow exceptions to propagate by returning False or None"},
+                {"name": "cleanup guarantees", "description": "Ensure cleanup code runs even if exceptions occur"}
+            ]
+        },
+        "best_practices": [
+            {"name": "resource management", "description": "Always use context managers for managing system resources"},
+            {"name": "explicit cleanup", "description": "Make cleanup operations clear and predictable"},
+            {"name": "atomic operations", "description": "Use context managers to ensure operations are atomic"},
+            {"name": "reusability", "description": "Design context managers to be reusable when possible"}
+        ]
+    }
+}

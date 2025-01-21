@@ -1,0 +1,47 @@
+{
+    "Exceptions": {
+        "description": "Objects representing errors and exceptional conditions in Python programs",
+        "types": [
+            {"name": "built-in exceptions", "description": "Pre-defined exception classes provided by Python"},
+            {"name": "user-defined exceptions", "description": "Custom exception classes created by inheriting from Exception"},
+            {"name": "checked exceptions", "description": "Exceptions that must be explicitly handled or declared"},
+            {"name": "unchecked exceptions", "description": "Runtime exceptions that don't require explicit handling"}
+        ],
+        "hierarchy": {
+            "description": "Class hierarchy of Python exceptions",
+            "levels": [
+                {"name": "BaseException", "description": "Root class of exception hierarchy"},
+                {"name": "Exception", "description": "Base class for all built-in exceptions"},
+                {"name": "StandardError", "description": "Base class for all built-in error exceptions"},
+                {"name": "specific exceptions", "description": "Concrete exception classes like ValueError, TypeError, etc."}
+            ]
+        },
+        "common_exceptions": [
+            {"name": "ValueError", "description": "Raised when operation receives argument with right type but inappropriate value"},
+            {"name": "TypeError", "description": "Raised when operation is performed on inappropriate data type"},
+            {"name": "NameError", "description": "Raised when local or global name is not found"},
+            {"name": "IndexError", "description": "Raised when sequence subscript is out of range"},
+            {"name": "KeyError", "description": "Raised when dictionary key is not found"},
+            {"name": "AttributeError", "description": "Raised when attribute reference or assignment fails"},
+            {"name": "ImportError", "description": "Raised when import statement fails to find module"},
+            {"name": "IOError", "description": "Raised when I/O operation fails"}
+        ],
+        "exception_handling": {
+            "description": "Mechanisms for handling and managing exceptions",
+            "components": [
+                {"name": "try-except", "description": "Basic construct for catching and handling exceptions"},
+                {"name": "try-except-else", "description": "Allows specifying code to run if no exceptions occur"},
+                {"name": "try-except-finally", "description": "Ensures cleanup code runs regardless of exceptions"},
+                {"name": "raise", "description": "Statement for explicitly raising exceptions"},
+                {"name": "assert", "description": "Statement for debugging and testing conditions"}
+            ]
+        },
+        "best_practices": [
+            {"name": "specific exceptions", "description": "Catch specific exceptions rather than using bare except"},
+            {"name": "minimal try blocks", "description": "Keep try blocks as small as possible"},
+            {"name": "proper cleanup", "description": "Use finally or context managers for cleanup operations"},
+            {"name": "meaningful messages", "description": "Provide clear, informative error messages in exceptions"},
+            {"name": "exception chaining", "description": "Use raise from to preserve exception context"}
+        ]
+    }
+}
