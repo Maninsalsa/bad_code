@@ -1,0 +1,243 @@
+{
+  "name": "GitHub",
+  "topics": [
+    {
+      "name": "Getting Started",
+      "concepts": [
+        {
+          "name": "Generate PAT",
+          "description": "Go to GitHub Settings > Developer Settings > Personal Access Tokens > Generate new token. Select needed scopes and copy token for authentication"
+        },
+        {
+          "name": "Configure Git",
+          "description": "git config --global user.name 'Your Name' && git config --global user.email 'your@email.com'"
+        },
+        {
+          "name": "Clone Repository",
+          "description": "git clone https://github.com/username/repository.git - Downloads repository to local machine"
+        },
+        {
+          "name": "Change Directory", 
+          "description": "cd repository-name - Navigate into the cloned repository folder"
+        },
+        {
+          "name": "Create Branch",
+          "description": "git checkout -b branch-name - Creates and switches to a new branch"
+        },
+        {
+          "name": "Add Files",
+          "description": "git add filename - Stage a specific file\ngit add . - Stage all files in current directory\ngit add *.js - Stage all JavaScript files\ngit add directory/ - Stage all files in a directory\ngit add -A - Stage all files (including deleted files)"
+        },
+        {
+          "name": "Commit Changes",
+          "description": "git commit -m 'descriptive message' - Save staged changes with a message"
+        },
+        {
+          "name": "Push Changes",
+          "description": "git push origin branch-name - Upload local branch commits to GitHub\ngit push origin main - Push directly to main branch (not recommended for collaboration)\ngit push -f origin main - Force push to main (use with extreme caution, overwrites remote history)"
+        },
+        {
+          "name": "Create Pull Request",
+          "description": "On GitHub, navigate to repository > Pull requests > New pull request > select your branch > Create pull request"
+        },
+        {
+          "name": "Fetch",
+          "description": "git fetch - Downloads changes from remote repository without merging them"
+        },
+        {
+          "name": "Pull",
+          "description": "git pull - Fetches and merges changes from remote repository to current branch"
+        },
+        {
+          "name": "Merge",
+          "description": "git merge branch-name - Combines changes from specified branch into current branch"
+        }
+      ]
+    },
+    {
+      "name": "GitHub Desktop",
+      "concepts": [
+        {
+          "name": "Install GitHub Desktop",
+          "description": "Download and install GitHub Desktop from desktop.github.com"
+        },
+        {
+          "name": "Clone Repository (Desktop)",
+          "description": "File > Clone Repository > Select from your GitHub repositories or enter URL > Choose local path > Clone"
+        },
+        {
+          "name": "Create Branch (Desktop)",
+          "description": "Current Branch > New Branch > Enter branch name > Create Branch"
+        },
+        {
+          "name": "Stage Changes (Desktop)",
+          "description": "Changes appear automatically in the Changes tab. Check files to stage them for commit"
+        },
+        {
+          "name": "Commit Changes (Desktop)",
+          "description": "Enter commit message in the summary field > Click 'Commit to [branch]'"
+        },
+        {
+          "name": "Push Changes (Desktop)",
+          "description": "Click 'Push origin' to upload commits to GitHub"
+        },
+        {
+          "name": "Pull Changes (Desktop)",
+          "description": "Click 'Fetch origin' to check for changes, then 'Pull origin' to download and merge changes"
+        },
+        {
+          "name": "Create Pull Request (Desktop)",
+          "description": "Branch > Create Pull Request > Opens GitHub in browser to complete PR creation"
+        },
+        {
+          "name": "Switch Branches (Desktop)",
+          "description": "Click Current Branch dropdown > Select branch to switch to"
+        }
+      ]
+    },
+    {
+      "name": "Version Control",
+      "concepts": [
+        {
+          "name": "Repositories",
+          "description": "A repository (repo) contains all project files and revision history"
+        },
+        {
+          "name": "Commits",
+          "description": "Snapshots of changes made to files in a repository"
+        },
+        {
+          "name": "Branches",
+          "description": "Parallel versions of a repository used for development"
+        },
+        {
+          "name": "Pull Requests",
+          "description": "Proposed changes to a repository that can be reviewed and merged"
+        },
+        {
+          "name": "Forks",
+          "description": "Personal copies of another user's repository"
+        },
+        {
+          "name": "Remote",
+          "description": "URL pointing to the hosted repository on GitHub"
+        },
+        {
+          "name": "Origin",
+          "description": "Default name for the primary remote repository"
+        },
+        {
+          "name": "HEAD",
+          "description": "Pointer to the latest commit in current branch"
+        },
+        {
+          "name": "Stash",
+          "description": "Temporarily stores modified tracked files to switch branches"
+        }
+      ]
+    },
+    {
+      "name": "Collaboration",
+      "concepts": [
+        {
+          "name": "Issues",
+          "description": "Suggested improvements, tasks, or questions related to the repository"
+        },
+        {
+          "name": "Projects",
+          "description": "Boards to organize and prioritize work"
+        },
+        {
+          "name": "Discussions",
+          "description": "Forum-like conversations about a project"
+        },
+        {
+          "name": "Actions",
+          "description": "Automated workflows triggered by repository events"
+        },
+        {
+          "name": "Wikis",
+          "description": "Documentation pages for sharing project information"
+        },
+        {
+          "name": "Code Review",
+          "description": "Process of reviewing code changes before merging"
+        },
+        {
+          "name": "Gist",
+          "description": "Way to share code snippets and notes with others"
+        },
+        {
+          "name": "Mentions",
+          "description": "Using @username to notify specific users in comments"
+        }
+      ]
+    },
+    {
+      "name": "Security",
+      "concepts": [
+        {
+          "name": "Dependabot",
+          "description": "Automated dependency updates and security alerts"
+        },
+        {
+          "name": "Code Scanning",
+          "description": "Automated security vulnerability detection in code"
+        },
+        {
+          "name": "Secret Scanning",
+          "description": "Detection of exposed secrets and credentials"
+        },
+        {
+          "name": "Security Advisories",
+          "description": "Private space to discuss and fix security vulnerabilities"
+        },
+        {
+          "name": "2FA",
+          "description": "Two-factor authentication for account security"
+        },
+        {
+          "name": "Deploy Keys",
+          "description": "SSH keys that grant repository access to deployment servers"
+        }
+      ]
+    },
+    {
+      "name": "Administration",
+      "concepts": [
+        {
+          "name": "Organizations",
+          "description": "Shared accounts for business and open-source projects"
+        },
+        {
+          "name": "Teams",
+          "description": "Groups of organization members with configured access permissions"
+        },
+        {
+          "name": "Packages",
+          "description": "Host and manage packages for various package managers"
+        },
+        {
+          "name": "GitHub Pages",
+          "description": "Static site hosting directly from repositories"
+        },
+        {
+          "name": "Webhooks",
+          "description": "Automated notifications sent to external services when events occur"
+        },
+        {
+          "name": "Repository Roles",
+          "description": "Access levels controlling what actions users can perform"
+        },
+        {
+          "name": "Branch Protection",
+          "description": "Rules enforcing specific conditions before merging"
+        },
+        {
+          "name": "GitHub Enterprise",
+          "description": "Self-hosted version of GitHub for organizations"
+        }
+      ]
+    }
+  ]
+}
