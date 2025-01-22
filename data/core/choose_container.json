@@ -1,0 +1,180 @@
+{
+    "Arrays": {
+        "description": "Fixed-size, homogeneous sequence (from array module)",
+        "syntax_example": "from array import array\narr = array('i', [1, 2, 3, 4, 5])",
+        "use_cases": [
+            "Numeric operations",
+            "Memory-efficient storage of same-type data", 
+            "Interface with C code",
+            "Fixed-size data structures"
+        ],
+        "key_attributes": {
+            "ordered": true,
+            "mutable": true,
+            "allows_duplicates": true,
+            "indexable": true,
+            "iterable": true,
+            "type_restricted": true
+        },
+        "performance": {
+            "access_by_index": "O(1)",
+            "insert/delete": "O(n)",
+            "numeric_operations": "Very efficient"
+        },
+        "memory_usage": "Most efficient for numeric data",
+        "best_for": [
+            "Numeric computations",
+            "Memory-critical applications", 
+            "Large datasets of same-type numbers",
+            "Performance-critical numeric operations"
+        ]
+    },
+    "Tuples": {
+        "description": "Ordered, immutable sequence of elements",
+        "syntax_example": "point = (10, 20)\ncoords = tuple([30, 40])",
+        "use_cases": [
+            "When data shouldn't be modified after creation",
+            "Returning multiple values from functions",
+            "Dictionary keys (when needed)",
+            "Data integrity preservation"
+        ],
+        "key_attributes": {
+            "ordered": true,
+            "mutable": false,
+            "allows_duplicates": true,
+            "indexable": true,
+            "iterable": true
+        },
+        "performance": {
+            "access_by_index": "O(1)",
+            "search": "O(n)"
+        },
+        "memory_usage": "Lower than lists due to immutability",
+        "best_for": [
+            "Coordinates (x,y)",
+            "Fixed collections",
+            "Named tuples for simple data structures",
+            "Performance-critical immutable data"
+        ]
+    },
+    "Lists": {
+        "description": "Ordered, mutable sequence of elements",
+        "syntax_example": "tasks = ['Buy milk', 'Walk dog']\nnums = list(range(5))",
+        "use_cases": [
+            "Storing ordered collections of items",
+            "When items need to be modified/updated frequently",
+            "When order matters and duplicates are allowed",
+            "When sequential access is common"
+        ],
+        "key_attributes": {
+            "ordered": true,
+            "mutable": true,
+            "allows_duplicates": true,
+            "indexable": true,
+            "iterable": true
+        },
+        "performance": {
+            "access_by_index": "O(1)",
+            "insert/delete_at_end": "O(1)",
+            "insert/delete_at_position": "O(n)",
+            "search": "O(n)"
+        },
+        "memory_usage": "Higher than tuples due to mutability overhead",
+        "best_for": [
+            "Task lists",
+            "Queue/stack implementations",
+            "Collecting results",
+            "Temporary data storage"
+        ]
+    },
+    "Sets": {
+        "description": "Unordered collection of unique elements",
+        "syntax_example": "unique_nums = {1, 2, 3}\nmore_nums = set([4, 5, 6])",
+        "use_cases": [
+            "Removing duplicates",
+            "Membership testing",
+            "Mathematical set operations",
+            "Ensuring uniqueness"
+        ],
+        "key_attributes": {
+            "ordered": false,
+            "mutable": true,
+            "allows_duplicates": false,
+            "indexable": false,
+            "iterable": true
+        },
+        "performance": {
+            "add/remove": "O(1) average",
+            "membership_test": "O(1) average",
+            "union/intersection": "O(min(len(s1), len(s2)))"
+        },
+        "memory_usage": "Similar to dictionaries due to hash table",
+        "best_for": [
+            "Unique collections",
+            "Finding common elements",
+            "Removing duplicates",
+            "Membership testing"
+        ]
+    },
+    "Dictionaries": {
+        "description": "Unordered collection of key-value pairs",
+        "syntax_example": "user = {'name': 'John', 'age': 30}\nconfig = dict(host='localhost', port=8080)",
+        "use_cases": [
+            "Mapping unique keys to values",
+            "Fast lookup by key",
+            "Caching/memoization",
+            "Representing structured data"
+        ],
+        "key_attributes": {
+            "ordered": "Only in Python 3.7+",
+            "mutable": true,
+            "allows_duplicate_values": true,
+            "allows_duplicate_keys": false,
+            "iterable": true
+        },
+        "performance": {
+            "access_by_key": "O(1) average",
+            "insert/delete": "O(1) average",
+            "search_by_value": "O(n)"
+        },
+        "memory_usage": "Higher due to hash table structure",
+        "best_for": [
+            "Configuration settings",
+            "Caching results",
+            "JSON-like data structures",
+            "Counting occurrences"
+        ]
+    },
+    "Selection_Guidelines": {
+        "Use_Array_When": [
+            "Working with large numeric datasets",
+            "Memory efficiency is critical",
+            "All elements are of the same type",
+            "Interfacing with C code"
+        ],
+        "Use_Tuple_When": [
+            "Data should be immutable",
+            "Returning multiple values from functions",
+            "Need slightly better performance than lists",
+            "Creating dictionary keys"
+        ],
+        "Use_List_When": [
+            "Order matters",
+            "Elements need to be modified frequently",
+            "Need to store mixed types",
+            "Need to grow/shrink dynamically"
+        ],
+        "Use_Set_When": [
+            "Need unique elements only",
+            "Performing set operations",
+            "Need fast membership testing",
+            "Order doesn't matter"
+        ],
+        "Use_Dictionary_When": [
+            "Need key-value associations",
+            "Need fast lookups by key",
+            "Storing complex data structures",
+            "Working with JSON-like data"
+        ]
+    }
+}

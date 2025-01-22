@@ -1,0 +1,35 @@
+Container Type | Description                                | Best Use Cases                | Key Attributes         | Performance
+---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
+Arrays         | Fixed-size, homogeneous sequence           | • Numeric computations        | • Ordered: Yes         | • Access: O(1)
+               | from array import array                    | • Memory-critical apps        | • Mutable: Yes         | • Insert/Delete: O(n)
+               | arr = array('i', [1, 2, 3, 4, 5])          | • Large numeric datasets      | • Type restricted: Yes | • Numeric ops: Very efficient
+               |                                            | • Interface with C code       | • Indexable: Yes       |
+               |                                            |                               | • Iterable: Yes        |
+---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
+Tuples         | Ordered, immutable sequence                | • When data shouldn't change  | • Ordered: Yes         | • Access: O(1)
+               | point = (10, 20)                           | • Return multiple values      | • Mutable: No          | • Search: O(n)
+               | coords = tuple([30, 40])                   | • Dictionary keys             | • Indexable: Yes       |
+               |                                            | • Data integrity              | • Iterable: Yes        |
+               |                                            | • Performance-critical data   |                        |
+---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
+Lists          | Ordered, mutable sequence                  | • Task lists                  | • Ordered: Yes         | • Access: O(1)
+               | tasks = ['Buy milk', 'Walk dog']           | • Queue/stack implementations | • Mutable: Yes         | • Insert/Delete at end: O(1)
+               | nums = list(range(5))                      | • Collecting results          | • Indexable: Yes       | • Insert/Delete at pos: O(n)
+               |                                            | • Sequential access           | • Iterable: Yes        | • Search: O(n)
+               |                                            | • Temporary storage           |                        |
+---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
+Sets           | Unordered collection of unique elements    | • Unique collections          | • Ordered: No          | • Add/Remove: O(1) avg
+               | unique_nums = {1, 2, 3}                    | • Finding common elements     | • Mutable: Yes         | • Membership: O(1) avg
+               | more_nums = set([4, 5, 6])                 | • Membership testing          | • No duplicates        | • Set ops: O(min(len(s1),len(s2)))
+               |                                            | • Removing duplicates         | • Iterable: Yes        |
+               |                                            |                               | • Indexable: No        |
+---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
+Dictionaries   | Key-value pairs collection                 | • Configuration settings      | • Ordered: 3.7+        | • Access by key: O(1) avg
+               | user = {'name': 'John', 'age': 30}         | • Caching results             | • Mutable: Yes         | • Insert/Delete: O(1) avg
+               | config = dict(host='localhost', port=8080) | • JSON-like data              | • Unique keys          | • Search by value: O(n)
+               |                                            | • Fast lookups                | • Iterable: Yes        |
+               |                                            | • Structured data             |                        |
+
+Time Complexity Key:
+O(1) - Constant time: Operation takes the same amount of time regardless of input size
+O(n) - Linear time: Operation time increases linearly with input size (n = number of elements)
