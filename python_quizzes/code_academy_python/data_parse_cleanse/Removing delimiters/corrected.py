@@ -109,7 +109,7 @@ green&white;,;09/15/17,   Gail Phelps   ;,;$30.52
 
 def replacer(string):
     """
-    Replaces delimiters in the input string to standardize the format.
+    Replaces delimiters
     
     Args:
         string (str): The input string with sales data.

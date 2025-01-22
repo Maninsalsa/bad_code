@@ -1,0 +1,40 @@
+
+Technique   | Description                                | Best Use Cases              | Key Attributes         | Performance
+------------|--------------------------------------------|-----------------------------|------------------------|------------------------------------
+For Loops   | Iterates over a sequence with known length | • Processing sequences      | • Iterator required    | • Time: O(n)
+            | for item in sequence:                      | • Array/list operations     | • Fixed iterations     | • Space: O(1)
+            | for i in range(n):                         | • Matrix traversal          | • Index available      |
+            |                                            | • Parallel iteration        | • Break/continue       |
+            |                                            | • Known iteration count     |                        |
+------------|--------------------------------------------|-----------------------------|------------------------|------------------------------------
+While Loops | Repeats until condition becomes false      | • Event-driven tasks        | • Condition based      | • Time: Varies
+            | while condition:                           | • User input validation     | • Unknown iterations   | • Space: O(1)
+            |                                            | • Game loops                | • Break/continue       |
+            |                                            | • File reading              | • Risk of infinite     |
+            |                                            | • Unknown iteration count   |                        |
+------------|--------------------------------------------|-----------------------------|------------------------|------------------------------------
+Recursion   | Function calls itself with smaller input   | • Tree/graph traversal      | • Base case required   | • Time: Often O(2^n)
+            | def func(n):                               | • Divide & conquer algos    | • Stack-based          | • Space: O(n) stack
+            |     if base_case: return                   | • Fractals/patterns         | • Elegant solutions    |
+            |     func(smaller_input)                    | • Mathematical sequences    | • Memory intensive     |
+            |                                            | • Nested structures         |                        |
+------------|--------------------------------------------|-----------------------------|------------------------|------------------------------------
+List Comp   | Concise way to create lists                | • Data transformation       | • Single expression    | • Time: O(n)
+            | [x for x in range(10)]                     | • Filtering sequences       | • Readable             | • Space: O(n)
+            | [x*2 for x in nums if x > 0]               | • Matrix operations         | • Memory efficient     |
+            |                                            | • Quick mappings            | • No side effects      |
+            |                                            | • Simple transformations    |                        |
+------------|--------------------------------------------|-----------------------------|------------------------|------------------------------------
+Generator   | Lazy iterator that yields values           | • Large datasets            | • Memory efficient     | • Time: O(1) per item
+            | (x for x in range(1000000))                | • Infinite sequences        | • Lazy evaluation      | • Space: O(1)
+            | def gen(): yield item                      | • Stream processing         | • One-time iteration   |
+            |                                            | • Memory-constrained env    | • State preservation   |
+            |                                            | • Pipeline operations       |                        |
+            
+
+Selection Guide:
+• For Loop: When number of iterations is known and sequential access is needed
+• While Loop: When iterations depend on a condition that changes during execution
+• Recursion: When problem can be broken into identical smaller sub-problems
+• List Comp: When creating new lists with simple transformations
+• Generator: When dealing with large sequences or memory is a concern

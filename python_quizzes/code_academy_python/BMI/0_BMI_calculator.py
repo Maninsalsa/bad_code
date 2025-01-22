@@ -75,7 +75,6 @@ def cdcVerification(bmi_value):
     return cdc_verify
 
 print(f"according to the WHO organization, you have {whoVerification(bmi_value)}")
-
 print(f"according to the CDC, you have {cdcVerification(bmi_value)}\n")
 
 

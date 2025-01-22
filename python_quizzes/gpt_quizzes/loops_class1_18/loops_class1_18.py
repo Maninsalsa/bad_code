@@ -1,63 +1,63 @@
-"""
-Question 1
+# 
+# Question 1
 
 for i in range(1, 5):
     print(i, end=" ")
 
-the answer is B. when two integers are passed as arguments with range, the first number
-represents the starting number, and the second number represents the stop number
-(not included or stop -1)
+# the answer is B. when two integers are passed as arguments with range, the first number
+# represents the starting number, and the second number represents the stop number
+# (not included or stop -1)
 
-therefore the loop starts at integer 1 and stops at 4. 
+# therefore the loop starts at integer 1 and stops at 4. 
 
-Question 2 
+# Question 2 
 
-n = 1
-while ______:
-    print(n)
-    n += 1
+# n = 1
+# while ______:
+#     print(n)
+#     n += 1
 
-Answer: while n <= 5. this will increment n as long as n <= 5 once n reaches 5 after it's
-printed, it's value will no longer satisfy the requirements of n<=5
+# Answer: while n <= 5. this will increment n as long as n <= 5 once n reaches 5 after it's
+# printed, it's value will no longer satisfy the requirements of n<=5
 
 
-Question 3
+# Question 3
 
-how many hello's will be printed?
+# how many hello's will be printed?
 
 for i in range(2):
     for j in range(3):
         print("Hello")
 
-Answer: for each outer loop there are three iterations. Since there are two outer loops,
-and 3 innerloop iterations each, hello will print 6 times. 
+# Answer: for each outer loop there are three iterations. Since there are two outer loops,
+# and 3 innerloop iterations each, hello will print 6 times. 
 
-outer loop i = 0 -> inner loop executes for range 0, 1, and 2 (which is stop number - 1 based on the syntax)
-outer loop i = 1 -> inner loop exectures again for ranges, 0, 1, and 2.
+# outer loop i = 0 -> inner loop executes for range 0, 1, and 2 (which is stop number - 1 based on the syntax)
+# outer loop i = 1 -> inner loop exectures again for ranges, 0, 1, and 2.
 
-therefore there are 6 hellos printed
+# therefore there are 6 hellos printed
 
-Question 4
+# Question 4
 
 for i in range(1, 6):
     if i == 4:
         break
     print(i)
-the boolean conditional stops at 3 since the loop will iterate through all numbers from 1 to stop-1
+# the boolean conditional stops at 3 since the loop will iterate through all numbers from 1 to stop-1
 
-Question 5
+# Question 5
 
-answer
+# answer
 for i in range(1,11):
     if i % 2 == 0: # translation: if the reaminder of i/2 == 0, which can only happen when i is even, skip and continue to the next iteration.
         continue 
     print(i) 
 
-Bonus
-in most cases, because the list is finite and orderd, it means the amount of iterations are predetermined, therefore a for loop would be best to access in most cases.
-one scenario of which using a while loop would be a scenario where a specific condition within the list changes, but the time of which that even happens is unknown.
-for example if you assigned random integer values to each number on a list and you were trying to make a scenario where the addition of two of values from that list  == that specific value
-"""
+# Bonus
+# in most cases, because the list is finite and orderd, it means the amount of iterations are predetermined, therefore a for loop would be best to access in most cases.
+# one scenario of which using a while loop would be a scenario where a specific condition within the list changes, but the time of which that even happens is unknown.
+# for example if you assigned random integer values to each number on a list and you were trying to make a scenario where the addition of two of values from that list  == that specific value
+# 
 
 """
 === Level 2 ===

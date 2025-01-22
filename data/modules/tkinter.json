@@ -1,0 +1,117 @@
+{
+    "Tkinter Widgets": {
+        "description": "Core graphical elements and containers in Tkinter GUI programming",
+        "widgets": [
+            {
+                "name": "Tk",
+                "description": "Main window/root container for Tkinter application",
+                "example": "root = tk.Tk()\nroot.title('My App')\nroot.geometry('800x600')",
+                "methods": ["mainloop()", "destroy()", "update()", "withdraw()", "deiconify()"]
+            },
+            {
+                "name": "Frame", 
+                "description": "Container widget for organizing and grouping other widgets",
+                "example": "frame = tk.Frame(root, bg='gray')",
+                "methods": ["pack()", "grid()", "place()", "pack_forget()", "grid_forget()"]
+            },
+            {
+                "name": "Label",
+                "description": "Widget for displaying text or images",
+                "example": "label = tk.Label(root, text='Hello World', font=('Arial', 12))",
+                "methods": ["config()", "cget()", "pack()", "grid()", "place()"]
+            },
+            {
+                "name": "Button",
+                "description": "Clickable widget that triggers an action",
+                "example": "button = tk.Button(root, text='Click Me', command=callback)",
+                "methods": ["invoke()", "flash()", "config()", "pack()", "grid()"]
+            },
+            {
+                "name": "Entry",
+                "description": "Single-line text input field",
+                "example": "entry = tk.Entry(root, width=30)",
+                "methods": ["get()", "insert()", "delete()", "select_range()", "config()"]
+            },
+            {
+                "name": "Text",
+                "description": "Multi-line text editing widget",
+                "example": "text = tk.Text(root, height=10, width=40)",
+                "methods": ["insert()", "delete()", "get()", "see()", "tag_config()"]
+            },
+            {
+                "name": "Listbox",
+                "description": "Widget for displaying list of items",
+                "example": "listbox = tk.Listbox(root, selectmode='multiple')",
+                "methods": ["insert()", "delete()", "get()", "selection_set()", "size()"]
+            },
+            {
+                "name": "Checkbutton",
+                "description": "Toggle button with two states",
+                "example": "var = tk.BooleanVar()\nchk = tk.Checkbutton(root, text='Enable', variable=var)",
+                "methods": ["select()", "deselect()", "toggle()", "config()"]
+            },
+            {
+                "name": "Radiobutton",
+                "description": "Option button as part of a mutually exclusive group",
+                "example": "var = tk.StringVar()\nrad = tk.Radiobutton(root, text='Option 1', variable=var, value='1')",
+                "methods": ["select()", "deselect()", "invoke()", "config()"]
+            }
+        ],
+        "geometry_managers": [
+            {
+                "name": "pack",
+                "description": "Geometry manager that packs widgets in blocks",
+                "options": ["side", "fill", "expand", "padx", "pady"],
+                "example": "widget.pack(side='top', fill='x', padx=5, pady=5)"
+            },
+            {
+                "name": "grid",
+                "description": "Geometry manager that arranges widgets in a table-like structure",
+                "options": ["row", "column", "rowspan", "columnspan", "sticky"],
+                "example": "widget.grid(row=0, column=0, sticky='nsew')"
+            },
+            {
+                "name": "place",
+                "description": "Geometry manager for absolute positioning",
+                "options": ["x", "y", "relx", "rely", "anchor"],
+                "example": "widget.place(x=100, y=100, anchor='center')"
+            }
+        ],
+        "events": [
+            {
+                "name": "bind",
+                "description": "Method to bind event handlers to widgets",
+                "common_events": [
+                    "<Button-1>",
+                    "<KeyPress>",
+                    "<Return>",
+                    "<FocusIn>",
+                    "<MouseWheel>"
+                ],
+                "example": "widget.bind('<Button-1>', lambda e: handle_click(e))"
+            }
+        ],
+        "variables": [
+            {
+                "name": "StringVar",
+                "description": "Variable class for string data",
+                "methods": ["get()", "set()"]
+            },
+            {
+                "name": "IntVar",
+                "description": "Variable class for integer data",
+                "methods": ["get()", "set()"]
+            },
+            {
+                "name": "BooleanVar",
+                "description": "Variable class for boolean data",
+                "methods": ["get()", "set()"]
+            },
+            {
+                "name": "DoubleVar",
+                "description": "Variable class for float data",
+                "methods": ["get()", "set()"]
+            }
+        ]
+    }
+}
