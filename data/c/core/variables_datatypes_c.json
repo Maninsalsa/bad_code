@@ -1,0 +1,171 @@
+{
+    "Variables": {
+        "description": "Containers for storing data values",
+        "declarations": {
+            "description": "Valid ways to declare and initialize variables",
+            "basic": [
+                {"name": "int x = 5", "description": "Basic integer assignment"},
+                {"name": "char name = 'John'", "description": "Character assignment"},
+                {"name": "float price = 19.99", "description": "Floating point assignment"},
+                {"name": "bool is_active = true", "description": "Boolean assignment"},
+                {"name": "double coordinates = {34.0522, -118.2437}", "description": "Double array assignment"}
+            ],
+            "complex": [
+                {"name": "struct user_data = {name: 'Alice', age: 25}", "description": "Struct initialization"},
+                {"name": "int numbers[] = {1, 2, 3, 4, 5}", "description": "Array initialization"},
+                {"name": "int matrix[][] = {{1, 2}, {3, 4}}", "description": "2D array initialization"},
+                {"name": "int result = calculate_total(items)", "description": "Function result assignment"}
+            ],
+            "multiple": [
+                {"name": "int x, y = 10, 20", "description": "Multiple variable declaration"},
+                {"name": "int first, *rest = {1, 2, 3, 4, 5}", "description": "Mixed declaration with pointer"}
+            ]
+        },
+        "commonErrors": {
+            "description": "Common mistakes when declaring variables",
+            "syntax": [
+                {"error": "int 2x = 10", "reason": "Cannot start with number"},
+                {"error": "int my-var = 5", "reason": "Cannot use hyphen"},
+                {"error": "int class = 'C'", "reason": "Cannot use reserved keywords"},
+                {"error": "int for = 10", "reason": "Cannot use reserved keywords"}
+            ],
+            "naming": [
+                {"error": "int MyVariable", "reason": "Not recommended for variables (use snake_case)"},
+                {"error": "int @variable", "reason": "Cannot use special characters"},
+                {"error": "int variable!", "reason": "Cannot use special characters"}
+            ]
+        },
+        "usage": {
+            "appropriate": [
+                "Storing calculation results that will be reused",
+                "Keeping track of state in a program",
+                "Storing user input",
+                "Managing configuration settings",
+                "Creating counters and accumulators"
+            ],
+            "inappropriate": [
+                "One-time calculations that won't be reused",
+                "Immediate print statements",
+                "Simple literals in format strings",
+                "Temporary values in list comprehensions",
+                "Constants that never change"
+            ]
+        }
+    },
+    "DataTypes": {
+        "description": "The type of data that a variable can hold",
+        "types": {
+            "basic": [
+                {"name": "int", "description": "Integer type"},
+                {"name": "char", "description": "Character type"},
+                {"name": "float", "description": "Floating point type"},
+                {"name": "bool", "description": "Boolean type"},
+                {"name": "double", "description": "Double precision type"}
+            ],
+            "complex": [
+                {"name": "struct", "description": "Structure type"},
+                {"name": "enum", "description": "Enumeration type"},
+                {"name": "union", "description": "Union type"}
+            ]
+        }
+    },
+    "Pointers": {
+        "description": "A variable that stores the memory address of another variable",
+        "types": {
+            "basic": [
+                {"name": "int *ptr", "description": "Integer pointer"},
+                {"name": "char *name", "description": "Character pointer"},
+                {"name": "float *price", "description": "Float pointer"},
+                {"name": "bool *is_active", "description": "Boolean pointer"},
+                {"name": "double *coordinates", "description": "Double pointer"}
+            ],
+            "complex": [
+                {"name": "struct *user_data", "description": "Structure pointer"},
+                {"name": "int *numbers", "description": "Array pointer"},
+                {"name": "int **matrix", "description": "Pointer to pointer"},
+                {"name": "int *result", "description": "Function result pointer"}
+            ]
+        },
+        "usage": {
+            "appropriate": [
+                "Passing large data to functions",
+                "Modifying original data in functions",
+                "Dynamic memory allocation"
+            ],
+            "inappropriate": [
+                "Small data transfers",
+                "Read-only operations",
+                "Static memory usage"
+            ]
+        }
+    },
+    "Arrays": {
+        "description": "A collection of elements of the same type stored in contiguous memory locations",
+        "types": {
+            "basic": [
+                {"name": "int arr[5]", "description": "Integer array"},
+                {"name": "char name[10]", "description": "Character array"},
+                {"name": "float price[100]", "description": "Float array"},
+                {"name": "bool is_active[50]", "description": "Boolean array"},
+                {"name": "double coordinates[2]", "description": "Double array"}
+            ],
+            "complex": [
+                {"name": "struct user_data[10]", "description": "Structure array"},
+                {"name": "int numbers[5]", "description": "Simple integer array"},
+                {"name": "int matrix[2][2]", "description": "2D integer array"},
+                {"name": "int result[100]", "description": "Large integer array"}
+            ]
+        }
+    },
+    "Strings": {
+        "description": "A sequence of characters",
+        "types": {
+            "basic": [
+                {"name": "char str[10] = 'Hello'", "description": "Array-based string"},
+                {"name": "char name[20] = 'John'", "description": "Name string"},
+                {"name": "char message[100] = 'This is a string'", "description": "Message string"},
+                {"name": "char greeting[50] = 'Welcome to C'", "description": "Greeting string"}
+            ],
+            "pointer": [
+                {"name": "char *str = 'Hello'", "description": "Pointer-based string"},
+                {"name": "char *name = 'John'", "description": "Name string pointer"},
+                {"name": "char *message = 'This is a string'", "description": "Message string pointer"},
+                {"name": "char *greeting = 'Welcome to C'", "description": "Greeting string pointer"}
+            ]
+        }
+    },
+    "Constants": {
+        "description": "A value that cannot be altered by the program during normal execution",
+        "types": {
+            "basic": [
+                {"name": "const int x = 5", "description": "Integer constant"},
+                {"name": "const char name = 'John'", "description": "Character constant"},
+                {"name": "const float price = 19.99", "description": "Float constant"},
+                {"name": "const bool is_active = true", "description": "Boolean constant"}
+            ],
+            "complex": [
+                {"name": "const struct user_data", "description": "Structure constant"},
+                {"name": "const int numbers[]", "description": "Array constant"},
+                {"name": "const int matrix[][]", "description": "2D array constant"},
+                {"name": "const int result", "description": "Function result constant"}
+            ]
+        }
+    },
+    "BestPractices": {
+        "description": "Best practices for writing C code",
+        "guidelines": {
+            "style": [
+                {"name": "indentation", "rule": "Use 4 spaces for indentation"},
+                {"name": "line_length", "rule": "Limit lines to 80 characters"},
+                {"name": "naming_conventions", "rule": "Use snake_case for variable and function names"},
+                {"name": "braces", "rule": "Place opening braces on the same line as the control statement"}
+            ],
+            "organization": [
+                {"name": "global_variables", "rule": "Declare global variables at the top of the file"},
+                {"name": "local_variables", "rule": "Declare local variables at the beginning of the function"},
+                {"name": "main_function", "rule": "Define the main function at the top of the file"},
+                {"name": "helper_functions", "rule": "Define helper functions after the main function"}
+            ]
+        }
+    }
+}

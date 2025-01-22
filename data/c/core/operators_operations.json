@@ -1,0 +1,187 @@
+{
+    "Operators": {
+        "description": "Symbols and keywords that perform operations on values and variables",
+        "types": {
+            "Arithmetic": {
+                "description": "Basic mathematical operations",
+                "operators": [
+                    {"name": "+", "description": "Addition"},
+                    {"name": "-", "description": "Subtraction"}, 
+                    {"name": "*", "description": "Multiplication"},
+                    {"name": "/", "description": "Division"},
+                    {"name": "%", "description": "Modulo"}
+                ]
+            },
+            "Comparison": {
+                "description": "Compare values and return boolean result",
+                "operators": [
+                    {"name": "==", "description": "Equal to"},
+                    {"name": "!=", "description": "Not equal to"},
+                    {"name": ">", "description": "Greater than"},
+                    {"name": "<", "description": "Less than"}, 
+                    {"name": ">=", "description": "Greater than or equal to"},
+                    {"name": "<=", "description": "Less than or equal to"}
+                ]
+            },
+            "Logical": {
+                "description": "Combine boolean expressions",
+                "operators": [
+                    {"name": "&&", "description": "True if both operands are true"},
+                    {"name": "||", "description": "True if at least one operand is true"},
+                    {"name": "!", "description": "Inverts boolean value"}
+                ]
+            },
+            "Assignment": {
+                "description": "Assign and modify values",
+                "operators": [
+                    {"name": "=", "description": "Basic assignment"},
+                    {"name": "+=", "description": "Add and assign"},
+                    {"name": "-=", "description": "Subtract and assign"},
+                    {"name": "*=", "description": "Multiply and assign"},
+                    {"name": "/=", "description": "Divide and assign"},
+                    {"name": "%=", "description": "Modulo and assign"},
+                    {"name": "&=", "description": "Bitwise AND and assign"},
+                    {"name": "|=", "description": "Bitwise OR and assign"},
+                    {"name": "^=", "description": "Bitwise XOR and assign"},
+                    {"name": ">>=", "description": "Right shift and assign"},
+                    {"name": "<<=", "description": "Left shift and assign"}
+                ]
+            },
+            "Bitwise": {
+                "description": "Operations on individual bits",
+                "operators": [
+                    {"name": "&", "description": "Bitwise AND"},
+                    {"name": "|", "description": "Bitwise OR"},
+                    {"name": "^", "description": "Bitwise XOR"},
+                    {"name": "~", "description": "Bitwise NOT"},
+                    {"name": "<<", "description": "Left shift"},
+                    {"name": ">>", "description": "Right shift"}
+                ]
+            },
+            "Identity": {
+                "description": "Check if values are equal",
+                "operators": [
+                    {"name": "==", "description": "True if values are equal"},
+                    {"name": "!=", "description": "True if values are not equal"}
+                ]
+            },
+            "Membership": {
+                "description": "Test presence in array",
+                "operators": [
+                    {"name": "Array indexing", "description": "Access array elements using index"}
+                ]
+            }
+        }
+    },
+    "Collection Operations": {
+        "description": "Operations for working with arrays and strings",
+        "types": {
+            "Slicing": {
+                "description": "Extract subsequences using array indexing",
+                "syntax": {
+                    "basic": {
+                        "description": "array[index]",
+                        "components": [
+                            {"name": "index", "description": "Array index (0-based)"}
+                        ],
+                        "examples": [
+                            {"name": "Basic access", "syntax": "array[2]", "description": "Element at index 2"},
+                            {"name": "Pointer arithmetic", "syntax": "*(array + 2)", "description": "Element at index 2 using pointer"},
+                            {"name": "Array segment", "syntax": "memcpy(dest, array + start, count)", "description": "Copy array segment"}
+                        ]
+                    },
+                    "advanced": {
+                        "pointer_arithmetic": {
+                            "description": "Access using pointer arithmetic",
+                            "examples": [
+                                {"syntax": "*(array + n)", "description": "Access nth element"},
+                                {"syntax": "array + n", "description": "Pointer to nth element"},
+                                {"syntax": "&array[n]", "description": "Address of nth element"}
+                            ]
+                        }
+                    }
+                },
+                "supported_types": [
+                    {"name": "Arrays", "example": "my_array[1]"},
+                    {"name": "Strings", "example": "str[2]"},
+                    {"name": "Pointers", "example": "*(ptr + 1)"}
+                ],
+                "assignment": {
+                    "description": "Assign values to array elements",
+                    "examples": [
+                        {"syntax": "array[2] = 6", "description": "Assign to single element"},
+                        {"syntax": "memcpy(array + 1, new_values, sizeof(int) * 3)", "description": "Copy multiple elements"},
+                        {"syntax": "memset(array + 2, 0, sizeof(int) * 3)", "description": "Set multiple elements"}
+                    ]
+                }
+            },
+            "Concatenation": {
+                "description": "Combine arrays using memory operations",
+                "examples": [
+                    {"type": "Arrays", "example": "memcpy(dest + len1, arr2, len2)"},
+                    {"type": "Strings", "example": "strcat(str1, str2)"},
+                    {"type": "Pointers", "example": "memcpy(ptr1 + size1, ptr2, size2)"}
+                ]
+            }
+        }
+    },
+    "Control Flow": {
+        "description": "Structures that control program execution",
+        "types": {
+            "Conditionals": {
+                "description": "Control execution based on conditions",
+                "structures": {
+                    "if": {
+                        "syntax": "if (condition)",
+                        "description": "Executes code block if condition evaluates to true",
+                        "example": "if (x > 0) {\n    printf(\"Positive\");\n}"
+                    },
+                    "if_else": {
+                        "syntax": "if (condition) {\n    // code\n} else {\n    // code\n}",
+                        "description": "Executes first block if true, else block if false",
+                        "example": "if (age >= 18) {\n    printf(\"Adult\");\n} else {\n    printf(\"Minor\");\n}"
+                    },
+                    "if_else_if": {
+                        "syntax": "if (condition1) {\n    // code\n} else if (condition2) {\n    // code\n} else {\n    // code\n}",
+                        "description": "Chains multiple conditions, executes first true condition",
+                        "example": "if (score >= 90) {\n    grade = 'A';\n} else if (score >= 80) {\n    grade = 'B';\n} else {\n    grade = 'C';\n}"
+                    },
+                    "nested_if": {
+                        "syntax": "if (outer_condition) {\n    if (inner_condition) {\n        // code\n    }\n}",
+                        "description": "Conditional statements inside other conditionals",
+                        "example": "if (is_valid) {\n    if (has_permission) {\n        perform_action();\n    }\n}"
+                    },
+                    "ternary": {
+                        "syntax": "condition ? value_if_true : value_if_false",
+                        "description": "Single-line conditional expression",
+                        "example": "status = (score >= 60) ? \"pass\" : \"fail\";"
+                    }
+                }
+            },
+            "Loops": {
+                "description": "Structures for repeated execution",
+                "types": {
+                    "for_loops": {
+                        "basic": {"syntax": "for (int i = 0; i < n; i++)", "description": "Basic counter-based iteration"},
+                        "range_based": {"syntax": "for (int i = start; i < stop; i += step)", "description": "Iterate with custom step"},
+                        "array": {"syntax": "for (int i = 0; i < array_size; i++)", "description": "Iterate over array elements"},
+                        "pointer": {"syntax": "for (int* ptr = arr; ptr < arr + size; ptr++)", "description": "Iterate using pointer arithmetic"}
+                    },
+                    "while_loops": {
+                        "basic": {"syntax": "while (condition)", "description": "Execute while condition is true"},
+                        "sentinel": {"syntax": "while (input != sentinel)", "description": "Loop until sentinel value encountered"},
+                        "infinite": {"syntax": "while (1) or while (true)", "description": "Loop indefinitely until break"}
+                    },
+                    "do_while_loops": {
+                        "basic": {"syntax": "do { /* code */ } while (condition);", "description": "Execute at least once, then while condition is true"},
+                        "input_validation": {"syntax": "do { input = get_input(); } while (!valid(input));", "description": "Keep getting input until valid"}
+                    },
+                    "nested_loops": {
+                        "basic": {"syntax": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < m; j++) {\n        // code\n    }\n}", "description": "Loop within another loop"},
+                        "matrix": {"syntax": "for (int i = 0; i < rows; i++) {\n    for (int j = 0; j < cols; j++) {\n        matrix[i][j] = value;\n    }\n}", "description": "Iterate over 2D array"}
+                    }
+                }
+            }
+        }
+    }
+}
