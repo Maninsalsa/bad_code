@@ -1,5 +1,6 @@
 {
     "OpenPyXL": {
+        "reference": "https://openpyxl.readthedocs.io/",
         "description": "Library for reading and writing Excel files",
         "workbook": {
             "description": "Workbook operations",

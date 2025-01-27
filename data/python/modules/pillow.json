@@ -1,5 +1,6 @@
 {
     "Pillow": {
+        "reference": "https://pillow.readthedocs.io/",
         "description": "Python Imaging Library for opening, manipulating, and saving image files",
         "image_basics": {
             "description": "Basic image operations",

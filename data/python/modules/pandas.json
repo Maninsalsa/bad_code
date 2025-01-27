@@ -1,5 +1,6 @@
 {
     "Pandas": {
+        "reference": "https://pandas.pydata.org/docs/",
         "description": "Data manipulation and analysis library for Python",
         "data_structures": {
             "description": "Core data structures in pandas",

@@ -1,4 +1,5 @@
 {
+    "reference": "https://scikit-learn.org/stable/",
     "Scikit-learn": {
         "description": "Machine learning library for data mining and data analysis",
         "preprocessing": {

@@ -1,0 +1,71 @@
+{
+    "FastAPI": {
+        "description": "Modern, fast web framework for building APIs with Python",
+        "reference": "https://fastapi.tiangolo.com/",
+        "initialization": {
+            "description": "Creating FastAPI application",
+            "setup": [
+                {"name": "from fastapi import FastAPI", "description": "Import FastAPI class"},
+                {"name": "app = FastAPI()", "description": "Create FastAPI application instance"}
+            ]
+        },
+        "routing": {
+            "description": "Defining API routes and HTTP methods",
+            "decorators": [
+                {"name": "@app.get('/')", "description": "Handle GET requests"},
+                {"name": "@app.post('/')", "description": "Handle POST requests"},
+                {"name": "@app.put('/')", "description": "Handle PUT requests"},
+                {"name": "@app.delete('/')", "description": "Handle DELETE requests"},
+                {"name": "@app.patch('/')", "description": "Handle PATCH requests"},
+                {"name": "@app.options('/')", "description": "Handle OPTIONS requests"}
+            ]
+        },
+        "path_parameters": {
+            "description": "Working with URL path parameters",
+            "examples": [
+                {"name": "@app.get('/items/{item_id}')", "description": "Path parameter in route"},
+                {"name": "async def read_item(item_id: int)", "description": "Type-annotated parameter"},
+                {"name": "Path(..., title='ID')", "description": "Required path parameter with metadata"}
+            ]
+        },
+        "query_parameters": {
+            "description": "Handling query string parameters",
+            "examples": [
+                {"name": "async def read_items(skip: int = 0, limit: int = 10)", "description": "Optional parameters with defaults"},
+                {"name": "Query(..., min_length=3)", "description": "Required query parameter with validation"}
+            ]
+        },
+        "request_body": {
+            "description": "Processing request body data",
+            "models": [
+                {"name": "from pydantic import BaseModel", "description": "Import Pydantic for data validation"},
+                {"name": "class Item(BaseModel):", "description": "Define data model"},
+                {"name": "async def create_item(item: Item)", "description": "Request body validation"}
+            ]
+        },
+        "responses": {
+            "description": "Customizing API responses",
+            "features": [
+                {"name": "response_model=Item", "description": "Define response data model"},
+                {"name": "status_code=status.HTTP_201_CREATED", "description": "Set response status code"},
+                {"name": "JSONResponse(content=data)", "description": "Custom JSON response"}
+            ]
+        },
+        "dependencies": {
+            "description": "Managing dependencies and middleware",
+            "components": [
+                {"name": "Depends()", "description": "Dependency injection"},
+                {"name": "Security()", "description": "Security dependencies"},
+                {"name": "BackgroundTasks", "description": "Background task processing"}
+            ]
+        },
+        "middleware": {
+            "description": "Adding middleware components",
+            "types": [
+                {"name": "CORSMiddleware", "description": "Handle CORS"},
+                {"name": "HTTPSRedirectMiddleware", "description": "HTTPS redirect"},
+                {"name": "TrustedHostMiddleware", "description": "Host validation"}
+            ]
+        }
+    }
+}

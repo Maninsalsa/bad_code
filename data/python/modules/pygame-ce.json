@@ -1,4 +1,5 @@
 {
+    "reference": "https://pyga.me/docs/",
     "Pygame CE": {
         "description": "Set of Python modules designed for writing video games - Community Edition",
         "display": {

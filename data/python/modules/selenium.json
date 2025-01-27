@@ -1,4 +1,5 @@
 {
+    "reference": "https://www.selenium.dev/documentation/",
     "Selenium": {
         "description": "Tool for web browser automation and testing",
         "webdriver": {

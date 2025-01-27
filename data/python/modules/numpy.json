@@ -1,5 +1,6 @@
 {
     "NumPy": {
+        "reference": "https://numpy.org/doc/stable/",
         "description": "Fundamental package for scientific computing with Python",
         "array_creation": {
             "description": "Functions to create arrays",

@@ -1,5 +1,6 @@
 {
     "Psycopg2": {
+        "reference": "https://www.psycopg.org/docs/",
         "description": "PostgreSQL adapter for Python",
         "connection": {
             "description": "Database connection management",

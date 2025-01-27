@@ -1,5 +1,6 @@
 {
     "Pytest": {
+        "reference": "https://docs.pytest.org/",
         "description": "Testing framework making it easy to write simple and scalable tests",
         "test_creation": {
             "description": "Basic test writing and organization",

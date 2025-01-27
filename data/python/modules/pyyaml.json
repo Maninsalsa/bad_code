@@ -1,5 +1,6 @@
 {
     "PyYAML": {
+        "reference": "https://pyyaml.org/wiki/PyYAMLDocumentation",
         "description": "YAML parser and emitter for Python",
         "loading": {
             "description": "Functions for loading YAML content",

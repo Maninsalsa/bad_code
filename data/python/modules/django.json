@@ -1,5 +1,6 @@
 {
     "Django": {
+        "reference": "https://docs.djangoproject.com/",
         "description": "High-level web framework for rapid development in Python",
         "project_setup": {
             "description": "Commands for project initialization and management",

@@ -1,5 +1,6 @@
 {
     "OpenCV": {
+        "reference": "https://docs.opencv.org/",
         "description": "Computer vision and image processing library",
         "image_basics": {
             "description": "Basic image operations",

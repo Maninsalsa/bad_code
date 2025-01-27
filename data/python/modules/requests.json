@@ -1,4 +1,5 @@
 {
+    "reference": "https://requests.readthedocs.io/",
     "Requests": {
         "description": "Simple and elegant HTTP library for Python",
         "http_methods": {

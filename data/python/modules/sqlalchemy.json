@@ -1,4 +1,5 @@
 {
+    "reference": "https://docs.sqlalchemy.org/",
     "SQLAlchemy": {
         "description": "SQL toolkit and Object Relational Mapper for Python",
         "engine_setup": {

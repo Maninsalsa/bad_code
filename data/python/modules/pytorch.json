@@ -1,5 +1,6 @@
 {
     "PyTorch": {
+        "reference": "https://pytorch.org/docs/",
         "description": "Machine learning library for applications like computer vision and NLP",
         "tensors": {
             "description": "Multi-dimensional arrays fundamental to PyTorch",

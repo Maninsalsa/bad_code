@@ -1,0 +1,70 @@
+{
+    "GitHub": {
+        "reference": "https://docs.github.com/",
+        "description": "Web-based platform for version control and collaboration",
+        "basic_commands": {
+            "description": "Essential Git commands for GitHub",
+            "repository": [
+                {"name": "git init", "description": "Initialize new Git repository"},
+                {"name": "git clone [url]", "description": "Clone repository from GitHub"},
+                {"name": "git remote add origin [url]", "description": "Add GitHub remote"},
+                {"name": "git remote -v", "description": "List remote repositories"}
+            ],
+            "changes": [
+                {"name": "git add [file]", "description": "Add file to staging"},
+                {"name": "git add .", "description": "Add all changes to staging"},
+                {"name": "git commit -m [message]", "description": "Commit staged changes"},
+                {"name": "git push origin [branch]", "description": "Push commits to GitHub"}
+            ]
+        },
+        "branches": {
+            "description": "Branch management commands",
+            "operations": [
+                {"name": "git branch", "description": "List local branches"},
+                {"name": "git branch [name]", "description": "Create new branch"},
+                {"name": "git checkout [branch]", "description": "Switch to branch"},
+                {"name": "git merge [branch]", "description": "Merge branch into current"},
+                {"name": "git branch -d [branch]", "description": "Delete local branch"}
+            ]
+        },
+        "collaboration": {
+            "description": "Features for team collaboration",
+            "pull_requests": [
+                {"name": "Creating PR", "description": "Submit changes for review"},
+                {"name": "Reviewing PR", "description": "Review and comment on changes"},
+                {"name": "Merging PR", "description": "Merge approved changes"},
+                {"name": "Closing PR", "description": "Close or reject changes"}
+            ],
+            "issues": [
+                {"name": "Issue Creation", "description": "Create bug reports/feature requests"},
+                {"name": "Issue Labels", "description": "Categorize and prioritize issues"},
+                {"name": "Issue Assignment", "description": "Assign issues to team members"},
+                {"name": "Issue Templates", "description": "Standardize issue reporting"}
+            ]
+        },
+        "advanced_features": {
+            "description": "Advanced GitHub functionality",
+            "actions": [
+                {"name": "Workflows", "description": "Automated CI/CD pipelines"},
+                {"name": "Custom Actions", "description": "Create reusable workflows"},
+                {"name": "Environment Secrets", "description": "Secure environment variables"},
+                {"name": "Artifacts", "description": "Store workflow outputs"}
+            ],
+            "security": [
+                {"name": "Dependabot", "description": "Automated dependency updates"},
+                {"name": "Code Scanning", "description": "Automated code review"},
+                {"name": "Secret Scanning", "description": "Detect exposed secrets"},
+                {"name": "Security Advisories", "description": "Vulnerability reporting"}
+            ]
+        },
+        "project_management": {
+            "description": "Project organization tools",
+            "features": [
+                {"name": "Projects", "description": "Kanban-style project boards"},
+                {"name": "Milestones", "description": "Group issues and pull requests"},
+                {"name": "Wiki", "description": "Project documentation"},
+                {"name": "Insights", "description": "Repository analytics"}
+            ]
+        }
+    }
+}

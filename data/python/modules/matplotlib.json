@@ -1,5 +1,6 @@
 {
     "Matplotlib": {
+        "reference": "https://matplotlib.org/stable/",
         "description": "Comprehensive library for creating static, animated, and interactive visualizations in Python",
         "basic_plotting": {
             "description": "Basic plotting functions",

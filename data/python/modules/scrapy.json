@@ -1,4 +1,5 @@
 {
+    "reference": "https://docs.scrapy.org/",
     "Scrapy": {
         "description": "Framework for extracting data from websites",
         "project_setup": {
