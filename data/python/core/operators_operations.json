@@ -89,7 +89,7 @@
             }
         }
     },
-    "Collection Operations": {
+    "Collection_Operations": {
         "description": "Operations for working with sequences and collections",
         "types": {
             "Slicing": {
@@ -102,11 +102,24 @@
                             {"name": "stop", "description": "First index to exclude (default: length)"},
                             {"name": "step", "description": "Number of items to skip (default: 1)"}
                         ],
+                        "2d_description": "sequence[row_start:row_stop:row_step, col_start:col_stop:col_step]",
+                        "2d_components": [
+                            {"name": "row_start", "description": "First row index to include (default: 0)"},
+                            {"name": "row_stop", "description": "First row index to exclude (default: length)"},
+                            {"name": "row_step", "description": "Number of rows to skip (default: 1)"},
+                            {"name": "col_start", "description": "First column index to include (default: 0)"},
+                            {"name": "col_stop", "description": "First column index to exclude (default: length)"},
+                            {"name": "col_step", "description": "Number of columns to skip (default: 1)"}
+                        ],
                         "examples": [
                             {"name": "Basic slice", "syntax": "sequence[2:5]", "description": "Elements from index 2 to 4"},
                             {"name": "Start omitted", "syntax": "sequence[:3]", "description": "First three elements"},
                             {"name": "End omitted", "syntax": "sequence[2:]", "description": "Elements from index 2 to end"},
-                            {"name": "Full slice", "syntax": "sequence[:]", "description": "Full copy of sequence"}
+                            {"name": "Full slice", "syntax": "sequence[:]", "description": "Full copy of sequence"},
+                            {"name": "2D Basic slice", "syntax": "matrix[1:3, 2:4]", "description": "Submatrix from rows 1-2 and columns 2-3"},
+                            {"name": "2D Row slice", "syntax": "matrix[2:4]", "description": "Multiple complete rows"},
+                            {"name": "2D Column slice", "syntax": "matrix[:, 1:3]", "description": "All rows, specific columns"},
+                            {"name": "2D Single row", "syntax": "matrix[2]", "description": "Single complete row"}
                         ]
                     },
                     "advanced": {
@@ -115,7 +128,8 @@
                             "examples": [
                                 {"syntax": "sequence[-3:]", "description": "Last three elements"},
                                 {"syntax": "sequence[:-2]", "description": "All but last two elements"},
-                                {"syntax": "sequence[-5:-2]", "description": "From fifth-last to third-last"}
+                                {"syntax": "sequence[-5:-2]", "description": "From fifth-last to third-last"},
+                                {"syntax": "matrix[-2:, -2:]", "description": "Last 2 rows and columns of 2D array"}
                             ]
                         },
                         "step_values": {
@@ -124,13 +138,15 @@
                                 {"syntax": "sequence[::2]", "description": "Every second element"},
                                 {"syntax": "sequence[1::2]", "description": "Every second element starting from index 1"},
                                 {"syntax": "sequence[::-1]", "description": "Reverse sequence"},
-                                {"syntax": "sequence[4:1:-1]", "description": "Reverse slice from index 4 to 2"}
+                                {"syntax": "sequence[4:1:-1]", "description": "Reverse slice from index 4 to 2"},
+                                {"syntax": "matrix[::2, ::2]", "description": "Every second row and column in 2D array"}
                             ]
                         }
                     }
                 },
                 "supported_types": [
                     {"name": "Lists", "example": "my_list[1:4]"},
+                    {"name": "2D_Lists", "example": "matrix[1:4][2:5]"},
                     {"name": "Strings", "example": "text[2:5]"},
                     {"name": "Tuples", "example": "my_tuple[1:4]"},
                     {"name": "Range", "example": "range_obj[1:4]"},
@@ -164,7 +180,7 @@
             }
         }
     },
-    "Control Flow": {
+    "Control_Flow": {
         "description": "Structures that control program execution",
         "types": {
             "Conditionals": {

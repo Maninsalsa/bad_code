@@ -145,6 +145,34 @@
             "Counting occurrences"
         ]
     },
+    "Classes": {
+        "description": "Custom data structures that encapsulate data and behavior",
+        "syntax_example": "class User:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age",
+        "use_cases": [
+            "Creating custom data types",
+            "Object-oriented programming",
+            "Encapsulating related data and methods",
+            "Building complex systems"
+        ],
+        "key_attributes": {
+            "mutable": true,
+            "customizable": true,
+            "inheritable": true,
+            "encapsulating": true
+        },
+        "performance": {
+            "instance_creation": "O(1)",
+            "method_access": "O(1)",
+            "attribute_access": "O(1)"
+        },
+        "memory_usage": "Depends on attributes and methods",
+        "best_for": [
+            "Modeling real-world entities",
+            "Building complex systems",
+            "Code organization and reuse",
+            "Implementing design patterns"
+        ]
+    },
     "Selection_Guidelines": {
         "Use_Array_When": [
             "Working with large numeric datasets",
@@ -175,6 +203,12 @@
             "Need fast lookups by key",
             "Storing complex data structures",
             "Working with JSON-like data"
+        ],
+        "Use_Class_When": [
+            "Need custom data structures",
+            "Implementing object-oriented design",
+            "Encapsulating related data and behavior",
+            "Building complex systems"
         ]
     }
 }

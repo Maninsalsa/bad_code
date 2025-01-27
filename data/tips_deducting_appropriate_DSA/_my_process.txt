@@ -1,0 +1,116 @@
+Below is a process by which I approach coding. 
+
+1. Question and Clarify the Requirements
+	1.	Understand before You Code
+	•	Rigorously analyze requirements before writing any code. Speak with the requirement
+        source (stakeholders, product owner, documentation) to confirm you fully understand
+        intent and constraints.
+	•	Reorganize the requirements in your own words, making sure you truly capture what     
+        is being asked.
+
+	2.	Dig into Documentation
+	•	Search all available documentation—API references, design specs, past modules—and 
+        internalize how the system works.
+	•	Make sure there are no hidden or conflicting assumptions before you begin coding.
+
+	3.	Transform Requirements into Tests
+	•	The most effective way to confirm you “got it right” is by writing tests based on 
+        the requirements before coding any solution (Test-Driven Development, or TDD).
+	•	This approach preemptively reduces wasted effort on misunderstood requirements or 
+        missed edge cases. Tests act as both the blueprint and the safeguard.
+
+Why This Matters:
+Spending time clarifying requirements may seem lengthy, but it eliminates back-and-forth 
+later. The up-front effort is exponential time savings compared to trying to fix incorrect 
+assumptions halfway through development.
+
+2. Code, Then Delete, Then Code Again
+	1.	Iterative Creation and Destruction
+	•	Write a first version that meets the test criteria.
+	•	Save it, then delete the code, and rewrite it from scratch. Compare the two versions
+         and note the differences.
+	2.	Purpose of This Approach
+	•	The goal is consistency: Can you arrive at the same working logic twice?
+	•	Over multiple iterations, you naturally remove unnecessary steps or patterns. 
+        Each fresh start clarifies the essential logic and helps you avoid bloat.
+	3.	No Optimization Yet
+	•	During these iterations, focus on correctness, clarity, and matching the tests.
+	•	Optimization can wait until after you’re certain you have the right behavior and 
+        a clear, minimal solution.
+
+Why This Matters:
+This approach sounds painstaking, but it cultivates deep understanding of your solution. 
+By forcing yourself to rebuild, you sharpen your ability to spot redundancies and simplify
+your code over time.
+
+3. Optimize
+	1.	Check for Efficiency
+	•	With a stable, minimal solution in place, begin addressing time complexity, memory 
+        usage, and potential scalability concerns.
+	•	Use profiling or benchmarking tools to locate bottlenecks.
+	2.	Optimization Techniques
+	•	Data Structures & Algorithms: Evaluate whether your current approach uses the most 
+        efficient data structures (e.g., arrays vs. linked lists, sets vs. maps) and algorithms.
+	•	Refactor for Performance: Look for repeated or expensive operations that can be 
+        streamlined or cached.
+	•	Leverage Existing Libraries: Well-tested libraries are often optimized already; 
+        don’t reinvent the wheel.
+	3.	Iterative Tests
+	•	Continue running your tests (and possibly create performance-specific tests). 
+        Ensure you don’t break functionality while improving speed or memory usage.
+
+Why This Matters:
+Early optimization can lead to overengineering. By waiting until you have a correct solution, 
+you can focus your efforts on improvements that genuinely matter to your application’s performance and scale.
+
+4. Scale and Automate
+	1.	Automate the Execution
+	•	Once your solution is correct and optimized, look for ways to automate it—e.g., scheduling, 
+        CI/CD pipelines, or triggers that run the code under specific conditions.
+	•	This reduces manual intervention and frees the developer from operational overhead.
+	2.	Consider Deployment and Integration
+	•	If your solution will operate within a larger ecosystem (e.g., microservices architecture), 
+        ensure it’s easy to integrate.
+	•	Containerizing (Docker) or using serverless approaches can simplify deployment and scaling.
+	3.	Documentation and Maintenance
+	•	Finalize your README or user guide so others can quickly understand how and when the 
+        code executes.
+	•	Ensure your solution’s tests are part of an automated pipeline so any future changes 
+        can be validated automatically.
+
+Why This Matters:
+A solution that works only on your machine or requires constant manual attention isn’t truly complete. 
+Proper automation and integration let the system scale without demanding more of your time 
+or risking operational mistakes.
+
+Additional Considerations for Clean, Excellent Code
+	1.	Code Reviews & Pair Programming
+	•	Encourage peer review of your code for both logic and style. Fresh eyes often catch subtle 
+        issues or suggest improvements.
+	2.	Consistent Style & Linting
+	•	Use a style guide, linter, or formatter (e.g., Prettier, ESLint for JavaScript; Black or 
+        Flake8 for Python) to keep the code uniform and easier to read.
+	3.	Version Control Best Practices
+	•	Maintain clear git commit messages and well-defined branching strategies 
+        (e.g., GitFlow, GitHub Flow).
+	•	This history helps you revert or review code changes if problems arise.
+	4.	Continuous Integration (CI)
+	•	Integrate your tests into a CI pipeline (e.g., GitHub Actions, Jenkins, GitLab CI)
+        so each new commit or pull request triggers automated checks.
+	5.	Security Considerations
+	•	If your program deals with sensitive data, incorporate secure coding practices 
+        (e.g., input validation, encryption where appropriate).
+	•	Conduct threat modeling or security scans to ensure no vulnerabilities slip through.
+	6.	Edge Cases and Negative Testing
+	•	Test scenarios where inputs are invalid, zero-length, extremely large, or 
+        otherwise unusual. This helps ensure robustness.
+
+Final Thoughts
+
+Your methodology already emphasizes testing first, iterative coding, and eventual 
+optimization—all excellent pillars of modern software development. By adding elements like peer 
+review, CI/CD, and security checks, you further elevate the quality and reliability of your code.
+
+Remember: The overarching goal is clarity and correctness first, followed by performance and 
+scalability. Ensuring that you continuously validate your logic through tests and iteration helps
+deliver maintainable, high-quality software over time.

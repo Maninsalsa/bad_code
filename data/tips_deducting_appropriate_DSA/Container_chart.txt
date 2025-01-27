@@ -33,3 +33,24 @@ Dictionaries   | Key-value pairs collection                 | • Configuration 
 Time Complexity Key:
 O(1) - Constant time: Operation takes the same amount of time regardless of input size
 O(n) - Linear time: Operation time increases linearly with input size (n = number of elements)
+
+Language     | Arrays        | Tuples        | Lists          | Sets              | Dictionaries/Maps
+-------------|---------------|---------------|----------------|-------------------|------------------
+Go           | [N]T (fixed)  | N/A           | []T (slices)   | N/A               | map[K]V
+             | []T (slices)  |               |                |                   |
+Java         | T[]           | N/A           | ArrayList<T>   | HashSet<T>        | HashMap<K,V>
+             | Array<T>      |               | LinkedList<T>  | TreeSet<T>        | TreeMap<K,V>
+C++          | array<T,N>    | tuple<T...>   | vector<T>      | set<T>            | map<K,V>
+             | T[]           |               | list<T>        | unordered_set<T>  | unordered_map<K,V>
+JavaScript   | Array         | N/A           | Array          | Set               | Object
+             |               |               |                |                   | Map
+C            | T[]           | struct        | linked list*   | N/A               | hash table*
+             | array         |               |                |                   |
+Ruby         | Array         | N/A           | Array          | Set               | Hash
+             |               |               |                |                   |
+Kotlin       | Array<T>      | Pair<A,B>     | List<T>        | Set<T>            | Map<K,V>
+             | IntArray etc. | Triple<A,B,C> | MutableList<T> | MutableSet<T>     | MutableMap<K,V>
+Swift        | Array<T>      | (T1, T2, ...) | Array<T>       | Set<T>            | Dictionary<K,V>
+             | [T]           |               | [T]            |                   | [K:V]
+
+* Requires manual implementation

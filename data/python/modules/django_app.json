@@ -1,0 +1,75 @@
+{
+    "Django Project Structure": {
+        "description": "Comprehensive guide to Django project organization and management",
+        "core_components": {
+            "description": "Essential Django project files and directories",
+            "project_structure": [
+                {"name": "manage.py", "description": "Django command-line utility for administrative tasks"},
+                {"name": "settings.py", "description": "Core configuration file containing project settings, database configs, middleware, etc"},
+                {"name": "urls.py", "description": "Main URL routing configuration for the entire project"},
+                {"name": "asgi.py", "description": "ASGI deployment configuration for async web servers"},
+                {"name": "wsgi.py", "description": "WSGI deployment configuration for traditional web servers"}
+            ]
+        },
+        "app_structure": {
+            "description": "Standard Django application components and files",
+            "components": [
+                {"name": "__init__.py", "description": "Makes the directory a Python package"},
+                {"name": "admin.py", "description": "Django admin interface configuration and model registration"},
+                {"name": "apps.py", "description": "Application configuration and settings"},
+                {"name": "models.py", "description": "Database models defining data structure"},
+                {"name": "serializers.py", "description": "DRF serializers for JSON conversion"},
+                {"name": "urls.py", "description": "App-specific URL routing patterns"},
+                {"name": "views.py", "description": "Request handling logic and response generation"},
+                {"name": "tests.py", "description": "Test cases and testing utilities"}
+            ]
+        },
+        "update_procedures": {
+            "description": "Systematic approaches for different types of updates",
+            "model_updates": {
+                "description": "Steps for adding or modifying models",
+                "steps": [
+                    {"order": 1, "file": "models.py", "action": "Define new model or modify existing"},
+                    {"order": 2, "file": "admin.py", "action": "Register model with admin interface"},
+                    {"order": 3, "file": "serializers.py", "action": "Create/update model serializer"},
+                    {"order": 4, "file": "views.py", "action": "Implement views using serializer"},
+                    {"order": 5, "file": "urls.py", "action": "Add URL patterns for new views"},
+                    {"order": 6, "command": "python manage.py makemigrations", "action": "Create database migrations"},
+                    {"order": 7, "command": "python manage.py migrate", "action": "Apply migrations to database"}
+                ]
+            },
+            "endpoint_updates": {
+                "description": "Process for adding new API endpoints",
+                "steps": [
+                    {"order": 1, "file": "serializers.py", "action": "Create/update data serializers"},
+                    {"order": 2, "file": "views.py", "action": "Implement endpoint logic"},
+                    {"order": 3, "file": "urls.py", "action": "Add URL routing"},
+                    {"order": 4, "action": "Test endpoint functionality"}
+                ]
+            }
+        },
+        "framework_components": {
+            "description": "Distinction between Django and Django REST Framework",
+            "django_base": {
+                "description": "Core Django framework components",
+                "features": [
+                    {"name": "ORM", "description": "Database abstraction layer in models.py"},
+                    {"name": "Admin Interface", "description": "Automatic admin UI generation"},
+                    {"name": "Authentication", "description": "User authentication system"},
+                    {"name": "Forms", "description": "Form handling and validation"},
+                    {"name": "Templates", "description": "HTML template system"}
+                ]
+            },
+            "rest_framework": {
+                "description": "Django REST Framework specific components",
+                "features": [
+                    {"name": "Serializers", "description": "JSON data conversion tools"},
+                    {"name": "ViewSets", "description": "Combined CRUD operation views"},
+                    {"name": "Browsable API", "description": "Interactive API interface"},
+                    {"name": "Authentication", "description": "Token-based API authentication"},
+                    {"name": "Routers", "description": "Automatic URL routing"}
+                ]
+            }
+        }
+    }
+}
