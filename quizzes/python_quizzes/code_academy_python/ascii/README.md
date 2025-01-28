@@ -4,8 +4,8 @@
 This project helps practice several key Python concepts:
 
 - Dictionary key/value access
-- Use of classes
-- Module imports and file handling 
+- Use of classes 
+- Module imports and file handling
 - Separation of concerns
 - Iterator usage with built-in methods
 - Common string methods (.get(), .upper(), .join())
@@ -13,59 +13,67 @@ This project helps practice several key Python concepts:
 - Unit testing
 - Documentation
 
-Allows the user to convert their plain text of individual letters and/or words into their ASCII artform versions. 
-Each capital letter is assigned an ascii art in key:value pair format.
+Allows the user to convert letters and/or words in plain text into ASCII artform letters.
+Each capital letter is assigned an ASCII art representation in key:value pair format.
+The letters are written on a file
 
 ## Technical Design
-directory includes:
-- one json file for the ascii library
-- one module to store functions
-- one main script to organize it all together
+The project consists of:
+- ASCII library JSON file containing the art mappings
+- Module with core functionality 
+- Main script to coordinate the program flow
 
-**Main**
-    the library and module are imported
+### Program Flow
+1. Import required modules and ASCII library
+2. Get user input string
+3. Convert input to uppercase
+4. Map each character to its ASCII art representation
+5. Combine the ASCII art characters
+6. Write the result onto a file in .txt format. 
 
-    main asks the user for a string, which is stored in a variable 'string_captured'
-    'string_captured' takes the input string from the user and converts it to uppercase
-    
-    'ascii_printer' passes 'string_captured' and converts the values 
-    The variable "ascii_art" initiates a variable to capture the ascii art associated with the matching key
-    the chars in the string passed is iterated over and adds the ascii art values for all matching key and char pairs. 
+### Components
+
+**Main Script (main.py)**
+- Imports required modules
+- Gets user input
+- Coordinates conversion process
+- Displays output
+
+**ASCII Library (ascii_library.json)**
+- Stores ASCII art mappings
+- Keys are capital letters
+- Values are lists of strings forming characters
+
+**ASCII Converter Module**
+- Contains core conversion logic
+- Handles character mapping
+- Combines ASCII characters
 
 ### Requirements
-- Dictionary containing ASCII art letters
-- Capital letters as keys
-- Values are lists of 7 strings forming ASCII art characters
-- the user inputs any string, whether it's a single letter or a word, and the program will print what they write on a .txt document
+- Dictionary mapping letters to ASCII art
+- Support for capital letters A-Z
+- Each ASCII character composed of 7 strings
+- Input validation and error handling
+- Output to console or text file
 
-### Key Questions
-1. Python Fundamentals Quiz (Easy):
-   - What string method would you use to convert "hello" to "HELLO"?
-   - How do you access a value from a dictionary given its key?
-   - What is the purpose of .get() vs direct key access?
+### Implementation Details
 
-2. ASCII Art Functions (Medium): 
-   - Write a function that takes a single letter and returns its ASCII art representation
-   - How would you validate that input is a valid letter?
-   - What data structure would you use to store multi-line ASCII characters?
+#### Core Classes
+- `AsciiLetter`: Represents single ASCII character
+- `AsciiWord`: Combines multiple ASCII letters
 
-3. String Processing (Medium):
-   - Design a function that combines multiple ASCII letters into a word
-   - How would you handle invalid characters in the input?
-   - What's the most efficient way to join multiple strings vertically?
+#### Key Functions  
+- `convert_to_ascii(text)`: Main conversion function
+- `validate_input(text)`: Input validation
+- `combine_letters(letters)`: Combines ASCII characters
 
-4. Error Handling (Hard):
-   - Implement comprehensive input validation with appropriate error messages
-   - Add unit tests to verify letter case handling
-   - Create a custom exception class for ASCII art errors
+#### Error Handling
+- Input validation
+- Invalid character handling
+- Custom exceptions for ASCII conversion errors
 
-### Implementation Approach
-
-main.py accesses the json file ascii_library.json. 
-it encorporates classes from the asci_art_letter.py to create word and letter instances. 
-
-#### Core classes and Functions
-
-def_ascii_word()
-def_ascii_letter()
-
+### Testing
+- Unit tests for core functionality
+- Input validation tests
+- Edge case handling
+- Integration tests

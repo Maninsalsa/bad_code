@@ -1,0 +1,53 @@
+"""I'll review your answers and provide feedback for each question:
+
+1. **Q1: dict.items() vs dict.keys() output type**
+Your answer is generally correct but could be more precise. Let's clarify:
+```python
+my_dict = {'a': 1, 'b': 2}
+
+# dict.items() returns a dict_items view object
+print(type(my_dict.items()))  # <class 'dict_items'>
+print(my_dict.items())  # dict_items([('a', 1), ('b', 2)])
+
+# dict.keys() returns a dict_keys view object
+print(type(my_dict.keys()))  # <class 'dict_keys'>
+print(my_dict.keys())  # dict_keys(['a', 'b'])
+```
+
+2. **Q2: String to characters conversion**
+Your answer about `list()` is correct and well explained!
+
+3. **Q3: list.pop(0) vs list.pop()**
+Your answer is incomplete. Let's expand:
+```python
+numbers = [1, 2, 3, 4]
+first = numbers.pop(0)  # removes and returns first element (1)
+last = numbers.pop()    # removes and returns last element (4)
+
+# pop(0) is O(n) as it needs to shift all elements
+# pop() is O(1) as it just removes the last element
+```
+
+4. **Q4: .remove() with multiple occurrences**
+Your answer is correct but could include an example:
+```python
+numbers = [1, 2, 2, 3, 2]
+numbers.remove(2)  # removes first 2 only
+print(numbers)  # [1, 2, 3, 2]
+```
+
+5. **Q5: List operations output**
+Your answer is correct! Good understanding of list copying and modifications.
+
+6. **Q6: Return types**
+Your answer is good but could be more specific about the tuple structure:
+```python
+a = map(str, [1, 2, 3])        # <class 'map'>
+b = [str(x) for x in [1, 2, 3]]  # <class 'list'>
+c = (*map(str, [1, 2, 3]),)    # <class 'tuple'> containing unpacked strings
+
+# c creates a tuple like: ('1', '2', '3')
+```
+
+Would you like me to elaborate on any of these explanations?
+"""

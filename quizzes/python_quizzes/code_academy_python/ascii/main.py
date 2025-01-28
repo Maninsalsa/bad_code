@@ -1,11 +1,20 @@
 #import the array and block printer function from ascii_library file
-from ascii_library import ascii_art_letters, block_printer
+import json
+import ascii_printer as ap
+
+try:
+    with open('ascii_library.json', 'r') as file:
+        ascii_library = json.load(file)
+except FileNotFoundError:
+    print("Error: ASCII library file not found")
+    exit(1)
+except json.JSONDecodeError:
+    print("Error: Invalid JSON format in ASCII library file")
+    exit(1)
 
 word = input("Enter a word: ").upper()
-ascii_fied = block_printer(word)
+ascii_fied = ascii_printer(word)
 print(ascii_fied)
-
-
 
 
 """
