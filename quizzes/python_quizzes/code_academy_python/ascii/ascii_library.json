@@ -1,6 +1,5 @@
-# ASCII letters made out of their letters.upper()
-ascii_art_letters = {
-    'A': [
+{
+    "A": [
         "  A   ",
         " A A  ",
         "A   A ",
@@ -9,7 +8,7 @@ ascii_art_letters = {
         "A   A ",
         "A   A "
     ],
-    'B': [
+    "B": [
         "BBBB  ",
         "B   B ",
         "B   B ",
@@ -18,7 +17,7 @@ ascii_art_letters = {
         "B   B ",
         "BBBB  "
     ],
-    'C': [
+    "C": [
         " CCC  ",
         "C   C ",
         "C     ",
@@ -27,7 +26,7 @@ ascii_art_letters = {
         "C   C ",
         " CCC  "
     ],
-    'D': [
+    "D": [
         "DDDD  ",
         "D   D ",
         "D   D ",
@@ -36,7 +35,7 @@ ascii_art_letters = {
         "D   D ",
         "DDDD  "
     ],
-    'E': [
+    "E": [
         "EEEEE ",
         "E     ",
         "E     ",
@@ -45,7 +44,7 @@ ascii_art_letters = {
         "E     ",
         "EEEEE "
     ],
-    'F': [
+    "F": [
         "FFFFF ",
         "F     ",
         "F     ",
@@ -54,7 +53,7 @@ ascii_art_letters = {
         "F     ",
         "F     "
     ],
-    'G': [
+    "G": [
         " GGG  ",
         "G   G ",
         "G     ",
@@ -63,7 +62,7 @@ ascii_art_letters = {
         "G   G ",
         " GGG  "
     ],
-    'H': [
+    "H": [
         "H   H ",
         "H   H ",
         "H   H ",
@@ -72,7 +71,7 @@ ascii_art_letters = {
         "H   H ",
         "H   H "
     ],
-    'I': [
+    "I": [
         " III  ",
         "  I   ",
         "  I   ",
@@ -81,7 +80,7 @@ ascii_art_letters = {
         "  I   ",
         " III  "
     ],
-    'J': [
+    "J": [
         "JJJJJ ",
         "    J ",
         "    J ",
@@ -90,7 +89,7 @@ ascii_art_letters = {
         "J   J ",
         " JJJ  "
     ],
-    'K': [
+    "K": [
         "K   K ",
         "K  K  ",
         "K K   ",
@@ -99,7 +98,7 @@ ascii_art_letters = {
         "K  K  ",
         "K   K "
     ],
-    'L': [
+    "L": [
         "L     ",
         "L     ",
         "L     ",
@@ -108,7 +107,7 @@ ascii_art_letters = {
         "L     ",
         "LLLLL "
     ],
-    'M': [
+    "M": [
         "M   M ",
         "MM MM ",
         "MM MM ",
@@ -117,7 +116,7 @@ ascii_art_letters = {
         "M   M ",
         "M   M "
     ],
-    'N': [
+    "N": [
         "N   N ",
         "NN  N ",
         "NN  N ",
@@ -126,7 +125,7 @@ ascii_art_letters = {
         "N  NN ",
         "N   N "
     ],
-    'O': [
+    "O": [
         " OOO  ",
         "O   O ",
         "O   O ",
@@ -135,7 +134,7 @@ ascii_art_letters = {
         "O   O ",
         " OOO  "
     ],
-    'P': [
+    "P": [
         "PPPP  ",
         "P   P ",
         "P   P ",
@@ -144,7 +143,7 @@ ascii_art_letters = {
         "P     ",
         "P     "
     ],
-    'Q': [
+    "Q": [
         " QQQ  ",
         "Q   Q ",
         "Q   Q ",
@@ -153,7 +152,7 @@ ascii_art_letters = {
         "Q   Q ",
         " QQQ Q"
     ],
-    'R': [
+    "R": [
         "RRRR  ",
         "R   R ",
         "R   R ",
@@ -162,7 +161,7 @@ ascii_art_letters = {
         "R  R  ",
         "R   R "
     ],
-    'S': [
+    "S": [
         " SSS  ",
         "S   S ",
         "S     ",
@@ -171,7 +170,7 @@ ascii_art_letters = {
         "S   S ",
         " SSS  "
     ],
-    'T': [
+    "T": [
         "TTTTT ",
         "  T   ",
         "  T   ",
@@ -180,7 +179,7 @@ ascii_art_letters = {
         "  T   ",
         "  T   "
     ],
-    'U': [
+    "U": [
         "U   U ",
         "U   U ",
         "U   U ",
@@ -189,7 +188,7 @@ ascii_art_letters = {
         "U   U ",
         " UUU  "
     ],
-    'V': [
+    "V": [
         "V   V ",
         "V   V ",
         "V   V ",
@@ -198,7 +197,7 @@ ascii_art_letters = {
         " V V  ",
         "  V   "
     ],
-    'W': [
+    "W": [
         "W   W ",
         "W   W ",
         "W   W ",
@@ -207,7 +206,7 @@ ascii_art_letters = {
         "W W W ",
         " W W  "
     ],
-    'X': [
+    "X": [
         "X   X ",
         "X   X ",
         " X X  ",
@@ -216,7 +215,7 @@ ascii_art_letters = {
         "X   X ",
         "X   X "
     ],
-    'Y': [
+    "Y": [
         "Y   Y ",
         "Y   Y ",
         " Y Y  ",
@@ -225,7 +224,7 @@ ascii_art_letters = {
         "  Y   ",
         "  Y   "
     ],
-    'Z': [
+    "Z": [
         "ZZZZZ ",
         "    Z ",
         "   Z  ",
@@ -235,8 +234,3 @@ ascii_art_letters = {
         "ZZZZZ "
     ]
 }
-
-# make a function that prints these block letters by row
-def block_printer(word): 
-    for i in range(7):
-        print(" ".join(ascii_art_letters[letter][i] for letter in word))

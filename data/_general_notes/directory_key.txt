@@ -1,0 +1,49 @@
+memento/
+│
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── config.py          # Game constants, settings
+│   ├── game_state.py      # Game state management
+│   │
+│   ├── entities/
+│   │   ├── __init__.py
+│   │   ├── player.py
+│   │   ├── enemy.py
+│   │   ├── projectile.py
+│   │   └── item.py
+│   │
+│   ├── systems/
+│   │   ├── __init__.py         # To output these directory tree symbols in ASCII:
+│   │   ├── inventory.py        # │ (pipe): Alt + 179 or Unicode \u2502
+│   │   ├── combat.py           # ├ (tee): Alt + 195 or Unicode \u251C  
+│   │   ├── collision.py        # └ (corner): Alt + 192 or Unicode \u2514
+│   │   ├── ui.py         
+│   │   └── stage_manager.py 
+│   │
+│   └── assets/
+│       ├── sprites/
+│       │   ├── player/
+│       │   │   ├── idle/
+│       │   │   ├── walking/
+│       │   │   └── shooting/
+│       │   ├── enemies/
+│       │   │   ├── type1/
+│       │   │   └── type2/
+│       │   ├── items/
+│       │   │   ├── weapons/
+│       │   │   ├── powerups/
+│       │   │   └── collectibles/
+│       │   └── terrain/
+│       │       ├── trees/
+│       │       └── rocks/
+│       │
+│       ├── sounds/
+│       │   ├── effects/
+│       │   └── music/
+│       │
+│       └── fonts/
+│
+├── tests/
+├── requirements.txt
+└── README.md

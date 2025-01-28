@@ -1,0 +1,52 @@
+Code Organization and Function Types
+----------------------------------
+
+Architectural Pattern | Description                                | Best Use Cases                | Key Attributes         | Performance & Limitations
+----------------------|--------------------------------------------|------------------------------ |------------------------|-------------------------------
+Modules               | Logical code organization units            | • Large codebases            | • Encapsulation: Yes   | • Memory: Module overhead
+                     | mymodule/                                  | • Code separation            | • Namespace: Global    | • Import: O(1) 
+                     |   __init__.py                             | • Package distribution       | • Reusable: Yes        | • Load overhead: Module cache
+                     |   module.py                               | • API boundaries             | • Extensible: Yes      | • Best for: Large systems
+                     |                                           | • Team collaboration         | • Versioned: Yes       |
+----------------------|--------------------------------------------|------------------------------ |------------------------|-------------------------------
+Nested Classes        | Classes defined within other classes       | • Strong encapsulation       | • Encapsulation: High  | • Memory: Multiple instances
+                     | class Outer:                              | • Implementation hiding       | • Inner state access   | • Creation: O(1) per level
+                     |     class Inner:                          | • Logical grouping           | • Namespace: Class     | • Method calls: Multiple lookups
+                     |         pass                              | • Complex relationships      | • Hierarchical         | • Best for: Complex hierarchies
+                     |                                           | • Builder patterns           | • Structured           |
+----------------------|--------------------------------------------|------------------------------ |------------------------|-------------------------------
+Classes               | Object-oriented encapsulation              | • State management           | • Encapsulation: Yes   | • Memory: Instance overhead
+                     | class MyClass:                            | • Natural object modeling    | • Inheritance: Yes     | • Creation: O(1)
+                     |     def __init__(self):                   | • Complex data + behavior    | • Polymorphism: Yes    | • Method calls: Virtual lookup
+                     |         self.state = []                   | • Reusable components        | • State: Persistent    | • Best for: Complex objects
+                     |                                           | • Framework development       | • Extensible: Yes      |
+----------------------|--------------------------------------------|------------------------------ |------------------------|-------------------------------
+Instance Methods      | Object-specific behaviors                  | • Object operations          | • Encapsulation: Yes   | • Memory: Per instance
+                     | def method(self):                         | • State manipulation         | • State: Access        | • Creation: With instance
+                     |     self.data += 1                        | • Object interactions        | • Self aware: Yes      | • Call overhead: self lookup
+                     |                                           | • Behavioral implementation  | • Extensible: Yes      | • Best for: Object behavior
+                     |                                           |                              |                        |
+----------------------|--------------------------------------------|------------------------------ |------------------------|-------------------------------
+Static Methods        | Utility functions within class scope       | • Utility operations         | • Encapsulation: No    | • Memory: No instance overhead
+                     | @staticmethod                             | • Pure transformations       | • State: None          | • Creation: N/A
+                     | def utility():                            | • Helper functions           | • Reusable: Yes        | • Call overhead: Minimal
+                     |     return result                         | • Stateless operations       | • Namespace: Class     | • Best for: Utilities
+                     |                                           |                              |                        |
+----------------------|--------------------------------------------|------------------------------ |------------------------|-------------------------------
+Recursive Functions   | Self-referential function calls            | • Tree traversals            | • Encapsulation: No    | • Memory: O(n) stack frames
+                     | def recurse(n):                           | • Divide & conquer           | • State: Call stack    | • Creation: Once
+                     |     if n <= 1: return n                   | • Natural subdivisions       | • Base case required   | • Call overhead: Stack push
+                     |     return recurse(n-1)                   | • Hierarchical processing    | • Termination critical | • Best for: Tree structures
+                     |                                           | • Mathematical sequences     | • Elegant solutions    |
+----------------------|--------------------------------------------|------------------------------ |------------------------|-------------------------------
+Standalone Functions  | Independent callable units                 | • Simple transformations     | • Encapsulation: No    | • Memory: Stack only
+                     | def function():                           | • Utility operations         | • State: None          | • Creation: N/A
+                     |     return result                         | • One-off tasks             | • Reusable: Yes        | • Call overhead: Direct
+                     |                                           | • Functional programming     | • Pure: Usually        | • Best for: Simple operations
+                     |                                           |                              |                        |
+----------------------|--------------------------------------------|------------------------------ |------------------------|-------------------------------
+Anonymous Functions   | Inline function definitions                | • Quick transformations      | • Encapsulation: No    | • Memory: Stack only
+                     | lambda x: x + 1                           | • Sorting keys               | • State: None          | • Creation: Per use
+                     | map(lambda x: x*2, items)                 | • Simple callbacks           | • Reusable: No         | • Call overhead: Direct
+                     |                                           | • Functional programming     | • Single expression    | • Best for: Simple operations
+                     |                                           | • List comprehensions        | • Limited scope        |

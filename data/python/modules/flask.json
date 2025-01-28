@@ -1,6 +1,6 @@
 {
-    "reference": "https://flask.palletsprojects.com/",
     "Flask": {
+        "reference": "https://flask.palletsprojects.com/",
         "description": "Lightweight web application framework for Python",
         "application": {
             "description": "Core application setup and configuration",

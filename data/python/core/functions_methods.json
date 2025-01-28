@@ -1,268 +1,284 @@
-    {"Functions": {
-        "description": "Blocks of reusable code that perform specific tasks",
-        "types": [
-            {"name": "def", "description": "Define a function"},
-            {"name": "parameters", "description": "Input values for functions"},
-            {"name": "return", "description": "Return value from function"},
-            {"name": "lambda", "description": "Anonymous functions"}
-        ]
-    },
-    "Function Arguments": {
-        "description": "Different ways to pass arguments to functions",
-        "types": [
-            {"name": "positional arguments", "description": "Arguments passed in order based on position in function definition"},
-            {"name": "keyword arguments", "description": "Arguments passed by explicitly specifying parameter names"},
-            {"name": "default arguments", "description": "Parameters with predefined values used when argument is not provided"},
-            {"name": "*args", "description": "Special syntax to pass variable number of positional arguments as tuple"},
-            {"name": "**kwargs", "description": "Special syntax to pass variable number of keyword arguments as dictionary"}
-        ],
-        "combinations": [
-            {"name": "positional and keyword", "description": "Can mix positional and keyword arguments, but positional must come first"},
-            {"name": "positional with *args", "description": "Regular positional arguments followed by variable positional arguments"},
-            {"name": "keyword with **kwargs", "description": "Regular keyword arguments combined with variable keyword arguments"},
-            {"name": "*args with **kwargs", "description": "Combining both variable positional and keyword arguments"},
-            {"name": "all combined", "description": "Can use regular positional, regular keyword, *args, and **kwargs together in that order"}
-        ]
-    },
-    "Built-in Functions": {
-        "description": "Pre-defined functions available in Python",
-        "categories": {
-            "Essential Basics": {
-                "description": "Core functions for basic operations",
-                "functions": [
-                    {"name": "print()", "description": "Print objects to text stream"},
-                    {"name": "input()", "description": "Read line from input and return as string"},
-                    {"name": "type()", "description": "Return type of object or create new type"},
-                    {"name": "len()", "description": "Return length of object"},
-                    {"name": "help()", "description": "Invoke built-in help system"},
-                    {"name": "dir()", "description": "Return list of valid attributes for object"}
-                ]
-            },
-            "Type Conversion": {
-                "basic": {
-                    "description": "Functions for converting between basic data types",
+    {
+        "Functions": {
+            "description": "Blocks of reusable code that perform specific tasks",
+            "types": [
+                {"name": "def", "description": "Define a function"},
+                {"name": "parameters", "description": "Input values for functions"},
+                {"name": "return", "description": "Return value from function"},
+                {"name": "lambda", "description": "Anonymous functions"}
+            ]
+        },
+
+        "Function Arguments": {
+            "description": "Different ways to pass arguments to functions",
+            "types": [
+                {"name": "positional arguments", "description": "Arguments passed in order based on position in function definition"},
+                {"name": "keyword arguments", "description": "Arguments passed by explicitly specifying parameter names"},
+                {"name": "default arguments", "description": "Parameters with predefined values used when argument is not provided"},
+                {"name": "*args", "description": "Special syntax to pass variable number of positional arguments as tuple"},
+                {"name": "**kwargs", "description": "Special syntax to pass variable number of keyword arguments as dictionary"}
+            ],
+            "combinations": [
+                {"name": "positional and keyword", "description": "Can mix positional and keyword arguments, but positional must come first"},
+                {"name": "positional with *args", "description": "Regular positional arguments followed by variable positional arguments"},
+                {"name": "keyword with **kwargs", "description": "Regular keyword arguments combined with variable keyword arguments"},
+                {"name": "*args with **kwargs", "description": "Combining both variable positional and keyword arguments"},
+                {"name": "all combined", "description": "Can use regular positional, regular keyword, *args, and **kwargs together in that order"}
+            ]
+        },
+
+        "Built-in Functions": {
+            "description": "Pre-defined functions available in Python",
+            "categories": {
+                "Essential Basics": {
+                    "description": "Core functions for basic operations",
                     "functions": [
-                        {"name": "str()", "description": "Return string version of object"},
-                        {"name": "int()", "description": "Convert value to integer"},
-                        {"name": "float()", "description": "Convert value to floating point number"},
-                        {"name": "bool()", "description": "Convert value to boolean"},
-                        {"name": "complex()", "description": "Create complex number"},
-                        {"name": "frozenset()", "description": "Create immutable set"},
-                        {"name": "bytearray()", "description": "Create mutable sequence of bytes"},
-                        {"name": "bytes()", "description": "Create immutable sequence of bytes"},
-                        {"name": "memoryview()", "description": "Create memory view of argument"}
+                        {"name": "print()", "description": "Print objects to text stream", "inputs": "Any", "output": "None"},
+                        {"name": "input()", "description": "Read line from input and return as string", "inputs": "str (optional prompt)", "output": "str"},
+                        {"name": "type()", "description": "Return type of object or create new type", "inputs": "Any", "output": "type"},
+                        {"name": "len()", "description": "Return length of object", "inputs": "Sequence/Collection", "output": "int"},
+                        {"name": "help()", "description": "Invoke built-in help system", "inputs": "Any (optional)", "output": "None"},
+                        {"name": "dir()", "description": "Return list of valid attributes for object", "inputs": "Any (optional)", "output": "list"}
+                    ]
+                },
+
+                "Type Conversion": {
+                    "basic": {
+                        "description": "Functions for converting between basic data types",
+                        "functions": [
+                            {"name": "str()", "description": "Return string version of object", "inputs": "Any", "output": "str"},
+                            {"name": "int()", "description": "Convert value to integer", "inputs": "str/float/bool", "output": "int"},
+                            {"name": "float()", "description": "Convert value to floating point number", "inputs": "str/int/bool", "output": "float"},
+                            {"name": "bool()", "description": "Convert value to boolean", "inputs": "Any", "output": "bool"},
+                            {"name": "complex()", "description": "Create complex number", "inputs": "int/float/str", "output": "complex"},
+                            {"name": "frozenset()", "description": "Create immutable set", "inputs": "Iterable (optional)", "output": "frozenset"},
+                            {"name": "bytearray()", "description": "Create mutable sequence of bytes", "inputs": "str/int/iterable", "output": "bytearray"},
+                            {"name": "bytes()", "description": "Create immutable sequence of bytes", "inputs": "str/int/iterable", "output": "bytes"},
+                            {"name": "memoryview()", "description": "Create memory view of argument", "inputs": "Bytes-like object", "output": "memoryview"}
+                        ]
+                    }
+                },
+
+                "Data Structure Operations": {
+                    "description": "Functions for creating and manipulating data structures",
+                    "basic": [
+                        {"name": "list()", "description": "Create list", "inputs": "Iterable (optional)", "output": "list"},
+                        {"name": "dict()", "description": "Create dictionary", "inputs": "Mapping/Iterable (optional)", "output": "dict"},
+                        {"name": "tuple()", "description": "Create tuple", "inputs": "Iterable (optional)", "output": "tuple"},
+                        {"name": "set()", "description": "Create set", "inputs": "Iterable (optional)", "output": "set"},
+                        {"name": "range()", "description": "Create immutable sequence of numbers", "inputs": "int (start, stop, step)", "output": "range"},
+                        {"name": "slice()", "description": "Create slice object", "inputs": "int (start, stop, step)", "output": "slice"},
+                        {"name": "object()", "description": "Return new featureless object", "inputs": "None", "output": "object"}
+                    ],
+                    "mathematical": [
+                        {"name": "abs()", "description": "Return absolute value of a number", "inputs": "int/float/complex", "output": "int/float"},
+                        {"name": "round()", "description": "Round number to given precision", "inputs": "float, int (ndigits)", "output": "int/float"},
+                        {"name": "max()", "description": "Return largest item in iterable or largest of two or more arguments", "inputs": "Iterable/Multiple values", "output": "Any"},
+                        {"name": "min()", "description": "Return smallest item in iterable or smallest of two or more arguments", "inputs": "Iterable/Multiple values", "output": "Any"},
+                        {"name": "sum()", "description": "Return sum of items in iterable", "inputs": "Iterable (numbers)", "output": "int/float"},
+                        {"name": "pow()", "description": "Return base to power exp", "inputs": "int/float (base, exp, mod)", "output": "int/float"},
+                        {"name": "divmod()", "description": "Return pair of numbers consisting of quotient and remainder", "inputs": "int/float (a, b)", "output": "tuple"}
+                    ]
+                },
+
+                "Iteration and Processing": {
+                    "description": "Functions for iteration and sequence processing",
+                    "functions": [
+                        {"name": "sorted()", "description": "Return new sorted list from iterable", "inputs": "Iterable", "output": "list"},
+                        {"name": "reversed()", "description": "Return reverse iterator", "inputs": "Sequence", "output": "iterator"},
+                        {"name": "enumerate()", "description": "Return iterator of pairs (index, value)", "inputs": "Iterable", "output": "iterator"},
+                        {"name": "zip()", "description": "Aggregate elements from iterables", "inputs": "Multiple iterables", "output": "iterator"},
+                        {"name": "map()", "description": "Apply function to every item of iterable", "inputs": "function, iterable", "output": "iterator"},
+                        {"name": "filter()", "description": "Construct iterator from elements which function returns True", "inputs": "function, iterable", "output": "iterator"},
+                        {"name": "all()", "description": "Return True if all elements in iterable are true", "inputs": "Iterable", "output": "bool"},
+                        {"name": "any()", "description": "Return True if any element in iterable is true", "inputs": "Iterable", "output": "bool"},
+                        {"name": "iter()", "description": "Return iterator object", "inputs": "Iterable", "output": "iterator"},
+                        {"name": "next()", "description": "Retrieve next item from iterator", "inputs": "Iterator", "output": "Any"}
+                    ]
+                },
+
+                "Object-Oriented Programming": {
+                    "description": "Functions for OOP operations",
+                    "functions": [
+                        {"name": "isinstance()", "description": "Return True if object is instance of class/type", "inputs": "object, type/tuple", "output": "bool"},
+                        {"name": "hasattr()", "description": "Return True if object has named attribute", "inputs": "object, str", "output": "bool"},
+                        {"name": "getattr()", "description": "Get named attribute from object", "inputs": "object, str, Any (default)", "output": "Any"},
+                        {"name": "setattr()", "description": "Set named attribute on object", "inputs": "object, str, Any", "output": "None"},
+                        {"name": "delattr()", "description": "Delete named attribute from object", "inputs": "object, str", "output": "None"},
+                        {"name": "super()", "description": "Return proxy object that delegates method calls", "inputs": "type (optional), object (optional)", "output": "super"},
+                        {"name": "classmethod()", "description": "Transform method into class method", "inputs": "function", "output": "classmethod"},
+                        {"name": "staticmethod()", "description": "Transform method into static method", "inputs": "function", "output": "staticmethod"},
+                        {"name": "property()", "description": "Return property attribute", "inputs": "fget, fset, fdel, doc", "output": "property"},
+                        {"name": "issubclass()", "description": "Return True if class is subclass of classinfo", "inputs": "class, classinfo", "output": "bool"}
+                    ]
+                },
+
+                "String and Number Representation": {
+                    "description": "Functions for formatting and converting",
+                    "functions": [
+                        {"name": "format()", "description": "Convert value to formatted representation", "inputs": "Any, str (format_spec)", "output": "str"},
+                        {"name": "repr()", "description": "Return string containing printable representation of object", "inputs": "Any", "output": "str"},
+                        {"name": "ascii()", "description": "Return string containing printable representation with escapes", "inputs": "Any", "output": "str"},
+                        {"name": "bin()", "description": "Convert integer to binary string", "inputs": "int", "output": "str"},
+                        {"name": "hex()", "description": "Convert integer to hexadecimal string", "inputs": "int", "output": "str"},
+                        {"name": "oct()", "description": "Convert integer to octal string", "inputs": "int", "output": "str"},
+                        {"name": "chr()", "description": "Return string representing character for Unicode code point", "inputs": "int", "output": "str"},
+                        {"name": "ord()", "description": "Return integer representing Unicode character", "inputs": "str (single char)", "output": "int"}
+                    ]
+                },
+
+                "System and Runtime": {
+                    "description": "System-level and execution functions",
+                    "functions": [
+                        {"name": "callable()", "description": "Return True if object appears callable", "inputs": "Any", "output": "bool"},
+                        {"name": "globals()", "description": "Return dictionary representing current global symbol table", "inputs": "None", "output": "dict"},
+                        {"name": "locals()", "description": "Return dictionary representing current local symbol table", "inputs": "None", "output": "dict"},
+                        {"name": "vars()", "description": "Return __dict__ attribute for object", "inputs": "object (optional)", "output": "dict"},
+                        {"name": "id()", "description": "Return identity of object", "inputs": "Any", "output": "int"},
+                        {"name": "hash()", "description": "Return hash value of object", "inputs": "Any (hashable)", "output": "int"},
+                        {"name": "open()", "description": "Open file and return file object", "inputs": "str (path), str (mode)", "output": "file"},
+                        {"name": "eval()", "description": "Evaluate Python expression", "inputs": "str, dict (globals), dict (locals)", "output": "Any"},
+                        {"name": "exec()", "description": "Execute Python code dynamically", "inputs": "str/code, dict (globals), dict (locals)", "output": "None"},
+                        {"name": "compile()", "description": "Compile source into code or AST object", "inputs": "str, str (filename), str (mode)", "output": "code"},
+                        {"name": "breakpoint()", "description": "Drop into debugger at current location", "inputs": "None", "output": "None"},
+                        {"name": "__import__()", "description": "Import module", "inputs": "str (name), dict (globals), dict (locals), list (fromlist), int (level)", "output": "module"}
                     ]
                 }
-            },
-            "Data Structure Operations": {
-                "description": "Functions for creating and manipulating data structures",
-                "basic": [
-                    {"name": "list()", "description": "Create list"},
-                    {"name": "dict()", "description": "Create dictionary"},
-                    {"name": "tuple()", "description": "Create tuple"},
-                    {"name": "set()", "description": "Create set"},
-                    {"name": "range()", "description": "Create immutable sequence of numbers"},
-                    {"name": "slice()", "description": "Create slice object"},
-                    {"name": "object()", "description": "Return new featureless object"}
-                ],
-                "mathematical": [
-                    {"name": "abs()", "description": "Return absolute value of a number"},
-                    {"name": "round()", "description": "Round number to given precision"},
-                    {"name": "max()", "description": "Return largest item in iterable or largest of two or more arguments"},
-                    {"name": "min()", "description": "Return smallest item in iterable or smallest of two or more arguments"},
-                    {"name": "sum()", "description": "Return sum of items in iterable"},
-                    {"name": "pow()", "description": "Return base to power exp"},
-                    {"name": "divmod()", "description": "Return pair of numbers consisting of quotient and remainder"}
-                ]
-            },
-            "Iteration and Processing": {
-                "description": "Functions for iteration and sequence processing",
-                "functions": [
-                    {"name": "sorted()", "description": "Return new sorted list from iterable"},
-                    {"name": "reversed()", "description": "Return reverse iterator"},
-                    {"name": "enumerate()", "description": "Return iterator of pairs (index, value)"},
-                    {"name": "zip()", "description": "Aggregate elements from iterables"},
-                    {"name": "map()", "description": "Apply function to every item of iterable"},
-                    {"name": "filter()", "description": "Construct iterator from elements which function returns True"},
-                    {"name": "all()", "description": "Return True if all elements in iterable are true"},
-                    {"name": "any()", "description": "Return True if any element in iterable is true"},
-                    {"name": "iter()", "description": "Return iterator object"},
-                    {"name": "next()", "description": "Retrieve next item from iterator"}
-                ]
-            },
-            "Object-Oriented Programming": {
-                "description": "Functions for OOP operations",
-                "functions": [
-                    {"name": "isinstance()", "description": "Return True if object is instance of class/type"},
-                    {"name": "hasattr()", "description": "Return True if object has named attribute"},
-                    {"name": "getattr()", "description": "Get named attribute from object"},
-                    {"name": "setattr()", "description": "Set named attribute on object"},
-                    {"name": "delattr()", "description": "Delete named attribute from object"},
-                    {"name": "super()", "description": "Return proxy object that delegates method calls"},
-                    {"name": "classmethod()", "description": "Transform method into class method"},
-                    {"name": "staticmethod()", "description": "Transform method into static method"},
-                    {"name": "property()", "description": "Return property attribute"},
-                    {"name": "issubclass()", "description": "Return True if class is subclass of classinfo"}
-                ]
-            },
-            "String and Number Representation": {
-                "description": "Functions for formatting and converting",
-                "functions": [
-                    {"name": "format()", "description": "Convert value to formatted representation"},
-                    {"name": "repr()", "description": "Return string containing printable representation of object"},
-                    {"name": "ascii()", "description": "Return string containing printable representation with escapes"},
-                    {"name": "bin()", "description": "Convert integer to binary string"},
-                    {"name": "hex()", "description": "Convert integer to hexadecimal string"},
-                    {"name": "oct()", "description": "Convert integer to octal string"},
-                    {"name": "chr()", "description": "Return string representing character for Unicode code point"},
-                    {"name": "ord()", "description": "Return integer representing Unicode character"}
-                ]
-            },
-            "System and Runtime": {
-                "description": "System-level and execution functions",
-                "functions": [
-                    {"name": "callable()", "description": "Return True if object appears callable"},
-                    {"name": "globals()", "description": "Return dictionary representing current global symbol table"},
-                    {"name": "locals()", "description": "Return dictionary representing current local symbol table"},
-                    {"name": "vars()", "description": "Return __dict__ attribute for object"},
-                    {"name": "id()", "description": "Return identity of object"},
-                    {"name": "hash()", "description": "Return hash value of object"},
-                    {"name": "open()", "description": "Open file and return file object"},
-                    {"name": "eval()", "description": "Evaluate Python expression"},
-                    {"name": "exec()", "description": "Execute Python code dynamically"},
-                    {"name": "compile()", "description": "Compile source into code or AST object"},
-                    {"name": "breakpoint()", "description": "Drop into debugger at current location"},
-                    {"name": "__import__()", "description": "Import module"}
-                ]
             }
+        },
+
+        "Methods vs Functions": {
+            "description": "Core differences between methods and regular functions",
+            "concepts": [
+                {"name": "Definition", "description": "Methods are functions bound to objects/classes, while regular functions are standalone"},
+                {"name": "Syntax", "description": "Methods use dot notation (object.method()), functions use direct calls (function())"},
+                {"name": "Self Parameter", "description": "Methods automatically receive instance object as first parameter ('self')"},
+                {"name": "Scope", "description": "Methods have direct access to object's internal state, functions require explicit parameters"},
+                {"name": "Object Association", "description": "Methods belong to and operate on specific objects/classes, functions are independent"},
+                {"name": "Encapsulation", "description": "Methods encapsulate object-specific behavior, promoting OOP principles"},
+                {"name": "Access Rights", "description": "Methods can access private object attributes, functions cannot"},
+                {"name": "Inheritance", "description": "Methods can be inherited by subclasses, functions cannot be inherited"},
+                {"name": "Polymorphism", "description": "Methods support polymorphic behavior through class inheritance"},
+                {"name": "Namespace", "description": "Methods exist in class namespace, functions in module namespace"}
+            ]
+        },
+
+        "Built-in Methods": {
+            "description": "Methods available on built-in Python objects",
+            "definition": "A method is a function that belongs to an object and is called using dot notation (object.method())",
+            
+            "String Methods": [
+                {"name": ".capitalize()", "description": "Return capitalized version of string", "inputs": "None", "output": "str"},
+                {"name": ".casefold()", "description": "Return casefolded copy of string", "inputs": "None", "output": "str"},
+                {"name": ".center()", "description": "Return centered string", "inputs": "int (width), str (fillchar)", "output": "str"},
+                {"name": ".count()", "description": "Return number of occurrences of substring", "inputs": "str (sub), int (start), int (end)", "output": "int"},
+                {"name": ".encode()", "description": "Return encoded version of string", "inputs": "str (encoding), str (errors)", "output": "bytes"},
+                {"name": ".endswith()", "description": "Return True if string ends with suffix", "inputs": "str/tuple (suffix), int (start), int (end)", "output": "bool"},
+                {"name": ".expandtabs()", "description": "Return copy with tabs expanded", "inputs": "int (tabsize)", "output": "str"},
+                {"name": ".find()", "description": "Return lowest index of substring", "inputs": "str (sub), int (start), int (end)", "output": "int"},
+                {"name": ".format()", "description": "Return formatted string", "inputs": "Any (*args, **kwargs)", "output": "str"},
+                {"name": ".format_map()", "description": "Return formatted string using mapping", "inputs": "dict (mapping)", "output": "str"},
+                {"name": ".index()", "description": "Return index of substring", "inputs": "str (sub), int (start), int (end)", "output": "int"},
+                {"name": ".isalnum()", "description": "Return True if string is alphanumeric", "inputs": "None", "output": "bool"},
+                {"name": ".isalpha()", "description": "Return True if string is alphabetic", "inputs": "None", "output": "bool"},
+                {"name": ".isascii()", "description": "Return True if string is ASCII", "inputs": "None", "output": "bool"},
+                {"name": ".isdecimal()", "description": "Return True if string is decimal", "inputs": "None", "output": "bool"},
+                {"name": ".isdigit()", "description": "Return True if string contains only digits", "inputs": "None", "output": "bool"},
+                {"name": ".isidentifier()", "description": "Return True if string is valid identifier", "inputs": "None", "output": "bool"},
+                {"name": ".islower()", "description": "Return True if string is lowercase", "inputs": "None", "output": "bool"},
+                {"name": ".isnumeric()", "description": "Return True if string is numeric", "inputs": "None", "output": "bool"},
+                {"name": ".isprintable()", "description": "Return True if string is printable", "inputs": "None", "output": "bool"},
+                {"name": ".isspace()", "description": "Return True if string contains only whitespace", "inputs": "None", "output": "bool"},
+                {"name": ".istitle()", "description": "Return True if string is titlecased", "inputs": "None", "output": "bool"},
+                {"name": ".isupper()", "description": "Return True if string is uppercase", "inputs": "None", "output": "bool"},
+                {"name": ".join()", "description": "Join string elements with separator", "inputs": "iterable", "output": "str"},
+                {"name": ".ljust()", "description": "Left-justify string", "inputs": "int (width), str (fillchar)", "output": "str"},
+                {"name": ".lower()", "description": "Return lowercase copy of string", "inputs": "None", "output": "str"},
+                {"name": ".lstrip()", "description": "Return string with leading whitespace removed", "inputs": "str (chars)", "output": "str"},
+                {"name": ".maketrans()", "description": "Return translation table", "inputs": "str (x), str (y), str (z)", "output": "dict"},
+                {"name": ".partition()", "description": "Partition string into three parts", "inputs": "str (sep)", "output": "tuple"},
+                {"name": ".replace()", "description": "Return string with replacements", "inputs": "str (old), str (new), int (count)", "output": "str"},
+                {"name": ".rfind()", "description": "Return highest index of substring", "inputs": "str (sub), int (start), int (end)", "output": "int"},
+                {"name": ".rindex()", "description": "Return rightmost index of substring", "inputs": "str (sub), int (start), int (end)", "output": "int"},
+                {"name": ".rjust()", "description": "Right-justify string", "inputs": "int (width), str (fillchar)", "output": "str"},
+                {"name": ".rpartition()", "description": "Right partition string into three parts", "inputs": "str (sep)", "output": "tuple"},
+                {"name": ".rsplit()", "description": "Return list of words in string, splitting from right", "inputs": "str (sep), int (maxsplit)", "output": "list"},
+                {"name": ".rstrip()", "description": "Return string with trailing whitespace removed", "inputs": "str (chars)", "output": "str"},
+                {"name": ".split()", "description": "Return list of words in string", "inputs": "str (sep), int (maxsplit)", "output": "list"},
+                {"name": ".splitlines()", "description": "Return list of lines in string", "inputs": "bool (keepends)", "output": "list"},
+                {"name": ".startswith()", "description": "Return True if string starts with prefix", "inputs": "str/tuple (prefix), int (start), int (end)", "output": "bool"},
+                {"name": ".strip()", "description": "Return string with whitespace removed", "inputs": "str (chars)", "output": "str"},
+                {"name": ".swapcase()", "description": "Return string with case swapped", "inputs": "None", "output": "str"},
+                {"name": ".title()", "description": "Return titlecased version of string", "inputs": "None", "output": "str"},
+                {"name": ".translate()", "description": "Return translated string", "inputs": "dict (table)", "output": "str"},
+                {"name": ".upper()", "description": "Return uppercase copy of string", "inputs": "None", "output": "str"},
+                {"name": ".zfill()", "description": "Return numeric string padded with zeros", "inputs": "int (width)", "output": "str"}
+            ],
+
+            "List Methods": [
+                {"name": ".append()", "description": "Add item to end of list", "inputs": "Any", "output": "None"},
+                {"name": ".clear()", "description": "Remove all items from list", "inputs": "None", "output": "None"},
+                {"name": ".copy()", "description": "Return shallow copy of list", "inputs": "None", "output": "list"},
+                {"name": ".count()", "description": "Return number of occurrences of value", "inputs": "Any", "output": "int"},
+                {"name": ".extend()", "description": "Extend list by appending elements", "inputs": "iterable", "output": "None"},
+                {"name": ".index()", "description": "Return index of first occurrence", "inputs": "Any, int (start), int (end)", "output": "int"},
+                {"name": ".insert()", "description": "Insert object before index", "inputs": "int (index), Any", "output": "None"},
+                {"name": ".pop()", "description": "Remove and return item at index", "inputs": "int (index)", "output": "Any"},
+                {"name": ".remove()", "description": "Remove first occurrence of value", "inputs": "Any", "output": "None"},
+                {"name": ".reverse()", "description": "Reverse list in place", "inputs": "None", "output": "None"},
+                {"name": ".sort()", "description": "Sort list in place", "inputs": "key (callable), bool (reverse)", "output": "None"}
+            ],
+
+            "Dictionary Methods": [
+                {"name": ".clear()", "description": "Remove all items", "inputs": "None", "output": "None"},
+                {"name": ".copy()", "description": "Return shallow copy", "inputs": "None", "output": "dict"},
+                {"name": ".fromkeys()", "description": "Create new dictionary with keys from seq", "inputs": "iterable, Any (value)", "output": "dict"},
+                {"name": ".get()", "description": "Return value for key", "inputs": "Any (key), Any (default)", "output": "Any"},
+                {"name": ".items()", "description": "Return view of dictionary's items", "inputs": "None", "output": "dict_items"},
+                {"name": ".keys()", "description": "Return view of dictionary's keys", "inputs": "None", "output": "dict_keys"},
+                {"name": ".pop()", "description": "Remove specified key and return value", "inputs": "Any (key), Any (default)", "output": "Any"},
+                {"name": ".popitem()", "description": "Remove and return (key, value) pair", "inputs": "None", "output": "tuple"},
+                {"name": ".setdefault()", "description": "Insert key with value if key is not present", "inputs": "Any (key), Any (default)", "output": "Any"},
+                {"name": ".update()", "description": "Update dictionary", "inputs": "dict/iterable", "output": "None"},
+                {"name": ".values()", "description": "Return view of dictionary's values", "inputs": "None", "output": "dict_values"}
+            ],
+
+            "Set Methods": [
+                {"name": ".add()", "description": "Add element to set", "inputs": "Any (hashable)", "output": "None"},
+                {"name": ".clear()", "description": "Remove all elements", "inputs": "None", "output": "None"},
+                {"name": ".copy()", "description": "Return shallow copy", "inputs": "None", "output": "set"},
+                {"name": ".difference()", "description": "Return difference of sets", "inputs": "set/iterable", "output": "set"},
+                {"name": ".difference_update()", "description": "Remove elements of another set", "inputs": "set/iterable", "output": "None"},
+                {"name": ".discard()", "description": "Remove element if present", "inputs": "Any", "output": "None"},
+                {"name": ".intersection()", "description": "Return intersection of sets", "inputs": "set/iterable", "output": "set"},
+                {"name": ".intersection_update()", "description": "Update set with intersection", "inputs": "set/iterable", "output": "None"},
+                {"name": ".isdisjoint()", "description": "Return True if sets have no elements in common", "inputs": "set/iterable", "output": "bool"},
+                {"name": ".issubset()", "description": "Test whether set is subset", "inputs": "set/iterable", "output": "bool"},
+                {"name": ".issuperset()", "description": "Test whether set is superset", "inputs": "set/iterable", "output": "bool"},
+                {"name": ".pop()", "description": "Remove and return arbitrary element", "inputs": "None", "output": "Any"},
+                {"name": ".remove()", "description": "Remove element", "inputs": "Any", "output": "None"},
+                {"name": ".symmetric_difference()", "description": "Return symmetric difference", "inputs": "set/iterable", "output": "set"},
+                {"name": ".symmetric_difference_update()", "description": "Update set with symmetric difference", "inputs": "set/iterable", "output": "None"},
+                {"name": ".union()", "description": "Return union of sets", "inputs": "set/iterable", "output": "set"},
+                {"name": ".update()", "description": "Update set with union", "inputs": "set/iterable", "output": "None"}
+            ],
+
+            "File Methods": [
+                {"name": ".close()", "description": "Close file", "inputs": "None", "output": "None"},
+                {"name": ".fileno()", "description": "Return file descriptor", "inputs": "None", "output": "int"},
+                {"name": ".flush()", "description": "Flush write buffers", "inputs": "None", "output": "None"},
+                {"name": ".isatty()", "description": "Return True if file is connected to tty device", "inputs": "None", "output": "bool"},
+                {"name": ".read()", "description": "Read specified number of bytes/characters", "inputs": "int (size)", "output": "str/bytes"},
+                {"name": ".readable()", "description": "Return True if file can be read", "inputs": "None", "output": "bool"},
+                {"name": ".readline()", "description": "Read one line", "inputs": "int (size)", "output": "str/bytes"},
+                {"name": ".readlines()", "description": "Read all lines", "inputs": "int (hint)", "output": "list"},
+                {"name": ".seek()", "description": "Change stream position", "inputs": "int (offset), int (whence)", "output": "int"},
+                {"name": ".seekable()", "description": "Return True if file supports seeking", "inputs": "None", "output": "bool"},
+                {"name": ".tell()", "description": "Return current stream position", "inputs": "None", "output": "int"},
+                {"name": ".truncate()", "description": "Truncate file to specified size", "inputs": "int (size)", "output": "int"},
+                {"name": ".write()", "description": "Write string to file", "inputs": "str/bytes", "output": "int"},
+                {"name": ".writelines()", "description": "Write list of lines to file", "inputs": "list", "output": "None"},
+                {"name": ".writable()", "description": "Return True if file can be written to", "inputs": "None", "output": "bool"}
+            ]
         }
-    },
-    "Methods vs Functions": {
-        "description": "Core differences between methods and regular functions",
-        "concepts": [
-            {"name": "Definition", "description": "Methods are functions bound to objects/classes, while regular functions are standalone"},
-            {"name": "Syntax", "description": "Methods use dot notation (object.method()), functions use direct calls (function())"},
-            {"name": "Self Parameter", "description": "Methods automatically receive instance object as first parameter ('self')"},
-            {"name": "Scope", "description": "Methods have direct access to object's internal state, functions require explicit parameters"},
-            {"name": "Object Association", "description": "Methods belong to and operate on specific objects/classes, functions are independent"},
-            {"name": "Encapsulation", "description": "Methods encapsulate object-specific behavior, promoting OOP principles"},
-            {"name": "Access Rights", "description": "Methods can access private object attributes, functions cannot"},
-            {"name": "Inheritance", "description": "Methods can be inherited by subclasses, functions cannot be inherited"},
-            {"name": "Polymorphism", "description": "Methods support polymorphic behavior through class inheritance"},
-            {"name": "Namespace", "description": "Methods exist in class namespace, functions in module namespace"}
-        ]
-    },
-    "Built-in Methods": {
-        "description": "Methods available on built-in Python objects",
-        "definition": "A method is a function that belongs to an object and is called using dot notation (object.method())",
-        "String Methods": [
-            {"name": ".capitalize()", "description": "Return capitalized version of string"},
-            {"name": ".casefold()", "description": "Return casefolded copy of string"},
-            {"name": ".center()", "description": "Return centered string"},
-            {"name": ".count()", "description": "Return number of occurrences of substring"},
-            {"name": ".encode()", "description": "Return encoded version of string"},
-            {"name": ".endswith()", "description": "Return True if string ends with suffix"},
-            {"name": ".expandtabs()", "description": "Return copy with tabs expanded"},
-            {"name": ".find()", "description": "Return lowest index of substring"},
-            {"name": ".format()", "description": "Return formatted string"},
-            {"name": ".format_map()", "description": "Return formatted string using mapping"},
-            {"name": ".index()", "description": "Return index of substring"},
-            {"name": ".isalnum()", "description": "Return True if string is alphanumeric"},
-            {"name": ".isalpha()", "description": "Return True if string is alphabetic"},
-            {"name": ".isascii()", "description": "Return True if string is ASCII"},
-            {"name": ".isdecimal()", "description": "Return True if string is decimal"},
-            {"name": ".isdigit()", "description": "Return True if string contains only digits"},
-            {"name": ".isidentifier()", "description": "Return True if string is valid identifier"},
-            {"name": ".islower()", "description": "Return True if string is lowercase"},
-            {"name": ".isnumeric()", "description": "Return True if string is numeric"},
-            {"name": ".isprintable()", "description": "Return True if string is printable"},
-            {"name": ".isspace()", "description": "Return True if string contains only whitespace"},
-            {"name": ".istitle()", "description": "Return True if string is titlecased"},
-            {"name": ".isupper()", "description": "Return True if string is uppercase"},
-            {"name": ".join()", "description": "Join string elements with separator"},
-            {"name": ".ljust()", "description": "Left-justify string"},
-            {"name": ".lower()", "description": "Return lowercase copy of string"},
-            {"name": ".lstrip()", "description": "Return string with leading whitespace removed"},
-            {"name": ".maketrans()", "description": "Return translation table"},
-            {"name": ".partition()", "description": "Partition string into three parts"},
-            {"name": ".replace()", "description": "Return string with replacements"},
-            {"name": ".rfind()", "description": "Return highest index of substring"},
-            {"name": ".rindex()", "description": "Return rightmost index of substring"},
-            {"name": ".rjust()", "description": "Right-justify string"},
-            {"name": ".rpartition()", "description": "Right partition string into three parts"},
-            {"name": ".rsplit()", "description": "Return list of words in string, splitting from right"},
-            {"name": ".rstrip()", "description": "Return string with trailing whitespace removed"},
-            {"name": ".split()", "description": "Return list of words in string"},
-            {"name": ".splitlines()", "description": "Return list of lines in string"},
-            {"name": ".startswith()", "description": "Return True if string starts with prefix"},
-            {"name": ".strip()", "description": "Return string with whitespace removed"},
-            {"name": ".swapcase()", "description": "Return string with case swapped"},
-            {"name": ".title()", "description": "Return titlecased version of string"},
-            {"name": ".translate()", "description": "Return translated string"},
-            {"name": ".upper()", "description": "Return uppercase copy of string"},
-            {"name": ".zfill()", "description": "Return numeric string padded with zeros"}
-        ],
-        "List Methods": [
-            {"name": ".append()", "description": "Add item to end of list"},
-            {"name": ".clear()", "description": "Remove all items from list"},
-            {"name": ".copy()", "description": "Return shallow copy of list"},
-            {"name": ".count()", "description": "Return number of occurrences of value"},
-            {"name": ".extend()", "description": "Extend list by appending elements"},
-            {"name": ".index()", "description": "Return index of first occurrence"},
-            {"name": ".insert()", "description": "Insert object before index"},
-            {"name": ".pop()", "description": "Remove and return item at index"},
-            {"name": ".remove()", "description": "Remove first occurrence of value"},
-            {"name": ".reverse()", "description": "Reverse list in place"},
-            {"name": ".sort()", "description": "Sort list in place"}
-        ],
-        "Dictionary Methods": [
-            {"name": ".clear()", "description": "Remove all items"},
-            {"name": ".copy()", "description": "Return shallow copy"},
-            {"name": ".fromkeys()", "description": "Create new dictionary with keys from seq"},
-            {"name": ".get()", "description": "Return value for key"},
-            {"name": ".items()", "description": "Return view of dictionary's items"},
-            {"name": ".keys()", "description": "Return view of dictionary's keys"},
-            {"name": ".pop()", "description": "Remove specified key and return value"},
-            {"name": ".popitem()", "description": "Remove and return (key, value) pair"},
-            {"name": ".setdefault()", "description": "Insert key with value if key is not present"},
-            {"name": ".update()", "description": "Update dictionary"},
-            {"name": ".values()", "description": "Return view of dictionary's values"}
-        ],
-        "Set Methods": [
-            {"name": ".add()", "description": "Add element to set"},
-            {"name": ".clear()", "description": "Remove all elements"},
-            {"name": ".copy()", "description": "Return shallow copy"},
-            {"name": ".difference()", "description": "Return difference of sets"},
-            {"name": ".difference_update()", "description": "Remove elements of another set"},
-            {"name": ".discard()", "description": "Remove element if present"},
-            {"name": ".intersection()", "description": "Return intersection of sets"},
-            {"name": ".intersection_update()", "description": "Update set with intersection"},
-            {"name": ".isdisjoint()", "description": "Return True if sets have no elements in common"},
-            {"name": ".issubset()", "description": "Test whether set is subset"},
-            {"name": ".issuperset()", "description": "Test whether set is superset"},
-            {"name": ".pop()", "description": "Remove and return arbitrary element"},
-            {"name": ".remove()", "description": "Remove element"},
-            {"name": ".symmetric_difference()", "description": "Return symmetric difference"},
-            {"name": ".symmetric_difference_update()", "description": "Update set with symmetric difference"},
-            {"name": ".union()", "description": "Return union of sets"},
-            {"name": ".update()", "description": "Update set with union"}
-        ],
-        "File Methods": [
-            {"name": ".close()", "description": "Close file"},
-            {"name": ".fileno()", "description": "Return file descriptor"},
-            {"name": ".flush()", "description": "Flush write buffers"},
-            {"name": ".isatty()", "description": "Return True if file is connected to tty device"},
-            {"name": ".read()", "description": "Read specified number of bytes/characters"},
-            {"name": ".readable()", "description": "Return True if file can be read"},
-            {"name": ".readline()", "description": "Read one line"},
-            {"name": ".readlines()", "description": "Read all lines"},
-            {"name": ".seek()", "description": "Change stream position"},
-            {"name": ".seekable()", "description": "Return True if file supports seeking"},
-            {"name": ".tell()", "description": "Return current stream position"},
-            {"name": ".truncate()", "description": "Truncate file to specified size"},
-            {"name": ".write()", "description": "Write string to file"},
-            {"name": ".writelines()", "description": "Write list of lines to file"},
-            {"name": ".writable()", "description": "Return True if file can be written to"}
-        ]
     }
-}
