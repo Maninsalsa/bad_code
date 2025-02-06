@@ -1,0 +1,45 @@
+{
+    "reference": "https://en.cppreference.com/w/c/error",
+    "errno": {
+        "description": "Error code reporting and handling",
+        "header": "#include <errno.h>",
+        "macros": {
+            "error_codes": [
+                {"name": "EDOM", "description": "Domain error in math functions"},
+                {"name": "ERANGE", "description": "Range error in math functions"},
+                {"name": "EILSEQ", "description": "Illegal byte sequence"},
+                {"name": "EINVAL", "description": "Invalid argument"},
+                {"name": "ENOMEM", "description": "Not enough memory"},
+                {"name": "EACCES", "description": "Permission denied"},
+                {"name": "ENOENT", "description": "No such file or directory"}
+            ]
+        },
+        "variables": [
+            {"name": "errno", "type": "int", "description": "Error code set by system calls and some library functions"}
+        ],
+        "common_uses": [
+            {"purpose": "System call errors", "example": "if (errno == EACCES) { /* handle permission error */ }"},
+            {"purpose": "Math function errors", "example": "errno = 0;\ndouble result = sqrt(-1);\nif (errno == EDOM) { /* handle domain error */ }"},
+            {"purpose": "File operation errors", "example": "if (errno == ENOENT) { /* handle missing file */ }"}
+        ],
+        "best_practices": [
+            {"tip": "Clear errno", "reason": "Set to 0 before operations that may fail"},
+            {"tip": "Check immediately", "reason": "errno may be changed by subsequent calls"},
+            {"tip": "Use strerror()", "reason": "Convert errno to human-readable message"}
+        ],
+        "examples": [
+            {
+                "name": "Basic error handling",
+                "code": "FILE *fp = fopen(\"nonexistent.txt\", \"r\");\nif (fp == NULL) {\n    fprintf(stderr, \"Error: %s\\n\", strerror(errno));\n}"
+            },
+            {
+                "name": "Math error checking",
+                "code": "errno = 0;\ndouble x = log(-1.0);\nif (errno == EDOM) {\n    perror(\"log\");\n}"
+            }
+        ],
+        "related_functions": [
+            {"name": "perror()", "syntax": "void perror(const char *s)", "description": "Print error message to stderr"},
+            {"name": "strerror()", "syntax": "char *strerror(int errnum)", "description": "Get error message string"}
+        ]
+    }
+} 

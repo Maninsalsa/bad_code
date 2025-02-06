@@ -1,0 +1,59 @@
+
+{
+    "collections": {
+        "reference": "https://docs.python.org/3/library/collections.html",
+        "description": "Container datatypes providing alternatives to Python's built-in containers",
+        "counter": {
+            "description": "Dict subclass for counting hashable objects",
+            "methods": [
+                {"name": "Counter(iterable)", "description": "Create counter from iterable"},
+                {"name": "counter.most_common(n)", "description": "Return n most common elements"},
+                {"name": "counter.elements()", "description": "Iterator over elements"},
+                {"name": "counter.subtract(iterable)", "description": "Subtract counts from iterable"}
+            ]
+        },
+        "defaultdict": {
+            "description": "Dict subclass that calls factory function for missing keys",
+            "usage": [
+                {"name": "defaultdict(list)", "description": "Dict with list as default factory"},
+                {"name": "defaultdict(int)", "description": "Dict with int as default factory"},
+                {"name": "defaultdict(lambda: value)", "description": "Dict with custom default value"}
+            ]
+        },
+        "deque": {
+            "description": "Double-ended queue with fast appends/pops on either end",
+            "methods": [
+                {"name": "deque(iterable, maxlen)", "description": "Create bounded/unbounded deque"},
+                {"name": "append(x), appendleft(x)", "description": "Add elements at ends"},
+                {"name": "pop(), popleft()", "description": "Remove elements from ends"},
+                {"name": "rotate(n)", "description": "Rotate elements n steps"}
+            ]
+        },
+        "namedtuple": {
+            "description": "Returns tuple subclass with named fields",
+            "usage": [
+                {"name": "namedtuple(typename, field_names)", "description": "Create named tuple class"},
+                {"name": "._make(iterable)", "description": "Create instance from iterable"},
+                {"name": "._asdict()", "description": "Return OrderedDict representation"},
+                {"name": "._replace(**kwargs)", "description": "Return new instance with replaced fields"}
+            ]
+        },
+        "OrderedDict": {
+            "description": "Dict subclass that remembers insertion order",
+            "methods": [
+                {"name": "OrderedDict(items)", "description": "Create ordered dictionary"},
+                {"name": "move_to_end(key)", "description": "Move key to end"},
+                {"name": "popitem(last=True)", "description": "Remove and return item"}
+            ]
+        },
+        "ChainMap": {
+            "description": "Dict-like class for creating view of multiple mappings",
+            "methods": [
+                {"name": "ChainMap(*maps)", "description": "Create chain of mappings"},
+                {"name": "new_child(m=None)", "description": "Create new nested scope"},
+                {"name": "parents", "description": "Get maps excluding first"}
+            ]
+        }
+    }
+}
+

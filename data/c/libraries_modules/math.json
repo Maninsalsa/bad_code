@@ -1,0 +1,42 @@
+{
+    "reference": "https://en.cppreference.com/w/c/numeric/math",
+    "math": {
+        "description": "Mathematical functions library",
+        "header": "#include <math.h>",
+        "functions": {
+            "basic_math": [
+                {"name": "pow()", "syntax": "double pow(double x, double y)", "description": "Power function"},
+                {"name": "sqrt()", "syntax": "double sqrt(double x)", "description": "Square root"},
+                {"name": "abs()", "syntax": "int abs(int x)", "description": "Absolute value"},
+                {"name": "fabs()", "syntax": "double fabs(double x)", "description": "Floating-point absolute value"}
+            ],
+            "trigonometric": [
+                {"name": "sin()", "syntax": "double sin(double x)", "description": "Sine function"},
+                {"name": "cos()", "syntax": "double cos(double x)", "description": "Cosine function"},
+                {"name": "tan()", "syntax": "double tan(double x)", "description": "Tangent function"},
+                {"name": "asin()", "syntax": "double asin(double x)", "description": "Arc sine"}
+            ],
+            "rounding": [
+                {"name": "ceil()", "syntax": "double ceil(double x)", "description": "Round up to integer"},
+                {"name": "floor()", "syntax": "double floor(double x)", "description": "Round down to integer"},
+                {"name": "round()", "syntax": "double round(double x)", "description": "Round to nearest integer"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "Scientific calculations", "example": "double result = pow(2.0, 3.0);"},
+            {"purpose": "Geometric computations", "example": "double hypotenuse = sqrt(x*x + y*y);"},
+            {"purpose": "Angle calculations", "example": "double angle_rad = sin(angle_deg * M_PI / 180.0);"}
+        ],
+        "best_practices": [
+            {"tip": "Check for domain errors", "reason": "Handle invalid inputs"},
+            {"tip": "Use appropriate types", "reason": "Maintain precision"},
+            {"tip": "Consider floating-point errors", "reason": "Handle rounding and precision issues"}
+        ],
+        "constants": [
+            {"name": "M_PI", "value": "3.14159265358979323846", "description": "Pi constant"},
+            {"name": "M_E", "value": "2.71828182845904523536", "description": "Euler's number"},
+            {"name": "INFINITY", "description": "Positive infinity"},
+            {"name": "NAN", "description": "Not a number"}
+        ]
+    }
+} 

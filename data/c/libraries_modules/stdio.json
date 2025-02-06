@@ -1,0 +1,31 @@
+{
+    "reference": "https://en.cppreference.com/w/c/io",
+    "stdio": {
+        "description": "Standard Input/Output library for C",
+        "header": "#include <stdio.h>",
+        "functions": {
+            "input_output": [
+                {"name": "printf()", "syntax": "int printf(const char *format, ...)", "description": "Print formatted output to stdout"},
+                {"name": "scanf()", "syntax": "int scanf(const char *format, ...)", "description": "Read formatted input from stdin"},
+                {"name": "getchar()", "syntax": "int getchar(void)", "description": "Read single character from stdin"},
+                {"name": "putchar()", "syntax": "int putchar(int char)", "description": "Write single character to stdout"}
+            ],
+            "file_operations": [
+                {"name": "fopen()", "syntax": "FILE *fopen(const char *filename, const char *mode)", "description": "Open file stream"},
+                {"name": "fclose()", "syntax": "int fclose(FILE *stream)", "description": "Close file stream"},
+                {"name": "fread()", "syntax": "size_t fread(void *ptr, size_t size, size_t count, FILE *stream)", "description": "Read from file"},
+                {"name": "fwrite()", "syntax": "size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream)", "description": "Write to file"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "Console I/O", "example": "printf(\"Hello, %s!\\n\", name);"},
+            {"purpose": "File handling", "example": "FILE *fp = fopen(\"file.txt\", \"r\");"},
+            {"purpose": "Error handling", "example": "perror(\"Error\");"}
+        ],
+        "best_practices": [
+            {"tip": "Always check return values", "reason": "Detect and handle I/O errors"},
+            {"tip": "Close opened files", "reason": "Prevent resource leaks"},
+            {"tip": "Use format specifiers carefully", "reason": "Avoid buffer overflows"}
+        ]
+    }
+}

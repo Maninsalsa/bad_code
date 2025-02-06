@@ -1,0 +1,32 @@
+{
+    "reference": "https://en.cppreference.com/w/c/string",
+    "string": {
+        "description": "String handling and memory operations library",
+        "header": "#include <string.h>",
+        "functions": {
+            "string_operations": [
+                {"name": "strlen()", "syntax": "size_t strlen(const char *str)", "description": "Get string length"},
+                {"name": "strcpy()", "syntax": "char *strcpy(char *dest, const char *src)", "description": "Copy string"},
+                {"name": "strncpy()", "syntax": "char *strncpy(char *dest, const char *src, size_t n)", "description": "Copy n characters"},
+                {"name": "strcat()", "syntax": "char *strcat(char *dest, const char *src)", "description": "Concatenate strings"},
+                {"name": "strcmp()", "syntax": "int strcmp(const char *str1, const char *str2)", "description": "Compare strings"}
+            ],
+            "memory_operations": [
+                {"name": "memcpy()", "syntax": "void *memcpy(void *dest, const void *src, size_t n)", "description": "Copy memory block"},
+                {"name": "memmove()", "syntax": "void *memmove(void *dest, const void *src, size_t n)", "description": "Move memory block"},
+                {"name": "memset()", "syntax": "void *memset(void *str, int c, size_t n)", "description": "Fill memory with constant"},
+                {"name": "memcmp()", "syntax": "int memcmp(const void *str1, const void *str2, size_t n)", "description": "Compare memory blocks"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "String manipulation", "example": "char dest[50]; strcpy(dest, source);"},
+            {"purpose": "Memory operations", "example": "memset(array, 0, sizeof(array));"},
+            {"purpose": "String comparison", "example": "if (strcmp(str1, str2) == 0) /* strings equal */"}
+        ],
+        "best_practices": [
+            {"tip": "Check buffer sizes", "reason": "Prevent buffer overflows"},
+            {"tip": "Use strncpy over strcpy", "reason": "Safer bounded copy"},
+            {"tip": "Check return values", "reason": "Handle operation failures"}
+        ]
+    }
+} 

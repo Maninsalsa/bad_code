@@ -1,0 +1,77 @@
+{
+    "os": {
+        "reference": "https://docs.python.org/3/library/os.html",
+        "description": "Operating system interface module providing portable way of using OS dependent functionality",
+        "file_operations": {
+            "description": "Functions for file and directory operations",
+            "methods": [
+                {"name": "os.getcwd()", "description": "Get current working directory"},
+                {"name": "os.chdir(path)", "description": "Change current working directory"},
+                {"name": "os.listdir(path='.')", "description": "List directory contents"},
+                {"name": "os.mkdir(path)", "description": "Create a directory"},
+                {"name": "os.makedirs(path)", "description": "Create directories recursively"},
+                {"name": "os.remove(path)", "description": "Remove a file"},
+                {"name": "os.rmdir(path)", "description": "Remove an empty directory"},
+                {"name": "os.removedirs(path)", "description": "Remove directories recursively"},
+                {"name": "os.rename(src, dst)", "description": "Rename file or directory"},
+                {"name": "os.stat(path)", "description": "Get file/directory status"}
+            ]
+        },
+        "path_operations": {
+            "description": "Functions for path manipulation",
+            "methods": [
+                {"name": "os.path.join(path1, path2, ...)", "description": "Join paths using OS-specific separator"},
+                {"name": "os.path.split(path)", "description": "Split path into directory and filename"},
+                {"name": "os.path.exists(path)", "description": "Check if path exists"},
+                {"name": "os.path.isfile(path)", "description": "Check if path is a file"},
+                {"name": "os.path.isdir(path)", "description": "Check if path is a directory"},
+                {"name": "os.path.abspath(path)", "description": "Get absolute path"},
+                {"name": "os.path.basename(path)", "description": "Get base name of path"},
+                {"name": "os.path.dirname(path)", "description": "Get directory name of path"},
+                {"name": "os.path.getsize(path)", "description": "Get file size in bytes"}
+            ]
+        },
+        "process_operations": {
+            "description": "Functions for process management",
+            "methods": [
+                {"name": "os.getpid()", "description": "Get current process ID"},
+                {"name": "os.getppid()", "description": "Get parent process ID"},
+                {"name": "os.system(command)", "description": "Execute shell command"},
+                {"name": "os.environ", "description": "Dictionary of environment variables"},
+                {"name": "os.getenv(key)", "description": "Get environment variable value"},
+                {"name": "os.putenv(key, value)", "description": "Set environment variable"}
+            ]
+        },
+        "constants": {
+            "description": "Common OS constants",
+            "values": [
+                {"name": "os.name", "description": "Name of operating system"},
+                {"name": "os.sep", "description": "Path separator for current OS"},
+                {"name": "os.pathsep", "description": "Path separator for PATH/PYTHONPATH"},
+                {"name": "os.linesep", "description": "Line separator for current OS"},
+                {"name": "os.curdir", "description": "String representing current directory"},
+                {"name": "os.pardir", "description": "String representing parent directory"}
+            ]
+        },
+        "error_handling": {
+            "description": "Common OS-related exceptions",
+            "exceptions": [
+                {"name": "OSError", "description": "Base class for OS-related errors"},
+                {"name": "FileNotFoundError", "description": "File or directory not found"},
+                {"name": "PermissionError", "description": "Insufficient permissions"},
+                {"name": "FileExistsError", "description": "File/directory already exists"}
+            ]
+        },
+        "platform_specific": {
+            "description": "Platform-specific functionality",
+            "unix_only": [
+                {"name": "os.chmod(path, mode)", "description": "Change file permissions"},
+                {"name": "os.chown(path, uid, gid)", "description": "Change file owner and group"},
+                {"name": "os.fork()", "description": "Fork current process"}
+            ],
+            "windows_only": [
+                {"name": "os.startfile(path)", "description": "Start file with associated application"}
+            ]
+        }
+    }
+}

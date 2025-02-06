@@ -1,0 +1,51 @@
+{
+    "reference": "https://en.cppreference.com/w/c/types/limits",
+    "limits": {
+        "description": "Implementation-defined constants and limits",
+        "header": "#include <limits.h>",
+        "constants": {
+            "integer_limits": [
+                {"name": "CHAR_BIT", "description": "Number of bits in a char", "typical": "8"},
+                {"name": "CHAR_MIN", "description": "Minimum value of char", "typical": "-128 or 0"},
+                {"name": "CHAR_MAX", "description": "Maximum value of char", "typical": "127 or 255"},
+                {"name": "INT_MIN", "description": "Minimum value of int", "typical": "-32767"},
+                {"name": "INT_MAX", "description": "Maximum value of int", "typical": "32767"},
+                {"name": "LONG_MIN", "description": "Minimum value of long", "typical": "-2147483647"},
+                {"name": "LONG_MAX", "description": "Maximum value of long", "typical": "2147483647"},
+                {"name": "SCHAR_MIN", "description": "Minimum value of signed char", "typical": "-128"},
+                {"name": "SCHAR_MAX", "description": "Maximum value of signed char", "typical": "127"},
+                {"name": "SHRT_MIN", "description": "Minimum value of short", "typical": "-32767"},
+                {"name": "SHRT_MAX", "description": "Maximum value of short", "typical": "32767"},
+                {"name": "UCHAR_MAX", "description": "Maximum value of unsigned char", "typical": "255"},
+                {"name": "UINT_MAX", "description": "Maximum value of unsigned int", "typical": "65535"},
+                {"name": "ULONG_MAX", "description": "Maximum value of unsigned long", "typical": "4294967295"},
+                {"name": "USHRT_MAX", "description": "Maximum value of unsigned short", "typical": "65535"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "Range checking", "example": "if (value > INT_MAX) { /* handle overflow */ }"},
+            {"purpose": "Portability", "example": "size_t max_array = SIZE_MAX / sizeof(int);"},
+            {"purpose": "Buffer sizing", "example": "char buffer[CHAR_BIT * sizeof(int)];"}
+        ],
+        "best_practices": [
+            {"tip": "Use for validation", "reason": "Check for potential overflows"},
+            {"tip": "Consider portability", "reason": "Values may vary by platform"},
+            {"tip": "Type safety", "reason": "Match constants with appropriate types"}
+        ],
+        "examples": [
+            {
+                "name": "Range validation",
+                "code": "if (value < INT_MIN || value > INT_MAX) {\n    fprintf(stderr, \"Value out of range\\n\");\n    return -1;\n}"
+            },
+            {
+                "name": "Platform check",
+                "code": "printf(\"This system has %d bits in a char\\n\", CHAR_BIT);"
+            }
+        ],
+        "notes": [
+            {"note": "Values are implementation-defined"},
+            {"note": "May vary by platform/compiler"},
+            {"note": "Used for portable code"}
+        ]
+    }
+} 

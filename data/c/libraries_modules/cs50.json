@@ -1,0 +1,51 @@
+{
+    "reference": "https://cs50.readthedocs.io/libraries/cs50/c/",
+    "cs50": {
+        "description": "CS50 Library for C - simplified I/O and string handling",
+        "header": "#include <cs50.h>",
+        "functions": {
+            "input": [
+                {"name": "get_char()", "syntax": "char get_char(const char *prompt)", "description": "Get char from user with prompt"},
+                {"name": "get_double()", "syntax": "double get_double(const char *prompt)", "description": "Get double from user"},
+                {"name": "get_float()", "syntax": "float get_float(const char *prompt)", "description": "Get float from user"},
+                {"name": "get_int()", "syntax": "int get_int(const char *prompt)", "description": "Get integer from user"},
+                {"name": "get_long()", "syntax": "long get_long(const char *prompt)", "description": "Get long integer from user"},
+                {"name": "get_string()", "syntax": "string get_string(const char *prompt)", "description": "Get string from user"}
+            ],
+            "string_operations": [
+                {"name": "string", "syntax": "typedef char *string", "description": "Type alias for strings"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "User input", "example": "int age = get_int(\"What's your age? \");"},
+            {"purpose": "String handling", "example": "string name = get_string(\"Name: \");"},
+            {"purpose": "Input validation", "example": "float price = get_float(\"Price: \");"}
+        ],
+        "best_practices": [
+            {"tip": "Check return values", "reason": "Functions return NULL/0 on EOF"},
+            {"tip": "Free strings", "reason": "get_string() allocates memory dynamically"},
+            {"tip": "Use prompts", "reason": "Always provide clear user instructions"}
+        ],
+        "examples": [
+            {
+                "name": "Basic input",
+                "code": "string name = get_string(\"What is your name? \");\nprintf(\"hello, %s\\n\", name);"
+            },
+            {
+                "name": "Number processing",
+                "code": "int x = get_int(\"x: \");\nint y = get_int(\"y: \");\nprintf(\"%i plus %i is %i\\n\", x, y, x + y);"
+            }
+        ],
+        "notes": [
+            {"note": "Simplifies standard I/O", "description": "Handles common input validation"},
+            {"note": "Educational focus", "description": "Designed for CS50 course"},
+            {"note": "Memory management", "description": "Handles some memory allocation automatically"}
+        ],
+        "limitations": [
+            {"note": "Not standard C", "description": "Specific to CS50 course environment"},
+            {"note": "Performance overhead", "description": "Additional validation and safety checks"},
+            {"note": "Dependency", "description": "Requires CS50 library installation"}
+        ]
+    }
+}
+

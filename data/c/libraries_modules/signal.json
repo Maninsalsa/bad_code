@@ -1,0 +1,51 @@
+{
+    "reference": "https://en.cppreference.com/w/c/program/signal",
+    "signal": {
+        "description": "Signal handling library for program interrupts",
+        "header": "#include <signal.h>",
+        "functions": {
+            "signal_handling": [
+                {"name": "signal()", "syntax": "void (*signal(int sig, void (*handler)(int)))(int)", "description": "Set signal handler"},
+                {"name": "raise()", "syntax": "int raise(int sig)", "description": "Send signal to program"}
+            ]
+        },
+        "signal_types": [
+            {"name": "SIGABRT", "description": "Abnormal termination"},
+            {"name": "SIGFPE", "description": "Floating-point error"},
+            {"name": "SIGILL", "description": "Illegal instruction"},
+            {"name": "SIGINT", "description": "Interactive attention signal"},
+            {"name": "SIGSEGV", "description": "Segmentation violation"},
+            {"name": "SIGTERM", "description": "Termination request"}
+        ],
+        "handler_values": [
+            {"name": "SIG_DFL", "description": "Default signal handling"},
+            {"name": "SIG_IGN", "description": "Ignore signal"},
+            {"name": "SIG_ERR", "description": "Error return value"}
+        ],
+        "common_uses": [
+            {"purpose": "Graceful shutdown", "example": "signal(SIGINT, handle_interrupt);"},
+            {"purpose": "Error handling", "example": "signal(SIGSEGV, handle_segfault);"},
+            {"purpose": "Custom termination", "example": "signal(SIGTERM, cleanup_and_exit);"}
+        ],
+        "best_practices": [
+            {"tip": "Use volatile sig_atomic_t", "reason": "For flags modified in signal handlers"},
+            {"tip": "Minimal signal handlers", "reason": "Keep handlers simple and async-safe"},
+            {"tip": "Reset handlers if needed", "reason": "Some systems reset to SIG_DFL after handling"}
+        ],
+        "examples": [
+            {
+                "name": "Basic signal handler",
+                "code": "void handle_sigint(int sig) {\n    printf(\"Caught signal %d\\n\", sig);\n    exit(1);\n}"
+            },
+            {
+                "name": "Setting up handler",
+                "code": "if (signal(SIGINT, handle_sigint) == SIG_ERR) {\n    perror(\"signal\");\n    exit(1);\n}"
+            }
+        ],
+        "limitations": [
+            {"note": "Not all signals can be caught"},
+            {"note": "Handler behavior is implementation-defined"},
+            {"note": "Limited operations safe in signal handlers"}
+        ]
+    }
+} 

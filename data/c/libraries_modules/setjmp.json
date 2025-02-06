@@ -1,0 +1,41 @@
+{
+    "reference": "https://en.cppreference.com/w/c/program/setjmp",
+    "setjmp": {
+        "description": "Non-local jumps library for exception-like control flow",
+        "header": "#include <setjmp.h>",
+        "types": [
+            {"name": "jmp_buf", "description": "Array type for saving program state"}
+        ],
+        "functions": {
+            "jump_operations": [
+                {"name": "setjmp()", "syntax": "int setjmp(jmp_buf env)", "description": "Save calling environment"},
+                {"name": "longjmp()", "syntax": "void longjmp(jmp_buf env, int val)", "description": "Restore calling environment"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "Error handling", "example": "if (setjmp(env) == 0) { /* try block */ }"},
+            {"purpose": "Exception simulation", "example": "longjmp(env, 1); /* throw error */"},
+            {"purpose": "Deep error recovery", "example": "/* Return to known good state */"}
+        ],
+        "best_practices": [
+            {"tip": "Use sparingly", "reason": "Makes control flow hard to follow"},
+            {"tip": "Preserve stack variables", "reason": "Mark variables as volatile if needed"},
+            {"tip": "Check return value", "reason": "setjmp returns 0 on direct call, non-zero from longjmp"}
+        ],
+        "limitations": [
+            {"note": "Can't jump into function", "description": "Target must be in calling function"},
+            {"note": "Local variables uncertain", "description": "Non-volatile locals undefined after longjmp"},
+            {"note": "Resource cleanup", "description": "Must handle cleanup manually"}
+        ],
+        "examples": [
+            {
+                "name": "Basic error handling",
+                "code": "jmp_buf env;\nif (setjmp(env) == 0) {\n    // Normal execution\n    if (error) longjmp(env, 1);\n} else {\n    // Error handling\n}"
+            },
+            {
+                "name": "With volatile variables",
+                "code": "volatile int count = 0;\njmp_buf env;\nif (setjmp(env) != 0) {\n    printf(\"count = %d\\n\", count);\n}"
+            }
+        ]
+    }
+} 

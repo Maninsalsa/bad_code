@@ -1,0 +1,55 @@
+{
+    "reference": "https://en.cppreference.com/w/c/locale",
+    "locale": {
+        "description": "Localization support library for cultural-specific formatting",
+        "header": "#include <locale.h>",
+        "functions": {
+            "locale_control": [
+                {"name": "setlocale()", "syntax": "char *setlocale(int category, const char *locale)", "description": "Set or query program locale"},
+                {"name": "localeconv()", "syntax": "struct lconv *localeconv(void)", "description": "Get locale formatting parameters"}
+            ]
+        },
+        "categories": [
+            {"name": "LC_ALL", "description": "All locale categories"},
+            {"name": "LC_COLLATE", "description": "String collation"},
+            {"name": "LC_CTYPE", "description": "Character classification"},
+            {"name": "LC_MONETARY", "description": "Monetary formatting"},
+            {"name": "LC_NUMERIC", "description": "Numeric formatting"},
+            {"name": "LC_TIME", "description": "Time formatting"}
+        ],
+        "structures": {
+            "lconv": [
+                {"member": "decimal_point", "type": "char*", "description": "Decimal point character"},
+                {"member": "thousands_sep", "type": "char*", "description": "Thousands separator"},
+                {"member": "grouping", "type": "char*", "description": "Grouping of digits"},
+                {"member": "currency_symbol", "type": "char*", "description": "Local currency symbol"},
+                {"member": "mon_decimal_point", "type": "char*", "description": "Monetary decimal point"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "International formatting", "example": "setlocale(LC_ALL, \"fr_FR.UTF-8\");"},
+            {"purpose": "Currency display", "example": "struct lconv *loc = localeconv();"},
+            {"purpose": "Date/time format", "example": "setlocale(LC_TIME, \"\"); /* Use system locale */"}
+        ],
+        "best_practices": [
+            {"tip": "Set locale early", "reason": "Before any locale-dependent operations"},
+            {"tip": "Check return values", "reason": "NULL return indicates failure"},
+            {"tip": "Use empty string", "reason": "\"\" selects system default locale"}
+        ],
+        "examples": [
+            {
+                "name": "Setting locale",
+                "code": "if (setlocale(LC_ALL, \"\") == NULL) {\n    fprintf(stderr, \"Locale not supported\\n\");\n    exit(1);\n}"
+            },
+            {
+                "name": "Getting monetary info",
+                "code": "struct lconv *loc = localeconv();\nprintf(\"Currency symbol: %s\\n\", loc->currency_symbol);"
+            }
+        ],
+        "notes": [
+            {"note": "Locale names are system-dependent"},
+            {"note": "Not all locales available on all systems"},
+            {"note": "Thread safety considerations apply"}
+        ]
+    }
+} 

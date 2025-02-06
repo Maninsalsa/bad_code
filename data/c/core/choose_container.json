@@ -1,0 +1,145 @@
+{
+  "name": "Choose Container",
+  "description": "Select which container to use for your C data structure",
+  "options": [
+    {
+      "name": "Array",
+      "description": "Fixed-size contiguous memory block",
+      "pros": [
+        "Fast random access O(1)",
+        "Cache friendly",
+        "Memory efficient",
+        "Simple pointer arithmetic"
+      ],
+      "cons": [
+        "Fixed size at compile time",
+        "Insertion/deletion is O(n)",
+        "Must shift elements",
+        "No built-in bounds checking"
+      ],
+      "use_when": [
+        "Size is known at compile time",
+        "Random access is frequent",
+        "Memory efficiency is important",
+        "Performance is critical"
+      ]
+    },
+    {
+      "name": "Dynamic Array",
+      "description": "Resizable array using malloc/realloc",
+      "pros": [
+        "Can grow at runtime",
+        "Still maintains O(1) access",
+        "More flexible than fixed arrays"
+      ],
+      "cons": [
+        "Reallocation overhead",
+        "Manual memory management",
+        "Need to track size/capacity"
+      ],
+      "use_when": [
+        "Size unknown at compile time",
+        "Need array-like performance",
+        "Willing to handle memory management"
+      ]
+    },
+    {
+      "name": "Linked List",
+      "description": "Chain of malloc'd nodes with data and pointers",
+      "pros": [
+        "Fully dynamic size",
+        "Fast insertion/deletion O(1)",
+        "No contiguous memory needed"
+      ],
+      "cons": [
+        "Random access is O(n)",
+        "Manual memory management",
+        "Extra memory for pointers",
+        "Not cache friendly"
+      ],
+      "use_when": [
+        "Size changes frequently",
+        "Sequential access is primary use",
+        "Memory fragmentation is acceptable"
+      ]
+    },
+    {
+      "name": "Hash Table",
+      "description": "Custom implementation using arrays and linked lists",
+      "pros": [
+        "Fast lookup O(1) average",
+        "Flexible key types possible",
+        "Good for caching/memoization"
+      ],
+      "cons": [
+        "Must handle collisions manually",
+        "Complex implementation",
+        "Needs good hash function",
+        "Manual memory management"
+      ],
+      "use_when": [
+        "Fast lookups needed",
+        "Implementing caches/maps",
+        "Willing to handle complex implementation"
+      ]
+    },
+    {
+      "name": "Binary Tree",
+      "description": "Hierarchical structure with malloc'd nodes",
+      "pros": [
+        "Ordered data structure",
+        "O(log n) operations if balanced",
+        "Good for sorted data"
+      ],
+      "cons": [
+        "Complex balancing logic",
+        "Manual memory management",
+        "More overhead than arrays"
+      ],
+      "use_when": [
+        "Need ordered data structure",
+        "Frequent insertions/deletions",
+        "Binary search important"
+      ]
+    },
+    {
+      "name": "Stack (Array-based)",
+      "description": "LIFO structure using fixed array",
+      "pros": [
+        "Very simple implementation",
+        "Cache friendly",
+        "Minimal overhead"
+      ],
+      "cons": [
+        "Fixed maximum size",
+        "Can overflow",
+        "Limited to LIFO operations"
+      ],
+      "use_when": [
+        "LIFO operations only",
+        "Maximum size known",
+        "Memory efficiency important"
+      ]
+    },
+    {
+      "name": "Queue (Circular Array)",
+      "description": "FIFO structure using circular buffer",
+      "pros": [
+        "Efficient space usage",
+        "Cache friendly",
+        "Good for fixed-size buffers"
+      ],
+      "cons": [
+        "Fixed maximum size",
+        "Complex index management",
+        "Can overflow"
+      ],
+      "use_when": [
+        "FIFO operations needed",
+        "Buffer size is known",
+        "Performance critical"
+      ]
+    }
+  ]
+}
+

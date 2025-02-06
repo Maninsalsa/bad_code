@@ -1,0 +1,42 @@
+{
+    "reference": "https://en.cppreference.com/w/c/error/assert",
+    "assert": {
+        "description": "Diagnostics and debugging macro library",
+        "header": "#include <assert.h>",
+        "macros": {
+            "assertions": [
+                {"name": "assert()", "syntax": "void assert(scalar expression)", "description": "Verify program assumption"},
+                {"name": "static_assert", "syntax": "static_assert(constant-expression, string-literal)", "description": "Compile-time assertion (C11)"}
+            ],
+            "control": [
+                {"name": "NDEBUG", "syntax": "#define NDEBUG", "description": "Disable assertions"},
+                {"name": "__func__", "description": "Current function name (predefined)"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "Precondition checks", "example": "assert(pointer != NULL);"},
+            {"purpose": "Parameter validation", "example": "assert(size > 0);"},
+            {"purpose": "Invariant checking", "example": "assert(first <= last);"}
+        ],
+        "best_practices": [
+            {"tip": "Use in debug builds", "reason": "Assertions are removed in release builds"},
+            {"tip": "Check invariants", "reason": "Verify program state assumptions"},
+            {"tip": "Don't cause side effects", "reason": "Assertions should be removable"}
+        ],
+        "notes": [
+            {"note": "Assertions terminate program if condition is false"},
+            {"note": "Prints file, line number, and failed expression"},
+            {"note": "Can be disabled by defining NDEBUG"}
+        ],
+        "examples": [
+            {
+                "name": "Basic assertion",
+                "code": "void process_data(int* data, size_t size) {\n    assert(data != NULL);\n    assert(size > 0);\n    // process data...\n}"
+            },
+            {
+                "name": "Compile-time check",
+                "code": "static_assert(sizeof(long) >= 8, \"64-bit platform required\");"
+            }
+        ]
+    }
+} 

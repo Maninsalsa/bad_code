@@ -1,0 +1,187 @@
+{
+    "Functions": {
+        "reference": "https://en.cppreference.com/w/c/language/functions",
+        "description": "Blocks of reusable code that perform specific tasks",
+        "syntax": {
+            "basic": {
+                "syntax": "return_type function_name(parameters) {\n    // function body\n}",
+                "description": "Basic function definition", 
+                "example": "int add(int a, int b) {\n    return a + b;\n}"
+            },
+            "void": {
+                "syntax": "void function_name(parameters) {\n    // function body\n}",
+                "description": "Function that doesn't return a value",
+                "example": "void print_hello() {\n    printf(\"Hello\");\n}"
+            },
+            "parameters": {
+                "syntax": "type1 param1, type2 param2, ...",
+                "description": "Function parameters with types",
+                "example": "float calculate(int count, float price)"
+            },
+            "function_pointer": {
+                "syntax": "return_type (*pointer_name)(parameter_types)",
+                "description": "Pointer to function",
+                "example": "void (*fp)(int) = &handler;"
+            }
+        }
+    },
+    "Built-in Functions": {
+        "description": "Standard library functions in C",
+        "categories": {
+            "Input/Output": {
+                "description": "Functions for input and output operations",
+                "functions": [
+                    {"name": "printf()", "description": "Print formatted output to stdout"},
+                    {"name": "scanf()", "description": "Read formatted input from stdin"},
+                    {"name": "getchar()", "description": "Read single character from stdin"},
+                    {"name": "putchar()", "description": "Write single character to stdout"},
+                    {"name": "gets()", "description": "Read string from stdin (deprecated)"},
+                    {"name": "puts()", "description": "Write string to stdout"},
+                    {"name": "fprintf()", "description": "Print formatted output to stream"},
+                    {"name": "fscanf()", "description": "Read formatted input from stream"},
+                    {"name": "fgets()", "description": "Read string from stream"},
+                    {"name": "fputs()", "description": "Write string to stream"},
+                    {"name": "fopen()", "description": "Open file stream"},
+                    {"name": "fclose()", "description": "Close file stream"},
+                    {"name": "fflush()", "description": "Flush stream buffer"},
+                    {"name": "fseek()", "description": "Set file position indicator"},
+                    {"name": "ftell()", "description": "Get current file position"},
+                    {"name": "rewind()", "description": "Set position to beginning of file"},
+                    {"name": "remove()", "description": "Delete file"},
+                    {"name": "rename()", "description": "Rename file"},
+                    {"name": "tmpfile()", "description": "Create temporary file"},
+                    {"name": "tmpnam()", "description": "Generate temporary filename"}
+                ]
+            },
+            "String Handling": {
+                "description": "Functions for string manipulation",
+                "functions": [
+                    {"name": "strlen()", "description": "Get string length"},
+                    {"name": "strcpy()", "description": "Copy string"},
+                    {"name": "strcat()", "description": "Concatenate strings"},
+                    {"name": "strcmp()", "description": "Compare strings"},
+                    {"name": "strncpy()", "description": "Copy n characters from string"},
+                    {"name": "strncat()", "description": "Concatenate n characters"},
+                    {"name": "strchr()", "description": "Find character in string"},
+                    {"name": "strstr()", "description": "Find substring in string"},
+                    {"name": "strrchr()", "description": "Find last occurrence of character"},
+                    {"name": "strspn()", "description": "Get length of prefix substring"},
+                    {"name": "strcspn()", "description": "Get length of complementary prefix substring"},
+                    {"name": "strpbrk()", "description": "Find characters in string"},
+                    {"name": "strtok()", "description": "Split string into tokens"},
+                    {"name": "strupr()", "description": "Convert string to uppercase"},
+                    {"name": "strlwr()", "description": "Convert string to lowercase"}
+                ]
+            },
+            "Memory Management": {
+                "description": "Functions for dynamic memory allocation",
+                "functions": [
+                    {"name": "malloc()", "description": "Allocate memory block"},
+                    {"name": "calloc()", "description": "Allocate and zero memory block"},
+                    {"name": "realloc()", "description": "Reallocate memory block"},
+                    {"name": "free()", "description": "Free allocated memory"},
+                    {"name": "memcpy()", "description": "Copy memory block"},
+                    {"name": "memmove()", "description": "Move memory block"},
+                    {"name": "memset()", "description": "Fill memory with constant byte"},
+                    {"name": "memcmp()", "description": "Compare memory blocks"},
+                    {"name": "memchr()", "description": "Find character in memory block"}
+                ]
+            },
+            "Math": {
+                "description": "Mathematical functions",
+                "functions": [
+                    {"name": "abs()", "description": "Absolute value"},
+                    {"name": "sqrt()", "description": "Square root"},
+                    {"name": "pow()", "description": "Power function"},
+                    {"name": "ceil()", "description": "Round up to nearest integer"},
+                    {"name": "floor()", "description": "Round down to nearest integer"},
+                    {"name": "sin()", "description": "Sine function"},
+                    {"name": "cos()", "description": "Cosine function"},
+                    {"name": "tan()", "description": "Tangent function"},
+                    {"name": "log()", "description": "Natural logarithm"},
+                    {"name": "log10()", "description": "Base-10 logarithm"},
+                    {"name": "exp()", "description": "Exponential function"},
+                    {"name": "fabs()", "description": "Floating-point absolute value"},
+                    {"name": "ldexp()", "description": "Multiply by power of 2"},
+                    {"name": "frexp()", "description": "Extract mantissa and exponent"},
+                    {"name": "modf()", "description": "Break into fractional and integral parts"},
+                    {"name": "fmod()", "description": "Floating-point remainder"},
+                    {"name": "hypot()", "description": "Hypotenuse function"},
+                    {"name": "asin()", "description": "Arc sine"},
+                    {"name": "acos()", "description": "Arc cosine"},
+                    {"name": "atan()", "description": "Arc tangent"},
+                    {"name": "atan2()", "description": "Arc tangent with two parameters"},
+                    {"name": "sinh()", "description": "Hyperbolic sine"},
+                    {"name": "cosh()", "description": "Hyperbolic cosine"},
+                    {"name": "tanh()", "description": "Hyperbolic tangent"}
+                ]
+            },
+            "Type Conversion": {
+                "description": "Functions for type conversion",
+                "functions": [
+                    {"name": "atoi()", "description": "Convert string to integer"},
+                    {"name": "atof()", "description": "Convert string to float"},
+                    {"name": "atol()", "description": "Convert string to long"},
+                    {"name": "strtol()", "description": "String to long with base"},
+                    {"name": "strtoul()", "description": "String to unsigned long with base"},
+                    {"name": "strtod()", "description": "String to double"},
+                    {"name": "strtof()", "description": "String to float"},
+                    {"name": "strtold()", "description": "String to long double"},
+                    {"name": "itoa()", "description": "Integer to string"},
+                    {"name": "ltoa()", "description": "Long to string"},
+                    {"name": "ultoa()", "description": "Unsigned long to string"}
+                ]
+            },
+            "Time": {
+                "description": "Time and date functions",
+                "functions": [
+                    {"name": "time()", "description": "Get current time"},
+                    {"name": "clock()", "description": "Get processor time"},
+                    {"name": "difftime()", "description": "Calculate time difference"},
+                    {"name": "localtime()", "description": "Convert time to local time structure"},
+                    {"name": "gmtime()", "description": "Convert time to UTC structure"},
+                    {"name": "strftime()", "description": "Format time as string"},
+                    {"name": "mktime()", "description": "Convert time structure to time_t"},
+                    {"name": "asctime()", "description": "Convert time structure to string"},
+                    {"name": "ctime()", "description": "Convert time_t to string"}
+                ]
+            },
+            "Process Control": {
+                "description": "Functions for process management",
+                "functions": [
+                    {"name": "exit()", "description": "Terminate program"},
+                    {"name": "abort()", "description": "Abnormal program termination"},
+                    {"name": "atexit()", "description": "Register function for program termination"},
+                    {"name": "system()", "description": "Execute command"},
+                    {"name": "getenv()", "description": "Get environment variable"},
+                    {"name": "setenv()", "description": "Set environment variable"},
+                    {"name": "putenv()", "description": "Change/add environment variable"}
+                ]
+            },
+            "Error Handling": {
+                "description": "Functions for error management",
+                "functions": [
+                    {"name": "errno", "description": "Last error number"},
+                    {"name": "perror()", "description": "Print error message"},
+                    {"name": "strerror()", "description": "Get error message string"}
+                ]
+            },
+            "Character Classification": {
+                "description": "Functions for character testing and manipulation",
+                "functions": [
+                    {"name": "isalnum()", "description": "Check if character is alphanumeric"},
+                    {"name": "isalpha()", "description": "Check if character is alphabetic"},
+                    {"name": "isdigit()", "description": "Check if character is decimal digit"},
+                    {"name": "isspace()", "description": "Check if character is whitespace"},
+                    {"name": "ispunct()", "description": "Check if character is punctuation"},
+                    {"name": "isupper()", "description": "Check if character is uppercase"},
+                    {"name": "islower()", "description": "Check if character is lowercase"},
+                    {"name": "isprint()", "description": "Check if character is printable"},
+                    {"name": "iscntrl()", "description": "Check if character is control character"},
+                    {"name": "toupper()", "description": "Convert character to uppercase"},
+                    {"name": "tolower()", "description": "Convert character to lowercase"}
+                ]
+            }
+        }
+    }
+}

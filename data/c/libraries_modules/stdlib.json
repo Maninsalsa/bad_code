@@ -1,0 +1,30 @@
+{
+    "reference": "https://en.cppreference.com/w/c/program",
+    "stdlib": {
+        "description": "Standard Library for C - general utilities",
+        "header": "#include <stdlib.h>",
+        "functions": {
+            "memory_management": [
+                {"name": "malloc()", "syntax": "void *malloc(size_t size)", "description": "Allocate memory"},
+                {"name": "free()", "syntax": "void free(void *ptr)", "description": "Free allocated memory"},
+                {"name": "calloc()", "syntax": "void *calloc(size_t num, size_t size)", "description": "Allocate and zero memory"},
+                {"name": "realloc()", "syntax": "void *realloc(void *ptr, size_t new_size)", "description": "Reallocate memory"}
+            ],
+            "conversion": [
+                {"name": "atoi()", "syntax": "int atoi(const char *str)", "description": "Convert string to integer"},
+                {"name": "atof()", "syntax": "double atof(const char *str)", "description": "Convert string to double"},
+                {"name": "itoa()", "syntax": "char *itoa(int value, char *str, int base)", "description": "Convert integer to string"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "Dynamic memory", "example": "int *arr = malloc(n * sizeof(int));"},
+            {"purpose": "String conversion", "example": "int num = atoi(\"123\");"},
+            {"purpose": "Program control", "example": "exit(EXIT_SUCCESS);"}
+        ],
+        "best_practices": [
+            {"tip": "Always check malloc return", "reason": "Handle memory allocation failures"},
+            {"tip": "Free all allocated memory", "reason": "Prevent memory leaks"},
+            {"tip": "Use sizeof operator", "reason": "Ensure proper memory allocation size"}
+        ]
+    }
+} 

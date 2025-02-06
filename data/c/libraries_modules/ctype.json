@@ -1,0 +1,39 @@
+{
+    "reference": "https://en.cppreference.com/w/c/string/byte",
+    "ctype": {
+        "description": "Character type functions library",
+        "header": "#include <ctype.h>",
+        "functions": {
+            "character_classification": [
+                {"name": "isalpha()", "syntax": "int isalpha(int c)", "description": "Check for alphabetic character"},
+                {"name": "isdigit()", "syntax": "int isdigit(int c)", "description": "Check for decimal digit"},
+                {"name": "isalnum()", "syntax": "int isalnum(int c)", "description": "Check for alphanumeric character"},
+                {"name": "isspace()", "syntax": "int isspace(int c)", "description": "Check for whitespace character"},
+                {"name": "ispunct()", "syntax": "int ispunct(int c)", "description": "Check for punctuation character"},
+                {"name": "isupper()", "syntax": "int isupper(int c)", "description": "Check for uppercase letter"},
+                {"name": "islower()", "syntax": "int islower(int c)", "description": "Check for lowercase letter"},
+                {"name": "isprint()", "syntax": "int isprint(int c)", "description": "Check for printable character"},
+                {"name": "iscntrl()", "syntax": "int iscntrl(int c)", "description": "Check for control character"}
+            ],
+            "character_conversion": [
+                {"name": "toupper()", "syntax": "int toupper(int c)", "description": "Convert to uppercase"},
+                {"name": "tolower()", "syntax": "int tolower(int c)", "description": "Convert to lowercase"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "Input validation", "example": "if (isdigit(c)) /* handle numeric input */"},
+            {"purpose": "Case conversion", "example": "char upper = toupper(c);"},
+            {"purpose": "String parsing", "example": "while (isspace(*p)) p++; /* skip whitespace */"}
+        ],
+        "best_practices": [
+            {"tip": "Use unsigned char", "reason": "Avoid sign extension issues"},
+            {"tip": "Check EOF", "reason": "Handle end-of-file condition"},
+            {"tip": "Locale awareness", "reason": "Consider current locale settings"}
+        ],
+        "notes": [
+            {"note": "All functions return non-zero (true) or zero (false)"},
+            {"note": "Input must be representable as unsigned char or EOF"},
+            {"note": "Functions are typically implemented as macros for efficiency"}
+        ]
+    }
+} 

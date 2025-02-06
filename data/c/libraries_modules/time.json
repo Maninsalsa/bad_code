@@ -1,0 +1,41 @@
+{
+    "reference": "https://en.cppreference.com/w/c/chrono",
+    "time": {
+        "description": "Time and date functions library",
+        "header": "#include <time.h>",
+        "functions": {
+            "time_operations": [
+                {"name": "time()", "syntax": "time_t time(time_t *timer)", "description": "Get current time"},
+                {"name": "difftime()", "syntax": "double difftime(time_t end, time_t beginning)", "description": "Calculate time difference"},
+                {"name": "clock()", "syntax": "clock_t clock(void)", "description": "Get processor time"},
+                {"name": "mktime()", "syntax": "time_t mktime(struct tm *timeptr)", "description": "Convert tm structure to time_t"}
+            ],
+            "time_conversion": [
+                {"name": "localtime()", "syntax": "struct tm *localtime(const time_t *timer)", "description": "Convert time_t to local time"},
+                {"name": "gmtime()", "syntax": "struct tm *gmtime(const time_t *timer)", "description": "Convert time_t to UTC time"},
+                {"name": "ctime()", "syntax": "char *ctime(const time_t *timer)", "description": "Convert time_t to string"},
+                {"name": "strftime()", "syntax": "size_t strftime(char *str, size_t maxsize, const char *format, const struct tm *timeptr)", "description": "Format time as string"}
+            ]
+        },
+        "structures": {
+            "tm": [
+                {"member": "tm_sec", "type": "int", "description": "Seconds (0-60)"},
+                {"member": "tm_min", "type": "int", "description": "Minutes (0-59)"},
+                {"member": "tm_hour", "type": "int", "description": "Hours (0-23)"},
+                {"member": "tm_mday", "type": "int", "description": "Day of month (1-31)"},
+                {"member": "tm_mon", "type": "int", "description": "Month (0-11)"},
+                {"member": "tm_year", "type": "int", "description": "Years since 1900"}
+            ]
+        },
+        "common_uses": [
+            {"purpose": "Get current time", "example": "time_t now = time(NULL);"},
+            {"purpose": "Format date string", "example": "strftime(buffer, 80, \"%Y-%m-%d %H:%M:%S\", timeinfo);"},
+            {"purpose": "Measure execution time", "example": "clock_t start = clock();"}
+        ],
+        "best_practices": [
+            {"tip": "Check for NULL returns", "reason": "Handle function failures"},
+            {"tip": "Consider time zones", "reason": "Use appropriate time conversion"},
+            {"tip": "Buffer overflow prevention", "reason": "Ensure sufficient space for time strings"}
+        ]
+    }
+} 
