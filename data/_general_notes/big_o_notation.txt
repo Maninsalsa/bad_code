@@ -1,0 +1,56 @@
+# Big O Notation Basics
+
+1. O(1) - Constant Time
+   - Takes the same amount of time regardless of input size
+   - Example: Accessing a dictionary by key
+   ```python
+   my_dict = {'a': 1, 'b': 2}
+   value = my_dict['a']  # O(1) - instant access
+   ```
+
+2. O(n) - Linear Time
+   - Time increases linearly with input size
+   - Example: Searching an unsorted list
+   ```python
+   my_list = [1, 2, 3, 4, 5]
+   for item in my_list:  # O(n) - checks each item once
+       if item == 3:
+           return True
+   ```
+
+3. O(n²) - Quadratic Time
+   - Time increases exponentially with input size
+   - Example: Nested loops over same list
+   ```python
+   my_list = [1, 2, 3, 4]
+   for i in my_list:
+       for j in my_list:  # O(n²) - checks every item for every item
+           print(i, j)
+   ```
+
+4. O(log n) - Logarithmic Time
+   - Time increases logarithmically (cuts problem in half each time)
+   - Example: Binary search
+   ```python
+   # Finding number in sorted list by checking middle,
+   # then half of remaining, then half again...
+   def binary_search(sorted_list, target):  # O(log n)
+   ```
+
+# Real-World Analogies
+
+1. O(1) - Constant Time
+   - Like finding a book when you know exact shelf location
+   - Always takes same time regardless of library size
+
+2. O(n) - Linear Time
+   - Like checking every book on one shelf
+   - Time increases with number of books
+
+3. O(n²) - Quadratic Time
+   - Like comparing every book with every other book
+   - Gets very slow with more books
+
+4. O(log n) - Logarithmic Time
+   - Like finding word in dictionary by splitting in half repeatedly
+   - Very efficient for large datasets

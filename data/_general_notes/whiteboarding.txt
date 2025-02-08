@@ -1,0 +1,127 @@
+Component                | Description                                | Key Steps                   | Test Categories        | Considerations
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Requirements Analysis   | Sort into nouns & verbs                    | • Identify data structures  | • Data type validation | • Strong starting point
+                       |                                            | • Identify methods          | • Structure tests      | • Clear separation of concerns
+                       |                                            | • Map relationships         | • Relationship tests   |
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Critical Questions     | Analyze nouns in depth                      | • Data type analysis        | • Type validation      | • Mutability needs
+                       |                                            | • Scope identification      | • Scope tests          | • Lifecycle tracking
+                       |                                            | • Mutability assessment     | • State change tests   |
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Task Analysis          | Analyze verbs/operations                    | • Timing analysis           | • Performance tests    | • Dependencies
+                       |                                            | • Dependency mapping        | • Integration tests    | • Operation scope
+                       |                                            | • Sequence planning         | • Order validation     |
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Refinement Process     | Iterative improvement                       | • Compare approaches        | • Regression tests     | • Core vs optional
+                       |                                            | • Optimize solutions        | • Performance tests    | • Multiple iterations
+                       |                                            | • Refactor code            | • Quality metrics      |
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Performance Analysis   | Big O considerations                        | • Time complexity           | • Benchmark tests      | • Space tradeoffs
+                       |                                            | • Space complexity         | • Load tests           | • Optimization needs
+                       |                                            | • Resource usage           | • Resource monitoring  |
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Edge Case Handling     | Boundary testing                           | • Input validation          | • Boundary tests       | • State changes
+                       |                                            | • State verification       | • Error handling       | • Input validation
+                       |                                            | • Error handling           | • Recovery tests       |
+
+TDD Integration Process:
+
+Test Category          | Focus Area                                 | Example Tests               | Key Attributes         | Implementation Notes
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Requirements Tests     | Feature completeness                       | • Empty cart total = 0      | • Validates core reqs  | Write before implementation
+                       |                                            | • Single item addition      | • Documents behavior   |
+                       |                                            | • Multiple quantity         | • Guides development   |
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Structure Tests        | Data integrity                             | • Item dictionary format    | • Validates structure  | Focus on data relationships
+                       |                                            | • Discount rule format      | • Ensures consistency  |
+                       |                                            | • Cart state format         | • Maintains integrity  |
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Method Tests           | Operation correctness                      | • add_item success/fail     | • Validates behavior   | Test each operation path
+                       |                                            | • Discount calculation      | • Confirms logic       |
+                       |                                            | • Coupon application        | • Verifies results     |
+------------------------|--------------------------------------------|-----------------------------|------------------------|--------------------------------
+Edge Case Tests        | Boundary conditions                        | • Negative quantities       | • Handles extremes     | Prevent system failures
+                       |                                            | • Expired coupons           | • Manages errors       |
+                       |                                            | • Multiple discounts        | • Ensures stability    |
+
+System Flow:
+1. Requirements → Tests → Implementation → Validation
+2. Each component verified independently
+3. Integration testing confirms interactions
+4. Performance benchmarking ensures efficiency
+5. Continuous refinement based on results
+
+# System Design + TDD Thought Flow
+
+1. REQUIREMENTS BREAKDOWN
+   └─► Nouns ──┬─► Single Values
+               │   └─► Test: Valid data types/ranges
+               └─► Collections
+                   └─► Test: Valid structures/relationships
+
+2. OPERATIONS ANALYSIS
+   └─► Verbs ──┬─► Timing (When?)
+               ├─► Dependencies (What's needed?)
+               └─► Sequence (What order?)
+                   └─► Test: Operation order validity
+
+3. TEST CASE CATEGORIES
+   ├─► Happy Path Tests
+   │   └─► Expected inputs → Expected outputs
+   │
+   ├─► Edge Case Tests
+   │   ├─► Boundary values
+   │   ├─► Empty/null values
+   │   └─► Maximum/minimum values
+   │
+   └─► Failure Tests
+       ├─► Invalid inputs
+       ├─► Missing dependencies
+       └─► State violations
+
+4. PERFORMANCE CONSIDERATIONS
+   └─► For each operation:
+       ├─► Time complexity
+       ├─► Space complexity
+       └─► Test: Performance benchmarks
+
+Example Application:
+
+Shopping Cart Feature:
+
+1. NOUNS
+   Item ──┬─► Test: Valid price (positive decimal)
+         ├─► Test: Valid weight (positive float)
+         └─► Test: Valid quantity (positive integer)
+
+2. VERBS
+   add_to_cart() ──┬─► Test: Success (item added)
+                   ├─► Test: Failure (invalid item)
+                   └─► Test: Performance (O(1))
+
+3. STATE CHANGES
+   apply_discount() ──┬─► Before: full_price
+                     ├─► After: discounted_price
+                     └─► Test: price_difference > 0
+
+You're correct about unit tests being like boolean phrases in sequence. For example:
+
+Test Sequence for add_to_cart():
+1. GIVEN empty cart
+   WHEN add valid item
+   THEN cart contains 1 item ✓
+
+2. GIVEN cart with item
+   WHEN add same item
+   THEN quantity increases ✓
+
+3. GIVEN cart with max items
+   WHEN add new item
+   THEN throws error ✓
+
+This approach helps you:
+1. Think about behavior before implementation
+2. Identify edge cases early
+3. Ensure reliable operations
+4. Document expected behavior
+5. Maintain code quality
