@@ -1,0 +1,57 @@
+time_complexity_kings
+
+```python
+# SET is king for:
+unique_numbers = set([1, 2, 2, 3])  # 1. Removing duplicates
+if x in large_set:                  # 2. Fast lookups (O(1))
+set1.intersection(set2)             # 3. Set operations
+
+# LIST is king for:
+ordered_items = [1, 2, 3]           # 1. Maintaining order
+ordered_items.append(4)             # 2. Fast append/pop
+ordered_items[0]                    # 3. Index access
+
+# DICT is king for:
+user_scores = {'Alice': 100}        # 1. Key-value pairs
+user_scores['Bob'] = 95             # 2. Fast key lookups
+del user_scores['Alice']            # 3. Fast key deletion
+
+# TUPLE is king for:
+point = (x, y, z)                   # 1. Immutable data
+return first, second                # 2. Multiple return values
+dict_keys = tuple(my_dict)          # 3. Memory efficiency
+```
+
+**Performance Comparison:**
+```python
+# Lookup Operations (finding an element)
+large_list = list(range(10000))     # O(n)     ❌ Slow
+large_set = set(range(10000))       # O(1)     ✅ Fast
+large_dict = dict.fromkeys(range(10000)) # O(1) ✅ Fast
+
+# Adding Elements
+my_list.append(x)                   # O(1)     ✅ Fast
+my_set.add(x)                       # O(1)     ✅ Fast
+my_dict[key] = x                    # O(1)     ✅ Fast
+
+# Inserting at Beginning
+my_list.insert(0, x)               # O(n)      ❌ Slow
+my_set.add(x)                      # O(1)      ✅ Fast
+```
+
+**Choose Based On Need:**
+```python
+# Need fast lookups?
+if x in my_set:         # ✅ Use Set
+
+# Need ordered data?
+my_list.sort()         # ✅ Use List
+
+# Need key-value pairs?
+my_dict[key] = value   # ✅ Use Dict
+
+# Need immutable sequence?
+my_tuple = (1, 2, 3)   # ✅ Use Tuple
+```
+
+So really, it's about choosing the right tool for the job!

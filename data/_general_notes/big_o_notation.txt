@@ -54,3 +54,67 @@
 4. O(log n) - Logarithmic Time
    - Like finding word in dictionary by splitting in half repeatedly
    - Very efficient for large datasets
+
+
+   Time Complexity | Python Operations & Data Structures         | Code Examples
+----------------|---------------------------------------------|------------------------------------------
+O(1)            | • List/Array index access                   | my_list[5]
+Constant        | • List append/pop from end                  | my_list.append(x)
+                | • Dictionary get/set/delete                 | my_dict['key'] = value
+                | • Set add/remove/test membership            | my_set.add(item)
+                | Example:                                    | nums = [1, 2, 3, 4, 5]
+                | ```python                                   | value = nums[2]      # O(1)
+                | cache = {}                                  | cache['x'] = 10      # O(1)
+                | cache['x'] = 42  # Constant time           | unique = {1, 2, 3}   # O(1) per item
+                | ```                                         |
+----------------|---------------------------------------------|------------------------------------------
+O(log n)        | • Binary search on sorted list              | def binary_search(sorted_list, target):
+Logarithmic     | Example:                                    |     left, right = 0, len(sorted_list)-1
+                | ```python                                   |     while left <= right:
+                | def binary_search(sorted_list, target):     |         mid = (left + right) // 2
+                |     left = 0                                |         if sorted_list[mid] == target:
+                |     right = len(sorted_list) - 1            |             return mid
+                |     while left <= right:                    |         elif sorted_list[mid] < target:
+                |         mid = (left + right) // 2           |             left = mid + 1
+                |         if sorted_list[mid] == target:      |         else:
+                |             return mid                      |             right = mid - 1
+                |     return -1                               |     return -1
+                | ```                                         |
+----------------|---------------------------------------------|------------------------------------------
+O(n)            | • List/Array traversal                      | for item in my_list:
+Linear          | • List/Array search                         | if target in my_list:
+                | • List insert/delete at position            | my_list.insert(0, item)
+                | • String operations                         | text.find('pattern')
+                | Example:                                    | my_list = [1, 2, 3, 4]
+                | ```python                                   | for item in my_list:    # O(n)
+                | def linear_search(lst, target):             |     print(item)
+                |     for i, item in enumerate(lst):          | my_list.insert(0, 5)    # O(n)
+                |         if item == target:                  | 
+                |             return i                        |
+                | ```                                         |
+----------------|---------------------------------------------|------------------------------------------
+O(n²)           | • Nested list iterations                    | for i in range(len(my_list)):
+Quadratic       | • Bubble sort                               |     for j in range(len(my_list)):
+                | • Selection sort                            |         # do something
+                | Example:                                    | 
+                | ```python                                   | def bubble_sort(lst):
+                | def bubble_sort(lst):                       |     n = len(lst)
+                |     for i in range(len(lst)):               |     for i in range(n):
+                |         for j in range(len(lst) - 1):       |         for j in range(n - 1):
+                |             if lst[j] > lst[j + 1]:         |             if lst[j] > lst[j + 1]:
+                |                 lst[j], lst[j + 1] = \      |                 lst[j], lst[j + 1] = \
+                |                 lst[j + 1], lst[j]          |                 lst[j + 1], lst[j]
+                | ```                                         |
+----------------|---------------------------------------------|------------------------------------------
+O(2ⁿ)           | • Recursive Fibonacci                       | def fibonacci(n):
+Exponential     | • Generate all subsets                      |     if n <= 1:
+                | Example:                                    |         return n
+                | ```python                                   |     return fibonacci(n-1) + \
+                | def fibonacci(n):                           |            fibonacci(n-2)
+                |     if n <= 1:                              |
+                |         return n                            | def all_subsets(lst):
+                |     return fibonacci(n-1) + fibonacci(n-2)  |     if not lst:
+                | ```                                         |         return [[]]
+                |                                             |     subsets = all_subsets(lst[1:])
+                |                                             |     return subsets + \
+                |                                             |            [s + [lst[0]] for s in subsets]

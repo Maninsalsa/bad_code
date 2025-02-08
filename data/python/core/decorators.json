@@ -1,0 +1,96 @@
+{
+    "Decorators": {
+        "description": "Functions that modify or enhance other functions or classes",
+        "syntax": {
+            "basic": "@decorator_name\ndef function_name():",
+            "with_arguments": "@decorator_name(args)\ndef function_name():",
+            "multiple": "@decorator1\n@decorator2\ndef function_name():"
+        },
+        "built_in_decorators": {
+            "property": {
+                "description": "Converts a method into a read-only property",
+                "example": "@property\ndef full_name(self):\n    return f'{self.first} {self.last}'",
+                "use_cases": [
+                    "Computed/derived attributes",
+                    "Encapsulation of attributes",
+                    "Read-only properties"
+                ]
+            },
+            "classmethod": {
+                "description": "Converts a method to a class method that takes a class as first argument",
+                "example": "@classmethod\ndef from_string(cls, string):\n    return cls(*string.split(','))",
+                "use_cases": [
+                    "Alternative constructors",
+                    "Factory methods",
+                    "Class-level operations"
+                ]
+            },
+            "staticmethod": {
+                "description": "Converts a method to a static method (no automatic self/cls)",
+                "example": "@staticmethod\ndef validate(value):\n    return isinstance(value, int)",
+                "use_cases": [
+                    "Utility functions",
+                    "Helper methods",
+                    "Namespace organization"
+                ]
+            },
+            "abstractmethod": {
+                "description": "Marks a method as abstract (must be implemented by subclasses)",
+                "example": "@abstractmethod\ndef calculate_area(self):\n    pass",
+                "use_cases": [
+                    "Interface definition",
+                    "Enforcing method implementation",
+                    "Abstract base classes"
+                ]
+            }
+        },
+        "common_use_cases": {
+            "timing": {
+                "description": "Measure function execution time",
+                "example": "@timing_decorator\ndef slow_function():"
+            },
+            "logging": {
+                "description": "Log function calls and results",
+                "example": "@log_decorator\ndef critical_function():"
+            },
+            "caching": {
+                "description": "Cache function results for repeated calls",
+                "example": "@lru_cache(maxsize=None)\ndef fibonacci(n):"
+            },
+            "validation": {
+                "description": "Validate function inputs/outputs",
+                "example": "@validate_types\ndef process_data(data: list):"
+            },
+            "authentication": {
+                "description": "Check user permissions",
+                "example": "@requires_auth\ndef secure_function():"
+            }
+        },
+        "advanced_concepts": {
+            "decorator_chaining": {
+                "description": "Multiple decorators applied to single function",
+                "order": "Bottom-up execution (closest to function first)"
+            },
+            "decorator_factories": {
+                "description": "Decorators that accept arguments",
+                "example": "@retry(times=3)\ndef api_call():"
+            },
+            "class_decorators": {
+                "description": "Decorators that modify classes",
+                "example": "@singleton\nclass Database:"
+            },
+            "preserving_metadata": {
+                "description": "Maintaining original function attributes",
+                "solution": "Use functools.wraps"
+            }
+        },
+        "best_practices": [
+            "Use functools.wraps to preserve function metadata",
+            "Keep decorators focused on single responsibility",
+            "Document decorator behavior clearly",
+            "Consider performance impact of nested decorators",
+            "Handle exceptions appropriately in decorators"
+        ]
+    }
+}
+

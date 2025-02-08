@@ -1,0 +1,82 @@
+I'll create 5 beginner-level questions focusing on choosing optimal approaches based on time complexity. I'll present scenarios where you need to select the best solution considering Big O notation.
+
+**Question 1:**
+You need to check if a number exists in a collection of integers. You're given these options:
+
+A) Unsorted list with linear search
+B) Sorted list with binary search
+C) Hash set (Python set)
+D) Dictionary with numbers as keys
+
+Answer: C, no need for pairs, but a has set has the best time complexity in this case ✅ 
+
+What would be the most efficient choice if you need to:
+1. Perform this check operation frequently
+    a set, unordered, mutable ✅ 
+2. The data won't change after initial creation
+    Answer: Tuple, once created, the data is immutable ❌ correct answer is frozen set(if in python), but if talking about alphabetic data, strings would be best.
+3. Memory usage is not a concern
+    a sorted list-  ordered, mutable, indexable, iterable ❌ even if memory usage is not a concern, follow time complexity notation. 
+
+**Question 2:**
+You're building a user authentication system that needs to:
+- Store usernames 
+    dictionary, due to usernames being paired with names
+- Check if a username is taken
+    set of usernames
+- Look up users frequently
+    set 
+
+Which data structure would provide the best time complexity for these operations and why:
+A) List of usernames
+B) Dictionary with usernames as keys
+C) Set of usernames
+D) Sorted list of usernames
+
+**Question 3:**
+You need to find duplicate numbers in a list of integers. Consider these approaches:
+A) Nested loops checking each number against others
+B) Sorting the list first, then checking adjacent numbers
+C) Using a set to track seen numbers
+D) Using a dictionary to count occurrences
+
+Which approach would be most efficient for:
+1. A list with 1 million numbers
+2. Where you only need to find if ANY duplicate exists
+3. Memory isn't a constraint
+
+**Question 4:**
+You're implementing a cache for recent user actions. You need to:
+- Store the last 100 actions
+- Add new actions
+- Remove oldest actions when cache is full
+- Look up if an action exists
+
+Choose the best combination:
+A) List with append and pop
+B) Dictionary with timestamps
+C) Queue using collections.deque
+D) Set with manual tracking
+
+**Question 5:**
+You need to maintain a collection of words and:
+- Add new words
+- Remove words
+- Check if a word exists
+- Get a random word
+
+Which approach would provide the best average time complexity:
+A) List with random.choice()
+B) Dictionary with list of indices
+C) Set with conversion to list for random selection
+D) Two structures: set for lookups and list for random access
+
+Let me know when you want to attempt any of these questions, and I'll help guide you through the thinking process without giving away the answers immediately!
+
+Remember to consider:
+- Time complexity for each operation
+- How frequently each operation will be performed
+- Space complexity trade-offs
+- Python's built-in optimizations
+
+Which question would you like to tackle first?

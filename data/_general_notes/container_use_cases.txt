@@ -24,15 +24,85 @@ Sets           | Unordered collection of unique elements    | • Unique collect
                |                                            | • Removing duplicates         | • Iterable: Yes        |
                |                                            |                               | • Indexable: No        |
 ---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
+Frozen Sets    | Immutable set of unique elements           | • Hashable set operations     | • Ordered: No          | • Membership: O(1) avg
+               | frozen = frozenset([1, 2, 3])              | • Dictionary keys             | • Mutable: No          | • Set ops: O(min(len(s1),len(s2)))
+               |                                            | • Thread-safe sets            | • No duplicates        |
+               |                                            | • Constant set data           | • Iterable: Yes        |
+               |                                            |                               | • Indexable: No        |
+---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
 Dictionaries   | Key-value pairs collection                 | • Configuration settings      | • Ordered: 3.7+        | • Access by key: O(1) avg
                | user = {'name': 'John', 'age': 30}         | • Caching results             | • Mutable: Yes         | • Insert/Delete: O(1) avg
                | config = dict(host='localhost', port=8080) | • JSON-like data              | • Unique keys          | • Search by value: O(n)
                |                                            | • Fast lookups                | • Iterable: Yes        |
                |                                            | • Structured data             |                        |
+---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
+Strings        | Immutable sequence of characters           | • Text processing             | • Ordered: Yes         | • Access: O(1)
+               | text = "Hello World"                       | • String manipulation         | • Mutable: No          | • Concatenation: O(n)
+               | name = str(123)                            | • Data serialization          | • Indexable: Yes       | • Search: O(n)
+               |                                            | • File I/O                    | • Iterable: Yes        | • Slice: O(k)
+               |                                            | • Network communication       |                        |
+---------------|--------------------------------------------|-------------------------------|------------------------|------------------------------------
+
+
+Mutability Details:
+
+Mutable Containers:
+• Lists - Elements can be modified, added, or removed
+• Sets - Elements can be added or removed (but elements themselves must be immutable)
+• Dictionaries - Keys and values can be modified, added, or removed (keys must be immutable)
+• Arrays - Elements can be modified but size is fixed
+• Deques - Elements can be modified, added, or removed from either end
+
+Immutable Containers:
+• Tuples - Once created, elements cannot be modified
+• Frozen sets - Immutable version of sets
+• String - Immutable sequence of characters
+• Bytes - Immutable sequence of integers
+• Range objects - Immutable sequence of numbers
+
+Key Points About Mutability:
+• Mutable objects can be modified after creation
+• Immutable objects cannot be changed after creation
+• Immutable objects are thread-safe
+• Immutable objects can be used as dictionary keys
+• Nested mutable objects within immutable containers can still be modified
+
 
 Time Complexity Key:
 O(1) - Constant time: Operation takes the same amount of time regardless of input size
 O(n) - Linear time: Operation time increases linearly with input size (n = number of elements)
+O(log n) - Logarithmic time: Operation time increases logarithmically with input size
+        (Example: Binary search in a sorted array - each step eliminates half of remaining elements)
+
+        Common O(log n) Operations:
+        • Binary search in sorted array
+        • Balanced tree operations (insert/delete/search)
+        • Finding exponents by squaring
+        • Divide and conquer algorithms
+        • Heap operations (push/pop)
+
+        Why O(log n) is Efficient:
+        • As input size doubles, operations only increase by 1 step
+        • Example: For n=1000, log₂(n) ≈ 10 steps
+                For n=1,000,000, log₂(n) ≈ 20 steps
+        • Much faster than O(n) for large datasets
+
+Common O(k) Operations:
+• String slicing - Creates new string of length k
+• List slicing - Creates new list of length k 
+• Copying k elements from one container to another
+• Processing first k elements of a sequence
+• Fixed-size window operations in streaming algorithms
+
+        Why O(k) is Important:
+        • Runtime depends on size of operation (k), not total input size (n)
+        • More efficient than O(n) when k << n
+        • Example: Getting first 10 elements of million-element list
+                O(k) = 10 operations vs O(n) = 1,000,000 operations
+        • Common in pagination and chunked processing
+
+
+
 
 Language     | Arrays        | Tuples        | Lists          | Sets              | Dictionaries/Maps
 -------------|---------------|---------------|----------------|-------------------|------------------
@@ -54,3 +124,60 @@ Swift        | Array<T>      | (T1, T2, ...) | Array<T>       | Set<T>          
              | [T]           |               | [T]            |                   | [K:V]
 
 * Requires manual implementation
+
+Time Complexity Details by Container:
+
+Lists:
+• Indexing/Access: O(1) - Direct access by index
+• Append/Pop from end: O(1) amortized - Usually constant time but occasional resizing
+• Insert/Delete at position: O(n) - Must shift elements
+• Search/Contains: O(n) - Must check each element
+• Slice: O(k) where k is slice size
+• Sort: O(n log n) - Uses Timsort algorithm
+• Reverse: O(n) - Must touch each element
+• Copy: O(n) - Must copy each element
+
+Sets:
+• Add/Remove: O(1) average - Hash table operations
+• Contains/Membership: O(1) average - Hash lookup
+• Union/Intersection: O(min(len(s1),len(s2))) - Must check smaller set
+• Difference: O(len(s1)) - Must check each item in first set
+• Clear: O(1) - Single operation to reset
+• Copy: O(n) - Must copy each element
+• Pop: O(1) - Remove arbitrary element
+
+Dictionaries:
+• Get/Set/Delete by key: O(1) average - Hash table operations
+• Contains key: O(1) average - Hash lookup
+• Get all keys/values: O(n) - Must touch all items
+• Update/Merge: O(n) - Must process all new items
+• Clear: O(1) - Single operation to reset
+• Copy: O(n) - Must copy all items
+• Items/Iteration: O(n) - Must touch all items
+
+Tuples:
+• Indexing/Access: O(1) - Direct access by index
+• Contains/Search: O(n) - Must check each element
+• Slice: O(k) where k is slice size
+• Count: O(n) - Must check each element
+• Length: O(1) - Size stored internally
+• Compare: O(n) - Must check elements until difference found
+
+Arrays (language dependent):
+• Fixed size arrays:
+  - Access/Modify: O(1) - Direct memory access
+  - Search: O(n) - Must check each element
+  - Sort: O(n log n) - Standard comparison sort
+  - Copy: O(n) - Must copy each element
+
+• Dynamic arrays (like Python lists):
+  - Same as Lists above
+  - Amortized O(1) for append operations
+  - O(n) for insert/delete due to shifting
+
+Note: Actual performance can vary based on:
+- Implementation details of the language/compiler
+- Hardware architecture and memory hierarchy
+- Size and layout of data
+- Hash function quality (for hash-based containers)
+- Memory allocation patterns
