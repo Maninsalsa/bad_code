@@ -11,7 +11,8 @@
                     {"name": "/", "description": "Division"},
                     {"name": "//", "description": "Floor division"},
                     {"name": "%", "description": "Modulo"},
-                    {"name": "**", "description": "Exponentiation"}
+                    {"name": "**", "description": "Exponentiation"},
+                    {"name": "@", "description": "Matrix multiplication (Python 3.5+)"}
                 ]
             },
             "Comparison": {
@@ -22,7 +23,8 @@
                     {"name": ">", "description": "Greater than"},
                     {"name": "<", "description": "Less than"}, 
                     {"name": ">=", "description": "Greater than or equal to"},
-                    {"name": "<=", "description": "Less than or equal to"}
+                    {"name": "<=", "description": "Less than or equal to"},
+                    {"name": "<>", "description": "Not equal to (legacy, same as !=)"}
                 ]
             },
             "Logical": {
@@ -31,7 +33,14 @@
                     {"name": "and", "description": "True if both operands are true"},
                     {"name": "or", "description": "True if at least one operand is true"},
                     {"name": "not", "description": "Inverts boolean value"}
-                ]
+                ],
+                "short_circuit": {
+                    "description": "Logical operators use short-circuit evaluation",
+                    "examples": [
+                        {"syntax": "x and y", "description": "y is only evaluated if x is True"},
+                        {"syntax": "x or y", "description": "y is only evaluated if x is False"}
+                    ]
+                }
             },
             "Assignment": {
                 "description": "Assign and modify values",
@@ -48,8 +57,17 @@
                     {"name": "|=", "description": "Bitwise OR and assign"},
                     {"name": "^=", "description": "Bitwise XOR and assign"},
                     {"name": ">>=", "description": "Right shift and assign"},
-                    {"name": "<<=", "description": "Left shift and assign"}
-                ]
+                    {"name": "<<=", "description": "Left shift and assign"},
+                    {"name": "@=", "description": "Matrix multiply and assign (Python 3.5+)"}
+                ],
+                "multiple_assignment": {
+                    "description": "Assign multiple values simultaneously",
+                    "examples": [
+                        {"syntax": "x = y = z = 0", "description": "Assign same value to multiple variables"},
+                        {"syntax": "a, b = 1, 2", "description": "Tuple unpacking assignment"},
+                        {"syntax": "a, *b = [1,2,3,4]", "description": "Extended unpacking (Python 3+)"}
+                    ]
+                }
             },
             "Bitwise": {
                 "description": "Operations on individual bits",
@@ -65,15 +83,23 @@
             "Identity": {
                 "description": "Check if objects are the same",
                 "operators": [
-                    {"name": "is", "description": "True if operands are identical"},
-                    {"name": "is not", "description": "True if operands are not identical"}
-                ]
+                    {"name": "is", "description": "True if operands are identical (same object)"},
+                    {"name": "is not", "description": "True if operands are not identical (different objects)"}
+                ],
+                "notes": {
+                    "description": "Tests object identity, not equality",
+                    "example": "a is b # True only if a and b reference the same object"
+                }
             },
             "Membership": {
                 "description": "Test presence in sequence",
                 "operators": [
                     {"name": "in", "description": "True if value found in sequence"},
                     {"name": "not in", "description": "True if value not found in sequence"}
+                ],
+                "supported_types": [
+                    "lists", "tuples", "strings", "sets", "dictionaries (keys)", 
+                    "ranges", "custom sequences implementing __contains__"
                 ]
             },
             "Unpacking": {
@@ -85,7 +111,15 @@
                      "example": "function(**{'x':1, 'y':2}) equivalent to function(x=1, y=2)"},
                     {"name": "combined unpacking", "description": "Can use both * and ** to unpack different argument types simultaneously",
                      "example": "function(*args, **dict_args)"}
-                ]
+                ],
+                "extended_unpacking": {
+                    "description": "Python 3+ extended unpacking features",
+                    "examples": [
+                        {"syntax": "first, *rest = [1,2,3,4]", "description": "Assign first element and collect rest in list"},
+                        {"syntax": "*start, last = [1,2,3,4]", "description": "Collect all but last element in list"},
+                        {"syntax": "first, *middle, last = [1,2,3,4]", "description": "Assign first and last, collect middle elements"}
+                    ]
+                }
             }
         }
     },
@@ -151,14 +185,17 @@
                     {"name": "Tuples", "example": "my_tuple[1:4]"},
                     {"name": "Range", "example": "range_obj[1:4]"},
                     {"name": "Bytes", "example": "bytes_obj[1:4]"},
-                    {"name": "Bytearray", "example": "bytearray_obj[1:4]"}
+                    {"name": "Bytearray", "example": "bytearray_obj[1:4]"},
+                    {"name": "Memoryview", "example": "memview[1:4]"},
+                    {"name": "Array.array", "example": "array_obj[1:4]"}
                 ],
                 "assignment": {
                     "description": "Replace slice with new values",
                     "examples": [
                         {"syntax": "list[2:5] = [6, 7, 8]", "description": "Replace elements 2-4"},
                         {"syntax": "list[1:1] = [2, 3]", "description": "Insert at position 1"},
-                        {"syntax": "list[2:5] = []", "description": "Delete elements 2-4"}
+                        {"syntax": "list[2:5] = []", "description": "Delete elements 2-4"},
+                        {"syntax": "list[::2] = [0]*len(list[::2])", "description": "Replace every second element"}
                     ]
                 }
             },
@@ -167,7 +204,9 @@
                 "examples": [
                     {"type": "Lists", "example": "[1, 2] + [3, 4]"},
                     {"type": "Strings", "example": "'Hello' + 'World'"},
-                    {"type": "Tuples", "example": "(1, 2) + (3, 4)"}
+                    {"type": "Tuples", "example": "(1, 2) + (3, 4)"},
+                    {"type": "Bytes", "example": "b'Hello' + b'World'"},
+                    {"type": "Bytearray", "example": "bytearray(b'Hello') + bytearray(b'World')"}
                 ]
             },
             "Repetition": {
@@ -175,7 +214,9 @@
                 "examples": [
                     {"type": "Lists", "example": "[1, 2] * 3"},
                     {"type": "Strings", "example": "'Ha' * 3"},
-                    {"type": "Tuples", "example": "(1, 2) * 2"}
+                    {"type": "Tuples", "example": "(1, 2) * 2"},
+                    {"type": "Bytes", "example": "b'Ab' * 3"},
+                    {"type": "Bytearray", "example": "bytearray(b'XY') * 2"}
                 ]
             }
         }
@@ -224,7 +265,8 @@
                             "keys": {"syntax": "for key in dict.keys():", "description": "Iterate keys"},
                             "values": {"syntax": "for value in dict.values():", "description": "Iterate values"},
                             "items": {"syntax": "for key, value in dict.items():", "description": "Iterate both"}
-                        }
+                        },
+                        "zip": {"syntax": "for x, y in zip(list1, list2):", "description": "Iterate multiple sequences simultaneously"}
                     },
                     "while_loops": {
                         "basic": {"syntax": "while condition:", "description": "Execute while condition is True"},

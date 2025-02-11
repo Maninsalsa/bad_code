@@ -5,20 +5,28 @@
             "description": "Valid ways to declare and initialize variables",
             "basic": [
                 {"name": "int x = 5", "description": "Basic integer assignment"},
-                {"name": "char name = 'John'", "description": "Character assignment"},
-                {"name": "float price = 19.99", "description": "Floating point assignment"},
-                {"name": "bool is_active = true", "description": "Boolean assignment"},
-                {"name": "double coordinates = {34.0522, -118.2437}", "description": "Double array assignment"}
+                {"name": "char name = 'A'", "description": "Character assignment"}, 
+                {"name": "float price = 19.99f", "description": "Floating point assignment"},
+                {"name": "double pi = 3.14159", "description": "Double precision assignment"},
+                {"name": "long int big = 123456789L", "description": "Long integer assignment"},
+                {"name": "short int small = 123", "description": "Short integer assignment"},
+                {"name": "unsigned int positive = 100u", "description": "Unsigned integer assignment"},
+                {"name": "signed int number = -50", "description": "Signed integer assignment"},
+                {"name": "_Bool flag = 1", "description": "Boolean assignment (C99)"},
+                {"name": "size_t size = sizeof(int)", "description": "Size type assignment"}
             ],
             "complex": [
-                {"name": "struct user_data = {name: 'Alice', age: 25}", "description": "Struct initialization"},
+                {"name": "struct user_data = {.name = \"Alice\", .age = 25}", "description": "Struct initialization"},
                 {"name": "int numbers[] = {1, 2, 3, 4, 5}", "description": "Array initialization"},
-                {"name": "int matrix[][] = {{1, 2}, {3, 4}}", "description": "2D array initialization"},
-                {"name": "int result = calculate_total(items)", "description": "Function result assignment"}
+                {"name": "int matrix[2][2] = {{1, 2}, {3, 4}}", "description": "2D array initialization"},
+                {"name": "int result = calculate_total(items)", "description": "Function result assignment"},
+                {"name": "union data value = {.i = 42}", "description": "Union initialization"},
+                {"name": "enum color choice = RED", "description": "Enum assignment"}
             ],
             "multiple": [
-                {"name": "int x, y = 10, 20", "description": "Multiple variable declaration"},
-                {"name": "int first, *rest = {1, 2, 3, 4, 5}", "description": "Mixed declaration with pointer"}
+                {"name": "int x = 10, y = 20, z = 30", "description": "Multiple variable declaration"},
+                {"name": "int *p1 = &x, *p2 = &y", "description": "Multiple pointer declaration"},
+                {"name": "char c1 = 'A', *str = \"Hello\"", "description": "Mixed char and string declaration"}
             ]
         },
         "commonErrors": {
@@ -27,12 +35,20 @@
                 {"error": "int 2x = 10", "reason": "Cannot start with number"},
                 {"error": "int my-var = 5", "reason": "Cannot use hyphen"},
                 {"error": "int class = 'C'", "reason": "Cannot use reserved keywords"},
-                {"error": "int for = 10", "reason": "Cannot use reserved keywords"}
+                {"error": "int float = 10", "reason": "Cannot use type names as variables"},
+                {"error": "int if = 5", "reason": "Cannot use control keywords"},
+                {"error": "int sizeof = 4", "reason": "Cannot use operator keywords"}
             ],
             "naming": [
                 {"error": "int MyVariable", "reason": "Not recommended for variables (use snake_case)"},
                 {"error": "int @variable", "reason": "Cannot use special characters"},
-                {"error": "int variable!", "reason": "Cannot use special characters"}
+                {"error": "int variable!", "reason": "Cannot use special characters"},
+                {"error": "int variable space", "reason": "Cannot use spaces"}
+            ],
+            "type": [
+                {"error": "int x = 3.14", "reason": "Type mismatch (truncation)"},
+                {"error": "char c = \"A\"", "reason": "String literal for char"},
+                {"error": "unsigned int x = -1", "reason": "Negative value for unsigned"}
             ]
         },
         "usage": {
@@ -41,14 +57,18 @@
                 "Keeping track of state in a program",
                 "Storing user input",
                 "Managing configuration settings",
-                "Creating counters and accumulators"
+                "Creating counters and accumulators",
+                "Buffer management",
+                "Error status codes",
+                "Loop control variables"
             ],
             "inappropriate": [
                 "One-time calculations that won't be reused",
                 "Immediate print statements",
                 "Simple literals in format strings",
-                "Temporary values in list comprehensions",
-                "Constants that never change"
+                "Magic numbers in code",
+                "Constants that never change",
+                "Temporary loop indices that could be loop-local"
             ]
         }
     },
@@ -56,16 +76,37 @@
         "description": "The type of data that a variable can hold",
         "types": {
             "basic": [
-                {"name": "int", "description": "Integer type"},
-                {"name": "char", "description": "Character type"},
-                {"name": "float", "description": "Floating point type"},
-                {"name": "bool", "description": "Boolean type"},
-                {"name": "double", "description": "Double precision type"}
+                {"name": "void", "description": "No type/empty type"},
+                {"name": "char", "description": "Character type (1 byte)"},
+                {"name": "short", "description": "Short integer (typically 2 bytes)"},
+                {"name": "int", "description": "Integer type (typically 4 bytes)"},
+                {"name": "long", "description": "Long integer (typically 4-8 bytes)"},
+                {"name": "long long", "description": "Long long integer (typically 8 bytes)"},
+                {"name": "float", "description": "Single precision floating point (4 bytes)"},
+                {"name": "double", "description": "Double precision floating point (8 bytes)"},
+                {"name": "long double", "description": "Extended precision floating point"},
+                {"name": "_Bool", "description": "Boolean type (C99)"}
+            ],
+            "modifiers": [
+                {"name": "signed", "description": "Can hold positive and negative values"},
+                {"name": "unsigned", "description": "Can only hold positive values"},
+                {"name": "const", "description": "Value cannot be modified"},
+                {"name": "volatile", "description": "Value may change unexpectedly"},
+                {"name": "static", "description": "Preserves value between function calls"},
+                {"name": "extern", "description": "Defined in another translation unit"},
+                {"name": "register", "description": "Hint for register storage (optional)"},
+                {"name": "auto", "description": "Default storage class (rarely used)"}
             ],
             "complex": [
-                {"name": "struct", "description": "Structure type"},
+                {"name": "struct", "description": "User-defined structure type"},
                 {"name": "enum", "description": "Enumeration type"},
-                {"name": "union", "description": "Union type"}
+                {"name": "union", "description": "Union type (shared memory)"},
+                {"name": "typedef", "description": "Type definition/alias"}
+            ],
+            "derived": [
+                {"name": "array", "description": "Collection of same type elements"},
+                {"name": "pointer", "description": "Address of another variable"},
+                {"name": "function pointer", "description": "Points to function code"}
             ]
         }
     },
@@ -73,29 +114,49 @@
         "description": "A variable that stores the memory address of another variable",
         "types": {
             "basic": [
+                {"name": "void *ptr", "description": "Generic pointer"},
                 {"name": "int *ptr", "description": "Integer pointer"},
-                {"name": "char *name", "description": "Character pointer"},
-                {"name": "float *price", "description": "Float pointer"},
-                {"name": "bool *is_active", "description": "Boolean pointer"},
-                {"name": "double *coordinates", "description": "Double pointer"}
+                {"name": "char *str", "description": "Character/string pointer"},
+                {"name": "float *fptr", "description": "Float pointer"},
+                {"name": "double *dptr", "description": "Double pointer"},
+                {"name": "const int *ptr", "description": "Pointer to constant"},
+                {"name": "int * const ptr", "description": "Constant pointer"},
+                {"name": "const int * const ptr", "description": "Constant pointer to constant"}
             ],
             "complex": [
-                {"name": "struct *user_data", "description": "Structure pointer"},
-                {"name": "int *numbers", "description": "Array pointer"},
+                {"name": "struct node *next", "description": "Structure pointer"},
+                {"name": "int (*arr)[10]", "description": "Pointer to array"},
                 {"name": "int **matrix", "description": "Pointer to pointer"},
-                {"name": "int *result", "description": "Function result pointer"}
+                {"name": "void (*func)(int)", "description": "Function pointer"},
+                {"name": "int *(*ptr[5])(int)", "description": "Array of function pointers"}
+            ]
+        },
+        "operations": {
+            "basic": [
+                {"name": "&var", "description": "Address-of operator"},
+                {"name": "*ptr", "description": "Dereference operator"},
+                {"name": "ptr++", "description": "Pointer arithmetic increment"},
+                {"name": "ptr--", "description": "Pointer arithmetic decrement"},
+                {"name": "ptr + n", "description": "Pointer arithmetic addition"},
+                {"name": "ptr - n", "description": "Pointer arithmetic subtraction"}
             ]
         },
         "usage": {
             "appropriate": [
-                "Passing large data to functions",
-                "Modifying original data in functions",
-                "Dynamic memory allocation"
+                "Dynamic memory allocation",
+                "Passing large data structures",
+                "Array manipulation",
+                "String handling",
+                "Data structures (linked lists, trees)",
+                "Function callbacks",
+                "Memory-mapped hardware access",
+                "Efficient parameter passing"
             ],
             "inappropriate": [
-                "Small data transfers",
-                "Read-only operations",
-                "Static memory usage"
+                "Small scalar values",
+                "When simpler alternatives exist",
+                "Unnecessary indirection",
+                "When array notation is clearer"
             ]
         }
     },
@@ -103,51 +164,75 @@
         "description": "A collection of elements of the same type stored in contiguous memory locations",
         "types": {
             "basic": [
-                {"name": "int arr[5]", "description": "Integer array"},
-                {"name": "char name[10]", "description": "Character array"},
-                {"name": "float price[100]", "description": "Float array"},
-                {"name": "bool is_active[50]", "description": "Boolean array"},
-                {"name": "double coordinates[2]", "description": "Double array"}
+                {"name": "int arr[5]", "description": "Fixed-size integer array"},
+                {"name": "char str[100]", "description": "Character array/string"},
+                {"name": "float values[50]", "description": "Float array"},
+                {"name": "double coords[3]", "description": "Double array"},
+                {"name": "long numbers[1000]", "description": "Long integer array"}
             ],
-            "complex": [
-                {"name": "struct user_data[10]", "description": "Structure array"},
-                {"name": "int numbers[5]", "description": "Simple integer array"},
-                {"name": "int matrix[2][2]", "description": "2D integer array"},
-                {"name": "int result[100]", "description": "Large integer array"}
+            "multidimensional": [
+                {"name": "int matrix[3][3]", "description": "2D integer array"},
+                {"name": "char grid[10][10]", "description": "2D character grid"},
+                {"name": "float cube[4][4][4]", "description": "3D float array"}
+            ],
+            "variable": [
+                {"name": "int arr[n]", "description": "Variable-length array (C99)"},
+                {"name": "int *dynamic = malloc(n * sizeof(int))", "description": "Dynamic array"}
+            ]
+        },
+        "operations": {
+            "access": [
+                {"name": "arr[i]", "description": "Index-based access"},
+                {"name": "*(arr + i)", "description": "Pointer arithmetic access"},
+                {"name": "arr[i][j]", "description": "2D array access"}
+            ],
+            "initialization": [
+                {"name": "int arr[] = {1,2,3}", "description": "Array initializer list"},
+                {"name": "int arr[3] = {0}", "description": "Zero initialization"},
+                {"name": "memset(arr, 0, sizeof(arr))", "description": "Memory set initialization"}
             ]
         }
     },
     "Strings": {
-        "description": "A sequence of characters",
+        "description": "A sequence of characters terminated by null character ('\\0')",
         "types": {
             "basic": [
-                {"name": "char str[10] = 'Hello'", "description": "Array-based string"},
-                {"name": "char name[20] = 'John'", "description": "Name string"},
-                {"name": "char message[100] = 'This is a string'", "description": "Message string"},
-                {"name": "char greeting[50] = 'Welcome to C'", "description": "Greeting string"}
+                {"name": "char str[] = \"Hello\"", "description": "Array-based string"},
+                {"name": "char *str = \"World\"", "description": "Pointer to string literal"},
+                {"name": "char str[50]", "description": "Fixed-size string buffer"},
+                {"name": "const char *str", "description": "Read-only string"}
             ],
-            "pointer": [
-                {"name": "char *str = 'Hello'", "description": "Pointer-based string"},
-                {"name": "char *name = 'John'", "description": "Name string pointer"},
-                {"name": "char *message = 'This is a string'", "description": "Message string pointer"},
-                {"name": "char *greeting = 'Welcome to C'", "description": "Greeting string pointer"}
+            "operations": [
+                {"name": "strlen(str)", "description": "String length"},
+                {"name": "strcpy(dest, src)", "description": "String copy"},
+                {"name": "strcat(dest, src)", "description": "String concatenation"},
+                {"name": "strcmp(s1, s2)", "description": "String comparison"},
+                {"name": "strncpy(dest, src, n)", "description": "Bounded string copy"},
+                {"name": "strncat(dest, src, n)", "description": "Bounded concatenation"},
+                {"name": "strncmp(s1, s2, n)", "description": "Bounded comparison"}
             ]
         }
     },
     "Constants": {
-        "description": "A value that cannot be altered by the program during normal execution",
+        "description": "Values that cannot be altered during program execution",
         "types": {
             "basic": [
-                {"name": "const int x = 5", "description": "Integer constant"},
-                {"name": "const char name = 'John'", "description": "Character constant"},
-                {"name": "const float price = 19.99", "description": "Float constant"},
-                {"name": "const bool is_active = true", "description": "Boolean constant"}
+                {"name": "const int MAX = 100", "description": "Constant integer"},
+                {"name": "const char GRADE = 'A'", "description": "Constant character"},
+                {"name": "const float PI = 3.14159f", "description": "Constant float"},
+                {"name": "const double E = 2.71828", "description": "Constant double"},
+                {"name": "#define SIZE 50", "description": "Preprocessor constant"}
             ],
             "complex": [
-                {"name": "const struct user_data", "description": "Structure constant"},
-                {"name": "const int numbers[]", "description": "Array constant"},
-                {"name": "const int matrix[][]", "description": "2D array constant"},
-                {"name": "const int result", "description": "Function result constant"}
+                {"name": "const int DAYS[] = {31,28,31}", "description": "Constant array"},
+                {"name": "const char *MSG = \"Error\"", "description": "Constant string"},
+                {"name": "const struct Point ORIGIN = {0,0}", "description": "Constant structure"},
+                {"name": "enum {RED, GREEN, BLUE}", "description": "Enumeration constants"}
+            ],
+            "qualifiers": [
+                {"name": "const", "description": "Value cannot be changed"},
+                {"name": "volatile", "description": "Value may change externally"},
+                {"name": "restrict", "description": "Pointer optimization hint (C99)"}
             ]
         }
     },
@@ -155,16 +240,32 @@
         "description": "Best practices for writing C code",
         "guidelines": {
             "style": [
-                {"name": "indentation", "rule": "Use 4 spaces for indentation"},
+                {"name": "indentation", "rule": "Use consistent indentation (spaces or tabs)"},
                 {"name": "line_length", "rule": "Limit lines to 80 characters"},
-                {"name": "naming_conventions", "rule": "Use snake_case for variable and function names"},
-                {"name": "braces", "rule": "Place opening braces on the same line as the control statement"}
+                {"name": "naming_conventions", "rule": "Use descriptive names in snake_case"},
+                {"name": "braces", "rule": "Always use braces for blocks"},
+                {"name": "comments", "rule": "Comment complex logic and APIs"},
+                {"name": "spacing", "rule": "Use consistent spacing around operators"}
             ],
             "organization": [
-                {"name": "global_variables", "rule": "Declare global variables at the top of the file"},
-                {"name": "local_variables", "rule": "Declare local variables at the beginning of the function"},
-                {"name": "main_function", "rule": "Define the main function at the top of the file"},
-                {"name": "helper_functions", "rule": "Define helper functions after the main function"}
+                {"name": "header_guards", "rule": "Use header guards (#ifndef)"},
+                {"name": "include_order", "rule": "Group and order includes logically"},
+                {"name": "function_length", "rule": "Keep functions focused and manageable"},
+                {"name": "global_variables", "rule": "Minimize use of global variables"},
+                {"name": "const_correctness", "rule": "Use const when appropriate"},
+                {"name": "error_handling", "rule": "Always check return values"}
+            ],
+            "memory": [
+                {"name": "allocation", "rule": "Always check malloc/calloc returns"},
+                {"name": "deallocation", "rule": "Free all allocated memory"},
+                {"name": "buffer_overflow", "rule": "Use bounded string functions"},
+                {"name": "null_checks", "rule": "Validate pointers before use"}
+            ],
+            "safety": [
+                {"name": "initialization", "rule": "Initialize all variables"},
+                {"name": "type_casting", "rule": "Use explicit type casting"},
+                {"name": "integer_overflow", "rule": "Check for integer overflow"},
+                {"name": "array_bounds", "rule": "Validate array indices"}
             ]
         }
     }

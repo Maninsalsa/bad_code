@@ -1,0 +1,180 @@
+{
+    "Arrays": {
+        "description": "Ordered, resizable sequence of elements",
+        "syntax_example": "const arr = [1, 2, 3];\nconst arr2 = new Array(4, 5, 6);",
+        "use_cases": [
+            "Ordered collections of items",
+            "Stack/queue implementations",
+            "Iteration and mapping",
+            "Working with sequences of data"
+        ],
+        "key_attributes": {
+            "ordered": true,
+            "mutable": true,
+            "allows_duplicates": true, 
+            "indexable": true,
+            "iterable": true,
+            "type_flexible": true
+        },
+        "performance": {
+            "access_by_index": "O(1)",
+            "insert/delete_at_end": "O(1)",
+            "insert/delete_at_position": "O(n)",
+            "search": "O(n)"
+        },
+        "memory_usage": "Dynamic allocation, grows as needed",
+        "best_for": [
+            "Sequential data storage",
+            "List operations",
+            "Temporary data storage",
+            "When order matters"
+        ]
+    },
+    "Objects": {
+        "description": "Unordered collection of key-value pairs",
+        "syntax_example": "const user = {name: 'John', age: 30};\nconst config = Object.create(null);",
+        "use_cases": [
+            "Storing structured data",
+            "Hash maps/dictionaries",
+            "Configuration objects",
+            "JSON-like data structures"
+        ],
+        "key_attributes": {
+            "ordered": "Only string keys in modern JS",
+            "mutable": true,
+            "allows_duplicate_values": true,
+            "allows_duplicate_keys": false,
+            "iterable": "With Object methods"
+        },
+        "performance": {
+            "access_by_key": "O(1) average",
+            "insert/delete": "O(1) average",
+            "search_by_value": "O(n)"
+        },
+        "memory_usage": "Depends on properties and prototype chain",
+        "best_for": [
+            "Key-value storage",
+            "Complex data structures",
+            "Property access patterns",
+            "JSON data"
+        ]
+    },
+    "Sets": {
+        "description": "Collection of unique values",
+        "syntax_example": "const uniqueNums = new Set([1, 2, 3]);\nconst items = new Set();",
+        "use_cases": [
+            "Removing duplicates",
+            "Unique value storage",
+            "Set operations",
+            "Membership testing"
+        ],
+        "key_attributes": {
+            "ordered": "Insertion order",
+            "mutable": true,
+            "allows_duplicates": false,
+            "indexable": false,
+            "iterable": true
+        },
+        "performance": {
+            "add/delete": "O(1)",
+            "has": "O(1)",
+            "size": "O(1)"
+        },
+        "memory_usage": "Optimized for unique value storage",
+        "best_for": [
+            "Unique collections",
+            "Deduplication",
+            "Fast lookups",
+            "Set mathematics"
+        ]
+    },
+    "Maps": {
+        "description": "Ordered key-value pairs with any type of key",
+        "syntax_example": "const map = new Map();\nmap.set('key', 'value');\nconst userMap = new Map([[user1, data1], [user2, data2]]);",
+        "use_cases": [
+            "Complex key types",
+            "Maintaining insertion order",
+            "Cache implementations",
+            "When key order matters"
+        ],
+        "key_attributes": {
+            "ordered": true,
+            "mutable": true,
+            "allows_duplicate_values": true,
+            "allows_duplicate_keys": false,
+            "iterable": true
+        },
+        "performance": {
+            "get/set": "O(1)",
+            "delete": "O(1)",
+            "has": "O(1)"
+        },
+        "memory_usage": "More efficient than Objects for frequent additions/removals",
+        "best_for": [
+            "Ordered key-value pairs",
+            "Non-string keys",
+            "Frequent updates",
+            "Size-sensitive operations"
+        ]
+    },
+    "Classes": {
+        "description": "Blueprint for creating objects with shared properties and methods",
+        "syntax_example": "class User {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n}",
+        "use_cases": [
+            "Object-oriented programming",
+            "Creating instance templates",
+            "Encapsulating functionality",
+            "Inheritance patterns"
+        ],
+        "key_attributes": {
+            "mutable": true,
+            "customizable": true,
+            "inheritable": true,
+            "encapsulating": "Limited by JS"
+        },
+        "performance": {
+            "instantiation": "O(1)",
+            "method_access": "O(1)",
+            "property_access": "O(1)"
+        },
+        "memory_usage": "Depends on properties and methods",
+        "best_for": [
+            "Object templates",
+            "Shared functionality",
+            "Complex systems",
+            "OOP patterns"
+        ]
+    },
+    "Selection_Guidelines": {
+        "Use_Array_When": [
+            "Order matters",
+            "Need indexed access",
+            "Working with lists of items",
+            "Need array methods (map, filter, etc)"
+        ],
+        "Use_Object_When": [
+            "Need string/symbol keys",
+            "Working with JSON",
+            "Simple key-value storage",
+            "Property-based access"
+        ],
+        "Use_Set_When": [
+            "Need unique values",
+            "Frequent has/add/delete operations",
+            "Set operations needed",
+            "Order of insertion matters"
+        ],
+        "Use_Map_When": [
+            "Need non-string keys",
+            "Order matters for key-value pairs",
+            "Frequent key-value updates",
+            "Need Map-specific methods"
+        ],
+        "Use_Class_When": [
+            "Creating multiple similar objects",
+            "Need inheritance",
+            "Encapsulating behavior",
+            "Implementing OOP patterns"
+        ]
+    }
+}

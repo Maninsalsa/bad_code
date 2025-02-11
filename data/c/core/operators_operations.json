@@ -9,7 +9,9 @@
                     {"name": "-", "description": "Subtraction"}, 
                     {"name": "*", "description": "Multiplication"},
                     {"name": "/", "description": "Division"},
-                    {"name": "%", "description": "Modulo"}
+                    {"name": "%", "description": "Modulo"},
+                    {"name": "++", "description": "Increment by 1"},
+                    {"name": "--", "description": "Decrement by 1"}
                 ]
             },
             "Comparison": {
@@ -29,7 +31,14 @@
                     {"name": "&&", "description": "True if both operands are true"},
                     {"name": "||", "description": "True if at least one operand is true"},
                     {"name": "!", "description": "Inverts boolean value"}
-                ]
+                ],
+                "short_circuit": {
+                    "description": "Logical operators use short-circuit evaluation",
+                    "examples": [
+                        {"syntax": "x && y", "description": "y is only evaluated if x is true"},
+                        {"syntax": "x || y", "description": "y is only evaluated if x is false"}
+                    ]
+                }
             },
             "Assignment": {
                 "description": "Assign and modify values",
@@ -53,22 +62,34 @@
                     {"name": "&", "description": "Bitwise AND"},
                     {"name": "|", "description": "Bitwise OR"},
                     {"name": "^", "description": "Bitwise XOR"},
-                    {"name": "~", "description": "Bitwise NOT"},
+                    {"name": "~", "description": "Bitwise NOT (one's complement)"},
                     {"name": "<<", "description": "Left shift"},
                     {"name": ">>", "description": "Right shift"}
                 ]
             },
-            "Identity": {
-                "description": "Check if values are equal",
+            "Pointer": {
+                "description": "Operations for working with memory addresses",
                 "operators": [
-                    {"name": "==", "description": "True if values are equal"},
-                    {"name": "!=", "description": "True if values are not equal"}
+                    {"name": "&", "description": "Address-of operator"},
+                    {"name": "*", "description": "Dereference operator"},
+                    {"name": "->", "description": "Member access through pointer"},
+                    {"name": "[]", "description": "Array subscript operator"}
                 ]
             },
-            "Membership": {
-                "description": "Test presence in array",
+            "Size and Alignment": {
+                "description": "Operators for memory and type information",
                 "operators": [
-                    {"name": "Array indexing", "description": "Access array elements using index"}
+                    {"name": "sizeof", "description": "Size of type or variable in bytes"},
+                    {"name": "_Alignof", "description": "Alignment requirement of type (C11)"},
+                    {"name": "offsetof", "description": "Offset of struct member"}
+                ]
+            },
+            "Type": {
+                "description": "Type-related operators",
+                "operators": [
+                    {"name": "(type)", "description": "Type casting operator"},
+                    {"name": "?:", "description": "Conditional (ternary) operator"},
+                    {"name": ",", "description": "Comma operator for sequential evaluation"}
                 ]
             }
         }
@@ -155,6 +176,11 @@
                         "syntax": "condition ? value_if_true : value_if_false",
                         "description": "Single-line conditional expression",
                         "example": "status = (score >= 60) ? \"pass\" : \"fail\";"
+                    },
+                    "switch": {
+                        "syntax": "switch (expression) {\n    case constant1:\n        // code\n        break;\n    default:\n        // code\n}",
+                        "description": "Multi-way branching based on value",
+                        "example": "switch (day) {\n    case 1:\n        printf(\"Monday\");\n        break;\n    default:\n        printf(\"Other\");\n}"
                     }
                 }
             },
@@ -179,6 +205,11 @@
                     "nested_loops": {
                         "basic": {"syntax": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < m; j++) {\n        // code\n    }\n}", "description": "Loop within another loop"},
                         "matrix": {"syntax": "for (int i = 0; i < rows; i++) {\n    for (int j = 0; j < cols; j++) {\n        matrix[i][j] = value;\n    }\n}", "description": "Iterate over 2D array"}
+                    },
+                    "control_statements": {
+                        "break": {"syntax": "break;", "description": "Exit the current loop"},
+                        "continue": {"syntax": "continue;", "description": "Skip to next iteration"},
+                        "goto": {"syntax": "goto label;", "description": "Jump to labeled statement"}
                     }
                 }
             }

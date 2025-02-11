@@ -1,0 +1,162 @@
+{
+    "Arithmetic_Operators": {
+        "description": "Operators for mathematical calculations",
+        "operators": [
+            {"symbol": "+", "name": "Addition", "description": "Adds numbers or concatenates strings", "example": "5 + 3 = 8"},
+            {"symbol": "-", "name": "Subtraction", "description": "Subtracts numbers", "example": "5 - 3 = 2"},
+            {"symbol": "*", "name": "Multiplication", "description": "Multiplies numbers", "example": "5 * 3 = 15"},
+            {"symbol": "/", "name": "Division", "description": "Divides numbers", "example": "6 / 2 = 3"},
+            {"symbol": "%", "name": "Modulus", "description": "Returns division remainder", "example": "5 % 2 = 1"},
+            {"symbol": "**", "name": "Exponentiation", "description": "Raises to power", "example": "2 ** 3 = 8"},
+            {"symbol": "++", "name": "Increment", "description": "Increases by 1", "example": "x++"},
+            {"symbol": "--", "name": "Decrement", "description": "Decreases by 1", "example": "x--"}
+        ]
+    },
+
+    "Assignment_Operators": {
+        "description": "Operators for assigning values",
+        "operators": [
+            {"symbol": "=", "name": "Assignment", "description": "Assigns value", "example": "x = 5"},
+            {"symbol": "+=", "name": "Addition assignment", "description": "Adds and assigns", "example": "x += 3"},
+            {"symbol": "-=", "name": "Subtraction assignment", "description": "Subtracts and assigns", "example": "x -= 3"},
+            {"symbol": "*=", "name": "Multiplication assignment", "description": "Multiplies and assigns", "example": "x *= 3"},
+            {"symbol": "/=", "name": "Division assignment", "description": "Divides and assigns", "example": "x /= 3"},
+            {"symbol": "%=", "name": "Modulus assignment", "description": "Modulus and assigns", "example": "x %= 3"},
+            {"symbol": "**=", "name": "Exponentiation assignment", "description": "Exponentiates and assigns", "example": "x **= 3"},
+            {"symbol": "&=", "name": "AND assignment", "description": "Bitwise AND and assigns", "example": "x &= 3"},
+            {"symbol": "|=", "name": "OR assignment", "description": "Bitwise OR and assigns", "example": "x |= 3"},
+            {"symbol": "^=", "name": "XOR assignment", "description": "Bitwise XOR and assigns", "example": "x ^= 3"},
+            {"symbol": "<<=", "name": "Left shift assignment", "description": "Left shifts and assigns", "example": "x <<= 3"},
+            {"symbol": ">>=", "name": "Right shift assignment", "description": "Right shifts and assigns", "example": "x >>= 3"},
+            {"symbol": ">>>=", "name": "Unsigned right shift assignment", "description": "Unsigned right shifts and assigns", "example": "x >>>= 3"},
+            {"symbol": "??=", "name": "Nullish coalescing assignment", "description": "Assigns if value is null/undefined", "example": "x ??= defaultValue"},
+            {"symbol": "&&=", "name": "Logical AND assignment", "description": "Assigns if value is truthy", "example": "x &&= value"},
+            {"symbol": "||=", "name": "Logical OR assignment", "description": "Assigns if value is falsy", "example": "x ||= value"}
+        ]
+    },
+
+    "Comparison_Operators": {
+        "description": "Operators for comparing values",
+        "operators": [
+            {"symbol": "==", "name": "Equal to", "description": "Checks equality with type coercion", "example": "5 == '5' is true"},
+            {"symbol": "===", "name": "Strict equal to", "description": "Checks equality without type coercion", "example": "5 === '5' is false"},
+            {"symbol": "!=", "name": "Not equal to", "description": "Checks inequality with type coercion", "example": "5 != '6' is true"},
+            {"symbol": "!==", "name": "Strict not equal to", "description": "Checks inequality without type coercion", "example": "5 !== '5' is true"},
+            {"symbol": ">", "name": "Greater than", "description": "Checks if greater", "example": "5 > 3 is true"},
+            {"symbol": "<", "name": "Less than", "description": "Checks if less", "example": "3 < 5 is true"},
+            {"symbol": ">=", "name": "Greater than or equal to", "description": "Checks if greater or equal", "example": "5 >= 5 is true"},
+            {"symbol": "<=", "name": "Less than or equal to", "description": "Checks if less or equal", "example": "3 <= 5 is true"}
+        ]
+    },
+
+    "Logical_Operators": {
+        "description": "Operators for logical operations",
+        "operators": [
+            {"symbol": "&&", "name": "Logical AND", "description": "Returns true if both operands are true", "example": "true && true is true"},
+            {"symbol": "||", "name": "Logical OR", "description": "Returns true if either operand is true", "example": "true || false is true"},
+            {"symbol": "!", "name": "Logical NOT", "description": "Returns opposite boolean value", "example": "!true is false"},
+            {"symbol": "??", "name": "Nullish coalescing", "description": "Returns right operand if left is null/undefined", "example": "null ?? 'default' is 'default'"}
+        ]
+    },
+
+    "Bitwise_Operators": {
+        "description": "Operators for bit-level operations",
+        "operators": [
+            {"symbol": "&", "name": "Bitwise AND", "description": "Performs AND operation on bits", "example": "5 & 3 = 1"},
+            {"symbol": "|", "name": "Bitwise OR", "description": "Performs OR operation on bits", "example": "5 | 3 = 7"},
+            {"symbol": "^", "name": "Bitwise XOR", "description": "Performs XOR operation on bits", "example": "5 ^ 3 = 6"},
+            {"symbol": "~", "name": "Bitwise NOT", "description": "Inverts all bits", "example": "~5 = -6"},
+            {"symbol": "<<", "name": "Left shift", "description": "Shifts bits left", "example": "5 << 1 = 10"},
+            {"symbol": ">>", "name": "Right shift", "description": "Shifts bits right", "example": "5 >> 1 = 2"},
+            {"symbol": ">>>", "name": "Unsigned right shift", "description": "Shifts bits right, fills with zeros", "example": "-5 >>> 1"}
+        ]
+    },
+
+    "Control_Flow_Operators": {
+        "description": "Operators and statements that control program execution flow",
+        "types": {
+            "Conditionals": {
+                "description": "Control structures for conditional execution",
+                "statements": [
+                    {"name": "if", "syntax": "if (condition) { /* code */ }", "description": "Executes code if condition is true"},
+                    {"name": "if...else", "syntax": "if (condition) { /* code */ } else { /* code */ }", "description": "Executes one block or another based on condition"},
+                    {"name": "if...else if", "syntax": "if (condition1) { /* code */ } else if (condition2) { /* code */ }", "description": "Multiple conditional branches"},
+                    {"name": "switch", "syntax": "switch (expression) { case value: /* code */ break; }", "description": "Multiple case-based execution paths"}
+                ]
+            },
+            "Loops": {
+                "description": "Control structures for repeated execution",
+                "statements": [
+                    {"name": "for", "syntax": "for (init; condition; increment) { /* code */ }", "description": "Loop with counter"},
+                    {"name": "for...in", "syntax": "for (variable in object) { /* code */ }", "description": "Iterates over object properties"},
+                    {"name": "for...of", "syntax": "for (variable of iterable) { /* code */ }", "description": "Iterates over iterable values"},
+                    {"name": "while", "syntax": "while (condition) { /* code */ }", "description": "Executes while condition is true"},
+                    {"name": "do...while", "syntax": "do { /* code */ } while (condition);", "description": "Executes at least once, then while condition is true"}
+                ]
+            },
+            "Jump_Statements": {
+                "description": "Statements that control flow within loops and functions",
+                "statements": [
+                    {"name": "break", "syntax": "break;", "description": "Exits loop or switch"},
+                    {"name": "continue", "syntax": "continue;", "description": "Skips to next iteration"},
+                    {"name": "return", "syntax": "return [value];", "description": "Exits function with optional value"},
+                    {"name": "throw", "syntax": "throw expression;", "description": "Throws an exception"}
+                ]
+            },
+            "Error_Handling": {
+                "description": "Statements for handling exceptions",
+                "statements": [
+                    {"name": "try...catch", "syntax": "try { /* code */ } catch (error) { /* code */ }", "description": "Handles potential errors"},
+                    {"name": "try...catch...finally", "syntax": "try { /* code */ } catch (error) { /* code */ } finally { /* code */ }", "description": "Handles errors with cleanup code"},
+                    {"name": "try...finally", "syntax": "try { /* code */ } finally { /* code */ }", "description": "Ensures cleanup code runs"}
+                ]
+            }
+        }
+    },
+
+    "Other_Operators": {
+        "description": "Additional operators",
+        "operators": [
+            {"symbol": "?:", "name": "Conditional (ternary)", "description": "Shorthand if-else", "example": "condition ? value1 : value2"},
+            {"symbol": ",", "name": "Comma", "description": "Evaluates multiple expressions", "example": "let a = (1, 2, 3)"},
+            {"symbol": "...", "name": "Spread/Rest", "description": "Spreads array elements or collects parameters", "example": "[...array]"},
+            {"symbol": "?.", "name": "Optional chaining", "description": "Safely accesses nested properties", "example": "obj?.prop"},
+            {"symbol": "delete", "name": "Delete", "description": "Deletes object property", "example": "delete obj.prop"},
+            {"symbol": "instanceof", "name": "Instance check", "description": "Checks object instance", "example": "obj instanceof Class"},
+            {"symbol": "typeof", "name": "Type check", "description": "Returns type of operand", "example": "typeof value"},
+            {"symbol": "void", "name": "Void", "description": "Evaluates expression and returns undefined", "example": "void expression"},
+            {"symbol": "in", "name": "Property check", "description": "Checks if property exists in object", "example": "'prop' in obj"},
+            {"symbol": "new", "name": "Object creation", "description": "Creates instance of object", "example": "new Object()"},
+            {"symbol": "yield", "name": "Generator control", "description": "Pauses generator function execution", "example": "yield value"},
+            {"symbol": "await", "name": "Promise resolution", "description": "Waits for promise to resolve", "example": "await promise"},
+            {"symbol": "super", "name": "Super reference", "description": "References parent class", "example": "super.method()"},
+            {"symbol": "this", "name": "This reference", "description": "References current object context", "example": "this.property"}
+        ]
+    },
+
+    "Operator_Precedence": {
+        "description": "Order in which operators are evaluated",
+        "levels": [
+            {"level": 20, "operators": ["super"], "description": "Super reference"},
+            {"level": 19, "operators": ["()", "[]", ".", "?.", "new"], "description": "Member access, function calls"},
+            {"level": 18, "operators": ["++", "--"], "description": "Postfix increment/decrement"},
+            {"level": 17, "operators": ["!", "~", "typeof", "void", "delete", "await"], "description": "Unary operators"},
+            {"level": 16, "operators": ["**"], "description": "Exponentiation"},
+            {"level": 15, "operators": ["*", "/", "%"], "description": "Multiplication, division, remainder"},
+            {"level": 14, "operators": ["+", "-"], "description": "Addition, subtraction"},
+            {"level": 13, "operators": ["<<", ">>", ">>>"], "description": "Bitwise shift"},
+            {"level": 12, "operators": ["<", "<=", ">", ">=", "instanceof", "in"], "description": "Relational"},
+            {"level": 11, "operators": ["==", "!=", "===", "!=="], "description": "Equality"},
+            {"level": 10, "operators": ["&"], "description": "Bitwise AND"},
+            {"level": 9, "operators": ["^"], "description": "Bitwise XOR"},
+            {"level": 8, "operators": ["|"], "description": "Bitwise OR"},
+            {"level": 7, "operators": ["&&"], "description": "Logical AND"},
+            {"level": 6, "operators": ["||"], "description": "Logical OR"},
+            {"level": 5, "operators": ["??"], "description": "Nullish coalescing"},
+            {"level": 4, "operators": ["?:"], "description": "Conditional"},
+            {"level": 3, "operators": ["=", "+=", "-=", "*=", "/=", "%=", "<<=", ">>=", ">>>=", "&=", "^=", "|=", "??=", "&&=", "||="], "description": "Assignment"},
+            {"level": 2, "operators": ["yield"], "description": "Yield"},
+            {"level": 1, "operators": [","], "description": "Comma"}
+        ]
+    }
+}

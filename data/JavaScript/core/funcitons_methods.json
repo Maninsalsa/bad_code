@@ -1,0 +1,305 @@
+{
+    "Functions": {
+        "description": "Blocks of reusable code that perform specific tasks",
+        "types": [
+            {"name": "function declaration", "description": "Traditional function definition using function keyword"},
+            {"name": "function expression", "description": "Function assigned to variable"},
+            {"name": "arrow function", "description": "Concise function syntax with lexical this"},
+            {"name": "method definition", "description": "Function defined as object property"},
+            {"name": "generator function", "description": "Function that can be paused and resumed"},
+            {"name": "async function", "description": "Function that returns a Promise"},
+            {"name": "IIFE", "description": "Immediately Invoked Function Expression"}
+        ]
+    },
+
+    "Function Arguments": {
+        "description": "Different ways to pass arguments to functions",
+        "types": [
+            {"name": "regular parameters", "description": "Named parameters in function definition"},
+            {"name": "default parameters", "description": "Parameters with default values"},
+            {"name": "rest parameters", "description": "Collect remaining arguments using ...args syntax"},
+            {"name": "destructuring parameters", "description": "Extract values from objects/arrays in parameters"},
+            {"name": "arguments object", "description": "Array-like object containing all passed arguments"}
+        ],
+        "combinations": [
+            {"name": "regular and default", "description": "Mix of regular and default parameters"},
+            {"name": "destructuring with defaults", "description": "Destructured parameters with default values"},
+            {"name": "rest with regular", "description": "Regular parameters followed by rest parameter"},
+            {"name": "all combined", "description": "Regular, default, and rest parameters together"}
+        ]
+    },
+
+    "Built-in Functions": {
+        "description": "Pre-defined functions available in JavaScript",
+        "categories": {
+            "Essential Basics": {
+                "description": "Core functions for basic operations",
+                "functions": [
+                    {"name": "console.log()", "description": "Output to console", "inputs": "Any", "output": "undefined"},
+                    {"name": "parseInt()", "description": "Parse string to integer", "inputs": "string, radix", "output": "number"},
+                    {"name": "parseFloat()", "description": "Parse string to float", "inputs": "string", "output": "number"},
+                    {"name": "isNaN()", "description": "Check if value is NaN", "inputs": "Any", "output": "boolean"},
+                    {"name": "isFinite()", "description": "Check if value is finite number", "inputs": "Any", "output": "boolean"},
+                    {"name": "eval()", "description": "Evaluate JavaScript code string", "inputs": "string", "output": "Any"},
+                    {"name": "encodeURI()", "description": "Encode URI", "inputs": "string", "output": "string"},
+                    {"name": "decodeURI()", "description": "Decode URI", "inputs": "string", "output": "string"},
+                    {"name": "encodeURIComponent()", "description": "Encode URI component", "inputs": "string", "output": "string"},
+                    {"name": "decodeURIComponent()", "description": "Decode URI component", "inputs": "string", "output": "string"},
+                    {"name": "escape()", "description": "Encode string", "inputs": "string", "output": "string"},
+                    {"name": "unescape()", "description": "Decode string", "inputs": "string", "output": "string"}
+                ]
+            },
+
+            "Type Conversion": {
+                "description": "Functions for converting between data types",
+                "functions": [
+                    {"name": "String()", "description": "Convert to string", "inputs": "Any", "output": "string"},
+                    {"name": "Number()", "description": "Convert to number", "inputs": "Any", "output": "number"},
+                    {"name": "Boolean()", "description": "Convert to boolean", "inputs": "Any", "output": "boolean"},
+                    {"name": "Array.from()", "description": "Create array from array-like/iterable", "inputs": "array-like/iterable", "output": "array"},
+                    {"name": "Object()", "description": "Create object wrapper", "inputs": "Any", "output": "object"},
+                    {"name": "BigInt()", "description": "Create a BigInt value", "inputs": "number/string", "output": "bigint"},
+                    {"name": "Symbol()", "description": "Create a unique Symbol", "inputs": "string", "output": "symbol"},
+                    {"name": "Date()", "description": "Create a Date object", "inputs": "string/number/date", "output": "date"},
+                    {"name": "RegExp()", "description": "Create a RegExp object", "inputs": "string/regexp", "output": "regexp"}
+                ]
+            },
+
+            "Timing Functions": {
+                "description": "Functions for timing and delays",
+                "functions": [
+                    {"name": "setTimeout()", "description": "Execute function after delay", "inputs": "function, number", "output": "number"},
+                    {"name": "setInterval()", "description": "Execute function repeatedly", "inputs": "function, number", "output": "number"},
+                    {"name": "clearTimeout()", "description": "Cancel scheduled timeout", "inputs": "number", "output": "undefined"},
+                    {"name": "clearInterval()", "description": "Cancel interval", "inputs": "number", "output": "undefined"},
+                    {"name": "requestAnimationFrame()", "description": "Schedule animation frame", "inputs": "function", "output": "number"},
+                    {"name": "cancelAnimationFrame()", "description": "Cancel animation frame", "inputs": "number", "output": "undefined"}
+                ]
+            }
+        }
+    },
+
+    "Methods vs Functions": {
+        "description": "Core differences between methods and regular functions",
+        "concepts": [
+            {"name": "Definition", "description": "Methods are functions that are properties of objects"},
+            {"name": "Context", "description": "Methods have 'this' context of their object"},
+            {"name": "Syntax", "description": "Methods use dot notation (object.method())"},
+            {"name": "Binding", "description": "Methods can be bound to objects using bind()"},
+            {"name": "Arrow Functions", "description": "Arrow functions do not bind their own this"},
+            {"name": "Prototype Chain", "description": "Methods can be inherited through prototype chain"},
+            {"name": "Constructor Methods", "description": "Special methods for creating objects"},
+            {"name": "Static Methods", "description": "Methods called on class itself, not instances"}
+        ]
+    },
+
+    "Built-in Methods": {
+        "description": "Methods available on built-in JavaScript objects",
+        "String Methods": [
+            {"name": ".charAt()", "description": "Return character at index", "inputs": "number", "output": "string"},
+            {"name": ".concat()", "description": "Concatenate strings", "inputs": "string(s)", "output": "string"},
+            {"name": ".includes()", "description": "Check if string contains substring", "inputs": "string, number", "output": "boolean"},
+            {"name": ".indexOf()", "description": "Find first index of substring", "inputs": "string, number", "output": "number"},
+            {"name": ".lastIndexOf()", "description": "Find last index of substring", "inputs": "string, number", "output": "number"},
+            {"name": ".slice()", "description": "Extract portion of string", "inputs": "number, number", "output": "string"},
+            {"name": ".split()", "description": "Split string into array", "inputs": "string, number", "output": "array"},
+            {"name": ".toLowerCase()", "description": "Convert to lowercase", "inputs": "none", "output": "string"},
+            {"name": ".toUpperCase()", "description": "Convert to uppercase", "inputs": "none", "output": "string"},
+            {"name": ".trim()", "description": "Remove whitespace", "inputs": "none", "output": "string"},
+            {"name": ".trimStart()", "description": "Remove whitespace from start", "inputs": "none", "output": "string"},
+            {"name": ".trimEnd()", "description": "Remove whitespace from end", "inputs": "none", "output": "string"},
+            {"name": ".replace()", "description": "Replace substring", "inputs": "string/regex, string/function", "output": "string"},
+            {"name": ".replaceAll()", "description": "Replace all occurrences", "inputs": "string/regex, string/function", "output": "string"},
+            {"name": ".match()", "description": "Match against regex", "inputs": "regex", "output": "array/null"},
+            {"name": ".matchAll()", "description": "Match all against regex", "inputs": "regex", "output": "iterator"},
+            {"name": ".padStart()", "description": "Pad start of string", "inputs": "number, string", "output": "string"},
+            {"name": ".padEnd()", "description": "Pad end of string", "inputs": "number, string", "output": "string"},
+            {"name": ".repeat()", "description": "Repeat string n times", "inputs": "number", "output": "string"},
+            {"name": ".search()", "description": "Search for regex match", "inputs": "regex", "output": "number"},
+            {"name": ".startsWith()", "description": "Check if string starts with", "inputs": "string, number", "output": "boolean"},
+            {"name": ".endsWith()", "description": "Check if string ends with", "inputs": "string, number", "output": "boolean"},
+            {"name": ".substring()", "description": "Get substring between indexes", "inputs": "number, number", "output": "string"},
+            {"name": ".valueOf()", "description": "Get primitive value", "inputs": "none", "output": "string"},
+            {"name": ".toString()", "description": "Convert to string", "inputs": "none", "output": "string"},
+            {"name": ".normalize()", "description": "Unicode normalization", "inputs": "string", "output": "string"}
+        ],
+
+        "Array Methods": [
+            {"name": ".push()", "description": "Add elements to end", "inputs": "Any", "output": "number"},
+            {"name": ".pop()", "description": "Remove last element", "inputs": "none", "output": "Any"},
+            {"name": ".shift()", "description": "Remove first element", "inputs": "none", "output": "Any"},
+            {"name": ".unshift()", "description": "Add elements to start", "inputs": "Any", "output": "number"},
+            {"name": ".map()", "description": "Create new array with results", "inputs": "function", "output": "array"},
+            {"name": ".filter()", "description": "Create array with elements passing test", "inputs": "function", "output": "array"},
+            {"name": ".reduce()", "description": "Reduce array to single value", "inputs": "function, Any", "output": "Any"},
+            {"name": ".reduceRight()", "description": "Reduce array from right to left", "inputs": "function, Any", "output": "Any"},
+            {"name": ".forEach()", "description": "Execute function for each element", "inputs": "function", "output": "undefined"},
+            {"name": ".sort()", "description": "Sort elements in array", "inputs": "function", "output": "array"},
+            {"name": ".reverse()", "description": "Reverse array elements", "inputs": "none", "output": "array"},
+            {"name": ".find()", "description": "Find first element passing test", "inputs": "function", "output": "Any"},
+            {"name": ".findIndex()", "description": "Find index of first element passing test", "inputs": "function", "output": "number"},
+            {"name": ".findLast()", "description": "Find last element passing test", "inputs": "function", "output": "Any"},
+            {"name": ".findLastIndex()", "description": "Find last index of element passing test", "inputs": "function", "output": "number"},
+            {"name": ".some()", "description": "Test if some element passes test", "inputs": "function", "output": "boolean"},
+            {"name": ".every()", "description": "Test if all elements pass test", "inputs": "function", "output": "boolean"},
+            {"name": ".includes()", "description": "Check if array includes element", "inputs": "Any, number", "output": "boolean"},
+            {"name": ".join()", "description": "Join array elements into string", "inputs": "string", "output": "string"},
+            {"name": ".slice()", "description": "Extract portion of array", "inputs": "number, number", "output": "array"},
+            {"name": ".splice()", "description": "Change array by removing/replacing elements", "inputs": "number, number, ...Any", "output": "array"},
+            {"name": ".flat()", "description": "Flatten nested array", "inputs": "number", "output": "array"},
+            {"name": ".flatMap()", "description": "Map and flatten result", "inputs": "function", "output": "array"},
+            {"name": ".concat()", "description": "Concatenate arrays", "inputs": "...arrays", "output": "array"},
+            {"name": ".copyWithin()", "description": "Copy array elements within array", "inputs": "number, number, number", "output": "array"},
+            {"name": ".entries()", "description": "Get iterator of key/value pairs", "inputs": "none", "output": "iterator"},
+            {"name": ".fill()", "description": "Fill array with value", "inputs": "Any, number, number", "output": "array"},
+            {"name": ".from()", "description": "Create array from array-like", "inputs": "array-like, function, Any", "output": "array"},
+            {"name": ".keys()", "description": "Get iterator of keys", "inputs": "none", "output": "iterator"},
+            {"name": ".values()", "description": "Get iterator of values", "inputs": "none", "output": "iterator"},
+            {"name": ".indexOf()", "description": "Find index of element", "inputs": "Any, number", "output": "number"},
+            {"name": ".lastIndexOf()", "description": "Find last index of element", "inputs": "Any, number", "output": "number"},
+            {"name": ".toString()", "description": "Convert array to string", "inputs": "none", "output": "string"},
+            {"name": ".toLocaleString()", "description": "Convert array to localized string", "inputs": "none", "output": "string"}
+        ],
+
+        "Object Methods": {
+            "Static Methods": [
+                {"name": "Object.keys()", "description": "Get array of object keys", "inputs": "object", "output": "array"},
+                {"name": "Object.values()", "description": "Get array of object values", "inputs": "object", "output": "array"},
+                {"name": "Object.entries()", "description": "Get array of key-value pairs", "inputs": "object", "output": "array"},
+                {"name": "Object.assign()", "description": "Copy properties to target object", "inputs": "object, ...objects", "output": "object"},
+                {"name": "Object.freeze()", "description": "Make object immutable", "inputs": "object", "output": "object"},
+                {"name": "Object.seal()", "description": "Prevent adding/deleting properties", "inputs": "object", "output": "object"},
+                {"name": "Object.create()", "description": "Create object with specified prototype", "inputs": "object, object", "output": "object"},
+                {"name": "Object.defineProperty()", "description": "Define object property", "inputs": "object, string, descriptor", "output": "object"},
+                {"name": "Object.defineProperties()", "description": "Define multiple properties", "inputs": "object, object", "output": "object"},
+                {"name": "Object.getOwnPropertyDescriptor()", "description": "Get property descriptor", "inputs": "object, string", "output": "object"},
+                {"name": "Object.getOwnPropertyDescriptors()", "description": "Get all property descriptors", "inputs": "object", "output": "object"},
+                {"name": "Object.getOwnPropertyNames()", "description": "Get all property names", "inputs": "object", "output": "array"},
+                {"name": "Object.getOwnPropertySymbols()", "description": "Get all symbol properties", "inputs": "object", "output": "array"},
+                {"name": "Object.getPrototypeOf()", "description": "Get prototype", "inputs": "object", "output": "object"},
+                {"name": "Object.setPrototypeOf()", "description": "Set prototype", "inputs": "object, object", "output": "object"},
+                {"name": "Object.is()", "description": "Compare two values", "inputs": "Any, Any", "output": "boolean"},
+                {"name": "Object.preventExtensions()", "description": "Prevent adding properties", "inputs": "object", "output": "object"},
+                {"name": "Object.isExtensible()", "description": "Check if object is extensible", "inputs": "object", "output": "boolean"},
+                {"name": "Object.isFrozen()", "description": "Check if object is frozen", "inputs": "object", "output": "boolean"},
+                {"name": "Object.isSealed()", "description": "Check if object is sealed", "inputs": "object", "output": "boolean"}
+            ],
+            "Instance Methods": [
+                {"name": ".hasOwnProperty()", "description": "Check if property exists on object", "inputs": "string", "output": "boolean"},
+                {"name": ".toString()", "description": "Convert object to string", "inputs": "none", "output": "string"},
+                {"name": ".valueOf()", "description": "Get primitive value of object", "inputs": "none", "output": "Any"},
+                {"name": ".propertyIsEnumerable()", "description": "Check if property is enumerable", "inputs": "string", "output": "boolean"},
+                {"name": ".isPrototypeOf()", "description": "Check if object is prototype", "inputs": "object", "output": "boolean"},
+                {"name": ".toLocaleString()", "description": "Convert to localized string", "inputs": "none", "output": "string"}
+            ]
+        },
+
+        "Promise Methods": [
+            {"name": "Promise.all()", "description": "Wait for all promises", "inputs": "array", "output": "promise"},
+            {"name": "Promise.race()", "description": "Wait for first settled promise", "inputs": "array", "output": "promise"},
+            {"name": "Promise.resolve()", "description": "Create resolved promise", "inputs": "Any", "output": "promise"},
+            {"name": "Promise.reject()", "description": "Create rejected promise", "inputs": "Any", "output": "promise"},
+            {"name": "Promise.allSettled()", "description": "Wait for all promises to settle", "inputs": "array", "output": "promise"},
+            {"name": "Promise.any()", "description": "Wait for first fulfilled promise", "inputs": "array", "output": "promise"},
+            {"name": ".then()", "description": "Handle fulfilled promise", "inputs": "function", "output": "promise"},
+            {"name": ".catch()", "description": "Handle rejected promise", "inputs": "function", "output": "promise"},
+            {"name": ".finally()", "description": "Execute code after promise settles", "inputs": "function", "output": "promise"}
+        ],
+
+        "Math Methods": {
+            "description": "Mathematical operations and constants",
+            "functions": [
+                {"name": "Math.abs()", "description": "Absolute value", "inputs": "number", "output": "number"},
+                {"name": "Math.ceil()", "description": "Round up", "inputs": "number", "output": "number"},
+                {"name": "Math.floor()", "description": "Round down", "inputs": "number", "output": "number"},
+                {"name": "Math.round()", "description": "Round to nearest integer", "inputs": "number", "output": "number"},
+                {"name": "Math.max()", "description": "Maximum value", "inputs": "...numbers", "output": "number"},
+                {"name": "Math.min()", "description": "Minimum value", "inputs": "...numbers", "output": "number"},
+                {"name": "Math.pow()", "description": "Power", "inputs": "number, number", "output": "number"},
+                {"name": "Math.sqrt()", "description": "Square root", "inputs": "number", "output": "number"},
+                {"name": "Math.random()", "description": "Random number between 0 and 1", "inputs": "none", "output": "number"},
+                {"name": "Math.sin()", "description": "Sine", "inputs": "number", "output": "number"},
+                {"name": "Math.cos()", "description": "Cosine", "inputs": "number", "output": "number"},
+                {"name": "Math.tan()", "description": "Tangent", "inputs": "number", "output": "number"},
+                {"name": "Math.log()", "description": "Natural logarithm", "inputs": "number", "output": "number"},
+                {"name": "Math.exp()", "description": "e to the power", "inputs": "number", "output": "number"},
+                {"name": "Math.trunc()", "description": "Integer part", "inputs": "number", "output": "number"},
+                {"name": "Math.sign()", "description": "Sign of number", "inputs": "number", "output": "number"},
+                {"name": "Math.cbrt()", "description": "Cube root", "inputs": "number", "output": "number"},
+                {"name": "Math.hypot()", "description": "Square root of sum of squares", "inputs": "...numbers", "output": "number"}
+            ]
+        },
+
+        "Date Methods": {
+            "description": "Date and time operations",
+            "functions": [
+                {"name": ".getDate()", "description": "Get day of month", "inputs": "none", "output": "number"},
+                {"name": ".getDay()", "description": "Get day of week", "inputs": "none", "output": "number"},
+                {"name": ".getFullYear()", "description": "Get year", "inputs": "none", "output": "number"},
+                {"name": ".getHours()", "description": "Get hours", "inputs": "none", "output": "number"},
+                {"name": ".getMilliseconds()", "description": "Get milliseconds", "inputs": "none", "output": "number"},
+                {"name": ".getMinutes()", "description": "Get minutes", "inputs": "none", "output": "number"},
+                {"name": ".getMonth()", "description": "Get month", "inputs": "none", "output": "number"},
+                {"name": ".getSeconds()", "description": "Get seconds", "inputs": "none", "output": "number"},
+                {"name": ".getTime()", "description": "Get timestamp", "inputs": "none", "output": "number"},
+                {"name": ".setDate()", "description": "Set day of month", "inputs": "number", "output": "number"},
+                {"name": ".setFullYear()", "description": "Set year", "inputs": "number", "output": "number"},
+                {"name": ".setHours()", "description": "Set hours", "inputs": "number", "output": "number"},
+                {"name": ".setMilliseconds()", "description": "Set milliseconds", "inputs": "number", "output": "number"},
+                {"name": ".setMinutes()", "description": "Set minutes", "inputs": "number", "output": "number"},
+                {"name": ".setMonth()", "description": "Set month", "inputs": "number", "output": "number"},
+                {"name": ".setSeconds()", "description": "Set seconds", "inputs": "number", "output": "number"},
+                {"name": ".setTime()", "description": "Set timestamp", "inputs": "number", "output": "number"},
+                {"name": ".toDateString()", "description": "Convert to date string", "inputs": "none", "output": "string"},
+                {"name": ".toISOString()", "description": "Convert to ISO string", "inputs": "none", "output": "string"},
+                {"name": ".toJSON()", "description": "Convert to JSON string", "inputs": "none", "output": "string"},
+                {"name": ".toLocaleDateString()", "description": "Convert to localized date string", "inputs": "none", "output": "string"},
+                {"name": ".toLocaleTimeString()", "description": "Convert to localized time string", "inputs": "none", "output": "string"},
+                {"name": ".toString()", "description": "Convert to string", "inputs": "none", "output": "string"},
+                {"name": ".toTimeString()", "description": "Convert to time string", "inputs": "none", "output": "string"},
+                {"name": ".toUTCString()", "description": "Convert to UTC string", "inputs": "none", "output": "string"},
+                {"name": ".valueOf()", "description": "Get primitive value", "inputs": "none", "output": "number"}
+            ]
+        },
+
+        "RegExp Methods": {
+            "description": "Regular expression operations",
+            "functions": [
+                {"name": ".exec()", "description": "Execute regex search", "inputs": "string", "output": "array/null"},
+                {"name": ".test()", "description": "Test for match", "inputs": "string", "output": "boolean"},
+                {"name": ".toString()", "description": "Convert to string", "inputs": "none", "output": "string"}
+            ]
+        },
+
+        "Map Methods": {
+            "description": "Map collection operations",
+            "functions": [
+                {"name": ".set()", "description": "Add or update entry", "inputs": "Any, Any", "output": "map"},
+                {"name": ".get()", "description": "Get value by key", "inputs": "Any", "output": "Any"},
+                {"name": ".has()", "description": "Check if key exists", "inputs": "Any", "output": "boolean"},
+                {"name": ".delete()", "description": "Remove entry", "inputs": "Any", "output": "boolean"},
+                {"name": ".clear()", "description": "Remove all entries", "inputs": "none", "output": "undefined"},
+                {"name": ".entries()", "description": "Get iterator of entries", "inputs": "none", "output": "iterator"},
+                {"name": ".forEach()", "description": "Execute function for each entry", "inputs": "function", "output": "undefined"},
+                {"name": ".keys()", "description": "Get iterator of keys", "inputs": "none", "output": "iterator"},
+                {"name": ".values()", "description": "Get iterator of values", "inputs": "none", "output": "iterator"},
+                {"name": ".size", "description": "Get number of entries", "inputs": "none", "output": "number"}
+            ]
+        },
+
+        "Set Methods": {
+            "description": "Set collection operations",
+            "functions": [
+                {"name": ".add()", "description": "Add value", "inputs": "Any", "output": "set"},
+                {"name": ".has()", "description": "Check if value exists", "inputs": "Any", "output": "boolean"},
+                {"name": ".delete()", "description": "Remove value", "inputs": "Any", "output": "boolean"},
+                {"name": ".clear()", "description": "Remove all values", "inputs": "none", "output": "undefined"},
+                {"name": ".entries()", "description": "Get iterator of entries", "inputs": "none", "output": "iterator"},
+                {"name": ".forEach()", "description": "Execute function for each value", "inputs": "function", "output": "undefined"},
+                {"name": ".keys()", "description": "Get iterator of values", "inputs": "none", "output": "iterator"},
+                {"name": ".values()", "description": "Get iterator of values", "inputs": "none", "output": "iterator"},
+                {"name": ".size", "description": "Get number of values", "inputs": "none", "output": "number"}
+            ]
+        }
+    }
+}
