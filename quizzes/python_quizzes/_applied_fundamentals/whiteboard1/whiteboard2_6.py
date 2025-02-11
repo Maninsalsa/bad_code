@@ -95,11 +95,26 @@ Map out the necessary parts and operations.
 
 """
  # Directories
+    # calculator module
+
+        # contains calculator class:
+            # constructor method(self)
+                # class variables:
+
+                # string input
+                # stored value
+                # 
+                
 
     # main.py
+        # imports os
+        # imports sys
+        # import tty
+        # import termios
+        # imports calculator module and initializes the Calculator object into a variable called calc
 
-        # imports calculator module
-        # executes while true loop for continuous updates until operation is exited by user
+        # main then exectues a while true loop for continuous updates until operation is exited by user by pressing the esq button
+        # in the while true loop
 
 
  # Data Structures
@@ -108,10 +123,7 @@ Map out the necessary parts and operations.
         # in main.py should be fine
     
         
-    # Calculator object()
-        # constructor method that takes multiple numbers at a time, separated by an operator +, -, /, *, =)
-        # addition method 
-            # adds number inputs separated by + operator and another operator
+
 
 
 
