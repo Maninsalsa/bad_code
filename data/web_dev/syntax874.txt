@@ -1,0 +1,1040 @@
+
+Search in video
+Welcome to Syntax!
+
+welcome to syntax today we're going to be talking all about performance wins
+we're going to be talking about the things that you need to know to make your applications work faster uh just in
+general a smoother experience for your users not only that Weir to look what types of things to keep in mind and just
+in general some of the terms and ideas around making stuff extremely fast my
+name is Scott toiny I'm a developer from Denver with me as always is Wes what's up Wes hey not too much excited to talk
+
+about perf winds we did a show like I don't know five six years ago on these
+it's it surprised me it was so long ago and there both is some a whole bunch of new additions to browsers and
+tooling to make the stuff much easier as well as what makes a fast website has
+has certainly changed as well so we're going to dig into easy things you can do and just sort of keep in mind as you're
+developing to to have the best performance yeah and speaking of best performance you know it actually Century
+has some of the most incredible tools for seeing performance in the real world over time because let's face it you can
+run your Lighthouse you can run all of your stuff locally you can run it on your own computer but at the end of the  
+day you might be on like a fast internet connection with a fast computer and all kinds of stuff and you might not kno
+what's hidden in the real world so if you head on over to sentry.io syntax sign up using the
+coupon code tasty treat you can get access to some really incredible features showing you all of the things
+run your Lighthouse you can run all of your stuff locally you can run it on your own computer but at the end of the
+day you might be on like a fast internet connection with a fast computer and all kinds of stuff and you might not know
+what's hidden in the real world so if you head on over to sentry.io syntax sign up using the
+coupon code tasty treat you can get access to some really incredible features showing you all of the things
+that we're going to be talking about performance tools are incredible you even get a score that tells you um just
+how miserable your users are there's a lot of cool things that we're going to be talking about in this episode that
+you're going to be able to take and make your stuff as fast as possible and see all that in action if you're checking
+out centuries Performance Tools so this show is presented by sentury
+
+What makes apps slow?
+so let's get into it I figured we would start this off with the first part is like why what what makes ABS slow in the
+first place there's there's a couple of reasons why ABS could be slow and the first one is just strictly you're
+Loading too much.
+loading too much stuff you're bringing too much stuff to the party you're you're carrying all this stuff you can't get through the door uh and this could
+be too many images too much JavaScript um just too much in general because at
+the end of the day we're sending information over the wire to somebody's computer their phone or whatever their
+network speed dictates how much can actually be loaded and if this is a first initial load or or whatever maybe
+uh you're bringing in a whole bunch of stuff if you are sending too much stuff to them that is a package that is too
+big for them to arrive and it's going to take a lot longer for it to load on anybody's application and that goes for
+you know even if you don't have caching properly set up which we'll talk about in in various ways you know it could be
+initial page load but it frankly it could be every page load it could be anytime they do anything um so bringing
+too much stuff is certainly one reason that apps could be slow too much stuff
+or too big of stuff as well right so if you are loading in things that are
+needed to render the page out or just something that is on the page like images or video If those are uh larger
+than they should be of course that will slow you slow you down yep uh another one could be slow database work you know
+Slow database work.
+datab cases in particular can be slow if you're not using them correctly you don't have indexes set up properly or
+you're not doing performant queries maybe you're doing too many things or maybe you're you're doing things in a non-performance way where you could be
+doing everything in a single query and instead you're you're doing one query taking that data doing multiple queries
+doing another query here like maybe you're going to the the well too many times on the database when you could be making a single trip to the database and
+back so uh slow database work is is certainly one of them there's also Solutions with caching in here that we
+can talk about as well slow server so your your actual website the front end
+Slow server.
+can be as fast as possible but if the server that you're making requests to
+are slow they're slow to respond so when someone visits a initial page if that
+takes two or three seconds it's it's going to be be kind of sluggish right or
+
+it could simply just be slow to move through the tubes because uh your server May
+
+not located close to where your actual user is yeah yeah or maybe your server
+
+is UND speec you know yeah yeah it's true maybe it's it's overrun you know you've got too many people um or you're
+
+trying to do processing on your server and because of the the Ram or the the
+
+processor on that server is not fast enough uh to do that it can it's simply
+
+just slows things down and then the last one we have here is just like waterfall requests or waterfall renders so the
+Waterfall requests.
+
+idea of a waterfall is that you you request a website that will return some
+
+HTML and then that HTML is is parsed out and then the browser knows what else it
+
+needs you know and it's often going to need things like CSS and images and JavaScript a waterfall is when one
+
+request renders and realizes it needs something else and then and then that thing renders and realizes it needs
+
+something else and and if you are waterfalling them meaning that like one thing is hopping to another
+
+sometimes you can be six or seven requests before you actually are able to display things on the page so there are
+
+client server waterfalls that happen meaning that your let's say you have
+
+like a a a server rendered component you send the request to the server it comes
+
+back gives you the actual component that component realizes it needs something else it's got to go back to the server
+
+and then come back and you go back and forth over the network um and then there's also just like server waterfalls
+
+um for for rendering meaning that you render server render a component and
+
+then you realize that component realize it needs something else and usually that's because you're server rendering something you're fetching some data
+
+based on the response of that data being fetched you realize you need to render something else and then based on
+
+rendering that thing maybe you realize you need to render something else and it just kind of keeps going down and down
+
+and down and that's where you can get into a lot of kind of slow work yeah
+
+totally so let's talk about some terms here some things that are going to be important and and maybe potentially like
+How do I know what is slow?
+
+how do you know it's slow Beyond like hey I'm using it and it feels slow so the first one could be that uh you don't
+Web vitals.
+
+understand web vitals so the web vitals and and these are just kind of like standardized terms in the way to talk
+
+about these things we have a website here created actually by uh Ben vinegar on Cent which web vitals.com there's a
+
+number of different things that you'll see in the browser stev tools but also in Performance Tools and all kinds of
+
+things but it's also something that takes into account for SEO purposes as well so LCP or largest contentful paint
+
+uh largest content F paint is basically the time it takes for the largest one to load the largest asset uh text or image
+
+or anything to render on the page that gives you kind of an idea of like all right who's the biggest baddest thing
+
+and how how long is that specifically taking there's also inp which is interaction to next paint and this
+
+measures the time from when a user interacts with the page uh for when the the browser renders a visual response so
+
+you could think of this as latency when somebody clicks something so in this example on the site I click an uh an
+
+accordion it opens immediately that's an extremely short inp right but then we
+
+have this longer one which is artificially delayed and I click it and you can see that interaction and next
+
+paint took like about a second here and so because of that that's a bad user
+
+experience obviously so that can happen totally if you're maybe you're doing something and you're waiting for a
+
+database response and it's slow or maybe you're running way too much JavaScript and some things are happening that don't
+
+need to be happening yeah or the the worst is when you need to wait for the
+
+JavaScript to load before you can even use it like I was on eBay the other day and I couldn't even focus the search box
+
+until all the JavaScript had been loaded on the page for I don't know for whatever reason but like that's why it's
+
+so nice to use HTML features when possible uh because you you can at least
+
+start interacting with the website if you're before the JavaScript is loaded
+
+and all the bindings are done totally there's also CLS or cumulative layout shift we all know this is maybe the most
+
+frustrating for me in the entire I I think the worst thing that I can interact with on a
+
+website is when you open it half a second later an ad pops in and the thing you went to click on moved and all of a
+
+sudden you're clicking on an ad uh this will make me want to throw your application in the trash so quickly so
+
+this basically measures the total amount of layout shift that's happening and if things are coming in late or popping in
+
+late that's going to disrupt how your users are using it and that's also going to be exacerbated by like the way that
+
+things are loading into your page whether that is through JavaScript like you had mentioned perhaps like you're waiting on JavaScript to execute before
+
+things pop in there that could happen a big one for the layout shift is images where you don't hardcode their width and
+
+height yes it's annoy it's super annoying to hard code width and height of an image unless it's automated
+
+because like I don't know so what people do is they just throw the image tag in there and then you have text and then as
+
+soon as the image loads it pushes the text down or often you'll throw a banner up at the top top if there's a sale um
+
+and then that pushes the whole website down a little bit that's really annoying because you have to wait for the
+  
+JavaScript to load for it to figure out if it should be loading it there's a whole bunch of annoying things around
+   
+that yeah and solutioned for that uh if you haven't found a solution aspect ratio is pretty well supported now you
+   
+turn aspect ratio on that that will apply the correct height regardless of whatever the whd is and vice versa um
+    
+you know that sorry one more thing about that the browser now if you supply a width and height to an image the browser
+    
+will now automatically give you an aspect ratio cool so you can say width
+    
+    height     and then in your CSS give it width   % And then because people
+    
+also don't like hard coding width and height because like I don't know I want the thing to be flexible yeah but now
+   
+aspect ratio will kick in without you even having to set it and it will uh it
+    
+will determine the aspect ratio from the width and height of the images attributes nice yeah I I think aspect
+   
+ratio is one of those things that uh was very exciting when it was added for this specific reason now we just need to get
+   
+everybody who drops an ad a banner ad or anything in their website to use this
+  
+because get that stuff out of here um there's also FCP first contentful paint this measures the time at which a page
+  
+starts loading to when any part of the pages content is first displayed so
+   
+basically your page starts loading something shows up that is your FCP this is important to
+   
+know because that slow time you know can well I mean I guess the time that takes
+   
+to complete loading is also extremely important but you want to make sure that things are showing up uh quickly as well
+   
+that can you know give your users the sense of something loading fast and maybe perhaps you're showing skeleton screens or something like that to make
+  
+it feel faster there's also ttfb uh this is something a lot of us are are have
+   
+seen before which is time to first bite this measures the duration from when the page starts loading to when the first
+    
+bite of content is received from the server if you have a long ttfb it
+    
+probably means that something is slow on your server when I uh had initially had
+   
+like a performance tutorials on level up tutorials a long time ago on YouTube yeah I was I was talking about ttfb and
+   
+how this is you know the process it takes for your Ser how long it takes your server and I had a lot of people leaving comments being like mine is
+    
+really slow how do I fix it mine is really slow how do I fix it well it's like well you got to give me more information you know like what kind of
+    
+server are you working with what are you doing on your server are you you know what exactly are do you have cashing
+    
+turned on any of that stuff so there's a lot of things that can inter affect these things but uh check this site out
+    
+if you want to learn more it's a web vitals.com it's a really useful resource with the time to First Bite thing you're
+Streaming.
+    
+going to hear a lot of Frameworks now uh supporting streaming and the benefit of
+    
+Frameworks supporting streaming is that if you have one little piece of your website that is slow like for example if
+    
+you have a uh a Twitter widget that your server rendering in your footer and that
+   
+for some reason takes   seconds to actually load your whole website
+   
+shouldn't have to wait just for that that one component if you're if you're server rendering so what a lot of
+    
+Frameworks now will do is you can set in in react it's called a suspense boundary
+    
+where as soon as react hits a suspense boundary it realizes okay well I can
+    
+send what I have so far sort of the skeleton of the whole website there's certain things you do want to wait for
+   
+which is like things like the title tag and a list of links for CSS and
+    
+JavaScript and you may want to wait on some crucial information but other things you may want to say ah you know
+    
+what it's fine start streaming this part of the website to the browser and then
+    
+I'll I'll stream the rest when I have it and you can throw up a a loader if we're waiting too long yeah
+Network tab.
+    
+word all right well let's get into more stuff about how we know it's slow there's some tools within your browser
+   
+which is the network tab first and foremost is going to show you a lot of these things in terms of how fast or how
+   
+slow or just how large your resources are so anytime you refresh if you have your network tab open as long as the
+   
+little recording guy is pressed which it usually is it's going to show you the loading time of everything now it's also
+    
+going to show you things are being cached because this is super important to know that if you are loading things
+    
+and everything is cach and it's all fast then that's how it's going to be on
+    
+every subsequent load but the initial load for users is not going to be cached in the browser because uh the browser
+    
+needs to load the thing before it can cash it initially right so if you want to make sure that your things are
+    
+somewhat fast on the initial load there's a disable cach button in here you can click disable cach and then
+    
+every time you loaded it's going to be as if it's loaded for the first time from here there's uh you can sort by the
+    
+size of resources and how long or how large things are so obviously we have a
+  
+large content. Json file that's for our search we have a font that's a variable
+   
+font it's pretty darn big um and we have you know assets JavaScript that kind of
+    
+stuff and then furthermore you can even sort by time which things are taking the most amount of time to load so we have
+    
+some images some SVG stuff that's taking a long time to load and then you can remove that disabled caching to then see
+    
+what the every subsequent load would take you can also throttle the internet and throttling is important for seeing
+    
+you know what it might be like on fast  G slow  G or  G or offline Australian
+    
+yes uh there is an Australian no there's not but um you can add custom ones in here too so if you want to simulate very
+    
+specific things I like the offline mode espe esally if you're working with pwas
+   
+that's a great way to test to make sure your pwas are actually working without killing your network or something uh I
+    
+mean it's running locally so you you you want to be able to to test these things and make sure your service worker Etc
+   
+are working or local data offline mode is great um those can be all super duper helpful for determining you know if your
+    
+application is actually performing well MH one little tip I have is if you filter for Doc that's going to show you
+    
+the initial HTML page request so if you load that then that shows you how many
+    
+milliseconds and and the actual size of it and if that number is large which it
+    
+actually looks like ours is a little bit large     milliseconds so maybe we can
+    
+can dip into that but that's how you know if there's a problem on your server or if there's a problem on the the
+    
+client um because that's the point where the server is just sending the first little
+    
+bit of HTML that is that necessary yeah I often find myself filtering by um the
+    
+fetch xhr request to especially if you're hitting an API you want to check to make sure that that uh that time
+   
+which it's the API is fast enough one thing you should turn on here is the waterfall so if you right click on the
+   
+The Columns in your network tab um there's the ability to add additional columns and one of them is called
+    
+waterfall so click on one of your titles so if you scroll all the way to top you're going to see if anything is
+    
+being held off by another request so you probably have to make it much larger than what Scott has it right now but
+    
+that will give you a good visual for what things are are being delayed by
+    
+what and if if you see a fairly large one come in after so for example you're
+    
+going to see the first big one is going to be the HTML and then hopefully everything else is fairly flat out from
+    
+there but then you'll you'll see some that are um like a waterfall and that will show
+    
+that will very quickly show you where things could be improved because
+    
+something is requesting something and that's requesting another thing and that's requesting another thing yeah ours is is fairly flat I looked at ours
+   
+before the show and there's nothing concerning that I saw yeah word there's also the performance tab which is super
+Performance tab.
+    
+handy this is harder to read this is maybe a little bit more work to to understand than the network tab um but
+    
+this does give you the metrics now this has undergone kind of a changed somewhat somewhat recently where it now shows you
+   
+the local metrics like the LCP the CLS the inp it shows you layout shifts those
+    
+types of L yeah the LOL the AOL the IRC
+    
+RF yeah yes L LFO uh rafflecopter all
+    
+that stuff so uh no it shows you all all this and what's cool about this is that if you record and let's say I click
+    
+around the site it profiles the site and you can stop and it gives you a what is
+   
+it called like a fire graph is that what this called Flame graph uh flame graph yes yeah and this is kind of hard to
+    
+read but um the way that this thing works is that if you scroll up you get essentially your JavaScript that's
+   
+running and doing different things so this is like a function call and then this calls this that calls this this
+    
+calls this and you can see each of these things are all kind of large until you get to this one and this is the one that
+    
+you can tell is taking up the most amount of time is to save offline and then what why is save offline taking a
+    
+longer time well there's uh these longer ones like create a fragment from HTML that's taking some time and you can dive
+    
+into exactly what's happening in your application this is really handy if you have Java script that is slow here's
+    
+some things that can it can find like for instance you're working in a component based workflow like react or
+   
+something like that and you have a loop and maybe you have a function that you're expecting to run once but that
+    
+function is somehow being uh caught in the loop cycle of the rendering and it it ends up getting run
+     
+every single time a component is created or maybe updated or something like that you could see that that function is
+    
+being called repeatedly or perhaps it's taking a long amount of time where if you could potentially move that up into
+    
+a place in your application or memorize it or something like that it gives you the opportunity to say hey why is this
+    
+thing actually running so much it should only be running once Etc or maybe this particular function is running really
+     
+super long I should figure out why that function is taking so long uh this is where you do it inside of the
+     
+performance tab it's it's it's a lot to get used to in fact the the interface is never my favorite I find myself getting
+     
+really annoyed at the interface sometimes but it gives you so much information in terms of uh when things
+     
+are loaded how they're loaded frame drops and all that kind of stuff so it it's well worth your time to get
+     
+acquainted with the performance tab this is also really handy if you're trying to debug serverless functions um because
+     
+serverless functions you pay based on um usually wall time or CPU time and you
+    
+can dip into it and say oh this thing is running a little bit longer we had one once about a year ago the Blue Sky API
+   
+was not loading on cloudflare workers because cloudflare workers has a    
+   
+millisecond limit to start up a worker and that includes any like uh
+    
+instantiation of objects and and creating things and and usually you're      milliseconds to run a script but in
+    
+this case we the API for Blue Sky their like typescript package was doing
+    
+something weird with Zod under the hood where it was doing way too much validation and creating a whole bunch of
+    
+new objects and I I logged the issue on the GitHub and somebody came in and sort
+   
+of like dug into it with the flame graphs I was like oh that was a really good look into how to actually read this
+    
+and he pinned it out he's like wow like     seconds of this is is actually just
+     
+creating a new uh instantiated object so it's it's pretty rare that that actually
+     
+happens but you do run into some Oddities yeah totally and and I found
+    
+myself getting some really good information from here occasionally where
+     
+uh it's just why is this thing why specifically is this thing taking so
+     
+long to load if the network shows that all of the stuff is coming in clearly the issue is Javascript and JavaScript
+     
+can be slow for a number of reasons whether you're doing too much or maybe you have some promises that you're
+     
+waiting that you don't need to or all kinds of stuff so yeah definitely worth your time to get into it let's talk
+     
+about the steps to fix some of this stuff we we have our diagnostic tools we kind of understand what some of the
+     
+potential issues are how do we fix this stuff and you know one of the biggest things that you can do is cash your
+Caching.
+     
+stuff so there's a number of ways you can Implement caching uh client side caching what it does is it caches it in
+Client-side caching.
+     
+your browser and you set client side caching by giving a caching headers on your your uh your requests or your
+    
+responses so when you return a response from a request you can depending on the
+    
+framework that you're in and how you're working you can tell it how long to cash for uh what to cash like and that's
+     
+going to tell the browser when that comes in hey save these files or save these images into my local cache next
+     
+time I hit refresh uh it's not going to load them from your server it's going to load them from the browser that's ideal
+     
+situation for most part yeah there's also serers side caching where you can
+Server-side caching.
+    
+cache things in memory or you can cach them in a a key store all kinds of ways
+     
+redis is one of the most popular ways people do this there's also an open- Source version that's a fork of reddis
+     
+called valky there's a lot of these so um if you have your own that you like I always end up just using reddis I know
+     
+that there's some controversy around uh how they change their um license but you
+     
+know I'm still pretty much just on reddis and and the way this works is is pretty much you're storing something
+     
+data in a key value and you can set all kinds of things on there like uh when to refetch this cash or whatever that way
+    
+if I say I'm requesting all of the podcasts and if it has been you know an
+     
+hour or two hours or whatever the website is first going to check that inmemory cache first say hey does this
+     
+podcast and information exist if yes pull that information instead of making a trip to the database to do it and that
+     
+can be something that you you know it's like not something that every site needs but if you notice yourself having slow
+    
+database queries or large database queries or potentially just slow information coming from your server arus
+     
+Cache can certainly help or uh another example is I'm on my website I'm working
+     
+on uh fetching Twitter stats and or social media stats for all of my content
+     
+you know so I I want to go off to to Twitter and Linkedin and blue sky and everything single one and pull back like
+     
+likes and and whatnot um but a you can't do that too often because there's there's rate limits on these apis and B
+   
+that's very slow to do on every single page so what I'll do is when I get the data back I'll throw it into I'm using
+    
+cloudfare key value and then you but it's the same thing as RIS or you just put it expires on it and you set it like
+     
+I don't know you set however long you want to expire I'll put a week on it or something like that and then as part of
+    
+your fetching logic you first check if the cash already has that piece of data and you just send it back immediately
+     
+yeah totally um there's also local data we've talked about that a little bit more on this the Show recently than in
+Local data.
+     
+the past but you can store data in your index DB you can store data in local storage or even in cookies you can put
+    
+stuff in those places so that way it's going to check first and maybe perhaps you have some sort of a syncing system
+     
+or perhaps that data only lives in local storage or cookies or or index DB either
+     
+way that information already exists within the client and therefore it it's a takes no amount of time to load that
+    
+data uh next one you have here is just turning on gzip this is almost not something you ever have to worry about
+Gzip.
+    
+because all servers have this type of thing on already basically the way that
+     
+it works is your server will send your a your data HTML CSS JavaScript anything
+     
+back as a compressed stream and then the browser knows how to uncompress that and
+     
+gzip is very good because like I have I had a react application the other day
+     
+and I was trying to put it on a esp   which is a little microcontroller and it only has a couple Megs of memory on it
+     
+um and the the application itself was .  Megs once it was compiled and then I
+     
+ran it through gzip because I needed to store it on on the device as part of as
+     
+gzip and it went down from .  Megs down to I think like   k or something like
+     
+that and it's very good because if you have strings of text that are
+   
+similar every single time so if you have the word West boss a million times it's
+    
+only going to send that once over the wire so you don't have to worry about um
+     
+be things being very very long so if you have long selector class names you have very long like an SVG that you use   
+     
+times that is embedded into the HTML that's okay because jip saves you from
+     
+that yeah totally and this is something that like you mentioned we used to have to do this ourselves we used to have to
+    
+set this up in our own servers and um configure gzip but mostly now if you're
+     
+hosting on any major platform or even like coolify or any of that stuff you don't have to worry about gzip it's just
+     
+done for you um how do how do you actually know if gzip is turned on on
+     
+your server so what you'll do is you'll go to Dev tools and you go to the network tab click on any one of your um
+     
+responses so for example the first document one um and you look at the headers there's going to
+    
+be response headers and request headers um and the request headers will often
+     
+have a accepts encoding or accept encoding header basically that is the
+     
+browser saying hey I can use the following encodings so
+     
+send me any of these so in the case of syntax FM using Microsoft Edge it says I
+     
+can use gzip deflate BR which is I think brole BR or brle or Z sdt so I can I can
+     
+have any of those Z standard and then the if you look at the response there's going to be a header called content
+     
+encoding and that will tell you what the the actual encoding is which is in this
+     
+case it's zstd which is not one I've heard about looks like it's from Facebook it's a lossless compression
+     
+algorithm developed by Yan callit at Facebook okay beautiful but for most of
+   
+you your server is going to have it turned on or if you put throw like a cloud flare or something in front of
+    
+your website it's going to figure out all that stuff for you largely don't have to worry about it for sure um but
+CDN.
+     
+that said uh there's also a concept of a CDN a CDN is a content delivery Network make sure your content is distributed
+    
+globally so that way people aren't loading things directly from your server which might be loaded or located in US
+     
+West or Us East or who knows where so a CDN is definitely something worth having
+     
+it's easy to and trivial honestly to just throw Cloud flare on top of anything so for me these days I'm pretty
+     
+much just using Cloud flare as a CDN for you know everything but yeah there's there's other options there's Cloud
+     
+front there's all sorts of stuff yeah a CDN you can either like explicitly
+    
+upload your assets to a CDN like like for example you would usually do that
+     
+with something um like your images or your video or you throw a CDN in front
+    
+of your your website or in front of like a bucket of data and and what will happen is it will sort of slurp up data
+    
+that it has to live somewhere um by default right usually it'll it'll live somewhere Us East one is probably the
+     
+most popular one um and then a CDN will suck it up and then put a copy around
+     
+the world give one flip one upside down give it to the Australians so that it's relatively fast for them and it's kind
+    
+of neat like I was trying to go to some like Chinese supplier websites the other day I was like oh wow like this is very
+     
+slow to load this website like extremely slow to load this website and it's because there there was no CDN right it
+     
+was loading from a server in China yeah yeah totally um let's talk
+Images.
+     
+about images because images one of the biggest sources of you know size in
+    
+general is Media um images being one of them and uh the for me the the easiest
+Serving.
+   
+way to have images be fast is to use a service uh like cloudinary there are a
+   
+number of these there's cloudflare image CDN if you Google build my own cloudinary there's a lot of posts where
+    
+it shows you how to do it with S  the long and short of these services are you upload your images it put puts them into
+    
+a bucket the then you you give a URL that has potentially some transformation
+    
+stuff or whatever going on and when the user loads that us URL uh a number of
+   
+things happen especially with Cloud n the browser tells it you know what formats it can accept or it knows what
+    
+browser is requesting this image so that will it will serve the smallest possible
+    
+image it will create that image serve the smallest possible version of it to the user and then it will cache it both
+     
+by put saving that cached version into a folder as well as caching it into your your client so that way obviously next
+     
+time you load it's loading from your cash but the next user that requests it it doesn't have to create that image it
+   
+goes and fetches that one that's been created that's the smallest possible version that way again um if somebody's
+    
+on a phone the image that it needs is only     pixels wide it's not going off and fetching the Thousand pixel wide
+     
+image and then squishing it down it's going to fetch the one that is appropriately sized for what you need um
+    
+so yeah like on the flip side you can provide a really nice experience for people who who can handle it you know
+     
+like I have freaking   gigabit symmetrical now  K beautiful monitor um
+     
+and even like like we have a nice TV and that's amazing I'll still stop and be
+     
+like wow this looks really good and it's because they they're realizing oh yeah they got the the pipes for it like might
+     
+as well send send it as as large as possible if you got the pipe you might as well use it that's for sure exactly
+     
+yeah if you got it use it uh I'm a big fan of that like transform on demand um
+   
+just so that you don't really have to to fuss with it I I we talked about on a previous episode where my own personal
+    
+website using Gatsby was doing it all like on build and it just got to a point where it it's like a half an hour if I'm
+     
+doing it without a cash and it's it's too much it's way too much so now I have to I'm switching it all to doing it on
+    
+demand yeah I know I I when I first used cloud and area I was like this is this
+     
+is what everything I want clad will do like um like format like the they have
+     
+this like format of Auto which is basically you figure it out is this better as a JPEG or a PNG um or as a
+     
+what what's the webm you know who who cares I don't know XL all that stuff I I
+     
+don't care you figured out for me another thing I really like with clown are is some of their AI tools are really nice where you can say not like the
+     
+generative stuff but you can say hey crop in on the face of this person um
+     
+that's really nice for avatars people upload a photo of themselves you can automatically crop it to their face you have to make the user do all that stuff
+Compressing.
+    
+what else oh compressing a big thing you can do is go on if you have a lot of images in your git repo like your your
+     
+images are not part of like a separate CDN but they're part of your your git repo install the imagebot extension and
+    
+what it will do is every time you add an image to your git repo it'll just crawl
+     
+for any images and then it'll submit a poll request of the compressed versions but it does it lostly or Lo lossy loss
+     
+no loss lless it does lless meaning that like some images can be compressed without actually giving up anything and
+     
+then other images you can compress even further by losing a bit of the quality right so will just do loss lless
+     
+compression meaning that like why the hell not especially if it's in a git repo yeah totally yeah and another one
+Ship fewer images.
+     
+here which seems like an obvious strategy but is to just uh do less so
+    
+ship less uh less images right and this could be maybe you're shipping an image when you something could be SVG that
+    
+loads just fine or could be all a number of things or maybe you could just straight up do it in in CSS that was
+     
+actually such a huge thing in the past people don't realize this but man we had to used to have to ship images to do
+    
+anything like rounded Borders or box Shadows or gradients or any of that stuff and uh it's crazy because the
+     
+internet at that time was so much slower so like now yeah it's we can do so much more with CSS and I don't think
+     
+anybody's out there doing button background images anymore still but if you are don't so stop it yeah yeah next
+Loading JS.
+    
+one we have here is loading JS this is not a thing you really have to worry about with modern build systems cuz they
+     
+do it all for you but often they will Minify your JavaScript or probably more
+     
+important than minifying JavaScript is tree shaking your JavaScript meaning
+     
+that removing parts of the JavaScript that are unused so modern tools are able
+    
+to crawl through your entire Library crawl through every little piece that is needed and it will not include it I was
+     
+working on a club flare worker and I was including Puppeteer which is     Megs or
+     
+something with the browser and I didn't need that for production so I just ran
+     
+like a little if statement and did a dynamic import inside of that if statement and the bundler is smart
+     
+enough to realize that that if statement turns into an if false statement which then it will know to just simply remove
+     
+that whole if statement from the bundle um and and doesn't include it so it saved me like a bit nice nice um there's
+CSS.
+     
+also CSS stuff right um inlining critical CSS is is good for the most
+     
+part there it's funny because that pendulum is kind of swung back and forth between like oh inlining everything
+    
+inline nothing uh inline just critical CSS but the CSS that is um critical if
+    
+it's on your HTML elements from the load it doesn't have to go off and load you
+     
+know a CSS file or anything like that it I I don't ever really use inline CSS do
+     
+you inline critical CSS often Wes uh I do on my current website
+     
+because you but you really have to have a tool that is able to understand what
+     
+is loaded on this page and what CSS is attached to it so you have to have very tight coupling I'm surprised I I would
+     
+thought spel kit did critical CSS for sure but it it doesn't which the if you
+     
+do not critical your CSS if you do not inline your critical CSS what happens is
+     
+your page loads and you can see a flash of unstyled content while the CSS is is
+     
+trying to be loaded but I I don't see that on the the syntax website at all
+    
+maybe if we were to throttle it it simply just uses a whole bunch of Link tags in the head yeah it's actually
+    
+interesting I'm wondering about that myself maybe it's uh it's maybe it's
+     
+good enough one other thing you can do with your CSS is you can put preload and
+Preloading & Prefetch.
+     
+prefetch tags either in the head of your document so for example if you're loading some fonts or you're loading a
+     
+bunch of JavaScript but you know those tags come later in the
+     
+HTML what you can do is you can put preload tags in the head and say hey I
+     
+know later I'm going to need to download this font CSS JavaScript images I I know
+     
+I'm going to need them so can you start working on on that now so by the time I
+     
+actually do ask for them they'll be ready you know it's like kind of like calling ahead uh in and ordering the
+    
+pizza so that by the time I do get there by the time I am hungry I'll need it so
+    
+a a relo a preload tag or now there's a new speculation API in the browser which
+    
+will allow you to to do it a little bit more flexible and and you can preload entire Pages um that will kick off the
+     
+network overhead the IP lookup and as well as the the downloading and possible
+     
+parsing of JavaScript CSS for you before it's actually needed yes and there
+Preloading on hover.
+     
+there's also something that is funny this was uh turned on by default in some Frameworks like I I believe Gatsby was
+     
+one of the first people to really have this turned on by default but pre-loading on Hover so like you hover
+    
+over a link and it starts loading that page behind the scenes that way when you click it because there is inherently
+     
+going to be latency between the time that you hover over and when you click it's like hey I know you're about to
+     
+click this link so therefore I'm going to start loading everything just to you know kick off that process ahead of time
+     
+but um if you got to account for the fact that users don't always click the links they hover over a lot of people
+    
+use um like their Mouse to kind of like look at a page and they might be hovering over several different things
+     
+and it's just hitting your server repeatedly in different areas um to load different things so especially if the
+     
+the content that it's loading could be Heavy just be aware that it could be expensive for you if you're pre-loading
+     
+expensive things because it might it could be expensive for you or or the user as well if if they're on like a
+     
+limited bandwidth plan so right exactly yes uh either way it could be generating a lot of unnecessary large requests so
+     
+just make sure you know you know what you're doing there yeah like you can you can easily
+    
+inflate um the cost of a website your database calls go up    X you have to
+     
+kind of figure out if it's worth it or not and and people will try to figure out different rules sometimes people
+    
+just preload all links that are in the the browser um I think now even with the with AI you
+   
+we'll probably start seeing things where you can get a whole bunch of data as to
+   
+like all right this is   ,    people visited my website and these are the paths that they took and then you could
+    
+take that data and then figure out what is the most likely link that somebody will click after visiting this
+    
+page yeah at the very least if you could imagine that people are going to be mostly all over your site it's loading
+    
+that stuff into your cash too so um that could be good for you there's also the idea of shipping less code I mean and I
+Ship less code.
+    
+know this is like a problem with AI specifically now ai is just like give you all the libraries oh you who cares
+    
+you know um so you have you have to be aware that there are browser apis that do many of the things that you might be
+    
+shipping a library for so if if you bring in a whole a big Library into your application when you don't need to that
+     
+is making your your site slower for Unnecessary reasons and um you know hey
+    
+uh there are a lot of great new browser apis for whether that is CSS or JavaScript or any of that thing so opt
+    
+for using browser apis wherever possible before bringing in a big old library also opt for smaller or tree shaken
+     
+packages over large bundled uh big monolithic libraries a lot of these things are like older like is it is
+     
+underscore actually tree shaking now I don't even know I'm pretty sure you can
+     
+um the build tools have gotten really good at being able to tree Shake even like older commonjs packages as well
+     
+some things are bundled though like bundled together yeah like like lad Dash is explicitly shipped and bundled in a
+     
+way where it can be easily tree shaken yeah but even then like do you you even
+     
+need that entire thing or like like one of them I'm just looking for is I was
+     
+looking at the bundle analyzer for my my new website on nextjs and I was trying
+    
+to figure out like H what is using up all of this space you know like what
+    
+it's it was seven Megs for the entire server side framework and I was like
+     
+like is there anything that's massively taking up space and and a lot of that was just my content is it's just Tex Tex
+     
+is large but one of them was the hls video streaming uh library and it was like
+     
+like    K or    k something huge like that and I was like man imagine we get
+     
+hls video apis in the browser that would be huge for being able to drop that
+     
+massive dependency yeah no kidding right we also have icons um this is something
+Icons
+    
+that has like changed and evolved over the years many different times we had icon fonts at one point we did icons
+     
+with images way back in I'll never forget was I took a I I was a senior Dev at an agency and i' had gotten really
+     
+deep into at the time uh whether that was icon fonts or any of these ways of
+    
+doing icons in a vectorized way and I got I got all these designs with rasterized Photoshop icons and I was
+    
+just like losers what what did I do I I so I quit my job and I took a new job
+     
+and it was a nice high-paying job and the very first comp I get had these like raster icons and I was I had to go to
+     
+the designer and I'm like no we're not doing that I'm not doing that we're we're using something uh vectorized
+     
+either way the new way to do icons in a way that is typically faster smaller
+    
+whatever is SVG Sprite Sheets if anybody has any up more up-to-date information
+     
+and I'm wrong please correct me but I believe that the fastest smallest way to do this if you have an icons is an SVG
+     
+Sprite sheet using symbols I use an app called nucleus o app.com lots of different SVG
+     
+spreadsheets or symbol spreadsheets will do this for you just Google it you'll find some utilities online but the
+     
+concept is really similar to the old uh Sprite sheet idea where you have a whole bunch of images on one image it only has
+    
+to load that one image and then you crop it to give you the right one however with SVG symbols it puts kind of all
+    
+your svgs into a single file with symbols and then the individual svgs
+     
+reference those symb syb and then you use a class it uses dumps it on the page right like you you have to somewhere on
+     
+the page you need to have a massive dump of every single SVG that you could ever
+     
+possibly use and then you reference some people don't don't like that approach because it adds the SVG code to to the
+     
+JavaScript bundle or to your HTML but the alternative to that is is to ship them as images and then you lose out on
+     
+all the benefits of of VG which just being able to color them and and possibly modify them or even wor
+    
+shipping them as a react component uh you know yes well like that's that's a
+     
+thing is like the syntax website we have svgs and those are shipped as part of our javascrip bundle totally yeah we and
+    
+and we we have to uh there's there's well we don't have to but there's we
+     
+want to change the colors of the svgs so I don't think we have a a better
+     
+alternative to that well we could do a symbol we could do a symbol sheet well we'll figure it out and but if it's a
+    
+symbol sheet it's still part of your JavaScript bundle though isn't it yes because the whole website is part of the
+     
+JavaScript bundle unless you are only rendering server side and re and
+     
+returning HTML straight to the browser yes yeah so tricky but I think SP will
+    
+have a solution for that server components gets around around that as well because you're simply just returning the HML that is needed you
+     
+don't have toh HML load it yeah yeah last one we have here is fonts uh I just
+Fonts
+     
+put a card on the list of shows because there's so much in terms of fonts in
+     
+terms of like if you're using a custom font does it take a long time to load if so should you render a fallback font
+    
+what's better changing the font on somebody one second in like loading like time Z Roman and then loading something
+     
+else or loading nothing you know and there's a whole bunch of new stuff in
+     
+the browser for like font fallbacks and how to best approach them we also now have variable fonts which if you used to
+     
+load like six or seven weights it might be better just to load a variable font which can get Bolder or wider or taller
+     
+or it can change in any number of different ways yeah variable fonts are incredible but you do need to know
+    
+specifically if you need one variation of that font like let's just say you're just using uh you know regular non-bold
+     
+whatever non-italicized body font then loading a variable for that font is
+     
+going to be a much larger font load than just the static font for that so uh if
+    
+you if you are using a font in various different ways for instance we were using I think like six or seven
+    
+different versions of mdio on the syntax site and so we had the Bold italic we
+    
+had     italic we had regular body we had light italic we had all these things
+     
+uh bold did not and it was just much easier so I moved it all to a variable font and then you can change how the
+     
+font loads with the the correct variable font Tex you can even swap out specific
+     
+glyphs if like let's say on the syntax site the zero has a little dot in the
+     
+center if we wanted to remove that dot from the center there's an alternate version of the zero without that that we
+     
+could uh pass in that that parameter and it would change that and you can you can bundle like a version with or without
+     
+that depending on what you want yes is that right uh well I don't know about bundling that I don't know I've never no
+     
+I think the variable font just has all that included which is why they they're so much bigger yeah and in fact on my website um tolin doski I even I I think
+    
+I'm using mdio as well I I liked the variable eye so I changed the way that
+    
+the eye so my eye looks like kind of like funny compared to how it looks straight out of the box just cuz I
+     
+thought it had a little bit more Pizzazz to it that's cool uh one kind of interesting thing about Google fonts is
+     
+you can load a font and only tell it which letters you want so if you're only
+     
+using like the r yes or uh like if you if you just have like you want to like
+    
+have a cool okay somewhere you could literally just load a Google font with
+     
+the letters o and K and it will it will just ship those two I'm curious how much smaller it is should I
+     
+try it okay so in in consola in consola font the one
+    
+weight of normal with all the letters is  k KB and one font with just the letter
+     
+okay is  KB so six times smaller uh if you only need a couple letters so maybe
+    
+figure out parse your parse your your text figure out what what letters are
+    
+needed on the page and maybe don't load the letters you don't need yeah right yeah that's a fun um I mean again that
+     
+makes sense if you if you're using something as a display for the title of the site or something like that and that's the only time you're going to be
+     
+using it you're just loading syntax yeah you would only need those letters correct yeah uh man yeah nice and cool
+    
+stuff so there's a lot you can do and and honestly if you don't need custom fonts like I love custom fonts you know
+     
+I like getting fonty with it but if you don't need custom fonts just load up the
+     
+system fonts the system fonts deack all that stuff and it's going to be the fastest experience because those are already going to be on the computer you
+     
+have to download a thing so yeah it depends on what you need but um if you're just building something like basic informational site that you don't
+    
+need to have a lot of character to it just go with the system font or who who cares throw Papyrus on there or
+   
+something beautiful all right let's move into the next section which is sick
+Sick Picks + Shameless Plugs.
+   
+picks uh do you have a sick pick today I do um this is a really fun documentary
+    
+called Skywalkers a love story and I thought this was like really um
+    
+fascinating we you know we were we just put it on when we were like looking for literally anything cuz we were just like
+    
+we've already blown through every uh available episode of um our Korean
+    
+dating show we we have nothing to watch so it's like all right what do we put on we put on Skywalkers a love story and
+    
+it's about these two these two people who climb buildings they climb all kinds
+    
+of stuff they're like up on the roofs um and and then they pose for artistic
+    
+photos so like she'll be like laying back in a a dress and he's got like a
+     
+drone that's taking this like very artistic photo of her or their kissing or anything and it's just this Duo of
+   
+these two people who are just kind of like Adrenaline Junkies and it's like their their whole story but man is there
+    
+some uh crazy shots of people climbing insanely high up things in the snow uh
+     
+just mindboggling uh Feats and the whole time you're just like no they're not doing
+    
+this there's not there's no way and it's crazy so um highly recommend it was it
+     
+was a cool cool story and Visually very impressive I'm going to sip pick the Oxo
+     
+swivel peeler um and I freaking love Oxo stuff yeah and my wife got me the swivel
+     
+vegetable peeler for Christmas and I I've never in my life thought hm I wonder if there's a good vegetable
+     
+peeler you know like they're all just okay yeah and she got me this one holy
+     
+crap this thing is amazing like it's so sharp it just takes the the thinnest
+     
+like top off of it I've been doing mangoes been doing carrots doing potatoes it's it's like like   bucks
+    
+and I I I'm thinking like man kind of wish I bought this   years ago I didn't realize that there's a good version the
+     
+little vertical one with just the little yeah okay I got this I have this exact one yeah so good this is like part of
+     
+the uh in in the in the States you get married and you get a bunch of Oxo stuff so this definitely came in that that
+     
+bundle that's great yeah highly recommend it check it out yeah I use this for everything uh anytime I got to
+     
+peel anything Shameless plugs head on over to YouTube youtube.com/ sytax FM
+     
+we're putting out all kinds of stuff whether it's deep dives into to things that we're talking about on the show or
+     
+really interesting unique video stuff we even have a really super fun new series here where uh we're doing way back
+     
+trivia on Friday it's going to be really super fun yeah producer Randy has put
+     
+together several screenshots from old websites and uh West CJ and I have to
+     
+guess what year the screenshot is from using the clues of the interface stuff
+    
+maybe browser technology that exists it was a ton of fun I had a great time with
+    
+it and uh yeah I think you'll have a lot of fun too and if you were around for any of this stuff it's going to be a
+     
+blast from the past so check out all the things that we're we're checking out it's going to be on Friday three devs react to Wayback trivia so check it
+     
+out awesome all right well thanks everybody for tuning in and we will catch you later peace peace
