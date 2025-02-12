@@ -5,7 +5,7 @@ bad until good programming practices + fundamentals documentation
 
 # Programming Fundamentals Library
 
-This repository serves as a comprehensive library for programming fundamentals. Information is organized in JSON, TXT, and MD file formats. All executables are located in the quizzes folder. The goal is to provide a helpful resource for self-taught programmers.
+A comprehensive library for programming fundamentals. Information is organized in JSON, TXT, and MD file formats. All executables are located in the quizzes folder. The goal is to provide a helpful resource for self-taught programmers.
 
 ## Repository Structure
 
