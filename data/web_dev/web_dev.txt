@@ -1,0 +1,316 @@
+Below is a *module-by-module* roadmap that both follows the curriculum outline and includes *hands-on mini‑projects* at each step. The roadmap concludes with a *capstone project* that integrates everything learned. This plan is designed to build mastery through repeated practice, incremental challenges, and real‑world project experience.
+
+---
+
+## **0. Pre-Work**
+### Topics Covered
+- **HTML/CSS Fundamentals**  
+1. **Essential HTML Tags for Portfolio Sites**
+   - `<!DOCTYPE html>` - Declares modern HTML5 document
+   - `<html>` - Root element containing all content
+   - `<head>` - Container for metadata and resources
+   - `<title>` - Sets page title shown in browser tab
+   - `<meta>` - Defines metadata like character encoding and viewport settings
+   - `<link>` - Links to external stylesheets
+   - `<script>` - Embeds or references JavaScript code
+   - `<style>` - Contains CSS styling information
+
+2. **Structural Elements**
+   - `<header>` - Site header with logo/navigation
+   - `<nav>` - Navigation menu section
+   - `<main>` - Primary content area
+   - `<section>` - Distinct sections (About, Projects, etc.)
+   - `<article>` - Self-contained content blocks
+   - `<aside>` - Sidebar content
+   - `<footer>` - Site footer with contact info
+   - `<div>` - Generic container for layout
+
+3. **Text Content**
+   - `<h1>` to `<h6>` - Heading hierarchy
+   - `<p>` - Paragraphs of text
+   - `<span>` - Inline text styling
+   - `<strong>` - Important text
+   - `<em>` - Emphasized text
+   - `<br>` - Line breaks
+   - `<hr>` - Thematic breaks
+
+4. **Lists and Navigation**
+   - `<ul>` - Unordered lists for menus
+   - `<ol>` - Ordered lists
+   - `<li>` - List items
+   - `<a>` - Hyperlinks to sections/external sites
+
+5. **Media Elements**
+   - `<img>` - Images with alt text
+   - `<video>` - Video content
+   - `<audio>` - Audio content
+   - `<figure>` - Self-contained media
+   - `<figcaption>` - Captions for figures
+   - `<picture>` - Responsive images
+   - `<canvas>` - Dynamic graphics
+
+6. **Forms for Contact**
+   - `<form>` - Contact form container
+   - `<input>` - Text fields
+   - `<textarea>` - Multi-line text input
+   - `<button>` - Submit buttons
+   - `<label>` - Input labels
+
+7. **Tables for Skills/Data**
+   - `<table>` - Table container
+   - `<tr>` - Table rows
+   - `<th>` - Header cells
+   - `<td>` - Data cells
+
+8. **Global Attributes**
+   - `class` - CSS styling hooks
+   - `id` - Unique element identifiers
+   - `style` - Inline CSS
+   - `data-*` - Custom data attributes
+
+- **JavaScript Basics**  
+- **Command-Line Tools (CLI) and Git**  
+
+### Mini-Project: *Personal Portfolio Landing Page*  
+1. **Goal**: Create a simple, single-page personal site showcasing your interests.  
+2. **Key Requirements**:
+   - Use semantic HTML tags.
+   - Basic CSS styling (layout, colors, typography).
+   - At least one Git commit per day while building this.  
+3. **Skills Gained**: Familiarity with core HTML/CSS, practice with CLI & Git workflow, basic JavaScript for interactivity (e.g., a greeting or simple animation).  
+
+---
+
+## **1. Programming Foundations**
+### Topics Covered
+- **Data Types, Variables, Operators**  
+- **Flow Control (Conditionals, Loops)**  
+- **Functions, Scope**  
+- **Intro to Problem-Solving Techniques**  
+
+### Mini-Project: *JavaScript Code Challenges Repo*
+1. **Goal**: Solve a series of short JavaScript coding challenges (e.g., reversing a string, FizzBuzz, prime number checks).  
+2. **Key Requirements**:
+   - Organize solutions in separate `.js` files.
+   - Write a small README explaining your approach for each challenge.
+   - Practice test-driven methods by writing simple tests (using [Jest](https://jestjs.io/) or another simple testing framework).  
+3. **Skills Gained**: Strengthening core JS syntax and problem-solving techniques, introduction to TDD mindset.
+
+---
+
+## **2. The DOM and Advanced CSS**
+### Topics Covered
+- **DOM Manipulation** (querying, traversing, modifying elements)
+- **Events and Event Handling** (click, hover, keyboard events)
+- **Advanced CSS** (flexbox, grid, responsive design)  
+
+### Mini-Project: *Interactive Photo Gallery*
+1. **Goal**: Build a responsive gallery where the user can click thumbnails to view a larger version, along with transitions/animations.
+2. **Key Requirements**:
+   - Use DOM APIs to dynamically display images.
+   - Implement at least one advanced CSS layout (CSS grid or flexbox).
+   - Add an event listener to show/hide or enlarge images with animation.
+3. **Skills Gained**: Deepened DOM manipulation, advanced styling patterns, event-driven programming.
+
+---
+
+## **3. JSON and APIs**
+### Topics Covered
+- **Data Structures using JSON**
+- **Fetching Data from External APIs** (using `fetch` or `axios`)
+- **Asynchronous JavaScript (Promises, `async/await`)**  
+
+### Mini-Project: *Weather Dashboard*
+1. **Goal**: Build a simple web app that fetches and displays weather data for a user‑entered city.
+2. **Key Requirements**:
+   - Use a public weather API (e.g., OpenWeatherMap).
+   - Parse JSON responses; handle success and error states.
+   - Display temperature, humidity, and a brief weather description on screen.
+3. **Skills Gained**: Working with external APIs, parsing JSON, asynchronous JS patterns.
+
+---
+
+## **4. Advanced JavaScript**
+### Topics Covered
+- **Advanced ES6+ Features** (arrow functions, destructuring, spread, rest parameters, classes)
+- **Functional and Object-Oriented Programming in JS**
+- **Closures, Prototypes**  
+ 
+### Mini-Project: *To-Do List with Advanced JS Features*
+1. **Goal**: Extend a classic to-do list application using advanced JavaScript concepts.
+2. **Key Requirements**:
+   - Store tasks in an array, manipulate tasks with OOP or functional patterns.
+   - Use ES6 modules to structure your code in multiple files.
+   - Use classes (or constructor functions and prototypes) for organization.
+3. **Skills Gained**: Mastery of modern JS patterns, code organization, deeper JavaScript internals.
+
+---
+
+## **5. React/Redux**
+### Topics Covered
+- **React Basics** (components, JSX, props, state)
+- **React Hooks** (useState, useEffect, etc.)
+- **Redux for State Management**  
+
+### Mini-Project: *React Movie Search App*
+1. **Goal**: Build a React-based UI that consumes a movie database API (like [OMDb API](http://www.omdbapi.com/)).
+2. **Key Requirements**:
+   - Use Redux or the Redux Toolkit to manage global state (search query, results, favorites).
+   - Separate components (SearchBar, MovieList, MovieDetail, etc.).
+   - Hooks for side effects (fetching data when the search query changes).
+3. **Skills Gained**: Building modular, reusable components; using Redux for predictable state management; practicing side effects with Hooks.
+
+---
+
+## **6. React with Next.js**
+### Topics Covered
+- **Next.js Framework** (file-based routing, SSR/SSG)
+- **Server-Side Rendering vs. Client-Side Rendering**
+- **API routes in Next.js**  
+
+### Mini-Project: *Blog with Next.js*
+1. **Goal**: Create a simple blog platform with posts, a home page, and dynamic routing.
+2. **Key Requirements**:
+   - Leverage Next.js routing (create pages for listing posts, single post pages).
+   - Use `getStaticProps` or `getServerSideProps` for fetching data from a mock API.
+   - Implement basic SEO optimization with Next.js Head component.
+3. **Skills Gained**: Building a React application with Next.js features, understanding SSR/SSG, improved performance/SEO.
+
+---
+
+## **7. Front-End Hackathon**
+### Topics Covered
+- **Collaborative Development** (GitFlow, team communication)
+- **Rapid Prototyping**  
+- **Integration of all front-end skills**  
+
+### Mini-Project: *Team Hackathon Project*
+1. **Goal**: Form a small team and build a unique front-end application in a short time frame (1‑2 days).
+2. **Key Requirements**:
+   - Brainstorm, plan, and design quickly.
+   - Use a shared GitHub repository with pull requests.
+   - Incorporate one new, creative feature (e.g., a new library or an advanced CSS animation).
+3. **Skills Gained**: Working under time constraints, dividing tasks among multiple developers, advanced problem-solving.
+
+---
+
+## **8. Node, Test-Driven Development**
+### Topics Covered
+- **Node.js Fundamentals** (modules, npm, scripts)
+- **TDD in Node** (Mocha/Chai or Jest)
+- **File System, Basic Server Setup**  
+
+### Mini-Project: *Command-Line Note-Taker*
+1. **Goal**: Build a Node CLI app that lets users add, view, and delete notes from the terminal.
+2. **Key Requirements**:
+   - Store notes in a local JSON file.
+   - Test your functions (addNote, deleteNote, listNotes) with a testing framework.
+   - Demonstrate well-organized Node modules.
+3. **Skills Gained**: TDD, writing Node apps for the command line, building modular code with Node’s built-in modules.
+
+---
+
+## **9. Node with Express, Databases**
+### Topics Covered
+- **Express.js** (routes, middleware, error handling)
+- **SQL or NoSQL Databases** (e.g., PostgreSQL or MongoDB)
+- **ORM/ODM (like Sequelize or Mongoose)**  
+
+### Mini-Project: *CRUD API for a Library*
+1. **Goal**: Create a small RESTful API where users can manage a collection of books.
+2. **Key Requirements**:
+   - Implement routes for creating, reading, updating, and deleting book entries.
+   - Persist data in your chosen database (SQL or NoSQL).
+   - Include error handling and logging.
+3. **Skills Gained**: Designing RESTful APIs, using a database with an ORM/ODM, server‑side routing and middleware.
+
+---
+
+## **10. Authentication, Full-Stack Projects**
+### Topics Covered
+- **User Authentication** (JWT, OAuth, or sessions)
+- **Security Best Practices** (password hashing, input validation)
+- **Putting Front-End & Back-End Together**  
+
+### Mini-Project: *User Authentication Starter*
+1. **Goal**: Build a simple full-stack app that registers users, logs them in, and protects certain routes/pages.
+2. **Key Requirements**:
+   - Use a React front-end + Express back-end setup (or Next.js + Express).
+   - Include hashed passwords in the database.
+   - JWT-based or session-based login flow with protected routes.
+3. **Skills Gained**: Security in a full-stack context, bridging front-end & back-end via APIs, session handling.
+
+---
+
+## **11. Group Project & Capstone Kickoff**
+### Topics Covered
+- **Team Collaboration Tools** (Agile, Scrum)
+- **Project Management** (Kanban boards, daily standups)
+- **Planning a Full-Stack Application**  
+
+### Mini-Project: *Group Full-Stack Prototype*
+1. **Goal**: As a team, plan and build a scaled-down version of your eventual Capstone idea.
+2. **Key Requirements**:
+   - Brainstorm features and data models.
+   - Implement core CRUD functionality, basic user flows.
+   - Share tasks among back-end, front-end, and styling.
+3. **Skills Gained**: Designing a larger system, dividing responsibilities, iterative development, merging multiple feature branches.
+
+---
+
+## **12. Individual Capstone**
+### Topics Covered
+- **End-to-End Project Architecture**
+- **Refining Personal Developer Workflow**
+- **Showcasing a Unique Application**  
+
+### Mini-Project: *Personal Capstone MVP*
+1. **Goal**: Build an MVP (Minimum Viable Product) of your final project using all previous knowledge.
+2. **Key Requirements**:
+   - Original idea or a substantial twist on an existing concept.
+   - Full-stack: React (or Next.js) front-end, Node/Express back-end, database for persistence.
+   - Authentication, CRUD, and user-friendly UI/UX.
+3. **Skills Gained**: Deep dive into architecture, planning an entire project from scratch, advanced debugging, time management.
+
+---
+
+## **13. CS Fundamentals, Career Services**
+### Topics Covered
+- **Data Structures & Algorithms** (arrays, linked lists, trees, search/sort)
+- **Big-O Complexity**  
+- **Career Preparation** (resume review, interview prep)  
+
+### Mini-Project: *Algorithmic Challenges & Mock Interviews*
+1. **Goal**: Set up a dedicated code repository to solve at least 1–2 algorithmic problems per day.
+2. **Key Requirements**:
+   - Track solutions with time complexities.
+   - Practice whiteboard or “live coding” simulations.
+   - Keep refining your solutions to be more optimal.
+3. **Skills Gained**: Confidence in coding interviews, clearer algorithmic thinking, data structure mastery.
+
+---
+
+## **14. Career Services Coaching Begins / Final Graduation**
+### Topics Covered
+- **Polishing Your Portfolio & Resume**
+- **Networking & Personal Branding**
+- **Conducting Technical & Behavioral Interviews**  
+
+### Final *Big Project (Capstone Completion)*
+1. **Goal**: Deliver a polished, production-ready version of your Individual Capstone.
+2. **Key Requirements**:
+   - Fully tested front-end and back-end.
+   - Deployment to a cloud provider (Heroku, Vercel, AWS, etc.).
+   - Include a polished README and/or documentation site (with screenshots, usage instructions, technology stack).
+3. **Skills Gained**: Real-world deployment experience, final polish on a showcase project, confidence in presenting your work to employers.
+
+---
+
+# **How to Use This Plan**
+- Move **sequentially** through the modules; each mini-project builds on the previous skills.
+- Keep each mini-project in its own GitHub repository with a clear README.
+- For each project, set clear, measurable goals (e.g., “I will complete the CRUD API for the library project by Wednesday”).
+- Continually **refactor** and **improve** your code—mastery comes from *iterative refinement* as much as from new skills.
+- Treat the **capstone project** as your magnum opus: it should demonstrate the complete stack of technologies, best practices, and personal flair.
+
+By progressing through these mini-projects and culminating in a comprehensive capstone, you’ll achieve deep expertise in modern full-stack development—and graduate with a strong portfolio to show for it. Good luck!

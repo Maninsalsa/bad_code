@@ -1,0 +1,84 @@
+Feature    | Description                                | Syntax Example                      | Key Benefits                | Use Cases
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Types      | Static type annotations                    | let name: string = "John"          | • Catch errors at compile  | • Large codebases
+           | Basic types: string, number, boolean, etc. | const nums: number[] = [1,2,3]     | • Better IDE support       | • Team projects  
+           | Arrays, tuples, enums, any, void, never    | let tuple: [string, number] = ["a",1] | • Self-documenting      | • Complex data structures
+           | Literal types, unknown, undefined, null    | enum Color {Red, Blue, Green}      | • Type safety             | • API contracts
+           |                                            | const lit: "up" | "down" = "up"    |                            |
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Interfaces | Define object shapes and contracts         | interface User {                   | • Code contracts           | • API definitions
+           | Optional and readonly properties           |   name: string;                    | • Type reuse              | • Object validation
+           | Method signatures                          |   age?: number;                    | • Extensible              | • Class templates
+           | Index signatures                           |   readonly id: number;             | • Duck typing             | • Object modeling
+           | Extending interfaces                       |   [key: string]: any;              |                            |
+           |                                            |   greet(): void;                   |                            |
+           |                                            | }                                  |                            |
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Generics   | Type-safe reusable components             | function identity<T>(arg: T): T {  | • Type safety             | • Collections
+           | Generic constraints                        |   return arg;                      | • Code reuse              | • API responses
+           | Generic interfaces and classes             | interface Box<T> {}                | • Flexibility             | • Utilities
+           | Generic type aliases                       | class Container<T extends object>  | • Type inference          | • Factory functions
+           | Generic utility types                      | type Pair<T,U> = [T,U]            |                            |
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Classes    | Enhanced OOP with access modifiers         | class Animal {                     | • Encapsulation           | • Object modeling
+           | public, private, protected                 |   private name: string;            | • Inheritance control     | • Domain entities
+           | readonly, static, abstract                 |   protected age: number;           | • API design              | • Services
+           | Parameter properties                       |   constructor(name: string) {}     | • Polymorphism            | • Framework classes
+           | Getters/setters                           |   get fullName(): string {}        |                            |
+           | Implements and extends                     |   static create(): Animal {}       |                            |
+           |                                            | }                                  |                            |
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Decorators | Metadata annotations for classes           | @Component({                       | • Metadata               | • Framework integration
+           | Method, property, parameter decorators     |   selector: 'app-root'            | • Aspect-oriented        | • Validation
+           | Class decorators                           | })                                 | • Configuration          | • Logging
+           | Decorator factories                        | @log                               | • Cross-cutting concerns | • Dependency injection
+           | Multiple decorators                        | @validate("email")                 |                          | • ORM mappings
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Modules    | Enhanced import/export system              | export interface User {}           | • Code organization      | • Large applications
+           | Default and named exports                  | import { User } from './user'      | • Encapsulation         | • Libraries
+           | Type imports                               | import type { User } from './types' | • Tree shaking          | • Modular code
+           | Export assignments                         | export = User                      | • Namespace support      | • Package design
+           | Re-exports                                 | export * from './types'            |                          | • API modules
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Unions     | Multiple allowed types                     | type Status = "open" | "closed"    | • Flexible typing       | • State management
+Intersect  | Combined types                            | type Admin = User & Privileges     | • Type composition      | • Complex types
+           | Discriminated unions                       | let id: string | number            | • Pattern matching      | • API responses
+           | Type guards                               | type Shape = Square | Circle       | • Type narrowing        | • State machines
+           |                                            | if ("size" in shape) {}            |                         | • Data modeling
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Utility    | Built-in type transformations             | Partial<Type>                      | • Type manipulation     | • Generic programming
+Types      | Readonly, Record, Pick, Omit              | Pick<User, "name" | "email">       | • DRY types            | • Type transformations
+           | Exclude, Extract, NonNullable             | Record<string, number>             | • Type safety          | • API types
+           | ReturnType, Parameters, InstanceType      | Required<PartialUser>              | • Code generation      | • Mapped types
+           | Mapped types                              | keyof User                         |                         | • Type inference
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Inference  | Automatic type detection                   | let x = 3; // number              | • Less verbose code    | • Variable declarations
+           | Contextual typing                          | [1,2,3].map(x => x * 2)           | • Type safety          | • Function returns
+           | Return type inference                      | const getUser = () => ({id: 1})    | • Readability         | • Array methods
+           | Generic type inference                     | Promise.resolve(42)                | • Maintainability      | • Async operations
+           |                                            | let [first, second] = tuple        |                         | • Destructuring
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Namespaces | Logical grouping of code                  | namespace Utils {                  | • Code organization    | • Large libraries
+           | Nested namespaces                         |   export function helper() {}      | • Scope isolation     | • Global utilities
+           | Multi-file namespaces                     |   namespace SubUtils {}            | • Legacy support      | • Internal modules
+           | Namespace aliases                         | }                                  | • Modular design      | • Organizing types
+           |                                            | import util = Utils.SubUtils       |                         | • Global state
+-----------|--------------------------------------------|------------------------------------|----------------------------|----------------------------------
+Assertions | Type conversions and checks               | const len = (str as string).length | • Type narrowing      | • DOM manipulation
+           | Type guards                               | if (typeof x === "string") {}      | • Runtime checks      | • External data
+           | Non-null assertion                        | value!.method()                    | • Null checks         | • Type coercion
+           | Definite assignment                       | let x!: number                     | • Type refinement     | • Framework integration
+           | const assertions                          | let tuple = [1, 2] as const        | • Immutability        | • Type casting
+
+Selection Guide:
+• Use Types for basic type safety and documentation
+• Use Interfaces for object shapes and API contracts
+• Use Generics for reusable, type-safe components
+• Use Classes for object-oriented designs
+• Use Decorators for metadata and framework integration
+• Use Modules for code organization
+• Use Unions/Intersections for complex type combinations
+• Use Utility Types for type transformations
+• Use Type Inference when types are clear from context
+• Use Namespaces for logical grouping (prefer modules)
+• Use Type Assertions sparingly and only when necessary

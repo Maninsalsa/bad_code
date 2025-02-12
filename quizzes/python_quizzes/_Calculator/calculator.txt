@@ -1,0 +1,92 @@
+
+import os
+import sys
+import tty
+import termios
+from calculator import Calculator
+
+def getch():
+    """Get single character input on Mac"""
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+class Calculator:
+    def __init__(self):
+        self.current_input = ""
+        self.stored_number = None
+        self.current_operator = None
+        self.history = []
+
+    def handle_operator(self, operator):
+        if self.current_input:
+            if self.stored_number is None:
+                self.stored_number = float(self.current_input)
+            else:
+                self.calculate()
+            self.current_operator = operator
+            self.current_input = ""
+
+    def calculate(self):
+        if self.stored_number and self.current_input and self.current_operator:
+            num1 = self.stored_number
+            num2 = float(self.current_input)
+            
+            operations = {
+                '+': lambda x, y: x + y,
+                '-': lambda x, y: x - y,
+                '*': lambda x, y: x * y,
+                '/': lambda x, y: x / y if y != 0 else 'Error'
+            }
+            
+            result = operations[self.current_operator](num1, num2)
+            self.history.append(f"{num1} {self.current_operator} {num2} = {result}")
+            self.stored_number = result
+            return result
+
+    def display_screen(self):
+        os.system('clear')  # Mac uses 'clear' instead of 'cls'
+        print("Calculator (press 'q' to quit)")
+        print("=" * 30)
+        
+        # Show history
+        for entry in self.history[-3:]:
+            print(entry)
+        print("=" * 30)
+        
+        # Show current calculation
+        if self.stored_number is not None:
+            print(f"{self.stored_number} {self.current_operator} {self.current_input}")
+        else:
+            print(self.current_input or "0")
+
+
+def main():
+    calc = Calculator()
+    
+    while True:
+        calc.display_screen()
+        char = getch()
+        
+        if char.lower() == 'q':
+            break
+        elif char.isdigit():
+            calc.current_input += char
+        elif char in "+-*/":
+            calc.handle_operator(char)
+        elif char in ['\r', '\n']:  # Enter key
+            if calc.current_input and calc.stored_number and calc.current_operator:
+                calc.calculate()
+                calc.current_input = ""
+        elif char == 'c':  # Clear
+            calc.current_input = ""
+            calc.stored_number = None
+            calc.current_operator = None
+
+if __name__ == "__main__":
+    main()

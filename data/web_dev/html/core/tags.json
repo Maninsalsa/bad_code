@@ -1,0 +1,207 @@
+{
+    "HTML_Tags": {
+        "description": "Core HTML elements used to structure and present web content",
+        "categories": {
+            "Essential": {
+                "description": "Tags necessary for any modern web page",
+                "tags": [
+                    {"name": "html", "description": "Root element of an HTML document", "syntax": "<html></html>"},
+                    {"name": "head", "description": "Container for metadata and document information", "syntax": "<head></head>"},
+                    {"name": "title", "description": "Defines document title shown in browser tab", "syntax": "<title></title>"},
+                    {"name": "meta", "description": "Specifies metadata like character encoding, viewport settings", "syntax": "<meta charset=\"UTF-8\">"},
+                    {"name": "body", "description": "Contains all visible page content", "syntax": "<body></body>"},
+                    {"name": "link", "description": "Links to external resources like stylesheets", "syntax": "<link rel=\"stylesheet\" href=\"\">"},
+                    {"name": "script", "description": "Embeds or references JavaScript code", "syntax": "<script></script>"},
+                    {"name": "style", "description": "Contains CSS styling information", "syntax": "<style></style>"},
+                    {"name": "base", "description": "Specifies base URL for relative URLs", "syntax": "<base href=\"\">"},
+                    {"name": "noscript", "description": "Fallback content when JavaScript is disabled", "syntax": "<noscript></noscript>"},
+                    {"name": "doctype", "description": "Declares document type and version", "syntax": "<!DOCTYPE html>"}
+                ]
+            },
+            "Structural": {
+                "description": "Tags for organizing content structure",
+                "tags": [
+                    {"name": "header", "description": "Introductory content or navigation", "syntax": "<header></header>"},
+                    {"name": "nav", "description": "Navigation links section", "syntax": "<nav></nav>"},
+                    {"name": "main", "description": "Main content of document", "syntax": "<main></main>"},
+                    {"name": "article", "description": "Self-contained content", "syntax": "<article></article>"},
+                    {"name": "section", "description": "Thematic grouping of content", "syntax": "<section></section>"},
+                    {"name": "aside", "description": "Sidebar content", "syntax": "<aside></aside>"},
+                    {"name": "footer", "description": "Footer content", "syntax": "<footer></footer>"},
+                    {"name": "div", "description": "Generic container", "syntax": "<div></div>"},
+                    {"name": "dialog", "description": "Modal or popup dialog box", "syntax": "<dialog></dialog>"},
+                    {"name": "details", "description": "Disclosure widget", "syntax": "<details></details>"},
+                    {"name": "summary", "description": "Summary/heading for details element", "syntax": "<summary></summary>"},
+                    {"name": "address", "description": "Contact information", "syntax": "<address></address>"},
+                    {"name": "hgroup", "description": "Heading group", "syntax": "<hgroup></hgroup>"},
+                    {"name": "template", "description": "Template for reusable content", "syntax": "<template></template>"},
+                    {"name": "slot", "description": "Placeholder for custom content", "syntax": "<slot></slot>"}
+                ]
+            },
+            "Text": {
+                "description": "Tags for text content and formatting",
+                "tags": [
+                    {"name": "h1_to_h6", "description": "Heading levels 1-6", "syntax": "<h1></h1> through <h6></h6>"},
+                    {"name": "p", "description": "Paragraph", "syntax": "<p></p>"},
+                    {"name": "span", "description": "Inline text container", "syntax": "<span></span>"},
+                    {"name": "strong", "description": "Strong importance", "syntax": "<strong></strong>"},
+                    {"name": "em", "description": "Emphasized text", "syntax": "<em></em>"},
+                    {"name": "br", "description": "Line break", "syntax": "<br>"},
+                    {"name": "hr", "description": "Thematic break", "syntax": "<hr>"},
+                    {"name": "blockquote", "description": "Block quotation", "syntax": "<blockquote></blockquote>"},
+                    {"name": "cite", "description": "Citation", "syntax": "<cite></cite>"},
+                    {"name": "code", "description": "Computer code", "syntax": "<code></code>"},
+                    {"name": "pre", "description": "Preformatted text", "syntax": "<pre></pre>"},
+                    {"name": "mark", "description": "Highlighted text", "syntax": "<mark></mark>"},
+                    {"name": "sub", "description": "Subscript text", "syntax": "<sub></sub>"},
+                    {"name": "sup", "description": "Superscript text", "syntax": "<sup></sup>"},
+                    {"name": "time", "description": "Time or date", "syntax": "<time></time>"},
+                    {"name": "abbr", "description": "Abbreviation", "syntax": "<abbr title=\"\"></abbr>"},
+                    {"name": "bdi", "description": "Bidirectional text isolation", "syntax": "<bdi></bdi>"},
+                    {"name": "bdo", "description": "Bidirectional text override", "syntax": "<bdo dir=\"\"></bdo>"},
+                    {"name": "data", "description": "Machine-readable value", "syntax": "<data value=\"\"></data>"},
+                    {"name": "dfn", "description": "Definition term", "syntax": "<dfn></dfn>"},
+                    {"name": "ins", "description": "Inserted text", "syntax": "<ins></ins>"},
+                    {"name": "del", "description": "Deleted text", "syntax": "<del></del>"},
+                    {"name": "kbd", "description": "Keyboard input", "syntax": "<kbd></kbd>"},
+                    {"name": "q", "description": "Short quotation", "syntax": "<q></q>"},
+                    {"name": "ruby", "description": "Ruby annotation", "syntax": "<ruby></ruby>"},
+                    {"name": "rt", "description": "Ruby text", "syntax": "<rt></rt>"},
+                    {"name": "rp", "description": "Ruby parentheses", "syntax": "<rp></rp>"},
+                    {"name": "s", "description": "Strikethrough text", "syntax": "<s></s>"},
+                    {"name": "samp", "description": "Sample output", "syntax": "<samp></samp>"},
+                    {"name": "small", "description": "Small print", "syntax": "<small></small>"},
+                    {"name": "u", "description": "Underlined text", "syntax": "<u></u>"},
+                    {"name": "var", "description": "Variable", "syntax": "<var></var>"},
+                    {"name": "wbr", "description": "Word break opportunity", "syntax": "<wbr>"},
+                    {"name": "b", "description": "Bold text", "syntax": "<b></b>"},
+                    {"name": "i", "description": "Italic text", "syntax": "<i></i>"}
+                ]
+            },
+            "Lists": {
+                "description": "Tags for creating lists",
+                "tags": [
+                    {"name": "ul", "description": "Unordered list", "syntax": "<ul></ul>"},
+                    {"name": "ol", "description": "Ordered list", "syntax": "<ol></ol>"},
+                    {"name": "li", "description": "List item", "syntax": "<li></li>"},
+                    {"name": "dl", "description": "Description list", "syntax": "<dl></dl>"},
+                    {"name": "dt", "description": "Description term", "syntax": "<dt></dt>"},
+                    {"name": "dd", "description": "Description details", "syntax": "<dd></dd>"},
+                    {"name": "menu", "description": "Menu list", "syntax": "<menu></menu>"}
+                ]
+            },
+            "Links_and_Media": {
+                "description": "Tags for external resources and media",
+                "tags": [
+                    {"name": "a", "description": "Hyperlink", "syntax": "<a href=\"\"></a>"},
+                    {"name": "img", "description": "Image", "syntax": "<img src=\"\" alt=\"\">"},
+                    {"name": "video", "description": "Video player", "syntax": "<video></video>"},
+                    {"name": "audio", "description": "Audio player", "syntax": "<audio></audio>"},
+                    {"name": "source", "description": "Media resource", "syntax": "<source src=\"\" type=\"\">"},
+                    {"name": "track", "description": "Text track for media", "syntax": "<track src=\"\" kind=\"\">"},
+                    {"name": "iframe", "description": "Inline frame for external content", "syntax": "<iframe src=\"\"></iframe>"},
+                    {"name": "canvas", "description": "Drawing graphics", "syntax": "<canvas></canvas>"},
+                    {"name": "svg", "description": "Scalable Vector Graphics", "syntax": "<svg></svg>"},
+                    {"name": "picture", "description": "Container for multiple image sources", "syntax": "<picture></picture>"},
+                    {"name": "map", "description": "Image map", "syntax": "<map></map>"},
+                    {"name": "area", "description": "Area in image map", "syntax": "<area shape=\"\" coords=\"\" href=\"\">"},
+                    {"name": "embed", "description": "External content/plugin", "syntax": "<embed src=\"\" type=\"\">"},
+                    {"name": "object", "description": "External resource", "syntax": "<object data=\"\" type=\"\"></object>"},
+                    {"name": "param", "description": "Parameter for object", "syntax": "<param name=\"\" value=\"\">"},
+                    {"name": "portal", "description": "External page preview", "syntax": "<portal src=\"\"></portal>"}
+                ]
+            },
+            "Forms": {
+                "description": "Tags for user input and forms",
+                "tags": [
+                    {"name": "form", "description": "Form container", "syntax": "<form></form>"},
+                    {"name": "input", "description": "Input field", "syntax": "<input type=\"\">"},
+                    {"name": "label", "description": "Label for form control", "syntax": "<label></label>"},
+                    {"name": "button", "description": "Clickable button", "syntax": "<button></button>"},
+                    {"name": "select", "description": "Dropdown list", "syntax": "<select></select>"},
+                    {"name": "option", "description": "Option in select element", "syntax": "<option></option>"},
+                    {"name": "optgroup", "description": "Group of options", "syntax": "<optgroup label=\"\"></optgroup>"},
+                    {"name": "textarea", "description": "Multiline text input", "syntax": "<textarea></textarea>"},
+                    {"name": "fieldset", "description": "Group of form controls", "syntax": "<fieldset></fieldset>"},
+                    {"name": "legend", "description": "Caption for fieldset", "syntax": "<legend></legend>"},
+                    {"name": "datalist", "description": "Predefined options for input", "syntax": "<datalist></datalist>"},
+                    {"name": "output", "description": "Calculation result", "syntax": "<output></output>"},
+                    {"name": "progress", "description": "Progress indicator", "syntax": "<progress></progress>"},
+                    {"name": "meter", "description": "Scalar measurement", "syntax": "<meter></meter>"},
+                    {"name": "keygen", "description": "Key-pair generator", "syntax": "<keygen>"}
+                ]
+            },
+            "Table": {
+                "description": "Tags for creating tables",
+                "tags": [
+                    {"name": "table", "description": "Table container", "syntax": "<table></table>"},
+                    {"name": "thead", "description": "Table header section", "syntax": "<thead></thead>"},
+                    {"name": "tbody", "description": "Table body section", "syntax": "<tbody></tbody>"},
+                    {"name": "tfoot", "description": "Table footer section", "syntax": "<tfoot></tfoot>"},
+                    {"name": "tr", "description": "Table row", "syntax": "<tr></tr>"},
+                    {"name": "th", "description": "Table header cell", "syntax": "<th></th>"},
+                    {"name": "td", "description": "Table data cell", "syntax": "<td></td>"},
+                    {"name": "caption", "description": "Table caption", "syntax": "<caption></caption>"},
+                    {"name": "colgroup", "description": "Group of table columns", "syntax": "<colgroup></colgroup>"},
+                    {"name": "col", "description": "Table column", "syntax": "<col>"}
+                ]
+            },
+            "Interactive": {
+                "description": "Tags for interactive elements",
+                "tags": [
+                    {"name": "details", "description": "Disclosure widget", "syntax": "<details></details>"},
+                    {"name": "summary", "description": "Summary for details element", "syntax": "<summary></summary>"},
+                    {"name": "dialog", "description": "Dialog box or window", "syntax": "<dialog></dialog>"},
+                    {"name": "menu", "description": "Menu list", "syntax": "<menu></menu>"},
+                    {"name": "menuitem", "description": "Menu item", "syntax": "<menuitem></menuitem>"},
+                    {"name": "contenteditable", "description": "Editable content", "syntax": "contenteditable=\"true\""}
+                ]
+            },
+            "Semantic": {
+                "description": "Tags for semantic meaning",
+                "tags": [
+                    {"name": "article", "description": "Independent content", "syntax": "<article></article>"},
+                    {"name": "aside", "description": "Sidebar content", "syntax": "<aside></aside>"},
+                    {"name": "figcaption", "description": "Caption for figure", "syntax": "<figcaption></figcaption>"},
+                    {"name": "figure", "description": "Self-contained content", "syntax": "<figure></figure>"},
+                    {"name": "main", "description": "Main content", "syntax": "<main></main>"},
+                    {"name": "mark", "description": "Highlighted text", "syntax": "<mark></mark>"},
+                    {"name": "nav", "description": "Navigation links", "syntax": "<nav></nav>"},
+                    {"name": "section", "description": "Standalone section", "syntax": "<section></section>"},
+                    {"name": "time", "description": "Date/time", "syntax": "<time></time>"}
+                ]
+            },
+            "Global_Attributes": {
+                "description": "Attributes that can be used on any HTML element",
+                "attributes": [
+                    {"name": "class", "description": "Specifies CSS classes", "syntax": "class=\"classname\""},
+                    {"name": "id", "description": "Unique identifier", "syntax": "id=\"elementid\""},
+                    {"name": "style", "description": "Inline CSS styles", "syntax": "style=\"property: value;\""},
+                    {"name": "title", "description": "Tooltip text", "syntax": "title=\"tooltip\""},
+                    {"name": "lang", "description": "Language code", "syntax": "lang=\"en\""},
+                    {"name": "dir", "description": "Text direction", "syntax": "dir=\"ltr|rtl\""},
+                    {"name": "data-*", "description": "Custom data attributes", "syntax": "data-custom=\"value\""},
+                    {"name": "hidden", "description": "Hide element", "syntax": "hidden"},
+                    {"name": "tabindex", "description": "Tab order", "syntax": "tabindex=\"number\""},
+                    {"name": "accesskey", "description": "Keyboard shortcut", "syntax": "accesskey=\"key\""},
+                    {"name": "contenteditable", "description": "Editable content", "syntax": "contenteditable=\"true|false\""},
+                    {"name": "draggable", "description": "Draggable element", "syntax": "draggable=\"true|false\""},
+                    {"name": "spellcheck", "description": "Spell checking", "syntax": "spellcheck=\"true|false\""},
+                    {"name": "translate", "description": "Translation", "syntax": "translate=\"yes|no\""}
+                ]
+            },
+            "Event_Attributes": {
+                "description": "Event handler attributes for JavaScript",
+                "attributes": [
+                    {"name": "onclick", "description": "Click event", "syntax": "onclick=\"function()\""},
+                    {"name": "onload", "description": "Load event", "syntax": "onload=\"function()\""},
+                    {"name": "onsubmit", "description": "Form submission", "syntax": "onsubmit=\"function()\""},
+                    {"name": "onkeydown", "description": "Key press", "syntax": "onkeydown=\"function()\""},
+                    {"name": "onmouseover", "description": "Mouse hover", "syntax": "onmouseover=\"function()\""},
+                    {"name": "onfocus", "description": "Focus event", "syntax": "onfocus=\"function()\""},
+                    {"name": "onblur", "description": "Blur event", "syntax": "onblur=\"function()\""}
+                ]
+            }
+        }
+    }
+}
