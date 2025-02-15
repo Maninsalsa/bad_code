@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentines Day</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dear-baby">Dear Baby</div>
+    <div id="petal-container"></div>
+    <div id="ground"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffe6e6, #fff0f0);
+}
+
+#petal-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.petal {
+    position: absolute;
+    background-color: #ff5757;
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(45deg);
+    opacity: 0.8;
+}
+
+#ground {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to bottom, #d4a5a5, #9e7777);
+}
+
+.landed-petal {
+    position: absolute;
+    background-color: #ff5757;
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(45deg);
+    opacity: 0.8;
+    transition: transform 0.5s ease;
+}
+
+.paper {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 87, 87, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 87, 87, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 87, 87, 0.5);
+    }
+}
+
+.paper:hover {
+    transform: scale(1.1);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.card-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 0%;  /* Start at 0 width */
+    height: 70vh;  /* Fixed height relative to viewport */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    transform-origin: left center;
+    animation: openCard 0.75s ease-out forwards;
+}
+
+@keyframes openCard {
+    0% {
+        width: 0%;
+        transform: scale(0.5);
+    }
+    66% {
+        width: 69%;
+        transform: scale(0.5);
+    }
+    100% {
+        width: 70%;
+        transform: scale(1);
+    }
+}
+
+.card-content {
+    opacity: 0;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 0.25s ease-out 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hide the initial Dear Baby text that's directly in the body */
+body > .dear-baby {
+    display: none;  /* This hides the initial text */
+}
+
+/* Style for the Dear Baby text inside the paper */
+.paper .dear-baby {
+    position: absolute;
+    font-size: 1rem;
+    font-family: 'Brush Script MT', cursive;
+    color: #000;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.play-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+}
+
+.play-triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid #ff5757;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    margin-left: 8px; /* Offset to center the triangle visually */
+}
+
+class Petal {
+    constructor(manager) {
+        // Store reference to the PetalManager instance for coordination
+        this.manager = manager;
+        
+        // Create petal DOM element
+        this.element = document.createElement('div');
+        this.element.className = 'petal';
+        
+        // Initialize position, size, rotation and movement properties
+        this.reset();
+        
+        // Apply initial visual styles
+        this.applyStyles();
+        
+        // Add petal to the container
+        document.getElementById('petal-container').appendChild(this.element);
+        
+        // Begin falling animation
+        this.fall();
+    }
+
+    applyStyles() {
+        // Set visual properties of the petal element
+        Object.assign(this.element.style, {
+            width: this.size + 'px',
+            height: this.size + 'px',
+            transform: `translate(${this.x}px, ${this.y}px) rotate(${this.rotation}deg)`,
+            position: 'absolute',
+            backgroundColor: '#ff5757',
+            borderRadius: '50% 0 50% 50%',
+            opacity: '0.8'
+        });
+    }
+
+    reset() {
+        // Randomize petal properties
+        this.size = Math.random() * 15 + 10;  // Size between 10-25px
+        this.x = Math.random() * window.innerWidth;  // Random horizontal position
+        this.y = -this.size;  // Start above viewport
+        this.rotation = Math.random() * 360;  // Random rotation
+        this.speed = Math.random() * 2 + 1;  // Vertical fall speed
+        this.wobble = Math.random() * 2 - 1;  // Horizontal drift
+    }
+
+    fall() {
+        const animate = () => {
+            // Remove petal if window is being resized
+            if (this.manager.isResizing) {
+                this.element.remove();
+                this.manager.removePetal(this);
+                return;
+            }
+
+            // Update position and rotation
+            this.y += this.speed;
+            this.x += this.wobble;
+            this.rotation += this.wobble;
+
+            // Apply new transform
+            this.element.style.transform = 
+                `translate(${this.x}px, ${this.y}px) rotate(${this.rotation}deg)`;
+
+            const groundY = window.innerHeight * 0.9;  // Ground position at 90% of viewport height
+            
+            // Remove if fallen too far
+            if (this.y > groundY + 100) {
+                this.element.remove();
+                this.manager.removePetal(this);
+                return;
+            }
+
+            // Land if reached ground
+            if (this.y > groundY) {
+                this.land(groundY);
+                return;
+            }
+
+            // Continue animation
+            requestAnimationFrame(animate);
+        };
+
+        requestAnimationFrame(animate);
+    }
+
+    land(groundY) {
+        // Skip landing if resizing
+        if (this.manager.isResizing) {
+            this.element.remove();
+            this.manager.removePetal(this);
+            return;
+        }
+
+        // Remove falling petal
+        this.element.remove();
+        this.manager.removePetal(this);
+        
+        // Create landed petal element with new styles
+        const landedPetal = document.createElement('div');
+        const landedStyles = {
+            className: 'landed-petal',
+            width: this.size + 'px',
+            height: this.size + 'px',
+            left: this.x + 'px',
+            bottom: Math.random() * (window.innerHeight * 0.1) + 'px',  // Random position on ground
+            transform: `rotate(${Math.random() * 360}deg)`  // Random final rotation
+        };
+
+        // Apply styles to landed petal
+        Object.assign(landedPetal, {
+            className: landedStyles.className
+        });
+        Object.assign(landedPetal.style, {
+            width: landedStyles.width,
+            height: landedStyles.height,
+            left: landedStyles.left,
+            bottom: landedStyles.bottom,
+            transform: landedStyles.transform
+        });
+
+        // Add landed petal and set up fade out
+        if (!this.manager.isResizing) {
+            document.getElementById('ground').appendChild(landedPetal);
+            
+            // Fade out and remove after delay
+            setTimeout(() => {
+                if (!this.manager.isResizing) {
+                    landedPetal.style.opacity = '0';
+                    setTimeout(() => landedPetal.remove(), 1000);
+                }
+            }, 2000);
+
+            // Create new falling petal to maintain count
+            this.manager.addPetal();
+        }
+    }
+}
+
+class PetalManager {
+    constructor() {
+        // Clear any existing state on page load
+        this.clearState();
+        
+        this.activePetals = new Set();
+        this.petalCount = 20;
+        this.isResizing = false;
+        this.hasStarted = false;
+        this.setupResizeHandler();
+        this.paper = null;
+        this.createPlayButton();
+    }
+
+    clearState() {
+        // Clear any existing elements from previous sessions
+        const existingOverlay = document.querySelector('.play-overlay');
+        if (existingOverlay) existingOverlay.remove();
+        
+        const existingPetals = document.getElementById('petal-container');
+        if (existingPetals) existingPetals.innerHTML = '';
+        
+        const existingGround = document.getElementById('ground');
+        if (existingGround) existingGround.innerHTML = '';
+        
+        // Stop any existing audio
+        const existingPaper = document.querySelector('.paper');
+        if (existingPaper) {
+            existingPaper.remove();
+        }
+    }
+
+    createPlayButton() {
+        const overlay = document.createElement('div');
+        overlay.className = 'play-overlay';
+        
+        const button = document.createElement('div');
+        button.className = 'play-button';
+        
+        const triangle = document.createElement('div');
+        triangle.className = 'play-triangle';
+        
+        button.appendChild(triangle);
+        overlay.appendChild(button);
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener('click', () => {
+            if (!this.hasStarted) { // Only start if not already started
+                this.hasStarted = true;
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.remove();
+                    this.createPetals(this.petalCount);
+                    setTimeout(() => {
+                        if (!this.paper && !this.isResizing) {
+                            this.paper = new Paper(this);
+                        }
+                    }, 500);
+                }, 300);
+            }
+        });
+    }
+
+    addPetal() {
+        // Create and track new petal
+        const petal = new Petal(this);
+        this.activePetals.add(petal);
+        return petal;
+    }
+
+    removePetal(petal) {
+        // Remove petal from tracking
+        this.activePetals.delete(petal);
+    }
+
+    clearAllPetals() {
+        // Remove all petals during resize
+        this.activePetals.forEach(petal => {
+            if (petal.element) {
+                petal.element.remove();
+            }
+        });
+        this.activePetals.clear();
+
+        // Clear landed petals
+        const ground = document.getElementById('ground');
+        ground.innerHTML = '';
+
+        if (this.paper) {
+            this.paper.destroy();
+            this.paper = null;
+        }
+    }
+
+    setupResizeHandler() {
+        let resizeTimeout;
+        
+        window.addEventListener('resize', () => {
+            if (!this.hasStarted) return; // Don't handle resize if animation hasn't started
+            
+            clearTimeout(resizeTimeout);
+            
+            if (!this.isResizing) {
+                this.isResizing = true;
+                this.clearAllPetals();
+            }
+            
+            resizeTimeout = setTimeout(() => {
+                this.isResizing = false;
+                this.createPetals(this.petalCount);
+            }, 250);
+        });
+    }
+
+    createPetals(count) {
+        // Gradually create new petals using animation frames
+        let created = 0;
+        const create = () => {
+            if (!this.isResizing && created < count) {
+                this.addPetal();
+                created++;
+                requestAnimationFrame(create);
+            }
+        };
+        requestAnimationFrame(create);
+
+        // Add paper after delay
+        setTimeout(() => {
+            if (!this.paper && !this.isResizing) {
+                this.paper = new Paper(this);
+            }
+        }, 500); // Half second delay before paper
+    }
+}
+
+// Initialize only the PetalManager (it will handle everything else)
+const petalManager = new PetalManager();
+
+class Paper {
+    constructor(manager) {
+        this.manager = manager;
+        this.element = document.createElement('div');
+        this.element.className = 'paper';
+        
+        // Initialize audio
+        this.audio = new Audio('TMWYHI.mp3');
+        this.audio.loop = true;
+        this.audio.volume = 0.5;
+        
+        this.element.style.zIndex = '1';
+        
+        this.reset();
+        
+        document.getElementById('petal-container').appendChild(this.element);
+        
+        const text = document.createElement('div');
+        text.className = 'dear-baby';
+        text.textContent = 'Dear Baby';
+        this.element.appendChild(text);
+        
+        const oldText = document.querySelector('body > .dear-baby');
+        if (oldText) {
+            oldText.remove();
+        }
+
+        // Start falling and playing music immediately
+        this.fall();
+        this.audio.play().catch(error => {
+            console.log('Audio playback error:', error);
+        });
+    }
+
+    reset() {
+        // Clear audio state
+        this.clearAudio();
+        
+        this.x = window.innerWidth / 2;
+        this.y = -100;
+        this.rotation = 0;
+        
+        // Calculate the total distance to travel
+        const groundY = window.innerHeight * 0.9;  // Ground position
+        const totalDistance = groundY + 100;  // Distance from start (-100) to ground
+        
+        // Calculate pixels per frame for exact 11 second duration
+        const durationInSeconds = 11;
+        const framesPerSecond = 60;
+        const totalFrames = durationInSeconds * framesPerSecond;
+        
+        // Speed = total distance / total frames
+        this.speed = totalDistance / totalFrames;
+        
+        this.wobble = Math.random() * 0.5 - 0.25;
+        this.updatePosition();
+    }
+
+    updatePosition() {
+        this.element.style.transform = 
+            `translate(${this.x}px, ${this.y}px) rotate(${this.rotation}deg)`;
+    }
+
+    clearAudio() {
+        if (this.audio) {
+            this.audio.pause();
+            this.audio.currentTime = 0;
+        }
+    }
+
+    fall() {
+        const animate = () => {
+            if (this.manager.isResizing) {
+                this.clearAudio();
+                this.reset();
+                return;
+            }
+
+            this.y += this.speed;
+            this.x += this.wobble;
+            this.rotation += this.wobble;
+
+            this.updatePosition();
+
+            const groundY = window.innerHeight * 0.9;
+            
+            if (this.y > groundY) {
+                this.land(groundY);
+                return;
+            }
+
+            requestAnimationFrame(animate);
+        };
+
+        requestAnimationFrame(animate);
+    }
+
+    land(groundY) {
+        this.hasLanded = true;
+        this.y = groundY - 40;
+        this.updatePosition();
+        // Paper remains clickable after landing
+    }
+
+    // Add a method to handle cleanup
+    destroy() {
+        this.clearAudio();
+        if (this.element) {
+            this.element.remove();
+        }
+    }
+}

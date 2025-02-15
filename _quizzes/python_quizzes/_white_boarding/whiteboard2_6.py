@@ -143,6 +143,41 @@ Problem: Design a system that checks if a password is valid by:
 Outline the validation steps and feedback system.
 """
 
+# def is_password_valid(str) -> str:
+    # Each condition should be flagged
+
+    # minimum length is >= 8
+    # at least one upper case? set to False
+    # has one number? set to False
+    # Has one symbol? set to False
+
+    # Iterate over the string once and update the boolean values first
+    # Booleans first because length of list(booleans) < password length guaranteed
+
+  
+    # the minimum amount of needed characters
+        # if char.upper():
+        #     set at least one upper case to True
+        # if char.isdigit():
+        #     set the one number flag to True
+        # if not char.isalnum(): # combo .isalnum() with not
+        #     set symbols flag to True
+
+        # after each char is evaluated, exit early and proceed to all flags check
+
+        # if length, and all booleans are true:
+            # return True
+        # else: 
+            # return False
+        
+
+# methods, functions, combos:
+    # .isallnum(), "not" operator 
+        # .isallnum() checks that the iterable only contains numbers and letters, using not will confirm symbols
+    # any()
+
+
+
 """
 4. **Temperature Converter**
 Problem: Create a temperature conversion tool that:

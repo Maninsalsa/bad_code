@@ -1,0 +1,25 @@
+
+
+Yes! There are a couple of relevant terms:
+
+```markdown:README.md
+2. State Management & Event Protection:
+   - Added "event isolation" to prevent unwanted triggers
+   - Implemented "state guarding" via hasStarted flag
+   - Added "resize debouncing" to prevent multiple resize events
+   - Protected animation state from developer tools interaction
+
+Key Terms:
+- Event Isolation: Ensuring events only trigger under specific conditions
+- State Guarding: Using flags (like hasStarted) to protect state changes
+- Debouncing: Limiting how often an event can trigger (used in resize handler)
+- Event Propagation Control: Controlling when and how events are handled
+- singleton pattern
+- flags
+
+The most common technical terms for what we implemented are:
+1. "Event Isolation" - Making sure events only happen when we want them to
+2. "State Guarding" - Using flags to protect state changes
+3. "Debouncing" - For the resize handler specifically
+
+These are important patterns in web development for creating robust applications that maintain their state integrity regardless of user or developer interactions.

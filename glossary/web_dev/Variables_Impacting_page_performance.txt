@@ -1,0 +1,137 @@
+Performance Analysis:
+   ├── Initial Load Phase
+   │   ├── DNS & TCP (TTFB Focus)
+   │   │   ├── "Use a CDN to ensure content is distributed globally for faster access"
+   │   │   ├── "Implement proper DNS caching and resolution strategies" 
+   │   │   ├── "Monitor DNS lookup times and optimize if needed"
+   │   │   └── "Consider server location relative to users"
+   │   └── Server Response
+   │       ├── "Turn on gzip compression to send HTML/CSS/JS as compressed streams"
+   │       ├── "Add Cloudflare as a CDN and security layer"
+   │       ├── "Optimize server-side processing and database queries"
+   │       ├── "Profile server response times to identify bottlenecks"
+   │       └── "Ensure adequate server resources (RAM/CPU)"
+   │
+   ├── Critical Path Phase
+   │   ├── HTML/CSS Optimization
+   │   │   ├── "Inline critical CSS directly in HTML for faster rendering"
+   │   │   ├── "Add preload/prefetch tags in document head for key resources"
+   │   │   ├── "Pre-load resources on hover for faster page transitions"
+   │   │   ├── "Use tools to identify and inline critical CSS automatically"
+   │   │   └── "Minimize render-blocking resources"
+   │   └── Font Strategy  
+   │       ├── "Use variable fonts only when multiple variations needed (6-7 weights)"
+   │       ├── "Load only required font characters (e.g. 'OK' vs full font saves ~6x size)"
+   │       ├── "Default to system fonts when custom fonts unnecessary for basic sites"
+   │       ├── "Use static fonts for single weights as variable fonts are larger"
+   │       ├── "Consider font-display settings to prevent FOUT/FOIT"
+   │       └── "Evaluate font fallback strategies"
+   │
+   ├── Resource Loading Phase
+   │   ├── Image Optimization
+   │   │   ├── "Utilize Cloudinary/similar for automatic image optimization and format selection"
+   │   │   ├── "Use imagebot extension to optimize images in git repos"
+   │   │   ├── "Implement responsive images with appropriate sizes"
+   │   │   ├── "Use SVG sprite sheets with symbols for icons"
+   │   │   ├── "Set width/height on images to prevent layout shifts"
+   │   │   ├── "Use aspect-ratio CSS property for responsive images"
+   │   │   └── "Lazy load images below the fold"
+   │   └── Script Management
+   │       ├── "Leverage built-in browser APIs before adding libraries"
+   │       ├── "Use tree-shakeable packages over bundled libraries"
+   │       ├── "Choose focused packages over monolithic ones, like Lodash"
+   │       ├── "Split code into smaller chunks for better caching"
+   │       └── "Avoid loading unnecessary JavaScript"
+   │
+   ├── Interactive Phase
+   │   ├── Performance Monitoring
+   │   │   ├── "Use Network tab to analyze resource timing/size"
+   │   │   ├── "Profile site interactions in Performance tab"
+   │   │   ├── "Use waterfall view to identify request chains"
+   │   │   └── "Monitor Web Vitals:"
+   │   │       ├── "LCP (Largest Contentful Paint) - largest content load time"
+   │   │       ├── "INP (Interaction to Next Paint) - interaction responsiveness"
+   │   │       ├── "CLS (Cumulative Layout Shift) - prevent content jumps"
+   │   │       ├── "FCP (First Contentful Paint) - initial content display"
+   │   │       └── "TTFB (Time to First Byte) - server response time"
+   │   └── Caching Strategy
+   │       ├── "Implement browser caching via headers"
+   │       ├── "Use Redis/similar for server-side caching"
+   │       ├── "Cache transformed assets (e.g. resized images)"
+   │       ├── "Set appropriate cache durations per resource type"
+   │       └── "Implement service worker caching where appropriate"
+   │
+   └── Complete Phase
+       ├── Streaming Optimization
+       │   ├── "Enable streaming to prevent blocking"
+       │   ├── "Use React suspense for progressive loading"
+       │   ├── "Stream content as it becomes available"
+       │   ├── "Implement partial hydration where possible"
+       │   └── "Consider server components for optimal delivery"
+       └── Waterfall Prevention
+           ├── "Avoid cascading resource dependencies"
+           ├── "Prevent render-blocking resource chains"
+           ├── "Optimize request order and dependencies"
+           ├── "Use HTTP/2 multiplexing effectively"
+           └── "Minimize database waterfall queries"
+// Performance-Related Keywords and Definitions
+
+// Font-Related Terms
+FOUT: "Flash of Unstyled Text" - When browser shows fallback font before custom font loads
+FOIT: "Flash of Invisible Text" - When browser hides text until custom font loads
+font-display: CSS property controlling how fonts are loaded and displayed
+font fallback: Backup fonts used while custom fonts load
+variable fonts: Single font file containing multiple variations
+
+// Image Terms
+Cloudinary: Cloud service for image optimization and transformation
+imagebot: Extension that automatically optimizes images in git repositories
+responsive images: Images that adapt size/resolution based on viewport
+SVG sprite sheets: Combined SVG icons in single file for efficiency
+aspect-ratio: CSS property maintaining image proportions
+lazy loading: Deferring image load until needed in viewport
+width/height attributes: Prevent layout shifts during image load
+nucleus: App for generating SVG sprite sheets
+
+// JavaScript Terms
+tree-shaking: Removing unused code during bundling
+monolithic: Large, all-in-one library/framework
+code splitting: Breaking code into smaller loadable chunks
+hydration: Process of attaching JS functionality to server-rendered HTML
+preload: Hint to browser to load critical resources early
+prefetch: Loading resources that may be needed later
+hover preloading: Loading resources when user hovers related element
+
+// Performance Metrics
+LCP: "Largest Contentful Paint" - Time until largest content element loads
+INP: "Interaction to Next Paint" - Responsiveness to user interaction
+CLS: "Cumulative Layout Shift" - Visual stability measurement
+FCP: "First Contentful Paint" - Time until first content appears
+TTFB: "Time to First Byte" - Initial server response time
+
+// Caching Terms
+Redis: In-memory data store used for server caching
+service worker: Script enabling offline functionality/caching
+HTTP/2 multiplexing: Allowing multiple requests over single connection
+browser caching: Client-side storage of resources
+server-side caching: Storing data/responses on server
+local storage: Browser-based key-value storage
+cookies: Small data files stored by browser
+IndexedDB: Browser database for structured data
+CDN: Content Delivery Network for distributed caching
+gzip: Compression method for transferred data
+Cloudflare: CDN and security service provider
+
+// Streaming Terms
+progressive loading: Loading content in stages for better UX
+suspense: React feature for handling async data loading
+server components: React components rendered on server
+partial hydration: Selectively adding interactivity to static content
+streaming: Sending content progressively as it's available
+
+// Database Terms
+waterfall queries: Sequential dependent database queries
+cascading dependencies: Chain of dependent resource loads
+render-blocking: Resources preventing page render until loaded
+database indexing: Optimizing data retrieval speed
+query performance: Efficiency of database operations

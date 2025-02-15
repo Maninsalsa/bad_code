@@ -1,0 +1,85 @@
+<!-- Declares modern HTML5 document -->
+<!DOCTYPE html>
+<!-- - Container for metadata and resources -->
+<head>
+    <!-- Defines metadata like character encoding and viewport settings -->
+    <meta charset="UTF-8"> <!--character encoding-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--ensures layout on mobile browsers-->
+    <meta name="description" content="A brief description of the page content."><!--SEO-->
+    <meta name="keywords" content="keyword1, keyword2, keyword3"> <!--SEO-->
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow"> <!--SEO-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Your Page Title">
+    <meta property="og:description" content="A brief description of the page content.">
+    <meta property="og:image" content="URL to image">
+    <meta property="og:url" content="URL of the page">
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your Page Title">
+    <meta name="twitter:description" content="A brief description of the page content.">
+    <meta name="twitter:image" content="URL to image">
+    <title>Your Page Title</title> <!--SEO-->
+    <script src="path/to/your/script1.js" defer></script>
+    <script src="path/to/your/script2.js" defer></script>
+    <link rel="canonical" href="https://www.example.com/canonical-page"> <!--SEO-->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: blue;
+        }
+    </style>
+    <script>
+        // Head scripts run before page loads
+        console.log("Head script running");
+    </script>
+</head>
+<html lang="en"> <!--- Root element containing all content in the web page, lang=can be set to most languages -->
+    <body><!-- the body -->
+        <script>
+            // Early body scripts run as soon as body starts parsing
+            console.log("Early body script running");
+        </script>
+        
+        <div class="header">
+            <h1>Website Title</h1>
+        </div>
+        <div class="content">
+            <p>This is the main content area.</p>
+        </div>
+        <div class="footer">
+            <p>Footer information here.</p>
+        </div>
+        
+        <div>
+            <h1>Main Heading</h1>
+            <p>This is a paragraph under the main heading.</p>
+            <div>
+                <h2>Subheading</h2>
+                <p>This is a paragraph under the subheading.</p>
+                <div>
+                    <h3>Nested Subheading</h3>
+                    <p>This is a paragraph under the nested subheading.</p>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <h1>Welcome</h1>
+        <p>This is a paragraph with inline styles.</p>
+        
+        <script>
+            // Scripts at end of body script run after page loads
+            console.log("End of body script running");
+        </script>
+    </body>
+</html>
