@@ -1,43 +1,30 @@
-# bad_code
+# welcome to bad_code
 
-bad until good programming practices + fundamentals documentation
+A repository dedicated to improving programming skills through structured learning,
+practice problems, and comprehensive documentation of programming concepts.
 
+## Overview
 
-# Programming Fundamentals Library
-
-A comprehensive library for programming fundamentals. Information is organized in JSON, TXT, and MD file formats. All executables are located in the quizzes folder. The goal is to provide a helpful resource for self-taught programmers.
+This repository serves as a study aid for self-taught engineers. 
 
 ## Repository Structure
 
-### Data/
-Contains notes and documentation on programming languages and frameworks.
+### _projects/
+Contains personal projects designed to maintain fundamental programming skills 
 
-#### General Notes/
-- Software Infrastructure
-- Debugging Techniques
-- Algorithm Analysis
-- Memory Optimization
+### study_notes/
+Contains detailed notes on:
+- Programming concepts and best practices
+- Language syntax and features
+- Git/GitHub workflows
+- Development environment setup
 
-#### Language-Specific/
-Each language section includes:
+### _quizzes/
+Practice problems and exercises including:
+- Python fundamentals and advanced concepts
+- Data structures and algorithms
+- Input/output handling
+- Performance optimization
+- LeetCode problem solutions
 
-##### Core/
-- Computer Science Fundamentals
-- Key Language Concepts
-
-##### Modules/
-- Framework Documentation
-- Integration Examples
-
-##### Architecture/
-- Namespace Management
-- Scope Rules
-- Design Patterns
-
-### Quizzes/
-Current focus areas:
-- Python Exercises
-- C Programming
-- Cython Performance
-
-*Note: Repository structure is under active development*
+*Note: This repository is actively maintained and updated as learning progresses*
