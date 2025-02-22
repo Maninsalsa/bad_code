@@ -1,0 +1,147 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here's a comprehensive list of essential Git commands:
+
+### Basic Commands
+```bash
+# Initialize a new Git repository
+git init
+
+# Clone an existing repository
+git clone <repository-url>
+
+# Check the status of your working directory
+git status
+
+# View commit history
+git log
+```
+
+### Branching
+```bash
+# Create a new branch
+git branch <branch-name>
+
+# Switch to a branch
+git checkout <branch-name>
+
+# Create and switch to a new branch
+git checkout -b <branch-name>
+
+# List all branches
+git branch
+
+# Delete a branch
+git branch -d <branch-name>
+```
+
+### Forking and Merging
+```bash
+# Fork a repository (done on GitHub, not via command line)
+
+# Merge a branch into the current branch
+git merge <branch-name>
+
+# Rebase current branch onto another branch
+git rebase <branch-name>
+```
+
+### Undoing Changes
+```bash
+# Undo the last commit (keep changes)
+git reset --soft HEAD~1
+
+# Undo the last commit (discard changes)
+git reset --hard HEAD~1
+
+# Unstage files from the index
+git reset <file>
+
+# Unstage all files
+git reset
+
+# Revert a specific commit
+git revert <commit-hash>
+```
+
+### Handling Conflicts
+```bash
+# After resolving conflicts, mark as resolved
+git add <file>
+git commit -m "Resolve merge conflict"
+
+# Abort a merge
+git merge --abort
+
+# Abort a rebase
+git rebase --abort
+```
+
+### Stashing
+```bash
+# Stash changes
+git stash
+
+# List stashes
+git stash list
+
+# Apply the most recent stash
+git stash apply
+
+# Apply and drop the most recent stash
+git stash pop
+
+# Drop a specific stash
+git stash drop <stash@{n}>
+```
+
+### Remote Repositories
+```bash
+# Add a remote repository
+git remote add <name> <url>
+
+# List remote repositories
+git remote -v
+
+# Fetch changes from a remote
+git fetch <remote>
+
+# Pull changes from a remote
+git pull <remote> <branch>
+
+# Push changes to a remote
+git push <remote> <branch>
+```
+
+### Tags
+```bash
+# Create a tag
+git tag <tag-name>
+
+# List tags
+git tag
+
+# Push tags to remote
+git push <remote> --tags
+```
+
+Would you like me to:
+1. Explain any command in detail?
+2. Provide examples of specific workflows?
+3. Help with a specific Git scenario?
