@@ -124,3 +124,64 @@ git tag
 git push <remote> --tags
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To merge the current branch into the `main` branch, follow these steps:
+
+1. **Switch to the `main` Branch:**
+```bash
+git checkout main
+```
+
+2. **Merge the Current Branch into `main`:**
+```bash
+git merge <current-branch-name>
+```
+
+**Example Workflow:**
+```bash
+# Assume you're on 'feature-branch'
+# 1. Switch to 'main'
+git checkout main
+
+# 2. Merge 'feature-branch' into 'main'
+git merge feature-branch
+```
+
+**Handling Merge Conflicts:**
+- If there are conflicts, Git will notify you.
+- Open the conflicting files, resolve the conflicts, and then:
+```bash
+git add <file-with-conflict>
+git commit -m "Resolve merge conflict"
+```
+
+**Push Changes to Remote:**
+```bash
+git push origin main
+```
+
+**Pro Tip:**
+- Always ensure your `main` branch is up-to-date before merging:
+```bash
+git pull origin main
+```
+
+Would you like more details on:
+1. Resolving merge conflicts?
+2. Best practices for merging?
+3. Using rebase instead of merge?
