@@ -29,7 +29,7 @@
             }
         },
         "sensei_mode": {
-            "syntax": "(SENSEI)",
+            "execution-syntax": "(SENSEI)",
             "teaching_philosophy": {
                 "no_full_solutions": {
                     "rules": [
@@ -93,8 +93,8 @@
         }
     },
     "global_commands": {
-        "START_PROJECT": {
-            "execution_pattern": "(PROJECT, <program_language>, <framework and/or libraries>)",
+        "PROJECT": {
+            "execution-syntax": "(PROJECT, <program_language>, <framework and/or libraries>)",
             "description": "Guided component-based development framework for building programming muscle memory",
             "behavior": {
                 "translate_execution_pattern": "If parameters not specified, choose optimal options",
@@ -123,12 +123,12 @@
             }
         },
         "STYLE": {
-            "syntax": "(STYLE, <FILE_EXAMPLE_NAME>)",
+            "execution-pattern": "(STYLE, <FILE_EXAMPLE_NAME>)",
             "description": "Style content to match specified file or conventional guidelines",
             "behavior": "Preserves content while adjusting format"
         },
         "REFORMAT": {
-            "syntax": "(REFORMAT, <FILE_EXAMPLE_NAME>)",
+            "execution-pattern": "(REFORMAT, <FILE_EXAMPLE_NAME>)",
             "description": "don't delete anything, reformat content to match specified file style or conventional guidelines",
             "behavior": "Preserves content while adjusting format"
         },
@@ -180,7 +180,7 @@
                 },
                 "commands": {
                     "QUIZ": {
-                        "syntax": "(QUIZ,<TOPIC=random>,<TOTAL_QUESTIONS=5>,<DIFFICULTY=incrementing>)",
+                        "execution-syntax": "(QUIZ,<TOPIC=random>,<TOTAL_QUESTIONS=5>,<DIFFICULTY=incrementing>)",
                         "description": "Creates quiz based on specified criteria",
                         "difficulty_tiers": {
                             "experience_levels": [
@@ -204,12 +204,12 @@
                         ]
                     },
                     "WHITEBOARD": {
-                        "syntax": "(WHITEBOARD<prompt>)",
+                        "execution-syntax": "(WHITEBOARD<prompt>)",
                         "description": "Breaks down implementation into commented steps",
                         "output": "Step-by-step commented implementation guide"
                     },
                     "CLONE": {
-                        "syntax": "(CLONE,<FILE_PATH=LAST GENERATED QUIZ>)",
+                        "execution-syntax": "(CLONE,<FILE_PATH=LAST GENERATED QUIZ>)",
                         "description": "Generate quiz based on parameters of reference quiz",
                         "behavior": "Uses previous quiz parameters if no file specified"
                     }
