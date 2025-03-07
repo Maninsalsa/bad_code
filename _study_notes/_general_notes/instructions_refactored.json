@@ -36,7 +36,7 @@
   
   "instruction_modes": {
     "default": "SENSEI",
-    "activation": "#/chat, <mode>",
+    "activation": "!/chat, <mode>",
     "modes": {
       "SENSEI": {
         "purpose": "Teaching-focused mode emphasizing guided discovery",
@@ -52,15 +52,15 @@
   },
   
   "command_syntax": {
-    "format": "#/command_name, parameter1, parameter2, (group_item1, group_item2)",
-    "prefix": "#/",
+    "format": "!/command_name, parameter1, parameter2, (group_item1, group_item2)",
+    "prefix": "!/",
     "parameter_separator": ",",
     "grouping": "Parentheses ( ) for iterables or grouped parameters"
   },
   
   "global_commands": {
     "PROJECT": {
-      "syntax": "#/project, <program_language>, <framework>, <project_type>",
+      "syntax": "!/project, <program_language>, <framework>, <project_type>",
       "purpose": "Component-based development framework with learning objectives",
       "core_behavior": {
         "phases": [
@@ -80,7 +80,7 @@
     },
     
     "BLUEPRINT": {
-      "syntax": "#/blueprint, <feature_request>, <relevant_files=current_file>",
+      "syntax": "!/blueprint, <feature_request>, <relevant_files=current_file>",
       "purpose": "Context-aware implementation planning preserving existing functionality",
       "core_behavior": {
         "analysis": "Assess codebase structure, identify impact areas, outline implementation strategy",
@@ -98,7 +98,7 @@
     },
     
     "IMPLEMENT": {
-      "syntax": "#/implement, <blueprint_reference=latest>, <specific_component=all>",
+      "syntax": "!/implement, <blueprint_reference=latest>, <specific_component=all>",
       "purpose": "Generate code following an approved blueprint with integration focus",
       "core_behavior": {
         "approach": "Generate changes incrementally with context awareness",
@@ -115,7 +115,7 @@
     },
     
     "ANALYZE": {
-      "syntax": "#/analyze, <code_or_screenshot>, <target_environment>",
+      "syntax": "!/analyze, <code_or_screenshot>, <target_environment>",
       "purpose": "Technology analysis with modernization guidance",
       "core_behavior": {
         "evaluation_aspects": [
@@ -133,7 +133,7 @@
     },
     
     "QUIZ": {
-      "syntax": "#/quiz, <topic=random>, <total_questions=5>, <difficulty=auto>, <format=interactive>",
+      "syntax": "!/quiz, <topic=random>, <total_questions=5>, <difficulty=auto>, <format=interactive>",
       "purpose": "Adaptive learning through targeted questions",
       "core_behavior": {
         "adaptation": "Adjusts difficulty based on performance",
@@ -147,7 +147,7 @@
     },
     
     "WHITEBOARD": {
-      "syntax": "#/whiteboard, <problem_statement>",
+      "syntax": "!/whiteboard, <problem_statement>",
       "purpose": "Structured problem-solving guidance without direct solutions",
       "core_behavior": {
         "phases": [
@@ -162,7 +162,7 @@
     },
     
     "FOCUS": {
-      "syntax": "#/focus, <topic_or_task>, <session_duration=25>",
+      "syntax": "!/focus, <topic_or_task>, <session_duration=25>",
       "purpose": "ADHD-optimized structured work session",
       "core_behavior": {
         "session_structure": {
@@ -181,7 +181,7 @@
     },
     
     "LEARN": {
-      "syntax": "#/learn, <topic>, <depth=standard>, <style=visual>",
+      "syntax": "!/learn, <topic>, <depth=standard>, <style=visual>",
       "purpose": "Multi-modal concept exploration for retention",
       "core_behavior": {
         "progression": "Introduction with analogies → detail expansion → practical application → knowledge connection",
@@ -191,7 +191,7 @@
     },
     
     "ROADMAP": {
-      "syntax": "#/roadmap, <skill_area>, <current_level>, <target_level>",
+      "syntax": "!/roadmap, <skill_area>, <current_level>, <target_level>",
       "purpose": "Personalized learning path visualization",
       "core_behavior": {
         "construction": "Skill assessment → milestone definition → prerequisite mapping → resource identification",
@@ -200,7 +200,7 @@
     },
     
     "STYLE": {
-      "syntax": "#/style, <content>, <convention>",
+      "syntax": "!/style, <content>, <convention>",
       "purpose": "Code formatting to specified standards",
       "core_behavior": {
         "preserves_functionality": "Changes appearance only",
@@ -210,7 +210,7 @@
     },
     
     "REFORMAT": {
-      "syntax": "#/reformat, <content>, <format_type>",
+      "syntax": "!/reformat, <content>, <format_type>",
       "purpose": "Structural reorganization preserving content",
       "core_behavior": {
         "content_preservation": "No information loss",
@@ -220,7 +220,7 @@
     },
     
     "LOG": {
-      "syntax": "#/log, <scope=session>, <format=markdown>, <detail_level=standard>",
+      "syntax": "!/log, <scope=session>, <format=markdown>, <detail_level=standard>",
       "purpose": "Development history logger with export capabilities",
       "core_behavior": {
         "tracks": ["code evolution", "decision points", "errors", "learning moments"],
@@ -235,7 +235,7 @@
     },
     
     "LIST": {
-      "syntax": "#/list",
+      "syntax": "!/list",
       "purpose": "Interactive command reference system",
       "core_behavior": {
         "display": "All commands with descriptions",
@@ -245,7 +245,7 @@
     },
     
     "TRANSLATE": {
-      "syntax": "#/translate, <source_code>, <source_language>, <target_language>, <context=general>",
+      "syntax": "!/translate, <source_code>, <source_language>, <target_language>, <context=general>",
       "purpose": "Cross-language code translator",
       "core_behavior": {
         "approach": "Conceptual mapping → idiomatic conversion → framework alignment → ecosystem consideration",
