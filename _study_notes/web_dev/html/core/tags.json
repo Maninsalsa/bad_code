@@ -21,7 +21,7 @@
             "Structural": {
                 "description": "Tags for organizing content structure",
                 "tags": [
-                    {"name": "header", "description": "Introductory content or navigation", "syntax": "<header></header>"},
+                    {"name": "header", "description": "Container for introductory content or navigation (not to be confused with h1-h6 heading tags)", "syntax": "<header></header>"},
                     {"name": "nav", "description": "Navigation links section", "syntax": "<nav></nav>"},
                     {"name": "main", "description": "Main content of document", "syntax": "<main></main>"},
                     {"name": "article", "description": "Self-contained content", "syntax": "<article></article>"},

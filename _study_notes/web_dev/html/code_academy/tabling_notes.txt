@@ -1,0 +1,20 @@
+HTML Table Tags (in hierarchical order):
+
+<table> - Creates a table element; container that encapsulates all other table tags
+<caption> - Defines a table caption/title that appears above the table
+<colgroup> - Specifies a group of columns for formatting
+<col> - Specifies column properties within a colgroup
+
+<thead> - Defines a header section for a table (contains header rows)
+<tbody> - Defines the main body section of a table (contains data rows)
+<tfoot> - Defines a footer section for a table (contains footer rows)
+
+<tr> - Creates a table row (not columns)
+<th> - Creates a table header cell, used to enclose the row of a table containing it's headers
+<td> - Creates a table data cell (used within body/footer rows)
+
+Additional attributes:
+- rowspan - Specifies number of rows a cell should span
+- colspan - Specifies number of columns a cell should span
+- scope - Associates header cells with data cells (values: row, col, rowgroup, colgroup)
+- headers - Associates data cells with header cells

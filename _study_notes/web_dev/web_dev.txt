@@ -6,67 +6,139 @@ Below is a *module-by-module* roadmap that both follows the curriculum outline a
 ### Topics Covered
 - **HTML/CSS Fundamentals**  
 1. **Essential HTML Tags for Portfolio Sites**
-   - `<!DOCTYPE html>` - Declares modern HTML5 document
-   - `<html>` - Root element containing all content
-   - `<head>` - Container for metadata and resources
-   - `<title>` - Sets page title shown in browser tab
-   - `<meta>` - Defines metadata like character encoding and viewport settings
-   - `<link>` - Links to external stylesheets
-   - `<script>` - Embeds or references JavaScript code
-   - `<style>` - Contains CSS styling information
+   - `<!DOCTYPE html>` - Declares modern HTML5 document type to ensure browsers render 
+     content correctly in standards* mode rather than quirks* mode. Must be the very first 
+     line of your HTML document.
+   - `<html>` - Root element containing all content on the page. All other HTML elements 
+     must be descendants of this element. Often includes the lang attribute (e.g., 
+     `<html lang="en">`) to specify the document's language.
+   - `<head>` - Container for metadata and resources that aren't directly displayed on 
+     the page. Contains critical information for SEO, browser rendering, and resource 
+     loading. Typically includes title, meta tags, CSS links, and JavaScript references.
+   - `<title>` - Sets page title shown in browser tab, bookmarks, and search engine 
+     results. Critical for SEO and user experience. Should be descriptive and concise, 
+     ideally under 60 characters.
+   - `<meta>` - Defines metadata like character encoding (`<meta charset="UTF-8">`), 
+     viewport settings for responsive design (`<meta name="viewport" content="width=
+     device-width, initial-scale=1.0">`), and description for search engines 
+     (`<meta name="description" content="...">`).
+   - `<link>` - Links to external resources, most commonly CSS stylesheets 
+     (`<link rel="stylesheet" href="styles.css">`), but also favicons, fonts, and other 
+     related documents. Helps separate content from presentation.
+   - `<script>` - Embeds or references JavaScript code for interactive functionality. 
+     Can be placed in head (with defer/async attributes) or at the end of body for 
+     performance optimization. Includes src attribute for external files or contains 
+     inline code.
+   - `<style>` - Contains CSS styling information directly within the HTML document. 
+     While external stylesheets are preferred for larger projects, inline styles can be 
+     useful for small projects or critical rendering path optimization.
 
 2. **Structural Elements**
-   - `<header>` - Site header with logo/navigation
-   - `<nav>` - Navigation menu section
-   - `<main>` - Primary content area
-   - `<section>` - Distinct sections (About, Projects, etc.)
-   - `<article>` - Self-contained content blocks
-   - `<aside>` - Sidebar content
-   - `<footer>` - Site footer with contact info
-   - `<div>` - Generic container for layout
+   - `<header>` - Site header with logo/navigation. Represents introductory content, 
+     typically containing heading elements, logo, author information, and navigation. 
+     Usually appears at the top of a document or section.
+   - `<nav>` - Navigation menu section. Defines a section containing navigation links to 
+     other pages or parts within the same page. Essential for site structure and 
+     accessibility.
+   - `<main>` - Primary content area. Contains the central content of the document, 
+     excluding headers, footers, and sidebars. Should be unique to the document and not 
+     include content repeated across documents.
+   - `<section>` - Distinct sections (About, Projects, etc.). Represents a standalone 
+     section of content that is thematically grouped. Often includes a heading element to 
+     identify the section's topic.
+   - `<article>` - Self-contained content blocks. Represents a self-contained composition 
+     that could be distributed and reused independently, such as a blog post, news story, 
+     or forum post.
+   - `<aside>` - Sidebar content. Represents content tangentially related to the content 
+     around it, often presented as a sidebar. Useful for pull quotes, glossary entries, 
+     or related information.
+   - `<footer>` - Site footer with contact info. Contains information about the section 
+     or page such as copyright data, related links, author information, and contact 
+     details.
+   - `<div>` - Generic container for layout. A general-purpose container with no semantic 
+     meaning, used primarily for styling purposes when no other semantic element is 
+     appropriate.
 
 3. **Text Content**
-   - `<h1>` to `<h6>` - Heading hierarchy
-   - `<p>` - Paragraphs of text
-   - `<span>` - Inline text styling
-   - `<strong>` - Important text
-   - `<em>` - Emphasized text
-   - `<br>` - Line breaks
-   - `<hr>` - Thematic breaks
+   - `<h1>` to `<h6>` - Heading hierarchy. Defines six levels of section headings with 
+     `<h1>` being the highest (most important) and `<h6>` the lowest. Important for 
+     document structure and accessibility.
+   - `<p>` - Paragraphs of text. Represents a paragraph of content, typically rendered 
+     with space before and after. The most common way to structure blocks of text.
+   - `<span>` - Inline text styling. Generic inline container used to apply styles to a 
+     specific portion of text without adding semantic meaning.
+   - `<strong>` - Important text. Indicates text of strong importance or urgency, 
+     typically displayed in bold. Carries semantic meaning unlike simply styling text 
+     bold.
+   - `<em>` - Emphasized text. Indicates emphasized text, typically displayed in italics. 
+     Carries semantic meaning for screen readers and other assistive technologies.
+   - `<br>` - Line breaks. Creates a line break without starting a new paragraph. Useful 
+     for addresses, poetry, or other content where line breaks are meaningful.
+   - `<hr>` - Thematic breaks. Represents a thematic break between paragraph-level 
+     elements, such as a scene change in a story or a transition to another topic.
 
 4. **Lists and Navigation**
-   - `<ul>` - Unordered lists for menus
-   - `<ol>` - Ordered lists
-   - `<li>` - List items
-   - `<a>` - Hyperlinks to sections/external sites
+   - `<ul>` - Unordered lists for menus. Represents an unordered list of items, typically 
+     rendered as a bulleted list. Commonly used for navigation menus and item collections 
+     without numerical ordering.
+   - `<ol>` - Ordered lists. Represents an ordered list of items, typically rendered as a 
+     numbered list. Used when the sequence of items is important.
+   - `<li>` - List items. Represents an item in a list, must be contained within a parent 
+     `<ul>`, `<ol>`, or `<menu>` element.
+   - `<a>` - Hyperlinks to sections/external sites. Creates a hyperlink to other web 
+     pages, files, locations within the same page, email addresses, or any other URL. 
+     Essential for web navigation.
 
 5. **Media Elements**
-   - `<img>` - Images with alt text
-   - `<video>` - Video content
-   - `<audio>` - Audio content
-   - `<figure>` - Self-contained media
-   - `<figcaption>` - Captions for figures
-   - `<picture>` - Responsive images
-   - `<canvas>` - Dynamic graphics
+   - `<img>` - Images with alt text. Embeds an image into the document with required alt 
+     attribute for accessibility. Supports responsive design with width and height 
+     attributes.
+   - `<video>` - Video content. Embeds video content with support for multiple sources, 
+     controls, autoplay options, and fallback content for older browsers.
+   - `<audio>` - Audio content. Embeds sound content with support for multiple sources, 
+     controls, and fallback content for browsers that don't support the element.
+   - `<figure>` - Self-contained media. Represents self-contained content, potentially 
+     with a caption, typically referenced as a single unit from the main content.
+   - `<figcaption>` - Captions for figures. Represents a caption or legend describing the 
+     rest of the contents of its parent `<figure>` element.
+   - `<picture>` - Responsive images. Contains multiple `<source>` elements and one 
+     `<img>` element to provide different images for different display/device scenarios.
+   - `<canvas>` - Dynamic graphics. Provides a resolution-dependent bitmap canvas for 
+     rendering graphs, game graphics, or other visual images on the fly using JavaScript.
 
 6. **Forms for Contact**
-   - `<form>` - Contact form container
-   - `<input>` - Text fields
-   - `<textarea>` - Multi-line text input
-   - `<button>` - Submit buttons
-   - `<label>` - Input labels
+   - `<form>` - Contact form container. Container for interactive controls to submit 
+     information to a web server. Defines the structure, behavior, and default layout of 
+     a form.
+   - `<input>` - Text fields. Creates interactive controls for web-based forms to accept 
+     data from the user. Has many types including text, email, password, checkbox, radio, 
+     and more.
+   - `<textarea>` - Multi-line text input. Represents a multi-line plain-text editing 
+     control, useful when users need to enter a sizeable amount of free-form text.
+   - `<button>` - Submit buttons. Represents a clickable button, used to submit forms or 
+     trigger JavaScript events when clicked. Can contain text or images.
+   - `<label>` - Input labels. Represents a caption for an item in a user interface, 
+     improving accessibility and usability by providing context for form controls.
 
 7. **Tables for Skills/Data**
-   - `<table>` - Table container
-   - `<tr>` - Table rows
-   - `<th>` - Header cells
-   - `<td>` - Data cells
+   - `<table>` - Table container. Represents tabular data — information presented in a 
+     two-dimensional table comprised of rows and columns of cells containing data.
+   - `<tr>` - Table rows. Defines a row of cells in a table. Contains one or more `<th>` 
+     or `<td>` elements.
+   - `<th>` - Header cells. Defines a header cell in a table. Used to provide labels for 
+     columns or rows, typically displayed in bold and centered.
+   - `<td>` - Data cells. Defines a standard data cell in a table. Contains the actual 
+     data to be displayed.
 
 8. **Global Attributes**
-   - `class` - CSS styling hooks
-   - `id` - Unique element identifiers
-   - `style` - Inline CSS
-   - `data-*` - Custom data attributes
+   - `class` - CSS styling hooks. Specifies one or more classnames for an element, used 
+     to apply CSS styles or to be manipulated with JavaScript.
+   - `id` - Unique element identifiers. Specifies a unique identifier for an element, 
+     used for CSS styling, JavaScript manipulation, or as a fragment identifier for URLs.
+   - `style` - Inline CSS. Contains CSS declarations that apply to the element, allowing 
+     for direct styling without external stylesheets.
+   - `data-*` - Custom data attributes. Allows proprietary information to be exchanged 
+     between HTML and its DOM representation by scripts, enabling custom data storage.
 
 - **JavaScript Basics**  
 - **Command-Line Tools (CLI) and Git**  
@@ -303,14 +375,3 @@ Below is a *module-by-module* roadmap that both follows the curriculum outline a
    - Deployment to a cloud provider (Heroku, Vercel, AWS, etc.).
    - Include a polished README and/or documentation site (with screenshots, usage instructions, technology stack).
 3. **Skills Gained**: Real-world deployment experience, final polish on a showcase project, confidence in presenting your work to employers.
-
----
-
-# **How to Use This Plan**
-- Move **sequentially** through the modules; each mini-project builds on the previous skills.
-- Keep each mini-project in its own GitHub repository with a clear README.
-- For each project, set clear, measurable goals (e.g., “I will complete the CRUD API for the library project by Wednesday”).
-- Continually **refactor** and **improve** your code—mastery comes from *iterative refinement* as much as from new skills.
-- Treat the **capstone project** as your magnum opus: it should demonstrate the complete stack of technologies, best practices, and personal flair.
-
-By progressing through these mini-projects and culminating in a comprehensive capstone, you’ll achieve deep expertise in modern full-stack development—and graduate with a strong portfolio to show for it. Good luck!
