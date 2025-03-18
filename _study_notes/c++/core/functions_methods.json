@@ -1,0 +1,656 @@
+{
+    "Functions": {
+        "description": "Blocks of reusable code that perform specific tasks in C++",
+        "types": [
+            {
+                "name": "Regular Functions",
+                "description": "Standard functions with return type, name, and parameters",
+                "syntax": "return_type function_name(parameters)"
+            },
+            {
+                "name": "Inline Functions",
+                "description": "Suggests compiler replace function call with function code",
+                "syntax": "inline return_type function_name(parameters)"
+            },
+            {
+                "name": "Function Templates",
+                "description": "Generic functions that work with different data types",
+                "syntax": "template <typename T> return_type function_name(T parameter)"
+            },
+            {
+                "name": "Lambda Functions",
+                "description": "Anonymous function objects",
+                "syntax": "[capture](parameters) -> return_type { body }"
+            },
+            {
+                "name": "Constexpr Functions",
+                "description": "Functions that can be evaluated at compile time",
+                "syntax": "constexpr return_type function_name(parameters)"
+            },
+            {
+                "name": "Recursive Functions",
+                "description": "Functions that call themselves",
+                "syntax": "return_type function_name(parameters) { /* may call function_name */ }"
+            },
+            {
+                "name": "Function Pointers",
+                "description": "Variables that store addresses of functions",
+                "syntax": "return_type (*pointer_name)(parameter_types) = &function_name"
+            },
+            {
+                "name": "Function Objects (Functors)",
+                "description": "Objects that can be called like functions",
+                "syntax": "struct FunctorName { return_type operator()(parameters) { /* body */ } };"
+            },
+            {
+                "name": "Variadic Functions",
+                "description": "Functions that accept variable number of arguments",
+                "syntax": "template<typename... Args> return_type function_name(Args... args)"
+            },
+            {
+                "name": "Noexcept Functions",
+                "description": "Functions that won't throw exceptions",
+                "syntax": "return_type function_name(parameters) noexcept"
+            }
+        ]
+    },
+
+    "Function Parameters": {
+        "description": "Different ways to pass arguments to functions in C++",
+        "types": [
+            {
+                "name": "Pass by Value",
+                "description": "Creates copy of argument",
+                "syntax": "void func(int x)"
+            },
+            {
+                "name": "Pass by Reference",
+                "description": "Passes reference to original argument",
+                "syntax": "void func(int& x)"
+            },
+            {
+                "name": "Pass by Const Reference",
+                "description": "Passes reference but prevents modification",
+                "syntax": "void func(const int& x)"
+            },
+            {
+                "name": "Pass by Pointer",
+                "description": "Passes memory address of argument",
+                "syntax": "void func(int* x)"
+            },
+            {
+                "name": "Pass by Const Pointer",
+                "description": "Passes pointer but prevents modification of pointed data",
+                "syntax": "void func(const int* x)"
+            },
+            {
+                "name": "Default Arguments",
+                "description": "Parameters with default values",
+                "syntax": "void func(int x = 0)"
+            },
+            {
+                "name": "Pass by Rvalue Reference",
+                "description": "Binds to temporary objects for move semantics",
+                "syntax": "void func(int&& x)"
+            },
+            {
+                "name": "Pass by Universal Reference (Forwarding Reference)",
+                "description": "Template parameter that can bind to any value category",
+                "syntax": "template<typename T> void func(T&& x)"
+            },
+            {
+                "name": "Function Parameter Pack",
+                "description": "Accept variable number of arguments in templates",
+                "syntax": "template<typename... Args> void func(Args... args)"
+            }
+        ]
+    },
+
+    "Standard Library Functions": {
+        "description": "Common functions from C++ Standard Library",
+        "categories": {
+            "Input/Output": {
+                "description": "Functions for input and output operations",
+                "functions": [
+                    {
+                        "name": "cout",
+                        "description": "Standard output stream",
+                        "syntax": "std::cout << value"
+                    },
+                    {
+                        "name": "cin",
+                        "description": "Standard input stream",
+                        "syntax": "std::cin >> variable"
+                    },
+                    {
+                        "name": "getline",
+                        "description": "Read line from input stream",
+                        "syntax": "std::getline(stream, string)"
+                    },
+                    {
+                        "name": "cerr",
+                        "description": "Standard error stream (unbuffered)",
+                        "syntax": "std::cerr << error_message"
+                    },
+                    {
+                        "name": "clog",
+                        "description": "Standard error stream (buffered)",
+                        "syntax": "std::clog << log_message"
+                    },
+                    {
+                        "name": "printf",
+                        "description": "C-style formatted output",
+                        "syntax": "std::printf(format_string, arguments)"
+                    },
+                    {
+                        "name": "scanf",
+                        "description": "C-style formatted input",
+                        "syntax": "std::scanf(format_string, pointers)"
+                    },
+                    {
+                        "name": "fstream",
+                        "description": "File stream operations",
+                        "syntax": "std::fstream file(filename, mode)"
+                    }
+                ]
+            },
+            "String Operations": {
+                "description": "Functions for string manipulation",
+                "functions": [
+                    {
+                        "name": "length()",
+                        "description": "Return string length",
+                        "syntax": "str.length()"
+                    },
+                    {
+                        "name": "substr()",
+                        "description": "Extract substring",
+                        "syntax": "str.substr(pos, len)"
+                    },
+                    {
+                        "name": "find()",
+                        "description": "Find substring in string",
+                        "syntax": "str.find(substring)"
+                    },
+                    {
+                        "name": "replace()",
+                        "description": "Replace portion of string",
+                        "syntax": "str.replace(pos, len, new_str)"
+                    },
+                    {
+                        "name": "append()",
+                        "description": "Append to string",
+                        "syntax": "str.append(other_str)"
+                    },
+                    {
+                        "name": "insert()",
+                        "description": "Insert into string",
+                        "syntax": "str.insert(pos, str)"
+                    },
+                    {
+                        "name": "erase()",
+                        "description": "Erase characters from string",
+                        "syntax": "str.erase(pos, len)"
+                    },
+                    {
+                        "name": "c_str()",
+                        "description": "Get C-style string",
+                        "syntax": "str.c_str()"
+                    },
+                    {
+                        "name": "compare()",
+                        "description": "Compare strings",
+                        "syntax": "str1.compare(str2)"
+                    }
+                ]
+            },
+            "Memory Management": {
+                "description": "Functions for dynamic memory allocation",
+                "functions": [
+                    {
+                        "name": "new",
+                        "description": "Allocate memory",
+                        "syntax": "Type* ptr = new Type"
+                    },
+                    {
+                        "name": "delete",
+                        "description": "Deallocate memory",
+                        "syntax": "delete ptr"
+                    },
+                    {
+                        "name": "new[]",
+                        "description": "Allocate array",
+                        "syntax": "Type* arr = new Type[size]"
+                    },
+                    {
+                        "name": "delete[]",
+                        "description": "Deallocate array",
+                        "syntax": "delete[] arr"
+                    },
+                    {
+                        "name": "make_unique",
+                        "description": "Create unique_ptr",
+                        "syntax": "auto ptr = std::make_unique<Type>(args)"
+                    },
+                    {
+                        "name": "make_shared",
+                        "description": "Create shared_ptr",
+                        "syntax": "auto ptr = std::make_shared<Type>(args)"
+                    },
+                    {
+                        "name": "malloc",
+                        "description": "C-style memory allocation",
+                        "syntax": "void* ptr = std::malloc(size)"
+                    },
+                    {
+                        "name": "free",
+                        "description": "C-style memory deallocation",
+                        "syntax": "std::free(ptr)"
+                    },
+                    {
+                        "name": "placement new",
+                        "description": "Construct object at specific memory location",
+                        "syntax": "new (address) Type(args)"
+                    }
+                ]
+            },
+            "Algorithm Functions": {
+                "description": "Common algorithms from <algorithm> header",
+                "functions": [
+                    {
+                        "name": "sort",
+                        "description": "Sort elements in range",
+                        "syntax": "std::sort(begin, end, comparator)"
+                    },
+                    {
+                        "name": "find",
+                        "description": "Find element in range",
+                        "syntax": "std::find(begin, end, value)"
+                    },
+                    {
+                        "name": "for_each",
+                        "description": "Apply function to range",
+                        "syntax": "std::for_each(begin, end, function)"
+                    },
+                    {
+                        "name": "transform",
+                        "description": "Apply function and store result",
+                        "syntax": "std::transform(in_begin, in_end, out_begin, function)"
+                    },
+                    {
+                        "name": "copy",
+                        "description": "Copy elements between ranges",
+                        "syntax": "std::copy(in_begin, in_end, out_begin)"
+                    },
+                    {
+                        "name": "remove",
+                        "description": "Remove elements from range",
+                        "syntax": "std::remove(begin, end, value)"
+                    },
+                    {
+                        "name": "count",
+                        "description": "Count elements in range",
+                        "syntax": "std::count(begin, end, value)"
+                    },
+                    {
+                        "name": "accumulate",
+                        "description": "Sum elements in range",
+                        "syntax": "std::accumulate(begin, end, init_value)"
+                    },
+                    {
+                        "name": "binary_search",
+                        "description": "Check if value exists in sorted range",
+                        "syntax": "std::binary_search(begin, end, value)"
+                    }
+                ]
+            },
+            "Math Functions": {
+                "description": "Mathematical functions from <cmath>",
+                "functions": [
+                    {
+                        "name": "sqrt",
+                        "description": "Square root",
+                        "syntax": "std::sqrt(x)"
+                    },
+                    {
+                        "name": "pow",
+                        "description": "Power function",
+                        "syntax": "std::pow(base, exponent)"
+                    },
+                    {
+                        "name": "abs",
+                        "description": "Absolute value",
+                        "syntax": "std::abs(x)"
+                    },
+                    {
+                        "name": "sin/cos/tan",
+                        "description": "Trigonometric functions",
+                        "syntax": "std::sin(x), std::cos(x), std::tan(x)"
+                    },
+                    {
+                        "name": "log/log10",
+                        "description": "Logarithmic functions",
+                        "syntax": "std::log(x), std::log10(x)"
+                    },
+                    {
+                        "name": "floor/ceil",
+                        "description": "Round down/up",
+                        "syntax": "std::floor(x), std::ceil(x)"
+                    },
+                    {
+                        "name": "round",
+                        "description": "Round to nearest",
+                        "syntax": "std::round(x)"
+                    }
+                ]
+            },
+            "Utility Functions": {
+                "description": "Utility functions from various headers",
+                "functions": [
+                    {
+                        "name": "swap",
+                        "description": "Exchange values",
+                        "syntax": "std::swap(a, b)"
+                    },
+                    {
+                        "name": "move",
+                        "description": "Convert to rvalue",
+                        "syntax": "std::move(x)"
+                    },
+                    {
+                        "name": "forward",
+                        "description": "Perfect forwarding",
+                        "syntax": "std::forward<T>(arg)"
+                    },
+                    {
+                        "name": "pair/make_pair",
+                        "description": "Create pair object",
+                        "syntax": "std::make_pair(a, b)"
+                    },
+                    {
+                        "name": "tuple/make_tuple",
+                        "description": "Create tuple object",
+                        "syntax": "std::make_tuple(a, b, c)"
+                    },
+                    {
+                        "name": "tie",
+                        "description": "Unpack tuple to variables",
+                        "syntax": "std::tie(a, b, c) = tuple"
+                    },
+                    {
+                        "name": "any_of/all_of/none_of",
+                        "description": "Check conditions on ranges",
+                        "syntax": "std::any_of(begin, end, predicate)"
+                    }
+                ]
+            },
+            "Thread Functions": {
+                "description": "Functions for multithreading from <thread>",
+                "functions": [
+                    {
+                        "name": "thread constructor",
+                        "description": "Create new thread",
+                        "syntax": "std::thread t(function, args)"
+                    },
+                    {
+                        "name": "join",
+                        "description": "Wait for thread completion",
+                        "syntax": "t.join()"
+                    },
+                    {
+                        "name": "detach",
+                        "description": "Detach thread from calling thread",
+                        "syntax": "t.detach()"
+                    },
+                    {
+                        "name": "sleep_for",
+                        "description": "Pause execution",
+                        "syntax": "std::this_thread::sleep_for(duration)"
+                    },
+                    {
+                        "name": "mutex lock/unlock",
+                        "description": "Lock/unlock mutex",
+                        "syntax": "mutex.lock(), mutex.unlock()"
+                    },
+                    {
+                        "name": "lock_guard",
+                        "description": "RAII wrapper for mutex",
+                        "syntax": "std::lock_guard<std::mutex> lock(mutex)"
+                    },
+                    {
+                        "name": "async",
+                        "description": "Run function asynchronously",
+                        "syntax": "std::async(std::launch::async, function, args)"
+                    }
+                ]
+            }
+        }
+    },
+
+    "Methods": {
+        "description": "Member functions of classes in C++",
+        "types": [
+            {
+                "name": "Instance Methods",
+                "description": "Regular methods that operate on class instances",
+                "syntax": "return_type ClassName::methodName(parameters)"
+            },
+            {
+                "name": "Static Methods",
+                "description": "Class methods that don't require instance",
+                "syntax": "static return_type methodName(parameters)"
+            },
+            {
+                "name": "Const Methods",
+                "description": "Methods that don't modify class state",
+                "syntax": "return_type methodName(parameters) const"
+            },
+            {
+                "name": "Virtual Methods",
+                "description": "Methods that can be overridden by derived classes",
+                "syntax": "virtual return_type methodName(parameters)"
+            },
+            {
+                "name": "Pure Virtual Methods",
+                "description": "Virtual methods with no implementation",
+                "syntax": "virtual return_type methodName(parameters) = 0"
+            },
+            {
+                "name": "Override Methods",
+                "description": "Methods that override virtual methods from base class",
+                "syntax": "return_type methodName(parameters) override"
+            },
+            {
+                "name": "Final Methods",
+                "description": "Methods that cannot be overridden in derived classes",
+                "syntax": "return_type methodName(parameters) final"
+            },
+            {
+                "name": "Deleted Methods",
+                "description": "Methods explicitly disabled",
+                "syntax": "return_type methodName(parameters) = delete"
+            },
+            {
+                "name": "Default Methods",
+                "description": "Methods with compiler-generated implementation",
+                "syntax": "return_type methodName(parameters) = default"
+            },
+            {
+                "name": "Friend Methods",
+                "description": "Methods of other classes given access to private members",
+                "syntax": "friend return_type ClassName::methodName(parameters)"
+            },
+            {
+                "name": "Noexcept Methods",
+                "description": "Methods that won't throw exceptions",
+                "syntax": "return_type methodName(parameters) noexcept"
+            },
+            {
+                "name": "Constexpr Methods",
+                "description": "Methods that can be evaluated at compile time",
+                "syntax": "constexpr return_type methodName(parameters)"
+            }
+        ],
+        "special_methods": {
+            "description": "Special member functions in C++ classes",
+            "methods": [
+                {
+                    "name": "Constructor",
+                    "description": "Initialize new objects",
+                    "syntax": "ClassName(parameters)"
+                },
+                {
+                    "name": "Destructor",
+                    "description": "Clean up when object is destroyed",
+                    "syntax": "~ClassName()"
+                },
+                {
+                    "name": "Copy Constructor",
+                    "description": "Create object as copy of another",
+                    "syntax": "ClassName(const ClassName& other)"
+                },
+                {
+                    "name": "Move Constructor",
+                    "description": "Transfer ownership of resources",
+                    "syntax": "ClassName(ClassName&& other)"
+                },
+                {
+                    "name": "Copy Assignment",
+                    "description": "Assign one object to another",
+                    "syntax": "ClassName& operator=(const ClassName& other)"
+                },
+                {
+                    "name": "Move Assignment",
+                    "description": "Transfer ownership in assignment",
+                    "syntax": "ClassName& operator=(ClassName&& other)"
+                },
+                {
+                    "name": "Default Constructor",
+                    "description": "Constructor with no parameters",
+                    "syntax": "ClassName()"
+                },
+                {
+                    "name": "Conversion Constructor",
+                    "description": "Constructor that converts from another type",
+                    "syntax": "ClassName(OtherType value)"
+                },
+                {
+                    "name": "Delegating Constructor",
+                    "description": "Constructor that calls another constructor",
+                    "syntax": "ClassName(params) : ClassName(other_params) {}"
+                },
+                {
+                    "name": "Initializer List Constructor",
+                    "description": "Constructor taking std::initializer_list",
+                    "syntax": "ClassName(std::initializer_list<T> list)"
+                },
+                {
+                    "name": "Virtual Destructor",
+                    "description": "Destructor for proper cleanup in inheritance",
+                    "syntax": "virtual ~ClassName()"
+                },
+                {
+                    "name": "Operator Overloading",
+                    "description": "Custom implementations of operators",
+                    "syntax": "return_type operator symbol(parameters)"
+                }
+            ]
+        },
+        "operator_overloading": {
+            "description": "Customizing operators for user-defined types",
+            "operators": [
+                {
+                    "name": "Assignment",
+                    "description": "Assign value to object",
+                    "syntax": "T& operator=(const T& other)"
+                },
+                {
+                    "name": "Arithmetic",
+                    "description": "Math operations (+, -, *, /, %)",
+                    "syntax": "T operator+(const T& other) const"
+                },
+                {
+                    "name": "Compound Assignment",
+                    "description": "Combined operations (+=, -=, etc.)",
+                    "syntax": "T& operator+=(const T& other)"
+                },
+                {
+                    "name": "Comparison",
+                    "description": "Compare objects (==, !=, <, >, etc.)",
+                    "syntax": "bool operator==(const T& other) const"
+                },
+                {
+                    "name": "Increment/Decrement",
+                    "description": "Increase/decrease value (++, --)",
+                    "syntax": "T& operator++() // prefix, T operator++(int) // postfix"
+                },
+                {
+                    "name": "Subscript",
+                    "description": "Array-like access",
+                    "syntax": "T& operator[](size_t index)"
+                },
+                {
+                    "name": "Function Call",
+                    "description": "Make object callable",
+                    "syntax": "return_type operator()(parameters)"
+                },
+                {
+                    "name": "Dereference",
+                    "description": "Pointer-like behavior",
+                    "syntax": "T& operator*(), T* operator->()"
+                },
+                {
+                    "name": "Stream Insertion/Extraction",
+                    "description": "I/O stream operations",
+                    "syntax": "friend std::ostream& operator<<(std::ostream&, const T&)"
+                },
+                {
+                    "name": "Type Conversion",
+                    "description": "Convert to other types",
+                    "syntax": "operator OtherType() const"
+                }
+            ]
+        }
+    },
+    
+    "Function Concepts": {
+        "description": "Advanced function-related concepts in C++",
+        "concepts": [
+            {
+                "name": "Function Overloading",
+                "description": "Multiple functions with same name but different parameters",
+                "example": "void print(int); void print(double); void print(string);"
+            },
+            {
+                "name": "Function Binding",
+                "description": "Creating function objects with pre-set arguments",
+                "example": "auto bound = std::bind(func, arg1, std::placeholders::_1);"
+            },
+            {
+                "name": "SFINAE",
+                "description": "Substitution Failure Is Not An Error - template specialization technique",
+                "example": "template<typename T, typename = std::enable_if_t<std::is_integral_v<T>>>"
+            },
+            {
+                "name": "Concepts (C++20)",
+                "description": "Constraints on template parameters",
+                "example": "template<typename T> requires std::integral<T> void func(T t);"
+            },
+            {
+                "name": "Coroutines (C++20)",
+                "description": "Functions that can suspend execution and resume later",
+                "example": "co_await, co_yield, co_return keywords"
+            },
+            {
+                "name": "Fold Expressions (C++17)",
+                "description": "Reduce parameter pack with binary operator",
+                "example": "template<typename... Args> auto sum(Args... args) { return (args + ...); }"
+            },
+            {
+                "name": "Callable Objects",
+                "description": "Any object that can be invoked like a function",
+                "example": "Functions, lambdas, functors, function pointers, etc."
+            }
+        ]
+    }
+}
