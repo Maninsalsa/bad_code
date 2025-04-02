@@ -142,4 +142,146 @@ After each level, students should be able to:
 - Implement enterprise patterns
 - Create framework-level solutions
 
-Would you like me to generate specific quizzes for any of these levels? We can start with Level 1 and progressively work our way up based on your mastery of each concept.
+I'll create an incremental quiz focusing on wrapper functions and decorators in Python, starting from basic concepts and progressively increasing in difficulty. Each question builds upon previous knowledge.
+
+# Python Wrapper Functions Quiz 🐍
+
+## Fundamentals
+1. What will be the output of this code?
+```python
+def greet():
+    return "Hello!"
+
+def uppercase_wrapper(func):
+    def wrapper():
+        return func().upper()
+    return wrapper
+
+greet = uppercase_wrapper(greet)
+result = greet()
+```
+
+2. What's wrong with this wrapper implementation?
+```python
+def log_function(func):
+    print(f"Calling {func.__name__}")
+    return func()
+```
+
+3. How would you fix this wrapper to preserve the original function's metadata?
+```python
+def debug(func):
+    def wrapper():
+        print(f"Calling {func.__name__}")
+        return func()
+    return wrapper
+
+@debug
+def greet():
+    """Says hello"""
+    return "Hello!"
+```
+
+## Intermediate
+4. What will happen when this code is executed?
+```python
+def validate_positive(func):
+    def wrapper(*args):
+        if any(arg <= 0 for arg in args):
+            raise ValueError("All arguments must be positive")
+        return func(*args)
+    return wrapper
+
+@validate_positive
+def calculate_rectangle_area(length, width):
+    return length * width
+
+result = calculate_rectangle_area(5, -2)
+```
+
+5. What's the issue with this chained decorator implementation?
+```python
+def uppercase(func):
+    def wrapper():
+        return func().upper()
+    return wrapper
+
+def split_words(func):
+    def wrapper():
+        return func().split()
+    return wrapper
+
+@split_words
+@uppercase
+def get_message():
+    return "hello world"
+```
+
+## Advanced
+6. How would you implement a decorator that caches function results based on arguments?
+
+7. What will be the output of this code and why?
+```python
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        wrapper.calls += 1
+        return func(*args, **kwargs)
+    wrapper.calls = 0
+    return wrapper
+
+@decorator
+def add(a, b):
+    return a + b
+
+add(1, 2)
+add(3, 4)
+print(add.calls)
+```
+
+## Expert
+8. How would you implement a decorator that limits the rate of function calls to once per second?
+
+9. What's problematic about this decorator implementation for async functions?
+```python
+def log_execution(func):
+    def wrapper(*args, **kwargs):
+        print(f"Starting {func.__name__}")
+        result = func(*args, **kwargs)
+        print(f"Finished {func.__name__}")
+        return result
+    return wrapper
+
+@log_execution
+async def fetch_data():
+    # ... async code here
+    pass
+```
+
+## Master
+10. Design a decorator factory that allows specification of retry attempts and delay between retries for failed function calls.
+
+11. Implement a decorator that can validate both input parameters and return values based on type hints.
+
+12. Create a decorator that can measure and log function execution time while properly handling generator functions.
+
+## Grand Master
+13. Design a decorator system that implements the Circuit Breaker pattern with configurable failure thresholds and recovery time.
+
+14. Create a decorator that implements aspect-oriented programming features like before, after, and around advice.
+
+15. Implement a decorator that can handle both synchronous and asynchronous functions correctly while preserving their respective behaviors.
+
+Each question tests different aspects of wrapper functions and decorators, from basic syntax to advanced patterns and real-world applications. Would you like to attempt any specific question or see the solution for any of them? We can also dive deeper into any concept that needs clarification.
+
+Remember:
+- Take your time with each question
+- Try to implement solutions before looking at answers
+- Consider edge cases
+- Think about performance implications
+- Consider real-world applications
+
+Would you like to:
+1. See solutions for specific questions?
+2. Get hints for any particular question?
+3. Move on to more questions in a specific difficulty level?
+4. See explanations for any concepts mentioned?
