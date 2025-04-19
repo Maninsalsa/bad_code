@@ -1,0 +1,334 @@
+{
+    "Memory Management": {
+        "description": "Core concepts of memory management in C++, including manual and automatic memory management techniques",
+        "fundamentals": {
+            "Memory Model": {
+                "description": "C++ memory organization and layout",
+                "regions": [
+                    {
+                        "name": "Stack",
+                        "description": "Fast, limited memory for automatic variables and function calls",
+                        "characteristics": [
+                            "Automatic allocation/deallocation",
+                            "Fixed size at compile time",
+                            "LIFO (Last In, First Out) data structure",
+                            "Fast access, but limited size",
+                            "Used for local variables, function parameters, return addresses"
+                        ],
+                        "examples": [
+                            {"code": "int x = 5;", "description": "Automatic variable on stack"},
+                            {"code": "MyClass obj;", "description": "Object allocated on stack"},
+                            {"code": "int arr[10];", "description": "Fixed-size array on stack"}
+                        ]
+                    },
+                    {
+                        "name": "Heap",
+                        "description": "Dynamic memory for runtime allocation with manual management",
+                        "characteristics": [
+                            "Manual allocation/deallocation (C-style)",
+                            "Automatic with smart pointers (Modern C++)",
+                            "Flexible size limited by physical memory",
+                            "Slower access than stack",
+                            "Used for dynamic/runtime-sized objects",
+                            "Memory leaks possible without proper deallocation"
+                        ],
+                        "examples": [
+                            {"code": "int* p = new int;", "description": "Allocate single integer"},
+                            {"code": "delete p;", "description": "Deallocate single integer"},
+                            {"code": "int* arr = new int[100];", "description": "Allocate array of integers"},
+                            {"code": "delete[] arr;", "description": "Deallocate array of integers"}
+                        ]
+                    },
+                    {
+                        "name": "Data/BSS Segment",
+                        "description": "Static/global variables and constants",
+                        "characteristics": [
+                            "Allocated at program start",
+                            "Available throughout program execution",
+                            "Data segment: initialized variables",
+                            "BSS segment: uninitialized variables"
+                        ],
+                        "examples": [
+                            {"code": "static int counter = 0;", "description": "Static variable (initialized)"},
+                            {"code": "int global;", "description": "Global variable (uninitialized)"},
+                            {"code": "const int MAX = 100;", "description": "Constants"}
+                        ]
+                    },
+                    {
+                        "name": "Text/Code Segment",
+                        "description": "Executable instructions",
+                        "characteristics": [
+                            "Read-only",
+                            "Shared among processes",
+                            "Contains compiled code"
+                        ]
+                    }
+                ]
+            },
+            "Raw Memory Management": {
+                "description": "Traditional C-style memory management with direct allocation and deallocation",
+                "operations": [
+                    {
+                        "name": "Allocation",
+                        "operators": [
+                            {"name": "new", "syntax": "Type* ptr = new Type;", "description": "Allocate single object"},
+                            {"name": "new[]", "syntax": "Type* ptr = new Type[size];", "description": "Allocate array of objects"},
+                            {"name": "malloc", "syntax": "void* ptr = malloc(size);", "description": "C-style allocation (requires cast)"}
+                        ],
+                        "when_to_use": [
+                            "When object size is determined at runtime",
+                            "When object lifetime exceeds current scope",
+                            "When implementing custom data structures",
+                            "Legacy code integration"
+                        ],
+                        "best_practices": [
+                            "Always pair with corresponding deallocation",
+                            "Check for allocation failure (nullptr)",
+                            "Prefer smart pointers in modern C++",
+                            "Use std::nothrow for exception-less allocation"
+                        ]
+                    },
+                    {
+                        "name": "Deallocation",
+                        "operators": [
+                            {"name": "delete", "syntax": "delete ptr;", "description": "Deallocate single object"},
+                            {"name": "delete[]", "syntax": "delete[] ptr;", "description": "Deallocate array of objects"},
+                            {"name": "free", "syntax": "free(ptr);", "description": "C-style deallocation"}
+                        ],
+                        "common_errors": [
+                            {"name": "Memory Leak", "description": "Failing to deallocate memory"},
+                            {"name": "Double Free", "description": "Deallocating already freed memory"},
+                            {"name": "Dangling Pointer", "description": "Using pointer after deallocation"},
+                            {"name": "Array/Non-array Mismatch", "description": "Using delete for new[] or vice versa"}
+                        ]
+                    }
+                ],
+                "example": {
+                    "code": "// Raw pointer allocation and deallocation\nint* numPtr = new int(42);\n// Use numPtr...\ndelete numPtr;\nnumPtr = nullptr;  // Prevent dangling pointer\n\n// Array allocation and deallocation\nint* numArray = new int[10];\n// Use numArray...\ndelete[] numArray;\nnumArray = nullptr;",
+                    "description": "Basic raw pointer management with allocation, use, deallocation, and nullification"
+                }
+            }
+        },
+        "Smart Pointers": {
+            "description": "RAII-based automatic memory management wrappers that handle resource cleanup automatically",
+            "types": [
+                {
+                    "name": "std::unique_ptr",
+                    "description": "Exclusive ownership smart pointer - only one unique_ptr can own the resource",
+                    "usage": [
+                        {"syntax": "std::unique_ptr<Type> ptr = std::make_unique<Type>(args);", "description": "Create unique_ptr with make_unique (C++14)"},
+                        {"syntax": "std::unique_ptr<Type> ptr(new Type(args));", "description": "Direct initialization (C++11)"},
+                        {"syntax": "std::unique_ptr<Type[]> arr = std::make_unique<Type[]>(size);", "description": "Array initialization (C++14)"}
+                    ],
+                    "operations": [
+                        {"name": "ptr.get()", "description": "Get raw pointer (no ownership transfer)"},
+                        {"name": "ptr.reset()", "description": "Release and destroy current resource"},
+                        {"name": "ptr.reset(new_ptr)", "description": "Replace managed object"},
+                        {"name": "ptr.release()", "description": "Release ownership (returns raw pointer)"},
+                        {"name": "*ptr", "description": "Dereference to access object"},
+                        {"name": "ptr->member", "description": "Access object member"}
+                    ],
+                    "transfer": [
+                        {"name": "std::move(ptr)", "description": "Transfer ownership to another unique_ptr"}
+                    ],
+                    "example": {
+                        "code": "// Create with make_unique (preferred in C++14 and later)\nstd::unique_ptr<int> num = std::make_unique<int>(42);\n\n// Use like a regular pointer\n*num = 100;\nstd::cout << *num << std::endl;\n\n// Transfer ownership\nstd::unique_ptr<int> num2 = std::move(num);  // num is now null\n\n// Custom deleter\nstd::unique_ptr<FILE, decltype(&fclose)> file(fopen(\"file.txt\", \"r\"), &fclose);",
+                        "description": "Using unique_ptr for exclusive ownership"
+                    }
+                },
+                {
+                    "name": "std::shared_ptr",
+                    "description": "Shared ownership smart pointer - multiple pointers can share the same resource with reference counting",
+                    "usage": [
+                        {"syntax": "std::shared_ptr<Type> ptr = std::make_shared<Type>(args);", "description": "Create shared_ptr with make_shared (preferred)"},
+                        {"syntax": "std::shared_ptr<Type> ptr(new Type(args));", "description": "Direct initialization"},
+                        {"syntax": "std::shared_ptr<Type> ptr2 = ptr;", "description": "Share ownership by copying"}
+                    ],
+                    "operations": [
+                        {"name": "ptr.get()", "description": "Get raw pointer (no ownership transfer)"},
+                        {"name": "ptr.reset()", "description": "Release current resource"},
+                        {"name": "ptr.use_count()", "description": "Get reference count"},
+                        {"name": "*ptr", "description": "Dereference to access object"},
+                        {"name": "ptr->member", "description": "Access object member"}
+                    ],
+                    "example": {
+                        "code": "// Create with make_shared (more efficient)\nstd::shared_ptr<int> num1 = std::make_shared<int>(42);\n\n// Share ownership\nstd::shared_ptr<int> num2 = num1;  // Reference count = 2\n\n// Check reference count\nstd::cout << num1.use_count() << std::endl;  // Outputs: 2\n\n// Modify through either pointer\n*num2 = 100;\nstd::cout << *num1 << std::endl;  // Outputs: 100",
+                        "description": "Using shared_ptr for shared ownership"
+                    }
+                },
+                {
+                    "name": "std::weak_ptr",
+                    "description": "Non-owning observer for shared_ptr that doesn't affect reference count",
+                    "usage": [
+                        {"syntax": "std::weak_ptr<Type> wptr = sptr;", "description": "Create from shared_ptr"}
+                    ],
+                    "operations": [
+                        {"name": "wptr.expired()", "description": "Check if observed object still exists"},
+                        {"name": "wptr.lock()", "description": "Convert to shared_ptr (returns empty if expired)"},
+                        {"name": "wptr.reset()", "description": "Release observed pointer"},
+                        {"name": "wptr.use_count()", "description": "Get shared_ptr reference count"}
+                    ],
+                    "use_cases": [
+                        "Breaking circular references in shared_ptr",
+                        "Caching results without preventing cleanup",
+                        "Observer pattern implementation",
+                        "Temporary resource access"
+                    ],
+                    "example": {
+                        "code": "// Create shared_ptr\nstd::shared_ptr<int> shared = std::make_shared<int>(42);\n\n// Create weak_ptr observer\nstd::weak_ptr<int> weak = shared;\n\n// Use by locking to get temporary shared_ptr\nif (auto temp = weak.lock()) {\n    std::cout << *temp << std::endl;  // Safe access\n} else {\n    std::cout << \"Object no longer exists\" << std::endl;\n}\n\n// When shared_ptr is reset, weak_ptr expires\nshared.reset();\nstd::cout << \"Expired: \" << weak.expired() << std::endl;  // Outputs: Expired: 1",
+                        "description": "Using weak_ptr to observe shared_ptr without ownership"
+                    }
+                }
+            ],
+            "best_practices": [
+                "Prefer make_unique/make_shared functions over direct new",
+                "Use unique_ptr for exclusive ownership (default choice)",
+                "Use shared_ptr only when multiple ownership is required",
+                "Use weak_ptr to break circular references",
+                "Avoid manual resource management with raw pointers",
+                "Don't mix smart pointers with raw memory management",
+                "Be cautious with arrays and custom deleters"
+            ]
+        },
+        "Memory-Related Issues": {
+            "common_problems": [
+                {
+                    "name": "Memory Leaks",
+                    "description": "Allocated memory that's never deallocated",
+                    "causes": [
+                        "Failing to delete/free allocated memory",
+                        "Losing last pointer to allocated memory",
+                        "Circular references with shared_ptr",
+                        "Exception thrown before deallocation"
+                    ],
+                    "detection": [
+                        "Memory profiling tools (Valgrind, AddressSanitizer)",
+                        "Static analysis tools",
+                        "Monitoring process memory usage"
+                    ],
+                    "prevention": [
+                        "Use RAII and smart pointers",
+                        "Implement proper destructors",
+                        "Avoid raw memory management",
+                        "Use weak_ptr for circular references"
+                    ]
+                },
+                {
+                    "name": "Dangling Pointers",
+                    "description": "Pointers that reference memory that has been deallocated",
+                    "causes": [
+                        "Using pointer after delete/free",
+                        "Returning pointer to local variable",
+                        "Using invalidated iterators"
+                    ],
+                    "detection": [
+                        "AddressSanitizer and similar tools",
+                        "Debug builds with guard pages",
+                        "Safe memory allocators"
+                    ],
+                    "prevention": [
+                        "Set pointers to nullptr after deletion",
+                        "Use smart pointers",
+                        "Limit pointer lifetime",
+                        "Use references for function arguments"
+                    ]
+                },
+                {
+                    "name": "Buffer Overflows",
+                    "description": "Writing beyond allocated memory bounds",
+                    "causes": [
+                        "Incorrect loop boundaries",
+                        "String operations without bounds checking",
+                        "Array indexing errors"
+                    ],
+                    "detection": [
+                        "Bounds checking in debug builds",
+                        "Sanitizers (AddressSanitizer)",
+                        "Static analysis"
+                    ],
+                    "prevention": [
+                        "Use standard containers instead of raw arrays",
+                        "Use string_view instead of char*",
+                        "Validate array indices",
+                        "Use std::span (C++20)"
+                    ]
+                },
+                {
+                    "name": "Memory Fragmentation",
+                    "description": "Inefficient memory usage due to allocation patterns",
+                    "causes": [
+                        "Frequent allocation/deallocation of varied sizes",
+                        "Long-running programs with dynamic allocations",
+                        "Non-contiguous memory allocation"
+                    ],
+                    "prevention": [
+                        "Use memory pools/object pools",
+                        "Preallocate with reserve() for containers",
+                        "Custom allocators for specific use cases",
+                        "Batch allocations and deallocations"
+                    ]
+                }
+            ]
+        },
+        "Advanced Memory Techniques": {
+            "description": "Specialized memory management approaches for performance and control",
+            "techniques": [
+                {
+                    "name": "Custom Allocators",
+                    "description": "User-defined memory allocation strategies for containers and algorithms",
+                    "use_cases": [
+                        "Memory pools for frequent small allocations",
+                        "Arena/region-based allocation for grouped lifetimes",
+                        "Aligned memory for SIMD operations",
+                        "Performance-critical applications"
+                    ],
+                    "example": {
+                        "code": "// Simple pool allocator\ntemplate <typename T, size_t BlockSize = 4096>\nclass PoolAllocator {\n    // Implementation...\n};\n\n// Using with standard container\nstd::vector<MyClass, PoolAllocator<MyClass>> vec;",
+                        "description": "Custom allocator for efficient memory management"
+                    }
+                },
+                {
+                    "name": "Placement New",
+                    "description": "Construct objects at pre-allocated memory locations",
+                    "syntax": "new (address) Type(args)",
+                    "use_cases": [
+                        "Memory pools and arena allocators",
+                        "Performance-critical allocation patterns",
+                        "Custom container implementations",
+                        "Embedded systems with limited memory"
+                    ],
+                    "example": {
+                        "code": "// Allocate raw memory\nchar* buffer = new char[sizeof(MyClass)];\n\n// Construct object at specific location\nMyClass* obj = new (buffer) MyClass(args);\n\n// Manual destruction (no delete!)\nobj->~MyClass();\n\n// Free raw memory\ndelete[] buffer;",
+                        "description": "Using placement new for manual object construction at specific memory location"
+                    }
+                },
+                {
+                    "name": "Memory-Mapped Files",
+                    "description": "Mapping file contents directly to memory address space",
+                    "use_cases": [
+                        "Working with large files",
+                        "Shared memory between processes",
+                        "Persistence without serialization",
+                        "Memory databases"
+                    ],
+                    "example": {
+                        "code": "// Using memory-mapped file\n#include <sys/mman.h>\n\nint fd = open(\"file.dat\", O_RDWR);\nvoid* mapped = mmap(nullptr, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);\n\n// Access like memory\nint* data = static_cast<int*>(mapped);\ndata[0] = 42;  // Writes to file\n\n// Cleanup\nmunmap(mapped, size);\nclose(fd);",
+                        "description": "Memory-mapped file for direct file access via memory operations"
+                    }
+                },
+                {
+                    "name": "Move Semantics",
+                    "description": "Resource transfer instead of copying for efficient memory usage",
+                    "components": [
+                        {"name": "Move Constructor", "syntax": "Class(Class&& other) noexcept"},
+                        {"name": "Move Assignment", "syntax": "Class& operator=(Class&& other) noexcept"}
+                    ],
+                    "examples": [
+                        {"code": "std::vector<int> createVector() {\n    std::vector<int> result{1, 2, 3};\n    return result;  // Move construction (RVO might optimize this away)\n}\n\nstd::vector<int> vec1{4, 5, 6};\nstd::vector<int> vec2 = std::move(vec1);  // Move assignment (vec1 is now in valid but unspecified state)",
+                        "description": "Moving resources instead of copying them"}
+                    ]
+                }
+            ]
+        }
+    }
+}
