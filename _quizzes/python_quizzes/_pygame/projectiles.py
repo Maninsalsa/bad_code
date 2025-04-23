@@ -1,16 +1,17 @@
 #  Intermediate Concepts Quiz: Bridging the Gap
 
 
-## Question 1
-# What is the primary advantage of using classes with inheritance for game objects like projectiles?
+"""# Question 1
+What is the primary advantage of using classes with inheritance for game objects like projectiles?
 
-# A) It makes the code run faster
-# B) It reduces the amount of code needed by reusing common functionality
-# C) It makes debugging easier by isolating each object in its own file
-# D) It's required by 's syntax rules
+A) It makes the code run faster
+B) It reduces the amount of code needed by reusing common functionality
+C) It makes debugging easier by isolating each object in its own file
+D) It's required by 's syntax rules"""
 
-## Question 2
-# What does this code do and what concept does it demonstrate?
+"""# Question 2
+What does this code do and what concept does it demonstrate?
+"""
 
 class Weapon:
     def fire(self):
