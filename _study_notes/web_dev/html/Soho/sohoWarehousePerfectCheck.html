@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soho Warehouse Food & Drink Pairing Guide</title>
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #555;
+            --border-color: #e5e1dd;
+            --background-color: #faf9f7;
+            --accent-color: #9a8a78;
+            --table-header-bg: #f4f2ef;
+        }
+
+        @font-face {
+            font-family: 'Soho Font';
+            src: local('Brandon Grotesque'), local('Futura'), local('Avenir'), local('Helvetica Neue'), sans-serif;
+        }
+
+        body {
+            font-family: 'Soho Font', 'Brandon Grotesque', 'Futura', 'Avenir', 'Helvetica Neue', sans-serif;
+            color: var(--primary-color);
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--background-color);
+            letter-spacing: 0.01em;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin: 60px 0 20px;
+            font-size: 1.6em;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .table-wrapper {
+            margin-bottom: 60px;
+            overflow-x: auto;
+            border-radius: 0;
+            box-shadow: none;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            table-layout: fixed;
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            font-weight: 500;
+            text-align: left;
+            padding: 15px 20px;
+            border: 1px solid var(--border-color);
+            letter-spacing: 0.03em;
+        }
+
+        td {
+            padding: 15px 20px;
+            border: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .food-item {
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            letter-spacing: 0.02em;
+        }
+
+        .food-description {
+            font-weight: 300;
+            color: var(--secondary-color);
+            font-size: 0.9em;
+        }
+
+        .wine-name {
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-top: 0;
+            letter-spacing: 0.02em;
+        }
+
+        .wine-characteristics {
+            font-style: normal;
+            font-weight: 300;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .pairing-explanation {
+            color: var(--secondary-color);
+            font-style: normal;
+            font-weight: 300;
+            margin-top: 4px;
+            padding-left: 12px;
+            border-left: 1px solid var(--border-color);
+            font-size: 0.9em;
+        }
+
+        .cocktail-name {
+            color: var(--accent-color);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .house-tonic {
+            font-weight: 700;
+        }
+
+        .house-tonic::after {
+            content: " **";
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                font-size: 11pt;
+                margin: 0;
+                padding: 0;
+                background-color: white;
+            }
+
+            .table-wrapper {
+                box-shadow: none;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+                border: none;
+            }
+
+            h1, h2 {
+                page-break-before: always;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+
+            td, th {
+                padding: 12px 10px;
+            }
+        }
+
+        /* Navigation styles */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: none;
+            margin-right: 15px;
+            position: relative;
+            background: 
+                linear-gradient(var(--primary-color) 2px, transparent 2px) 0 0,
+                linear-gradient(90deg, var(--primary-color) 2px, transparent 2px) 0 0;
+            background-size: 10px 10px;
+            background-position: -1px -1px; /* Adjust for border overlap */
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .logo-square {
+            display: none;
+        }
+
+        .logo-text {
+            font-size: 1.8em;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        /* Description section */
+        .description-section {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .description-text {
+            font-weight: 300;
+            color: var(--secondary-color);
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* Footer styles */
+        .footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            font-size: 0.9em;
+            letter-spacing: 0.02em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-left, .footer-right {
+            font-weight: 300;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <div class="logo">
+            <div class="logo-icon">
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+                <div class="logo-square"></div>
+            </div>
+            <div class="logo-text">Soho Warehouse</div>
+        </div>
+    </div>
+
+    <h1>Food & Drink Pairing Guide</h1>
+
+    <!-- <div class="description-section">
+        <p class="description-text">
+            The House menu serves dishes made with seasonal Californian produce, offering grilled meats and fish in the club, and smoothies and healthy bowls in the Garden. Our curated selection of wines and cocktails perfectly complement each dish.
+        </p>
+    </div> -->
+
+    <h2>Small Plates & Appetizers</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 33.33%">Food Item</th>
+                <th style="width: 33.33%">Wine Pairings</th>
+                <th style="width: 33.33%">Cocktail Pairings</th>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Eggplant Dip</div>
+                    <div class="food-description">Pomegranate, pocket bread</div>
+                </td>
+                <td>
+                    <div class="wine-name">Prosecco, Tasi Brut, Veneto, IT NV</div>
+                    <div class="wine-characteristics">Straw yellow with green tint; white flowers, citrus peel, green apple; light sweetness, crisp dry bubbles</div>
+                    <div class="pairing-explanation">Crisp bubbles cut through rich dips and complement delicate flavors</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Aperol Spritz</div>
+                    <div class="cocktail-name">Gin & Tonic</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Hamachi Crudo</div>
+                    <div class="food-description">Citrus vin, pickled onion</div>
+                </td>
+                <td>
+                    <div class="wine-name">Prosecco, Tasi Brut, Veneto, IT NV</div>
+                    <div class="wine-characteristics">Straw yellow with green tint; white flowers, citrus peel, green apple; light sweetness, crisp dry bubbles</div>
+                    <div class="pairing-explanation">Crisp bubbles complement delicate seafood</div>
+                    
+                    <div class="wine-name">Sancerre, Francis Blanchet Pouilly Fumé 'Cuvee Silice', Loire Valley, FR '22</div>
+                    <div class="wine-characteristics">Light Golden White; lemon zest, nectarine, jasmine tea; flinty notes, ginger, anjou pear</div>
+                    <div class="pairing-explanation">Mineral-driven notes complement delicate fish</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Yuzu Martini</div>
+                    <div class="cocktail-name">Elderflower Spritz</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Tuna Tartare</div>
+                    <div class="food-description">Avocado, truffle ponzu</div>
+                </td>
+                <td>
+                    <div class="wine-name">Champagne, Moët & Chandon 'Impérial', Champagne FR NV</div>
+                    <div class="wine-characteristics">Golden straw yellow; white fruit, citrus, floral notes; balanced generosity and mineral freshness</div>
+                    <div class="pairing-explanation">Elegance balances richness of avocado while highlighting delicate tuna</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Champagne Cocktail</div>
+                    <div class="cocktail-name">Vodka Martini</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Beets & Burrata</div>
+                    <div class="food-description">Citrus, heirloom tomato</div>
+                </td>
+                <td>
+                    <div class="wine-name">Carignan, Masion Vincent Rosé, FR '19</div>
+                    <div class="wine-characteristics">Light salmon pink; expressive red berry fruit, savory freshness, elegant lemony acidity</div>
+                    <div class="pairing-explanation">Berry-forward rosé balances creamy burrata and earthy beets</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Aperol Spritz</div>
+                    <div class="cocktail-name">Bellini</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Calamari</div>
+                    <div class="food-description">Calabrian chili aioli</div>
+                </td>
+                <td>
+                    <div class="wine-name">Sauvignon Blanc, Scarbolo, Friuli, IT '19</div>
+                    <div class="wine-characteristics">Straw yellow with green hues; citrus, unripe pineapple, green apple; creamy medium body</div>
+                    <div class="pairing-explanation">Crisp citrus cuts through richness of fried calamari</div>
+                </td>
+                <td>
+                    <div class="cocktail-name house-tonic">Picante de la Casa</div>
+                    <div class="cocktail-name">Margarita</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Crispy Chicken</div>
+                    <div class="food-description">Lemon pepper, garlic aioli</div>
+                </td>
+                <td>
+                    <div class="wine-name">Chardonnay, Lúuma, Sonoma Coast, US '20</div>
+                    <div class="wine-characteristics">Light yellow; citrus, unripe pineapple, green apple; crisp finish; natural, not buttery</div>
+                    <div class="pairing-explanation">Medium-bodied white balances richness of fried chicken</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Old Fashioned</div>
+                    <div class="cocktail-name">Moscow Mule</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Shishito Peppers</div>
+                    <div class="food-description">Miso glaze</div>
+                </td>
+                <td>
+                    <div class="wine-name">Vermentino, La Fete du Blanc, Côtes de Provence FR '22</div>
+                    <div class="wine-characteristics">Bright golden with silvery reflections; ripe yellow fruits, apple; full-bodied with tangy finish</div>
+                    <div class="pairing-explanation">Bright golden wine pairs beautifully with umami miso</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Sake Martini</div>
+                    <div class="cocktail-name">Japanese Whisky Highball</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Salads</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 33.33%">Food Item</th>
+                <th style="width: 33.33%">Wine Pairings</th>
+                <th style="width: 33.33%">Cocktail Pairings</th>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Little Gem Caesar</div>
+                    <div class="food-description">Puffed garbanzo</div>
+                </td>
+                <td>
+                    <div class="wine-name">Champagne, Moët & Chandon 'Impérial', Champagne FR NV</div>
+                    <div class="wine-characteristics">Golden straw yellow; white fruit, citrus, floral notes; balanced generosity and mineral freshness</div>
+                    <div class="pairing-explanation">Crisp mineral champagne cuts through rich Caesar dressing</div>
+                </td>
+                <td>
+                    <div class="cocktail-name house-tonic">Eastern Standard</div>
+                    <div class="cocktail-name">Champagne Cocktail</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Wild Arugula</div>
+                    <div class="food-description">Artichokes, celery, parmigiano</div>
+                </td>
+                <td>
+                    <div class="wine-name">Sauvignon Blanc, Maison Vincent, Languedoc, FR '19</div>
+                    <div class="wine-characteristics">Gold yellow; white peach, pear, herbs and melon; dry and zesty with weight and richness</div>
+                    <div class="pairing-explanation">Herbaceous quality harmonizes with peppery arugula</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Cucumber Collins</div>
+                    <div class="cocktail-name">Gin Basil Smash</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Butter Lettuce</div>
+                    <div class="food-description">Grapefruit, fennel, avocado</div>
+                </td>
+                <td>
+                    <div class="wine-name">Grenache+, Château d'Esclans 'Whispering Angel', Provence FR '23</div>
+                    <div class="wine-characteristics">Beautifully pale pink; silky, seductive, saline with small berries, red currants; medium-bodied, succulent</div>
+                    <div class="pairing-explanation">Silky rosé complements creamy avocado and citrus elements</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">French 75</div>
+                    <div class="cocktail-name">Grapefruit Spritz</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Chopped Salad</div>
+                    <div class="food-description">Salami, pepperoncini, fontina, olives</div>
+                </td>
+                <td>
+                    <div class="wine-name">Montepulciano d'Abruzzo, Abbondanza, Central Italy, IT '22</div>
+                    <div class="wine-characteristics">Dark Cherry red; smoky minerality, dried beef, black cherry, dark berries; medium body</div>
+                    <div class="pairing-explanation">Smoky minerality stands up to bold flavors of salami</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Negroni</div>
+                    <div class="cocktail-name">Italian Spritz</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Sandwiches</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 33.33%">Food Item</th>
+                <th style="width: 33.33%">Wine Pairings</th>
+                <th style="width: 33.33%">Cocktail Pairings</th>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Crispy Fish Sandwich</div>
+                    <div class="food-description">Cabbage, yuzu kosho vinaigrette</div>
+                </td>
+                <td>
+                    <div class="wine-name">Prosecco, Tasi Brut, Veneto, IT NV</div>
+                    <div class="wine-characteristics">Straw yellow with green tint; white flowers, citrus peel, green apple; light sweetness, crisp dry bubbles</div>
+                    <div class="pairing-explanation">Bright bubbles refresh palate between bites of crispy fish</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Yuzu Margarita</div>
+                    <div class="cocktail-name">Gin & Tonic</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Veggie & Burrata Panini</div>
+                    <div class="food-description">Onion, peppers, zucchini</div>
+                </td>
+                <td>
+                    <div class="wine-name">Grenache+, Château La Coste 'Lady A', Provence FR '19</div>
+                    <div class="wine-characteristics">Pale Rose; thirst-quenching with tart citrus, green apple, raspberry flavors</div>
+                    <div class="pairing-explanation">Tart citrus and raspberry notes complement roasted vegetables</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Aperol Spritz</div>
+                    <div class="cocktail-name">Elderflower Collins</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Soho Smash Burger</div>
+                    <div class="food-description">Cheddar, iceberg, tomato</div>
+                </td>
+                <td>
+                    <div class="wine-name">Cabernet Sauvignon, Maison Vincent 'Rogue', Languedoc, FR '19</div>
+                    <div class="wine-characteristics">Ruby Red; luscious, soft and plummy; intense aroma of ripe sloes and spicy black fruit</div>
+                    <div class="pairing-explanation">Luscious, plummy notes balance rich meat and cheese</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Old Fashioned</div>
+                    <div class="cocktail-name">Classic Boulevardier</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Fried Chicken Sandwich</div>
+                    <div class="food-description">Nashville spice</div>
+                </td>
+                <td>
+                    <div class="wine-name">Grenache Blanc, Fallen Grape 'Mother', Santa Ynez Valley, US '20</div>
+                    <div class="wine-characteristics">Orange Hue; medium bodied, bright, lightly floral; citrus and dried stone fruit</div>
+                    <div class="pairing-explanation">Medium-bodied white helps cool the spice</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Whiskey Sour</div>
+                    <div class="cocktail-name house-tonic">Soho Mule</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Pizzas</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 33.33%">Food Item</th>
+                <th style="width: 33.33%">Wine Pairings</th>
+                <th style="width: 33.33%">Cocktail Pairings</th>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Prosciutto & Burrata</div>
+                    <div class="food-description">Tomato, arugula</div>
+                </td>
+                <td>
+                    <div class="wine-name">Champagne, Veuve Clicquot Rosé, Champagne FR NV</div>
+                    <div class="wine-characteristics">Luminous color with pink glints; raspberry, strawberry, cherry notes; powerful attack with harmony of fruits</div>
+                    <div class="pairing-explanation">Elegant rosé elevates prosciutto and creamy burrata</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Aperol Spritz</div>
+                    <div class="cocktail-name">Negroni Sbagliato</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Wild Mushroom</div>
+                    <div class="food-description">Arugula, lemon, truffle</div>
+                </td>
+                <td>
+                    <div class="wine-name">Chardonnay, Lúuma, Sonoma Coast, US '20</div>
+                    <div class="wine-characteristics">Light yellow; citrus, unripe pineapple, green apple; crisp finish; natural, not buttery</div>
+                    <div class="pairing-explanation">Natural, not-buttery style complements earthy mushrooms</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Truffle Martini</div>
+                    <div class="cocktail-name">Manhattan</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Spicy Salami</div>
+                    <div class="food-description">Tomato, mushrooms, mozzarella</div>
+                </td>
+                <td>
+                    <div class="wine-name">Cabernet Sauvignon, Brea, Santa Margarita, CA '21</div>
+                    <div class="wine-characteristics">Ruby red with violet hues; earth, cassis, oak, forest floor; moderate weight with good acidity</div>
+                    <div class="pairing-explanation">Moderate-weight Cabernet stands up to spicy salami</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Boulevardier</div>
+                    <div class="cocktail-name">Sangria</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Bufala Mozzarella</div>
+                    <div class="food-description">Tomato, basil, oregano</div>
+                </td>
+                <td>
+                    <div class="wine-name">Montepulciano d'Abruzzo, Abbondanza, Central Italy, IT '22</div>
+                    <div class="wine-characteristics">Dark Cherry red; smoky minerality, dried beef, black cherry, dark berries; medium body</div>
+                    <div class="pairing-explanation">Classic Italian red for Margherita-style pizza</div>
+                </td>
+                <td>
+                    <div class="cocktail-name house-tonic">Casa Verde</div>
+                    <div class="cocktail-name">Amalfi Spritz</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Quattro Formaggi</div>
+                    <div class="food-description">Gorgonzola, fontina, mozzarella</div>
+                </td>
+                <td>
+                    <div class="wine-name">Pinot Noir, Folk Machine, Central Coast, CA '23</div>
+                    <div class="wine-characteristics">Translucent red; tea, bing cherry, white raspberry, sage; light-bodied with red fruit and earth</div>
+                    <div class="pairing-explanation">Light-bodied red balances richness of four cheeses</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Sicilian Spritz</div>
+                    <div class="cocktail-name">Amaro Sour</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Entrees</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 33.33%">Food Item</th>
+                <th style="width: 33.33%">Wine Pairings</th>
+                <th style="width: 33.33%">Cocktail Pairings</th>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Ahi Tuna Poke</div>
+                    <div class="food-description">Rice, vegetables</div>
+                </td>
+                <td>
+                    <div class="wine-name">Prosecco, Tasi Brut, Veneto, IT NV</div>
+                    <div class="wine-characteristics">Straw yellow with green tint; white flowers, citrus peel, green apple; light sweetness, crisp dry bubbles</div>
+                    <div class="pairing-explanation">Crisp bubbles refresh palate with savory poke</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Yuzu Martini</div>
+                    <div class="cocktail-name">Pineapple Daiquiri</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Grain Bowl</div>
+                    <div class="food-description">Sweet potato, cauliflower, kale, hummus</div>
+                </td>
+                <td>
+                    <div class="wine-name">Sauvignon Blanc, Maison Vincent, Languedoc, FR '19</div>
+                    <div class="wine-characteristics">Gold yellow; white peach, pear, herbs and melon; dry and zesty with weight and richness</div>
+                    <div class="pairing-explanation">Zesty wine complements earthy vegetables</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Cucumber Collins</div>
+                    <div class="cocktail-name">Garden Spritz</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">King Salmon</div>
+                    <div class="food-description">Tomato soffritto, broccolini</div>
+                </td>
+                <td>
+                    <div class="wine-name">Sauvignon Blanc, Scarbolo, Friuli, IT '19</div>
+                    <div class="wine-characteristics">Straw yellow with green hues; citrus, unripe pineapple, green apple; creamy medium body</div>
+                    <div class="pairing-explanation">Medium-bodied white enhances salmon's richness</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">White Negroni</div>
+                    <div class="cocktail-name">Barrel-Aged Gin Martini</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Tortelloni di Ricotta</div>
+                    <div class="food-description">Wild mushroom, spinach, truffle</div>
+                </td>
+                <td>
+                    <div class="wine-name">Sancerre, Francis Blanchet Pouilly Fumé 'Cuvee Silice', Loire Valley, FR '22</div>
+                    <div class="wine-characteristics">Light Golden White; lemon zest, nectarine, jasmine tea; flinty notes, ginger, anjou pear</div>
+                    <div class="pairing-explanation">Mineral notes complement earthy mushrooms and truffle</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Truffle Manhattan</div>
+                    <div class="cocktail-name">Aged Whiskey Sour</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Brick Chicken</div>
+                    <div class="food-description">Charred lemon, salsa verde</div>
+                </td>
+                <td>
+                    <div class="wine-name">Chardonnay, Lúuma, Sonoma Coast, US '20</div>
+                    <div class="wine-characteristics">Light yellow; citrus, unripe pineapple, green apple; crisp finish; natural, not buttery</div>
+                    <div class="pairing-explanation">Citrus notes complement charred lemon and herbs</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Classic Paloma</div>
+                    <div class="cocktail-name">Mezcal Margarita</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Linguine with Seafood</div>
+                    <div class="food-description">Prawns, clams, lobster pomodoro</div>
+                </td>
+                <td>
+                    <div class="wine-name">Vermentino, La Fete du Blanc, Côtes de Provence FR '22</div>
+                    <div class="wine-characteristics">Bright golden with silvery reflections; ripe yellow fruits, apple; full-bodied with tangy finish</div>
+                    <div class="pairing-explanation">Full-bodied white enhances seafood's sweetness</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Limoncello Spritz</div>
+                    <div class="cocktail-name">Dirty Martini</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Octopus</div>
+                    <div class="food-description">Potatoes, capers, olives, oregano</div>
+                </td>
+                <td>
+                    <div class="wine-name">Grenache Blanc, Fallen Grape 'Mother', Santa Ynez Valley, US '20</div>
+                    <div class="wine-characteristics">Orange Hue; medium bodied, bright, lightly floral; citrus and dried stone fruit</div>
+                    <div class="pairing-explanation">Floral and citrus notes balance briny capers</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Smoky Mezcal Negroni</div>
+                    <div class="cocktail-name">Mediterranean G&T</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Squash & Brussels</div>
+                    <div class="food-description">Labneh, pomegranate</div>
+                </td>
+                <td>
+                    <div class="wine-name">Grenache Blanc, Fallen Grape 'Mother', Santa Ynez Valley, US '20</div>
+                    <div class="wine-characteristics">Orange Hue; medium bodied, bright, lightly floral; citrus and dried stone fruit</div>
+                    <div class="pairing-explanation">Floral and citrus notes balance tangy labneh</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Pomegranate Spritz</div>
+                    <div class="cocktail-name">Cardamom Old Fashioned</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Butter Chicken</div>
+                    <div class="food-description">Basmati rice, onion bhaji</div>
+                </td>
+                <td>
+                    <div class="wine-name">Grenache+, Château La Coste 'Lady A', Provence FR '19</div>
+                    <div class="wine-characteristics">Pale Rose; thirst-quenching with tart citrus, green apple, raspberry flavors</div>
+                    <div class="pairing-explanation">Refreshing rosé cools between bites of aromatic curry</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Spiced Rum Old Fashioned</div>
+                    <div class="cocktail-name">Mango Lassi Martini</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Branzino</div>
+                    <div class="food-description">Cipollini onion, fennel, orange</div>
+                </td>
+                <td>
+                    <div class="wine-name">Grenache+, Château d'Esclans 'Whispering Angel', Provence FR '23</div>
+                    <div class="wine-characteristics">Beautifully pale pink; silky, seductive, saline with small berries, red currants; medium-bodied, succulent</div>
+                    <div class="pairing-explanation">Saline rosé complements delicate fish and citrus</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Citrus Spritz</div>
+                    <div class="cocktail-name">Fennel & Gin Fizz</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Dry Aged Ribeye</div>
+                    <div class="food-description">Roasted potato, spinach</div>
+                </td>
+                <td>
+                    <div class="wine-name">Cabernet Sauvignon, Maison Vincent 'Rogue', Languedoc, FR '19</div>
+                    <div class="wine-characteristics">Ruby Red; luscious, soft and plummy; intense aroma of ripe sloes and spicy black fruit</div>
+                    <div class="pairing-explanation">Silky tannins stand up to rich, aged beef</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Manhattan</div>
+                    <div class="cocktail-name">Smoky Old Fashioned</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Skirt Steak</div>
+                    <div class="food-description">Roasted potato, spinach, gremolata</div>
+                </td>
+                <td>
+                    <div class="wine-name">Cabernet Sauvignon, Brea, Santa Margarita, CA '21</div>
+                    <div class="wine-characteristics">Ruby red with violet hues; earth, cassis, oak, forest floor; moderate weight with good acidity</div>
+                    <div class="pairing-explanation">Earth and black fruit notes complement rich steak</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Boulevardier</div>
+                    <div class="cocktail-name">Red Wine Old Fashioned</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Rigatoni Arrabbiata</div>
+                    <div class="food-description">Pomodoro, chili</div>
+                </td>
+                <td>
+                    <div class="wine-name">Montepulciano d'Abruzzo, Abbondanza, Central Italy, IT '22</div>
+                    <div class="wine-characteristics">Dark Cherry red; smoky minerality, dried beef, black cherry, dark berries; medium body</div>
+                    <div class="pairing-explanation">Medium-bodied Italian red stands up to spicy sauce</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Negroni</div>
+                    <div class="cocktail-name">Aperol Spritz</div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="food-item">Dirty Vegan Burger</div>
+                    <div class="food-description">Quinoa, beans & yam patty</div>
+                </td>
+                <td>
+                    <div class="wine-name">Pinot Noir, Folk Machine, Central Coast, CA '23</div>
+                    <div class="wine-characteristics">Translucent red; tea, bing cherry, white raspberry, sage; light-bodied with red fruit and earth</div>
+                    <div class="pairing-explanation">Subtle earth notes complement umami vegan patty</div>
+                </td>
+                <td>
+                    <div class="cocktail-name">Smoked Paprika Margarita</div>
+                    <div class="cocktail-name">Spicy Mule</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Seasonal Cocktail Builds</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th style="width: 25%">Cocktail Name</th>
+                <th style="width: 50%">Cocktail Build</th>
+                <th style="width: 25%">Taste Notes</th>
+            </tr>
+            <tr>
+                <td><strong>Green Smash Picante</strong></td>
+                <td>
+                    Specs:<br>
+                    1.75oz Cazadores blanco<br>
+                    1.25oz pineapple picante syrup<br>
+                    .75oz Lime juice<br>
+                    Two slices cucumber<br>
+                    <br>
+                    Glass: Rocks<br>
+                    Garnish: Green chili hat<br>
+                    Mods: YES<br>
+                    <br>
+                    The Green Smash Picante is a refreshing, sweet take on the original Picante de la Casa.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Soho Nacional</strong></td>
+                <td>
+                    Specs:<br>
+                    1 oz Bacardi Superior<br>
+                    .50oz Bacardi Ocho<br>
+                    .50oz St-Germain<br>
+                    1oz Pineapple juice<br>
+                    .50oz Lime juice<br>
+                    .25oz Simple<br>
+                    <br>
+                    Glass: Coup<br>
+                    Garnish: Dehydrated Lime<br>
+                    Mods: No<br>
+                    Batched: Yes<br>
+                    <br>
+                    This cocktail is a riff on the classic Hotel Nacional, with the floral, lychee flavor of St-Germain replacing the apricot liqueur. White rum is split with a little bit of aged rum to give a bit of a caramelized flavor to the pineapple juice.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Mezcal Picante</strong></td>
+                <td>
+                    Specs:<br>
+                    2oz Iligal Mezcal<br>
+                    1oz Lime juice<br>
+                    .75oz Agave<br>
+                    1 Red chili slice<br>
+                    <br>
+                    Glass: Rocks<br>
+                    Garnish: Tajin<br>
+                    Mods: YES<br>
+                    <br>
+                    The Mezcal Picante is a slightly spicy, smoky version of the classic Picante de la Casa.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>The Bridgetown</strong></td>
+                <td>
+                    Specs:<br>
+                    2oz Ron Zacapa<br>
+                    1oz Lime juice<br>
+                    1oz Soursop syrup<br>
+                    2 Dash cranberry bitters<br>
+                    1 Dash ango bitters<br>
+                    3 Dash fea foam<br>
+                    <br>
+                    Glass: Nick n Nora<br>
+                    Garnish: Cran bitter heart<br>
+                    Mods: YES<br>
+                    <br>
+                    An indulgent blend of Ron Zacapa's aged richness and the tropical allure of soursop syrup, brightened with zesty lime. Cranberry and Angostura bitters add a subtle edge, while Fea Foam smooths it all into a silky, elegant finish. A cocktail that's both adventurous and refined, like a stroll through a rainforest at golden hour.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Paloma</strong></td>
+                <td>
+                    Specs:<br>
+                    2oz 400-conejos mezcal<br>
+                    .50oz Lime juice<br>
+                    Top off with Grapefruit soda<br>
+                    Pinch of salt<br>
+                    <br>
+                    Glass: Collins<br>
+                    Garnish: Grapefruit wedge/pinch of salt<br>
+                    Mods: YES<br>
+                    <br>
+                    The paloma – the Spanish word for 'dove' – is by far the most popular way of drinking tequila in Mexico (other than swigging it straight from the bottle). There are many different brands of grapefruit soda that can be used in this drink, including Jarritos, Squirt and Ting.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Strawberry Fields</strong></td>
+                <td>
+                    Specs:<br>
+                    1.5oz Tanq 10 (strawberry infused)<br>
+                    .50oz St-Germain<br>
+                    .50oz Apricot Liquor<br>
+                    .75oz Lemon<br>
+                    .75 Simple syrup<br>
+                    Top off with club soda<br>
+                    <br>
+                    Glass: Collins<br>
+                    Garnish: None<br>
+                    Mods: NO<br>
+                    Batched: Yes<br>
+                    <br>
+                    An old DTLA classic makes it return this summer. A vibrant, effervescent blend of strawberry-infused gin, delicately sweetened with St-Germain and apricot liqueur. Fresh lemon juice adds a crisp citrus tang, balanced by a touch of simple syrup, and finished with a splash of club soda for a light, sparkling finish. Floral, fruity, and refreshingly!
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Papas Paradise</strong></td>
+                <td>
+                    Specs:<br>
+                    1.5oz Patron Silver<br>
+                    .75oz Grand Marnier<br>
+                    1.25oz Man-Papaya Syrup<br>
+                    .50oz Lime juice<br>
+                    3 dashes Fea foam<br>
+                    <br>
+                    Glass: Coup<br>
+                    Garnish: Star anise<br>
+                    Mods: YES<br>
+                    Batched: Yes<br>
+                    <br>
+                    The Tommy's margarita was invented in San Francisco, California by Julio Bermejo at Tommy's Mexican Restaurant.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Aperol Spritz</strong></td>
+                <td>
+                    Specs:<br>
+                    2oz Aperol<br>
+                    3oz Prosecco<br>
+                    1oz Club soda<br>
+                    <br>
+                    Glass: Wine<br>
+                    Garnish: Orange wedge<br>
+                    Mods: NO<br>
+                    <br>
+                    A classic Italian aperitif cocktail made popular in the northern part of Italy, the Aperol spritz dates back to the end of the 19th century, when Venice was still part of the Austrian empire. The cocktail is based on the (then) popular Austrian spritz, which was a combination of white wine and soda water.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Boulevardier</strong></td>
+                <td>
+                    Specs:<br>
+                    1oz Bulleit bourbon<br>
+                    1oz Campari<br>
+                    1oz Sweet Vermouth<br>
+                    <br>
+                    Glass: Coup<br>
+                    Garnish: Orange zest<br>
+                    Mods: YES<br>
+                    <br>
+                    The boulevardier was first invented during Prohibition and was known as the signature drink of writer Erskine Gwynne. Gwynne left America for Paris in the 1920s and became the editor of a monthly publication called — what else? — Boulevardier.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Pick Me Up</strong></td>
+                <td>
+                    Ingredients:<br>
+                    1.5oz Seedlip Spice<br>
+                    1.5oz espresso<br>
+                    .75oz Three Spirit Livener<br>
+                    <br>
+                    Method:<br>
+                    Combine all ingredients in a shaker and add ice. Short shake and strain into a Nick & Nora.<br>
+                    <br>
+                    Glass: Nick & Nora<br>
+                    Garnish: One espresso bean<br>
+                    <br>
+                    The Espresso Martini is one of the best-sold cocktails at Soho Houses across NAM. This version keeps the simplicity of the original, with a little heat and fresh citrus to brighten the finish.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>SFW</strong></td>
+                <td>
+                    Ingredients:<br>
+                    1.5oz Pentire Coastal Spritz<br>
+                    .5oz pineapple-jalapeño syrup<br>
+                    1oz lime juice<br>
+                    <br>
+                    Method:<br>
+                    Combine all ingredients in a shaker and add ice. Shake, then strain and double strain into an rocks glass.<br>
+                    <br>
+                    Glass: Rocks<br>
+                    Garnish: Dehydrated lime wheel, mint<br>
+                    <br>
+                    The NA cocktail is a blend about vibrant citrus (at least a holiday with sun) and a kick of heat. Dehydrated and citrused before, while the earthy mint harmonizes in the close.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Vibrante Spritz</strong></td>
+                <td>
+                    Ingredients:<br>
+                    1oz Martini Vibrante<br>
+                    3oz TT Tonic<br>
+                    <br>
+                    Method:<br>
+                    Combine all ingredients in a wine glass with ice and stir to blend.<br>
+                    <br>
+                    Glass: Wine<br>
+                    Garnish: Orange<br>
+                    <br>
+                    This cocktail swaps out traditional alcohol for a vibrant, botanical base, gently sweetened, perfectly complemented by aromatic and citrused tonic. Super fresh!
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Palomar</strong></td>
+                <td>
+                    Ingredients:<br>
+                    .75oz Three Spirit Livener<br>
+                    .5oz Pentire Adrift<br>
+                    Top with FT grapefruit soda<br>
+                    Pinch of salt<br>
+                    <br>
+                    Method:<br>
+                    Combine all ingredients (except soda) into a highball glass. Add ice then top with soda and finish with a very small pinch of salt.<br>
+                    <br>
+                    Glass: Highball<br>
+                    Garnish: None<br>
+                    <br>
+                    This cocktail is a riff on a Paloma, but with the added complexity of Three Spirits Livener, which brings schisandra berry, guava, green tea, and other energizing botanicals to the mix. Please note: Three Spirits Livener is very high in caffeine.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Eastern Standard Fizz</strong></td>
+                <td>
+                    Ingredients:<br>
+                    1.5oz Seedlip Garden<br>
+                    .5oz lime juice<br>
+                    .5oz simple syrup<br>
+                    3 slices cucumber<br>
+                    3 mint leaves<br>
+                    Top with soda water<br>
+                    <br>
+                    Method:<br>
+                    Add all ingredients to tin except the soda and muddle the cucumber and mint. Shake with ice and double strain into a highball. Top with soda water.<br>
+                    <br>
+                    Glass: Highball<br>
+                    Garnish: Cucumber<br>
+                    <br>
+                    The garden effect is fresh, clean, and cooling. The "brunchy" herbal cocktail called the Eastern Standard is made in NAM. Also see "fancy brunch" China.
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <div class="footer-left">
+            <p>© Soho House 2025</p>
+        </div>
+        <div class="footer-right">
+            <p>Downtown Los Angeles</p>
+            <p>1000 S Santa Fe Ave, Los Angeles, CA 90021</p>
+        </div>
+    </div>
+</body>
+</html>
